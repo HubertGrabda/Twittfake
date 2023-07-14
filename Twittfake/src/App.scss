@@ -1,8 +1,10 @@
 :root {
+  font-family: "Mulish", sans-serif;
   font-size: 20px;
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
@@ -11,49 +13,6 @@ body {
   width: 100%;
 }
 
-h1 {
-  margin: 0;
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  background-color: rgb(93, 31, 159, 0.2);
-  .text {
-    color: red;
-  }
-}
-
 .app-container {
-  display: flex;
-  margin: 0 auto;
-  gap: 10rem;
   position: relative;
-
-  .left-sidebar {
-    position: fixed;
-    top: 50px;
-    left: 25px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 50px;
-    gap: 1rem;
-    border-radius: 9999px;
-  }
-
-  .right-sidebar {
-    position: fixed;
-    top: 50px;
-    right: 50px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 50px;
-    gap: 1rem;
-    border-radius: 9999px;
-  }
-
-  .main {
-    margin: 0 auto;
-  }
 }

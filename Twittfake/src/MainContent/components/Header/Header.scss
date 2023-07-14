@@ -1,0 +1,23 @@
+.main__header {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  background-color: rgb(239, 239, 241, 0.85);
+  margin: 0 auto;
+  width: inherit;
+
+  &__icon,
+  &__profile_picture {
+    border-radius: 50%;
+    max-height: 1.5rem;
+    max-width: 1.5rem;
+  }
+
+  &__headline {
+    font-size: 1.5rem;
+  }
+}

@@ -1,13 +1,14 @@
 import "./App.scss";
+import LeftSidebar from "./LeftSidebar/LeftSidebar";
+import MainContent from "./MainContent/MainContent";
+import RightSidebar from "./RightSidebar/RightSidebar";
 
 const App = () => (
-  <>
-    <div className='app-container'>
-      <div className='left-sidebar'></div>
-      <div className='main'></div>
-      <div className='right-sidebar'></div>
-    </div>
-  </>
+  <div className='app-container'>
+    <LeftSidebar />
+    <MainContent />
+    <RightSidebar />
+  </div>
 );
 
 export default App;

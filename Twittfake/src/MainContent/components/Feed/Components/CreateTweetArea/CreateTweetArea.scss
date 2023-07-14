@@ -1,0 +1,69 @@
+@import "../../../../../assets/variables";
+
+.textarea {
+    display: none;
+}
+
+.textarea--active {
+  position: fixed;
+  top: 5rem;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50vh;
+  align-items: center;
+  margin: 0.6rem auto;
+  background-color: rgb(28, 30, 33, 0.9);
+  padding: 1rem;
+  //   background-color: transparent;
+
+  &__call_button {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    border-radius: 9999px;
+    background-color: $twittfake_purple;
+    color: white;
+    height: 3rem;
+    width: 3rem;
+  }
+  &__header {
+    font-size: 1.2rem;
+    color: white;
+  }
+
+  &__textarea {
+    resize: none;
+    width: 100%;
+    height: 60%;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    background-color: inherit;
+    color: white;
+    border: none;
+    font-size: 1rem;
+  }
+
+  &__textarea:focus-visible {
+    outline: 1px solid $twittfake_purple;
+  }
+
+  &__sumbit_button {
+    border-radius: 99999px;
+    font-size: 0.5rem;
+    width: 40%;
+    height: 15%;
+    font-size: 1rem;
+    background-color: $twittfake_purple;
+    border: none;
+    color: white;
+    transition: 1s all ease-in-out;
+  }
+
+  &__sumbit_button:hover {
+    transform: scale(1.1);
+    background-color: $twittfake_purple;
+    opacity: 0.7;
+  }
+}
