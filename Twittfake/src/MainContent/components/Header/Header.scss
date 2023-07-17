@@ -1,3 +1,5 @@
+@import "../Twittfake/src/assets/variables";
+
 .main__header {
   padding: 0.5rem 1rem;
   display: flex;
@@ -9,6 +11,7 @@
   background-color: rgb(239, 239, 241, 0.85);
   margin: 0 auto;
   width: inherit;
+  border-bottom: 1px solid $twittfake_gray;
 
   &__icon,
   &__profile_picture {

@@ -1,11 +1,6 @@
 import "../Feed/Feed.scss";
-import CreateTweetArea from "./Components/CreateTweetArea/CreateTweetArea";
 
 const Feed = () => {
-  return (
-    <section>
-      <CreateTweetArea />
-    </section>
-  );
+  return <section></section>;
 };
 export default Feed;
