@@ -1,26 +1,36 @@
 @import "../Twittfake/src/assets/variables";
 
-.main__header {
-  padding: 0.5rem 1rem;
+.page-title {
+  width: 100%;
+  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  background-color: rgb(239, 239, 241, 0.85);
-  margin: 0 auto;
-  width: inherit;
-  border-bottom: 1px solid $twittfake_gray;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  animation: widthExpand 2s;
 
-  &__icon,
-  &__profile_picture {
-    border-radius: 50%;
-    max-height: 1.5rem;
-    max-width: 1.5rem;
+  @media #{$laptop} {
+    margin: 2rem auto;
   }
 
-  &__headline {
-    font-size: 1.5rem;
+  
+  &__text {
+    position: absolute;
+    text-align: center;
+    background-color: $twittfake_purple;
+    border-radius: 9999px;
+    width: 45%;
+    animation: contentAppear 7s;
+    color: $twittfake_font_white;
+
+    @media #{$tablets-only} {
+      width: 35%;
+    }
+    @media #{$laptop} {
+      width: 20%;
+      animation: none;
+      font-size: 1.7rem;
+    }
   }
 }

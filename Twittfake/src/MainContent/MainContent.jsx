@@ -1,8 +1,8 @@
 import "./MainContent.scss";
 
-import SampleText from "../assets/mocks/loremIpsumSampleText";
 import Header from "./components/Header/Header";
 import Feed from "./components/Feed/Feed";
+import Navbar from "./components/Navbar/Navbar";
 
 const MainContent = () => {
   return (
@@ -10,7 +10,7 @@ const MainContent = () => {
       <div className='main'>
         <Header />
         <Feed />
-        <SampleText />
+        <Navbar />
       </div>
     </main>
   );

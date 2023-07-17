@@ -1,0 +1,31 @@
+@import "../Twittfake/src/assets/variables";
+
+.searchbar-wrapper {
+  display: none;
+
+  @media #{$laptop} {
+    display: block;
+    position: fixed;
+    top: 1.2rem;
+    right: 1rem;
+
+    &__input {
+      border-radius: 9999px;
+      text-align: center;
+      position: relative;
+      color: $twittfake_gray;
+      width: 19vw;
+
+      &:focus-visible {
+        outline-color: $twittfake_purple;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      left: 1rem;
+      top: 0.5rem;
+      color: $twittfake_gray;
+    }
+  }
+}

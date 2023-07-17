@@ -1,7 +1,46 @@
-$twittfake_purple: #5d1df2 !default;
-$twittfake_purple_hover: rgb(191, 171, 237, 0.3) !default;
+$twittfake_purple: rgb(140, 101, 231, 0.7) !default;
+$twittfake_purple_hover: rgb(191, 171, 237) !default;
 $twittfake_gray: #9f9f9f !default;
-$mobile-only: "(max-width: 768px)";
-$tablets-only: "(min-width: 768px)";
+$twittfake_font_white: rgb(255, 255, 240) !default;
+$tablets-only: "(min-width: 700px) and (max-width:1024px)";
 $laptop: "(min-width: 1024px)";
 $desktop: "(min-width: 1200px)";
+
+
+
+
+@mixin user-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: fill;
+  margin-left: 5%;
+}
+
+@mixin light-weight-font {
+  font-weight: 400;
+}
+
+@mixin semi-heavy-weight {
+  font-weight: 600;
+}
+
+@keyframes widthExpand {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 100%;
+  }
+}
+
+@keyframes contentAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
