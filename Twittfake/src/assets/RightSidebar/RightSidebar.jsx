@@ -1,6 +1,6 @@
 import "./RightSidebar.scss";
-import Popular from "./components/Popular/Popular";
-import Searchbar from "./components/Searchbar/Searchbar";
+import Popular from "../Popular/Popular";
+import Searchbar from "../Searchbar/Searchbar";
 
 const RightSidebar = () => {
   return (

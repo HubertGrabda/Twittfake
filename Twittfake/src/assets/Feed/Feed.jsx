@@ -1,5 +1,5 @@
-import "../Feed/Feed.scss";
-import "../../../../mocks/loremIpsumSampleText";
+import "./Feed.scss";
+import "../../../mocks/loremIpsumSampleText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
@@ -18,7 +18,7 @@ const Feed = () => {
         <div className='tweet'>
           <h1 className='tweet_username'> {userName} </h1>
           <p className='tweet_content'>
-            {" "}x
+            {" "}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             dignissim felis lorem, vitae facilisis risus mattis id. Donec
             blandit felis sed lorem iaculis tincidunt. Maecenas viverra, erat
@@ -26,7 +26,11 @@ const Feed = () => {
           </p>
           <div className='tweet_reactions'>
             {icons.map((icon, index) => (
-              <FontAwesomeIcon icon={icon} key={index} />
+              <FontAwesomeIcon
+                icon={icon}
+                key={index}
+                className='tweet_reactions__icon'
+              />
             ))}
           </div>
         </div>
@@ -101,4 +105,5 @@ const Feed = () => {
     </section>
   );
 };
+
 export default Feed;

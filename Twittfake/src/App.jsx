@@ -1,11 +1,14 @@
 import "./App.scss";
-import MainContent from "./MainContent/MainContent";
-import RightSidebar from "./RightSidebar/RightSidebar";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => (
   <div className='app-container'>
-    <MainContent />
-    <RightSidebar />
+    <Routes>
+      <Route path='/' element={<Home />}></Route>
+      <Route path='/Profile' element={<Profile />}></Route>
+    </Routes>
   </div>
 );
 

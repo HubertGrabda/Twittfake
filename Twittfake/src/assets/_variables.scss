@@ -4,10 +4,7 @@ $twittfake_gray: #9f9f9f !default;
 $twittfake_font_white: rgb(255, 255, 240) !default;
 $tablets-only: "(min-width: 700px) and (max-width:1024px)";
 $laptop: "(min-width: 1024px)";
-$desktop: "(min-width: 1200px)";
-
-
-
+$desktop: "(min-width:1440px)";
 
 @mixin user-pic {
   width: 32px;

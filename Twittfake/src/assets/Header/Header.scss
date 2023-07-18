@@ -23,6 +23,8 @@
     width: 45%;
     animation: contentAppear 7s;
     color: $twittfake_font_white;
+    cursor: pointer;
+
 
     @media #{$tablets-only} {
       width: 35%;
@@ -31,6 +33,9 @@
       width: 20%;
       animation: none;
       font-size: 1.7rem;
+    }
+    @media #{$desktop} {
+      width: 12.37%;
     }
   }
 }

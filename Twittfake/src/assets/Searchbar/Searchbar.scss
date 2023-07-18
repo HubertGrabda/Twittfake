@@ -1,4 +1,4 @@
-@import "../Twittfake/src/assets/variables";
+@import "../variables";
 
 .searchbar-wrapper {
   display: none;
@@ -9,12 +9,20 @@
     top: 1.2rem;
     right: 1rem;
 
+    @media #{$desktop} {
+      right: 3rem;
+    }
+
     &__input {
       border-radius: 9999px;
       text-align: center;
       position: relative;
       color: $twittfake_gray;
       width: 19vw;
+
+      @media #{$desktop} {
+        width: 15vw;
+      }
 
       &:focus-visible {
         outline-color: $twittfake_purple;

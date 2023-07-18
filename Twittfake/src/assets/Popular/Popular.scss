@@ -8,20 +8,29 @@
     top: 5rem;
     right: 0.5rem;
     width: 20vw;
-    border: 1px solid $twittfake_gray;
-    background-color: $twittfake_gray;
+    background-color: $twittfake_purple_hover;
     height: 70%;
     border-radius: 10px;
     padding: 0.7rem;
+
+    @media #{$desktop} {
+      width: 15vw;
+    }
+    @media #{$desktop} {
+      right: 3rem;
+      width: 15vw;
+    }
 
     &__tile {
       display: flex;
       flex-direction: column;
       padding: 0.5rem;
       border-bottom: 1px solid $twittfake_font_white;
+      border-radius: 1rem;
 
       &:hover {
-        display: none;
+        background-color: $twittfake_purple;
+        cursor: pointer;
       }
 
       &__catch-phrase {
