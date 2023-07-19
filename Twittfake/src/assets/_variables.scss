@@ -6,22 +6,6 @@ $tablets-only: "(min-width: 700px) and (max-width:1024px)";
 $laptop: "(min-width: 1024px)";
 $desktop: "(min-width:1440px)";
 
-@mixin user-pic {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: fill;
-  margin-left: 5%;
-}
-
-@mixin light-weight-font {
-  font-weight: 400;
-}
-
-@mixin semi-heavy-weight {
-  font-weight: 600;
-}
-
 @keyframes widthExpand {
   from {
     transform: scaleX(0);
@@ -40,4 +24,18 @@ $desktop: "(min-width:1440px)";
   to {
     opacity: 100%;
   }
+}
+
+@mixin buttons($left) {
+  background-color: $twittfake_purple;
+  color: $twittfake_font_white;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: -0.8rem;
+  left: $left;
+  padding: 1rem;
+  display: block;
+  cursor: pointer;
 }

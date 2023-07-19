@@ -1,0 +1,66 @@
+@import "../variables";
+
+.profile-wrapper {
+  background-color: white;
+  width: 100%;
+  border-top: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1.5rem;
+  margin-top: 7rem;
+  text-align: center;
+  position: relative;
+
+  &__picture {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    top: -3rem;
+  }
+
+  &__username {
+    margin-top: 3.5rem;
+    font-size: 1.5rem;
+  }
+
+  &__follow-counter {
+    display: flex;
+    gap: 1rem;
+
+    &__count {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: $twittfake_gray;
+      display: flex;
+      gap: 0.3rem;
+
+      &__bold--font {
+        font-weight: 700;
+        color: black;
+      }
+    }
+  }
+
+  &__feed {
+    margin-top: 5rem;
+    width: 80%;
+    height: fit-content;
+    border-bottom: 1px solid $twittfake_gray;
+    position: relative;
+    margin-bottom: 1rem;
+
+    @media #{$laptop} {
+      width: 40%;
+      border-bottom: 2px solid $twittfake_gray;
+    }
+
+    &__user-tweets {
+      font-size: 1rem;
+      position: absolute;
+      top: 10.5rem;
+    }
+  }
+}

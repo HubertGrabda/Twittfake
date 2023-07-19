@@ -1,0 +1,5 @@
+@import "../variables";
+
+.home-icon {
+  @include buttons(85%);
+}

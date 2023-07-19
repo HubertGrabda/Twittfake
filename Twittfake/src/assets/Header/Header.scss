@@ -14,7 +14,6 @@
     margin: 2rem auto;
   }
 
-  
   &__text {
     position: absolute;
     text-align: center;
@@ -24,7 +23,8 @@
     animation: contentAppear 7s;
     color: $twittfake_font_white;
     cursor: pointer;
-
+    margin-top: 0.5rem;
+    z-index: 999;
 
     @media #{$tablets-only} {
       width: 35%;
