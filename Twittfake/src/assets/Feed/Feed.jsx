@@ -7,10 +7,18 @@ import {
   faEdit,
   faRetweet,
 } from "@fortawesome/free-solid-svg-icons";
+import SampleText from "../../../mocks/loremIpsumSampleText";
 
 const Feed = () => {
   const userName = "@Twittfake_Dev";
   const icons = [faHeart, faComment, faEdit, faRetweet];
+
+  const iconClickHandlers = [
+    () => console.log("Heart icon clicked"),
+    () => console.log("Comment icon clicked"),
+    () => console.log("Edit icon clicked"),
+    () => console.log("Retweet icon clicked"),
+  ];
 
   return (
     <section>
@@ -18,11 +26,7 @@ const Feed = () => {
         <div className='tweet'>
           <h1 className='tweet_username'> {userName} </h1>
           <p className='tweet_content'>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            dignissim felis lorem, vitae facilisis risus mattis id. Donec
-            blandit felis sed lorem iaculis tincidunt. Maecenas viverra, erat
-            non rutrum leo.{" "}
+            <SampleText />
           </p>
           <div className='tweet_reactions'>
             {icons.map((icon, index) => (
@@ -30,6 +34,7 @@ const Feed = () => {
                 icon={icon}
                 key={index}
                 className='tweet_reactions__icon'
+                onClick={iconClickHandlers[index]}
               />
             ))}
           </div>
@@ -39,11 +44,7 @@ const Feed = () => {
         <div className='tweet'>
           <h1 className='tweet_username'> {userName} </h1>
           <p className='tweet_content'>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            dignissim felis lorem, vitae facilisis risus mattis id. Donec
-            blandit felis sed lorem iaculis tincidunt. Maecenas viverra, erat
-            non rutrum leo.{" "}
+            <SampleText />
           </p>
           <div className='tweet_reactions'>
             {icons.map((icon, index) => (
@@ -56,11 +57,7 @@ const Feed = () => {
         <div className='tweet'>
           <h1 className='tweet_username'> {userName} </h1>
           <p className='tweet_content'>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            dignissim felis lorem, vitae facilisis risus mattis id. Donec
-            blandit felis sed lorem iaculis tincidunt. Maecenas viverra, erat
-            non rutrum leo.{" "}
+            <SampleText />
           </p>
           <div className='tweet_reactions'>
             {icons.map((icon, index) => (
@@ -73,11 +70,7 @@ const Feed = () => {
         <div className='tweet'>
           <h1 className='tweet_username'> {userName} </h1>
           <p className='tweet_content'>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            dignissim felis lorem, vitae facilisis risus mattis id. Donec
-            blandit felis sed lorem iaculis tincidunt. Maecenas viverra, erat
-            non rutrum leo.{" "}
+            <SampleText />
           </p>
           <div className='tweet_reactions'>
             {icons.map((icon, index) => (
@@ -90,10 +83,7 @@ const Feed = () => {
         <div className='tweet'>
           <h1 className='tweet_username'> {userName} </h1>
           <p className='tweet_content'>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            dignissim felis lorem, vitae facilisis risus mattis id. Donec non
-            rutrum leo.{" "}
+            <SampleText />
           </p>
           <div className='tweet_reactions'>
             {icons.map((icon, index) => (

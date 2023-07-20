@@ -1,33 +1,8 @@
 const SampleText = () => (
   <>
-    <div className='feed' style={{ textAlign: "center" }}>
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-      lorem ipsum lorem ipsum lorem ipsum
-    </div>
+    {" "}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim
+    felis lorem, vitae facilisis risus mattis id. Donec non rutrum leo.{" "}
   </>
 );
 

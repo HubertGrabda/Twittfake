@@ -1,32 +1,14 @@
 @import "../Twittfake/src/assets/variables";
 
-.popular {
-  display: none;
+.popularMobile {
+  display: block;
   position: absolute;
   top: 10rem;
-  right: 3%;
-  width: 15rem;
+  right: 3vw;
+  width: 90vw;
+  padding: .1rem;
   background-color: $twittfake_purple_hover;
   border-radius: 1rem;
-
-  @media #{$laptop} {
-    display: block;
-    position: fixed;
-    top: 5rem;
-    right: 0.5rem;
-    width: 20vw;
-    height: 70%;
-    padding: 0.7rem;
-  }
-
-  @media #{$desktop} {
-    width: 15vw;
-  }
-
-  @media #{$desktop} {
-    right: 3rem;
-    width: 15vw;
-  }
 
   &__tile {
     display: flex;

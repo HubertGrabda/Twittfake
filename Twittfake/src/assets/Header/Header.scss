@@ -9,6 +9,7 @@
   margin: 1rem auto;
   padding: 0.5rem;
   animation: widthExpand 2s;
+  z-index: -1;
 
   @media #{$laptop} {
     margin: 2rem auto;
@@ -19,7 +20,7 @@
     text-align: center;
     background-color: $twittfake_purple;
     border-radius: 9999px;
-    width: 45%;
+    width: 50%;
     animation: contentAppear 7s;
     color: $twittfake_font_white;
     cursor: pointer;

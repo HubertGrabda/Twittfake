@@ -1,21 +1,10 @@
 @import "../variables";
 
-.searchbar-wrapper {
-  display: none;
+.searchbar-wrapperMobile {
+  display: block;
   position: absolute;
-  top: 4rem;
-  right: 2.5rem;
-
-  @media #{$laptop} {
-    display: block;
-    position: fixed;
-    top: 1.2rem;
-    right: 1rem;
-  }
-
-  @media #{$desktop} {
-    right: 3rem;
-  }
+  top: 3rem;
+  left: 15vw;
 
   &__input {
     border-radius: 9999px;
@@ -23,10 +12,6 @@
     position: relative;
     color: $twittfake_gray;
     width: 70vw;
-
-    @media #{$desktop} {
-      width: 15vw;
-    }
 
     &:focus-visible {
       outline-color: $twittfake_purple;

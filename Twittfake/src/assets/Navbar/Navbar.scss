@@ -19,27 +19,7 @@
   }
 
   @media #{$laptop} {
-    height: 3rem;
-    animation: none;
-    padding: 0;
-    margin: 0;
-    left: 3rem;
-    top: 0.6rem;
-    bottom: 0;
-    width: 25%;
-    background-color: transparent;
-  }
-
-  &__username {
     display: none;
-
-    @media #{$laptop} {
-      display: block;
-      font-size: 1.2rem;
-      color: $twittfake_purple_hover;
-      cursor: pointer;
-      margin-left: -3rem;
-    }
   }
 
   &__users-profile-pic,
@@ -51,6 +31,10 @@
     height: 1.35rem;
     color: $twittfake_font_white;
     cursor: pointer;
+
+    @media #{$laptop} {
+      display: none;
+    }
   }
 
   &__users-profile-pic {
@@ -74,8 +58,9 @@
     background-color: $twittfake_purple;
     height: 2.2rem;
     width: 2.2rem;
-    padding: 0.1rem;
     cursor: pointer;
+    padding-left: 0.6rem;
+    padding-top: 0.3rem;
 
     @media #{$laptop} {
       display: none;

@@ -1,5 +1,14 @@
 @import "../variables";
 
 .edit-icon {
-  @include buttons(5%);
+  left: 0.5rem;
+  @include buttons;
+
+  @media #{$tablets-only} {
+    left: 1.7rem;
+  }
+
+  @media #{$laptop} {
+    left: 10rem;
+  }
 }
