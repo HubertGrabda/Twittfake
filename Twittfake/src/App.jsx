@@ -1,5 +1,5 @@
 import "./App.scss";
-import CreateNewTweet from "./pages/CreateNewTweet";
+import CreateTweet from "./pages/CreateTweet";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
@@ -11,7 +11,7 @@ const App = () => (
       <Route path='/' element={<Home />}></Route>
       <Route path='/Profile' element={<Profile />}></Route>
       <Route path='/Search' element={<Search />}></Route>
-      <Route path='/CreateTweet' element={<CreateNewTweet />}></Route>
+      <Route path='/CreateTweet' element={<CreateTweet />}></Route>
     </Routes>
   </div>
 );

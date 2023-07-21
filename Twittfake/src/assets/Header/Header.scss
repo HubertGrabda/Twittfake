@@ -16,11 +16,12 @@
   }
 
   &__text {
+    font-size: 1.4rem;
     position: absolute;
     text-align: center;
     background-color: $twittfake_purple;
     border-radius: 9999px;
-    width: 50%;
+    width: 55%;
     animation: contentAppear 7s;
     color: $twittfake_font_white;
     cursor: pointer;

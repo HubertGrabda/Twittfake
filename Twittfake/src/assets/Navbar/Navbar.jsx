@@ -28,7 +28,7 @@ const Navbar = () => {
 
       {navbarIcons.map((icon, index) => (
         <Link
-          to={index === 1 ? "/Search" : "" || index === 0 ? "/CreateTweet" : ""}
+          to={index === 1 ? "/Search" : "/CreateTweet"}
           key={icon.iconName}
           className={`navbar__${icon.iconName}`}
           onClick={handleOnClick[index]}
