@@ -7,7 +7,7 @@ const ProfileView = () => {
     <>
       <div className='profile-wrapper'>
         <img src={logo} className='profile-wrapper__picture'></img>
-        <h1 className='profile-wrapper__username'>@Twittfake_Dev</h1>
+        <h1 className='profile-wrapper__username'>Twittfake_Dev</h1>
         <FollowCount />
         <div className='profile-wrapper__feed'></div>
         <h1 className='profile-wrapper__feed__user-tweets'>

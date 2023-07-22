@@ -7,10 +7,10 @@ import {
   faEdit,
   faRetweet,
 } from "@fortawesome/free-solid-svg-icons";
-import SampleText from "../../../mocks/loremIpsumSampleText";
+import TweetsData from "../../../mocks/MockTweets.json";
+import { useLocation } from "react-router-dom";
 
 const Feed = () => {
-  const userName = "@Twittfake_Dev";
   const icons = [faHeart, faComment, faEdit, faRetweet];
 
   const iconClickHandlers = [
@@ -20,78 +20,33 @@ const Feed = () => {
     () => console.log("Retweet icon clicked"),
   ];
 
+  const path = useLocation();
+
+  const hideOtherUsersTweets =
+    path.pathname === "/Profile"
+      ? TweetsData.tweets.filter((tweet) => tweet.username === "Twittfake_Dev")
+      : TweetsData.tweets;
+
   return (
     <section>
-      <article>
-        <div className='tweet'>
-          <h1 className='tweet_username'> {userName} </h1>
-          <p className='tweet_content'>
-            <SampleText />
-          </p>
-          <div className='tweet_reactions'>
-            {icons.map((icon, index) => (
-              <FontAwesomeIcon
-                icon={icon}
-                key={index}
-                className='tweet_reactions__icon'
-                onClick={iconClickHandlers[index]}
-              />
-            ))}
+      {hideOtherUsersTweets.map((tweet) => (
+        <article key={tweet.id}>
+          <div className='tweet'>
+            <h1 className='tweet_username'>{tweet.username}</h1>
+            <p className='tweet_content'>{tweet.content}</p>
+            <div className='tweet_reactions'>
+              {icons.map((icon, index) => (
+                <FontAwesomeIcon
+                  icon={icon}
+                  key={index}
+                  className='tweet_reactions__icon'
+                  onClick={iconClickHandlers[index]}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </article>
-      <article>
-        <div className='tweet'>
-          <h1 className='tweet_username'> {userName} </h1>
-          <p className='tweet_content'>
-            <SampleText />
-          </p>
-          <div className='tweet_reactions'>
-            {icons.map((icon, index) => (
-              <FontAwesomeIcon icon={icon} key={index} />
-            ))}
-          </div>
-        </div>
-      </article>
-      <article>
-        <div className='tweet'>
-          <h1 className='tweet_username'> {userName} </h1>
-          <p className='tweet_content'>
-            <SampleText />
-          </p>
-          <div className='tweet_reactions'>
-            {icons.map((icon, index) => (
-              <FontAwesomeIcon icon={icon} key={index} />
-            ))}
-          </div>
-        </div>
-      </article>
-      <article>
-        <div className='tweet'>
-          <h1 className='tweet_username'> {userName} </h1>
-          <p className='tweet_content'>
-            <SampleText />
-          </p>
-          <div className='tweet_reactions'>
-            {icons.map((icon, index) => (
-              <FontAwesomeIcon icon={icon} key={index} />
-            ))}
-          </div>
-        </div>
-      </article>
-      <article>
-        <div className='tweet'>
-          <h1 className='tweet_username'> {userName} </h1>
-          <p className='tweet_content'>
-            <SampleText />
-          </p>
-          <div className='tweet_reactions'>
-            {icons.map((icon, index) => (
-              <FontAwesomeIcon icon={icon} key={index} />
-            ))}
-          </div>
-        </div>
-      </article>
+        </article>
+      ))}
     </section>
   );
 };
