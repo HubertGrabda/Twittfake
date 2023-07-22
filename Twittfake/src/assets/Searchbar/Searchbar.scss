@@ -24,6 +24,10 @@
     color: $twittfake_gray;
     width: 70vw;
 
+    @media #{$laptop} {
+      width: 19vw;
+    }
+
     @media #{$desktop} {
       width: 15vw;
     }
