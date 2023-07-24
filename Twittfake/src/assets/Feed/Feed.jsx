@@ -29,11 +29,11 @@ const Feed = () => {
 
   return (
     <section>
-      {hideOtherUsersTweets.map((tweet) => (
-        <article key={tweet.id}>
+      {hideOtherUsersTweets.map(({ id, username, content }) => (
+        <article key={id}>
           <div className='tweet'>
-            <h1 className='tweet_username'>{tweet.username}</h1>
-            <p className='tweet_content'>{tweet.content}</p>
+            <h1 className='tweet_username'>{username}</h1>
+            <p className='tweet_content'>{content}</p>
             <div className='tweet_reactions'>
               {icons.map((icon, index) => (
                 <FontAwesomeIcon

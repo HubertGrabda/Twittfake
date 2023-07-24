@@ -1,0 +1,36 @@
+@import "../variables";
+
+.textarea-wrapper {
+  display: none;
+
+  @media #{$laptop} {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 20vh;
+    margin: 0 auto;
+  }
+
+  @media #{$desktop} {
+    width: 45%;
+    height: 25vh;
+  }
+
+  &__input {
+    height: 50%;
+    border-radius: 1rem;
+    resize: none;
+    border: 1px solid $twittfake_purple_hover;
+    font-size: 1.3rem;
+  }
+
+  &__submit-button {
+    width: 20%;
+    height: 5vh;
+    margin: 0.5rem auto;
+    border-radius: 9999px;
+    color: $twittfake_font_white;
+    background-color: $twittfake_purple_hover;
+    border: none;
+  }
+}
