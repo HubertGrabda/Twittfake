@@ -1,0 +1,34 @@
+{
+  "trendingHashtags": [
+    {
+      "id": 1,
+      "tag": "#SummerVibes",
+      "count": 25000,
+      "category": "Travel"
+    },
+    {
+      "id": 2,
+      "tag": "#TechNews",
+      "count": 38000,
+      "category": "Technology"
+    },
+    {
+      "id": 3,
+      "tag": "#FoodieFriday",
+      "count": 42000,
+      "category": "Food & Drink"
+    },
+    {
+      "id": 4,
+      "tag": "#FitnessGoals",
+      "count": 31000,
+      "category": "Health & Fitness"
+    },
+    {
+      "id": 5,
+      "tag": "#ThrowbackThursday",
+      "count": 54000,
+      "category": "Memories"
+    }
+  ]
+}
