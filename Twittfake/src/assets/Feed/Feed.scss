@@ -55,6 +55,12 @@
 
     &__icon {
       cursor: pointer;
+      &__heart {
+        color: $twittfake_purple;
+      }
+      &__trash-can {
+        color: red;
+      }
     }
 
     @media #{$desktop} {

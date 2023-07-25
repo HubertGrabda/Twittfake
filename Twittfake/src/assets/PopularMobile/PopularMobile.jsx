@@ -1,19 +1,20 @@
 import "./PopularMobile.scss";
+import TrendingTags from "../../../mocks/TrendingTags.json";
 
 const PopularMobile = () => {
   return (
-    <div className='popularMobile'>
-      <section>
-        <div className='popularMobile__tile'>
-          <span className='popularMobile__tile__category'>
-            Najpopularniejsze w Polsce
-          </span>
-          <span className='popularMobile__tile__catch-phrase'>#studia2023</span>
-          <span className='popularMobile__tile__amount-of-tweets'>
-            Tweety: 1 274
-          </span>
-        </div>
-      </section>
+    <div className='popular'>
+      {TrendingTags.trendingHashtags.map(({ id, tag, count, category }) => (
+        <section key={id}>
+          <div className='popular__tile'>
+            <span className='popular__tile__category'>{category}</span>
+            <span className='popular__tile__catch-phrase'> {tag} </span>
+            <span className='popular__tile__amount-of-tweets'>
+              Tweety: {count}
+            </span>
+          </div>
+        </section>
+      ))}
     </div>
   );
 };

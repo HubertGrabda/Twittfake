@@ -1,31 +1,38 @@
+import { useContext, useRef } from "react";
 import "./Feed.scss";
 import "../../../mocks/loremIpsumSampleText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHeart,
   faComment,
   faEdit,
-  faRetweet,
-} from "@fortawesome/free-solid-svg-icons";
-import TweetsData from "../../../mocks/MockTweets.json";
+  faHeart,
+  faTrashAlt,
+} from "@fortawesome/free-regular-svg-icons";
 import { useLocation } from "react-router-dom";
+import { TweetsContext } from "../../context/Tweet'sState";
+import { faRetweet } from "@fortawesome/free-solid-svg-icons";
 
 const Feed = () => {
-  const icons = [faHeart, faComment, faEdit, faRetweet];
-
-  const iconClickHandlers = [
-    () => console.log("Heart icon clicked"),
-    () => console.log("Comment icon clicked"),
-    () => console.log("Edit icon clicked"),
-    () => console.log("Retweet icon clicked"),
-  ];
+  const { tweets, setTweets } = useContext(TweetsContext);
+  const iconRef = useRef([]);
 
   const path = useLocation();
-
   const hideOtherUsersTweets =
     path.pathname === "/Profile"
-      ? TweetsData.tweets.filter((tweet) => tweet.username === "Twittfake_Dev")
-      : TweetsData.tweets;
+      ? tweets.filter((tweet) => tweet.username === "Twittfake_Dev")
+      : tweets;
+
+  const icons = [faHeart, faComment, faEdit, faRetweet, faTrashAlt];
+
+  console.log(iconRef.current);
+
+  const handleClick = [
+    () => console.log(),
+    () => console.log("Comment has been clicked"),
+    () => console.log("Edit has been clicked"),
+    () => console.log("Retweet has been clicked"),
+    (id) => setTweets(tweets.filter((tweet) => tweet.id !== id)),
+  ];
 
   return (
     <section>
@@ -39,8 +46,9 @@ const Feed = () => {
                 <FontAwesomeIcon
                   icon={icon}
                   key={index}
-                  className='tweet_reactions__icon'
-                  onClick={iconClickHandlers[index]}
+                  className={`tweet_reactions__icon__${icon.iconName}`}
+                  ref={(ref) => (iconRef.current[index] = ref)}
+                  onClick={() => handleClick[index](id)}
                 />
               ))}
             </div>

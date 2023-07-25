@@ -32,5 +32,9 @@
     color: $twittfake_font_white;
     background-color: $twittfake_purple_hover;
     border: none;
+
+    &:hover {
+      background-color: $twittfake_purple;
+    }
   }
 }
