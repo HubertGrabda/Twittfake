@@ -52,19 +52,26 @@
     gap: 1.2rem;
     padding-bottom: 0.5rem;
     color: $twittfake_purple;
+    height: 2rem;
 
-    &__icon {
+    &__heart {
+      width: 1em;
+      height: 1em;
       cursor: pointer;
-      &__heart {
-        color: $twittfake_purple;
-      }
-      &__trash-can {
-        color: red;
-      }
+    }
+    &__trash-can {
+      color: red;
+      cursor: pointer;
     }
 
-    @media #{$desktop} {
-      font-size: 1.2rem;
+    &__comment,
+    &__pen-to-square,
+    &__retweet {
+      cursor: pointer;
     }
+  }
+
+  @media #{$desktop} {
+    font-size: 1.2rem;
   }
 }

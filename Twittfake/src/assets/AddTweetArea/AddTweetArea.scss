@@ -17,11 +17,21 @@
   }
 
   &__input {
+    padding: 0.5rem;
     height: 50%;
     border-radius: 1rem;
     resize: none;
     border: 1px solid $twittfake_purple_hover;
     font-size: 1.3rem;
+
+    &--error {
+      border: 1px solid red;
+      padding: 0.5rem;
+      height: 50%;
+      border-radius: 1rem;
+      resize: none;
+      font-size: 1.3rem;
+    }
   }
 
   &__submit-button {
