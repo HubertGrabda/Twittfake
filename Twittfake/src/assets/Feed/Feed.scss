@@ -55,6 +55,10 @@
 
     &__icon {
       cursor: pointer;
+
+      &__trash-can {
+        color: red;
+      }
     }
 
     @media #{$desktop} {

@@ -5,19 +5,21 @@ import {
   faHeart,
   faComment,
   faEdit,
-  faRetweet,
-} from "@fortawesome/free-solid-svg-icons";
+  faTrashAlt,
+} from "@fortawesome/free-regular-svg-icons";
+import { faRetweet } from "@fortawesome/free-solid-svg-icons";
 import TweetsData from "../../../mocks/MockTweets.json";
 import { useLocation } from "react-router-dom";
 
 const Feed = () => {
-  const icons = [faHeart, faComment, faEdit, faRetweet];
+  const icons = [faHeart, faComment, faEdit, faRetweet, faTrashAlt];
 
   const iconClickHandlers = [
     () => console.log("Heart icon clicked"),
     () => console.log("Comment icon clicked"),
     () => console.log("Edit icon clicked"),
     () => console.log("Retweet icon clicked"),
+    () => console.log("Delete icon clicked"),
   ];
 
   const path = useLocation();
@@ -39,7 +41,7 @@ const Feed = () => {
                 <FontAwesomeIcon
                   icon={icon}
                   key={index}
-                  className='tweet_reactions__icon'
+                  className={`tweet_reactions__icon__${icon.iconName}`}
                   onClick={iconClickHandlers[index]}
                 />
               ))}
