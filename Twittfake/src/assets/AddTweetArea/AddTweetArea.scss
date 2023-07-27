@@ -9,6 +9,7 @@
     width: 55%;
     height: 20vh;
     margin: 0 auto;
+    margin-bottom: -2rem;
   }
 
   @media #{$desktop} {
@@ -35,16 +36,6 @@
   }
 
   &__submit-button {
-    width: 20%;
-    height: 5vh;
-    margin: 0.5rem auto;
-    border-radius: 9999px;
-    color: $twittfake_font_white;
-    background-color: $twittfake_purple_hover;
-    border: none;
-
-    &:hover {
-      background-color: $twittfake_purple;
-    }
+    @include submitButton;
   }
 }

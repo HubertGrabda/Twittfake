@@ -3,132 +3,328 @@
     {
       "id": 0,
       "username": "Twittfake_Dev",
-      "content": "Just setting up my twittfake ;)"
+      "content": "Just setting up my twitffake :P",
+      "comments": []
     },
     {
       "id": 1,
       "username": "user123",
-      "content": "Just had the most amazing meal! 🍔🍟 #foodie"
+      "content": "Just had the most delicious pizza for lunch! 🍕 #foodie",
+      "comments": [
+        {
+          "id": 101,
+          "username": "foodlover22",
+          "content": "I love pizza too! It's the best!"
+        },
+        {
+          "id": 102,
+          "username": "healthnut",
+          "content": "Pizza is tasty, but it's not the healthiest option 😅"
+        }
+      ]
     },
     {
       "id": 2,
-      "username": "coolCat88",
-      "content": "Sunny days are the best! 😎 #sunshine #summer"
+      "username": "traveler87",
+      "content": "Exploring the beautiful beaches of Bali. 🏖️ #travel #adventure",
+      "comments": [
+        {
+          "id": 103,
+          "username": "wanderlust",
+          "content": "Bali is a paradise! Enjoy your trip!"
+        }
+      ]
     },
     {
       "id": 3,
-      "username": "traveler_gal",
-      "content": "Exploring beautiful landscapes in a new country! 🌄✈️ #wanderlust"
+      "username": "musiclover22",
+      "content": "Attended an amazing concert last night! The energy was unreal! 🎶🤘 #music",
+      "comments": [
+        {
+          "id": 104,
+          "username": "concertgoer",
+          "content": "Which band was playing? I bet it was awesome!"
+        }
+      ]
     },
     {
       "id": 4,
-      "username": "gamer_dude",
-      "content": "Reached level 50 in my favorite game! 🎮 #gaming #achievement"
+      "username": "fitnessjunkie",
+      "content": "Just completed a challenging 10k run. Feels great! 🏃‍♂️💪 #fitness",
+      "comments": [
+        {
+          "id": 105,
+          "username": "runningaddict",
+          "content": "You're an inspiration! I need to start running too."
+        },
+        {
+          "id": 106,
+          "username": "healthylife",
+          "content": "Running is an excellent way to stay fit. Keep it up!"
+        }
+      ]
     },
     {
       "id": 5,
-      "username": "bookworm87",
-      "content": "Just finished an amazing book! 📚 #reading #booklover"
+      "username": "bookworm101",
+      "content": "Started reading a captivating new fantasy novel. Can't put it down! 📚 #reading",
+      "comments": [
+        {
+          "id": 107,
+          "username": "avidreader",
+          "content": "Which book is it? I'm always looking for great recommendations."
+        }
+      ]
     },
     {
       "id": 6,
-      "username": "fitness_freak",
-      "content": "Another great workout session at the gym! 💪🏋️‍♂️ #fitness #health"
+      "username": "techgeek",
+      "content": "Excited about the latest tech announcements at the #TechExpo2023!",
+      "comments": [
+        {
+          "id": 108,
+          "username": "gadgetlover",
+          "content": "I wish I could be there! Let us know the highlights!"
+        }
+      ]
     },
     {
       "id": 7,
-      "username": "pet_lover123",
-      "content": "My adorable cat just learned a new trick! 🐱❤️ #pets #catlover"
+      "username": "naturelover",
+      "content": "Witnessed a stunning sunset over the mountains today. #nature #sunset",
+      "comments": [
+        {
+          "id": 109,
+          "username": "sunsetchasers",
+          "content": "Nature's beauty never fails to amaze me! 🌄"
+        }
+      ]
     },
     {
       "id": 8,
-      "username": "nature_photo",
-      "content": "Captured a stunning sunset by the beach! 🌅🏖️ #nature #photography"
+      "username": "gamer456",
+      "content": "Reached the final level in the game I've been playing! Victory dance! 🎮🕺 #gaming",
+      "comments": [
+        {
+          "id": 110,
+          "username": "gamingenthusiast",
+          "content": "Congratulations! That game is tough. 🎉"
+        }
+      ]
     },
     {
       "id": 9,
-      "username": "fashionista22",
-      "content": "Loving the new outfit I got today! 👗👠 #fashion #style"
+      "username": "cookingenthusiast",
+      "content": "Experimented with a new recipe today. It turned out surprisingly delicious! #cooking",
+      "comments": [
+        {
+          "id": 111,
+          "username": "foodlover101",
+          "content": "Yum! What did you cook?"
+        }
+      ]
     },
     {
       "id": 10,
-      "username": "tech_geek",
-      "content": "Just got the latest smartphone, it's awesome! 📱 #technology #gadgets"
+      "username": "filmmaker",
+      "content": "Proud to announce that my short film got selected for a local film festival! 🎬 #filmmaking",
+      "comments": [
+        {
+          "id": 112,
+          "username": "cinemafanatic",
+          "content": "I can't wait to see it on the big screen! Congratulations!"
+        }
+      ]
     },
     {
       "id": 11,
-      "username": "foodie88",
-      "content": "Tried a new recipe today, it turned out delicious! 🍳🥗 #cooking #foodlover"
+      "username": "doglover",
+      "content": "Spent the day at the dog park. So many adorable pups! 🐶 #dogs #petlover",
+      "comments": [
+        {
+          "id": 113,
+          "username": "puppylover",
+          "content": "Dogs make everything better! ❤️"
+        },
+        {
+          "id": 114,
+          "username": "animalrescue",
+          "content": "Thank you for supporting the local dog park!"
+        }
+      ]
     },
     {
       "id": 12,
-      "username": "fitness_journey",
-      "content": "Lost 10 pounds so far, feeling motivated! 💪🏃‍♀️ #weightloss #healthyliving"
+      "username": "inspiration101",
+      "content": "Remember to always chase your dreams and never give up! 💪 #inspiration",
+      "comments": [
+        {
+          "id": 115,
+          "username": "dreamchaser",
+          "content": "Needed this reminder today. Thank you!"
+        }
+      ]
     },
     {
       "id": 13,
-      "username": "art_enthusiast",
-      "content": "Visited a mesmerizing art exhibition today! 🎨 #art #creativity"
+      "username": "fashionista",
+      "content": "Rocking the new outfit I bought yesterday. Feeling fabulous! 👗💃 #fashion",
+      "comments": [
+        {
+          "id": 116,
+          "username": "styleicon",
+          "content": "You have such a great fashion sense! 🔥"
+        }
+      ]
     },
     {
       "id": 14,
-      "username": "travel_bug",
-      "content": "Missing the travel adventures! Throwback to my last trip. 🌏✈️ #travel"
+      "username": "coffeeaddict",
+      "content": "Started my day with a strong cup of coffee. Ready to take on anything! ☕️ #coffee",
+      "comments": [
+        {
+          "id": 117,
+          "username": "caffeinejunkie",
+          "content": "Coffee is life! ☕️"
+        }
+      ]
     },
     {
       "id": 15,
-      "username": "movie_buff",
-      "content": "Just saw a mind-blowing movie, highly recommend it! 🎬🍿 #movies #entertainment"
+      "username": "artlover",
+      "content": "Visited an art gallery and saw some incredible pieces. #art #creativity",
+      "comments": [
+        {
+          "id": 118,
+          "username": "artcritic",
+          "content": "Any particular artists or artworks that caught your eye?"
+        }
+      ]
     },
     {
       "id": 16,
-      "username": "coffee_addict",
-      "content": "Nothing beats a cup of freshly brewed coffee in the morning! ☕️ #coffee #morning"
+      "username": "codingwizard",
+      "content": "Solved a complex coding problem that had me stumped for days! #coding #programming",
+      "comments": [
+        {
+          "id": 119,
+          "username": "codingenthusiast",
+          "content": "Great job! Problem-solving skills on point! 👍"
+        },
+        {
+          "id": 120,
+          "username": "developer123",
+          "content": "Can you share some tips on how you tackled it?"
+        }
+      ]
     },
     {
       "id": 17,
-      "username": "inspirational_vibes",
-      "content": "Believe in yourself and you can achieve anything! 💪 #inspiration #motivation"
+      "username": "wanderlust",
+      "content": "Missing the days of backpacking through Europe. So many unforgettable memories! #travel",
+      "comments": [
+        {
+          "id": 121,
+          "username": "globetrotter",
+          "content": "Those memories will stay with you forever! 🌍✨"
+        }
+      ]
     },
     {
       "id": 18,
-      "username": "music_lover",
-      "content": "Listening to my favorite band's new album on repeat! 🎶🎧 #music #melody"
+      "username": "photographer",
+      "content": "Captured a breathtaking landscape today. Can't wait to share it with you all! 📷 #photography",
+      "comments": [
+        {
+          "id": 122,
+          "username": "photographylover",
+          "content": "Your photography skills are incredible!"
+        }
+      ]
     },
     {
       "id": 19,
-      "username": "happy_soul",
-      "content": "Gratitude is the key to happiness. 🙏😊 #grateful #positivity"
+      "username": "yogaenthusiast",
+      "content": "Practiced yoga by the beach this morning. Feeling centered and peaceful. 🧘‍♀️ #yoga",
+      "comments": [
+        {
+          "id": 123,
+          "username": "yogalife",
+          "content": "Yoga and the beach sound like the perfect combination! 🌊🕉️"
+        }
+      ]
     },
     {
       "id": 20,
-      "username": "science_nerd",
-      "content": "Fascinating scientific discovery! 🔬🧪 #science #research"
+      "username": "gardener",
+      "content": "Harvested my homegrown vegetables. Farm-to-table goodness! 🌽🥕 #gardening",
+      "comments": [
+        {
+          "id": 124,
+          "username": "greenthumb",
+          "content": "Fresh veggies are the best! Enjoy your meal!"
+        }
+      ]
     },
     {
       "id": 21,
-      "username": "pet_adventures",
-      "content": "Took my dog on a hiking trip, he loved it! 🐶🥾 #dogs #hiking"
+      "username": "foodcritic",
+      "content": "Tried a new restaurant today. The food was exceptional! 5/5 stars! 🌟 #foodie",
+      "comments": [
+        {
+          "id": 125,
+          "username": "foodieadventures",
+          "content": "I'm adding it to my list! Thanks for the recommendation!"
+        }
+      ]
     },
     {
       "id": 22,
-      "username": "gardening_love",
-      "content": "Harvested fresh vegetables from my garden today! 🍅🥬 #gardening #homegrown"
+      "username": "historybuff",
+      "content": "Visited an ancient castle and learned so much about its rich history. #history #heritage",
+      "comments": [
+        {
+          "id": 126,
+          "username": "historian",
+          "content": "History is fascinating! Any cool facts you'd like to share?"
+        }
+      ]
     },
     {
       "id": 23,
-      "username": "chocoholic",
-      "content": "Indulging in some dark chocolate goodness! 🍫 #chocolate #dessert"
+      "username": "filmcritic",
+      "content": "Just watched an Oscar-worthy movie. The performances were outstanding! 🎥 #movies",
+      "comments": [
+        {
+          "id": 127,
+          "username": "cinemafanatic",
+          "content": "Which movie was it? I need to add it to my watchlist!"
+        }
+      ]
     },
     {
       "id": 24,
-      "username": "coding_wizard",
-      "content": "Finally cracked that challenging coding problem! 💻🚀 #coding #programming"
+      "username": "volunteer",
+      "content": "Spent the day volunteering at a local animal shelter. Heartwarming experience! ❤️ #volunteering",
+      "comments": [
+        {
+          "id": 128,
+          "username": "animallover",
+          "content": "You're doing an incredible job! The animals appreciate your help."
+        }
+      ]
     },
     {
       "id": 25,
-      "username": "beach_bum",
-      "content": "Chilling at the beach with friends, life's good! 🏖️😎 #beach #friends"
+      "username": "fitnessmotivation",
+      "content": "Remember, every step you take gets you closer to your fitness goals. Keep going! 💪 #fitness",
+      "comments": [
+        {
+          "id": 129,
+          "username": "motivatedmind",
+          "content": "Needed this reminder! Thanks for the motivation."
+        }
+      ]
     }
   ]
 }

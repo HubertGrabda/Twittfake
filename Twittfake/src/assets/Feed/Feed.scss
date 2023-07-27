@@ -7,7 +7,7 @@
   align-items: center;
   border: 1px solid $twittfake_purple_hover;
   width: 95%;
-  margin: 0.1rem auto;
+  margin: 0.5rem auto;
   border-radius: 1.1rem;
 
   @media #{$tablets-only} {
@@ -19,8 +19,36 @@
   }
   @media #{$desktop} {
     width: 45%;
-    height: 19vh;
     margin: 0.5rem auto;
+  }
+
+  &__comment-section {
+    display: none;
+
+    &__comment {
+      background-color: $twittfake_purple_hover;
+      border-radius: 1.1rem;
+      padding: 0.9rem;
+      margin: 0.7rem auto;
+      width: 90vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @media #{$laptop} {
+        width: 100%;
+      }
+
+      &.is-visible {
+        display: block;
+      }
+
+      &__username {
+        margin: 0 auto;
+        font-size: 1rem;
+      }
+    }
   }
 
   &_username {
@@ -36,7 +64,7 @@
   &_content {
     text-align: justify;
     padding: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
 
     @media #{$tablets-only} {
       font-size: 1rem;
@@ -49,10 +77,26 @@
   &_reactions {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 1.2rem;
     padding-bottom: 0.5rem;
     color: $twittfake_purple;
     height: 2rem;
+
+    &__counter {
+      &__comments {
+        margin: 0 -0.5rem;
+      }
+
+      &__heart {
+        margin: 0 -0.5rem;
+        &--red {
+          margin: -0.5rem;
+          color: red !important;
+        }
+      }
+    }
 
     &__heart {
       width: 1em;

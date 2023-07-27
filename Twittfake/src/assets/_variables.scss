@@ -48,3 +48,22 @@ $desktop: "(min-width:1440px)";
     height: 1.7rem;
   }
 }
+
+@mixin submitButton {
+  width: 35%;
+  height: 3vh;
+  margin: 0.5rem auto;
+  border-radius: 9999px;
+  color: $twittfake_font_white;
+  background-color: $twittfake_purple_hover;
+  border: none;
+
+  @media #{$laptop} {
+    width: 20%;
+    height: 5vh;
+  }
+
+  &:hover {
+    background-color: $twittfake_purple;
+  }
+}

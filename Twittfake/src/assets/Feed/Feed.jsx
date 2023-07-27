@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./Feed.scss";
 import "../../../mocks/loremIpsumSampleText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,37 +12,48 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import { faRetweet } from "@fortawesome/free-solid-svg-icons";
 import emptyHeart from "../images/heart_empty.png";
 import fullHeart from "../images/heart_full.png";
+import updateStateByKey from "../../functions/updateStateByKey";
+import AddCommentArea from "../AddCommentArea/AddCommentArea";
 
 const Feed = () => {
   const { tweets, setTweets } = useContext(TweetsContext);
   const iconRef = useRef([]);
   const path = useLocation();
   const [isHeartFilled, setHeartFilled] = useState({});
+  const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
+  const icons = [faComment, faEdit, faRetweet, faTrashAlt];
 
   const hideOtherUsersTweets =
     path.pathname === "/Profile"
       ? tweets.filter((tweet) => tweet.username === "Twittfake_Dev")
       : tweets;
 
-  const icons = [faComment, faEdit, faRetweet, faTrashAlt];
-
   const heartButtonFunction = (id) => {
-    setHeartFilled((prevHeartsFilled) => ({
-      ...prevHeartsFilled,
-      [id]: !prevHeartsFilled[id],
-    }));
+    setHeartFilled(
+      updateStateByKey((prevHeartsFilled) => !prevHeartsFilled, id)
+    );
+  };
+
+  const handleTweetsCommentsSection = (id) => {
+    setCommentSectionVisible(
+      updateStateByKey((prevSectionStatus) => !prevSectionStatus, id)
+    );
+  };
+
+  const deleleTweet = (id) => {
+    setTweets(tweets.filter((tweet) => tweet.id !== id));
   };
 
   const handleClick = [
-    () => console.log("Comment has been clicked"),
+    (id) => handleTweetsCommentsSection(id),
     () => console.log("Edit has been clicked"),
     () => console.log("Retweet has been clicked"),
-    (id) => setTweets(tweets.filter((tweet) => tweet.id !== id)),
+    (id) => deleleTweet(id),
   ];
 
   return (
     <section>
-      {hideOtherUsersTweets.map(({ id, username, content }) => (
+      {hideOtherUsersTweets.map(({ id, username, content, comments }) => (
         <article key={id}>
           <div className='tweet'>
             <h1 className='tweet_username'>{username}</h1>
@@ -54,13 +65,47 @@ const Feed = () => {
                 onClick={() => heartButtonFunction(id)}
               ></img>
               {icons.map((icon, index) => (
-                <FontAwesomeIcon
-                  icon={icon}
-                  key={index}
-                  className={`tweet_reactions__${icon.iconName}`}
-                  ref={(ref) => (iconRef.current[index] = ref)}
-                  onClick={() => handleClick[index](id)}
-                />
+                <React.Fragment key={index}>
+                  {index === 0 ? (
+                    <span
+                      className={`tweet_reactions__counter__${
+                        isHeartFilled[id] ? "heart--red" : "heart"
+                      }`}
+                    >
+                      1
+                    </span>
+                  ) : null}
+                  {index === 1 ? (
+                    <span className='tweet_reactions__counter__comments'>
+                      {comments?.length ?? 0}
+                    </span>
+                  ) : null}
+                  <FontAwesomeIcon
+                    icon={icon}
+                    className={`tweet_reactions__${icon.iconName}`}
+                    ref={(ref) => (iconRef.current[index] = ref)}
+                    onClick={() => handleClick[index](id)}
+                  />
+                </React.Fragment>
+              ))}
+            </div>
+            <div
+              className={
+                isCommentSectionVisible[id]
+                  ? "tweet__comment-section.is-visible"
+                  : "tweet__comment-section"
+              }
+            >
+              <AddCommentArea id={id} />
+              {comments?.map(({ id, username, content }) => (
+                <div key={id} className='tweet__comment-section__comment'>
+                  <h3 className='tweet__comment-section__comment__username'>
+                    {username}
+                  </h3>
+                  <div className='tweet__comment-section__comment__content'>
+                    {content}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

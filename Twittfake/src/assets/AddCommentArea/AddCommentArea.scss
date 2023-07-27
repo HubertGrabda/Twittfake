@@ -1,0 +1,19 @@
+@import "../variables";
+
+.add-comment {
+  width: 45vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    resize: none;
+    border-radius: 1rem;
+    border: 1px solid $twittfake_purple_hover;
+    padding: 0.3rem;
+  }
+
+  &__submit-button {
+    @include submitButton;
+  }
+}
