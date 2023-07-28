@@ -17,11 +17,13 @@ import AddCommentArea from "../AddCommentArea/AddCommentArea";
 
 const Feed = () => {
   const { tweets, setTweets } = useContext(TweetsContext);
-  const iconRef = useRef([]);
+  const reactionIconsRef = useRef([]);
+  const commentsIconsRef = useRef([]);
   const path = useLocation();
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
   const icons = [faComment, faEdit, faRetweet, faTrashAlt];
+  const commentIcons = [faEdit, faTrashAlt];
 
   const hideOtherUsersTweets =
     path.pathname === "/Profile"
@@ -44,73 +46,125 @@ const Feed = () => {
     setTweets(tweets.filter((tweet) => tweet.id !== id));
   };
 
-  const handleClick = [
+  const deleteComment = (tweetId, commentId) => {
+    setTweets((prevTweets) =>
+      prevTweets.map((tweet) =>
+        tweet.id === tweetId
+          ? {
+              ...tweet,
+              comments: tweet.comments.filter(
+                (comment) => comment.id !== commentId
+              ),
+            }
+          : { ...tweet }
+      )
+    );
+  };
+
+  const handleTweetsReactions = [
     (id) => handleTweetsCommentsSection(id),
     () => console.log("Edit has been clicked"),
     () => console.log("Retweet has been clicked"),
     (id) => deleleTweet(id),
   ];
 
+  const handleCommentsReactions = [
+    () => console.log("Edit has been clicked"),
+    (id, commentId) => deleteComment(id, commentId),
+  ];
+
   return (
     <section>
-      {hideOtherUsersTweets.map(({ id, username, content, comments }) => (
-        <article key={id}>
-          <div className='tweet'>
-            <h1 className='tweet_username'>{username}</h1>
-            <p className='tweet_content'>{content}</p>
-            <div className='tweet_reactions'>
-              <img
-                src={isHeartFilled[id] ? fullHeart : emptyHeart}
-                className='tweet_reactions__heart'
-                onClick={() => heartButtonFunction(id)}
-              ></img>
-              {icons.map((icon, index) => (
-                <React.Fragment key={index}>
-                  {index === 0 ? (
-                    <span
-                      className={`tweet_reactions__counter__${
-                        isHeartFilled[id] ? "heart--red" : "heart"
-                      }`}
-                    >
-                      1
-                    </span>
-                  ) : null}
-                  {index === 1 ? (
-                    <span className='tweet_reactions__counter__comments'>
-                      {comments?.length ?? 0}
-                    </span>
-                  ) : null}
-                  <FontAwesomeIcon
-                    icon={icon}
-                    className={`tweet_reactions__${icon.iconName}`}
-                    ref={(ref) => (iconRef.current[index] = ref)}
-                    onClick={() => handleClick[index](id)}
-                  />
-                </React.Fragment>
-              ))}
-            </div>
-            <div
-              className={
-                isCommentSectionVisible[id]
-                  ? "tweet__comment-section.is-visible"
-                  : "tweet__comment-section"
-              }
-            >
-              <AddCommentArea id={id} />
-              {comments?.map(({ id, username, content }) => (
-                <div key={id} className='tweet__comment-section__comment'>
-                  <h3 className='tweet__comment-section__comment__username'>
-                    {username}
-                  </h3>
-                  <div className='tweet__comment-section__comment__content'>
-                    {content}
+      {hideOtherUsersTweets.map(
+        ({ id: tweetId, username, content, comments }) => (
+          <article key={tweetId}>
+            <div className='tweet'>
+              <h1 className='tweet__username'>{username}</h1>
+              <p className='tweet__content'>{content}</p>
+              <div className='tweet__reactions'>
+                <img
+                  src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
+                  className='tweet__reactions__heart'
+                  onClick={() => heartButtonFunction(tweetId)}
+                ></img>
+                {icons.map((icon, index) => (
+                  <React.Fragment key={index}>
+                    {index === 0 ? (
+                      <span
+                        className={`tweet__reactions__counter__${
+                          isHeartFilled[tweetId] ? "heart--red" : "heart"
+                        }`}
+                      >
+                        1
+                      </span>
+                    ) : null}
+                    {index === 1 ? (
+                      <span className='tweet__reactions__counter__comments'>
+                        {comments?.length ?? 0}
+                      </span>
+                    ) : null}
+                    <FontAwesomeIcon
+                      icon={icon}
+                      className={`tweet__reactions__${icon.iconName}`}
+                      ref={(ref) => (reactionIconsRef.current[index] = ref)}
+                      onClick={() => handleTweetsReactions[index](tweetId)}
+                    />
+                  </React.Fragment>
+                ))}
+              </div>
+              <div
+                className={
+                  isCommentSectionVisible[tweetId]
+                    ? "tweet__comment-section.is-visible"
+                    : "tweet__comment-section"
+                }
+              >
+                <AddCommentArea id={tweetId} />
+                {comments?.map(({ id: commentId, username, content }) => (
+                  <div
+                    key={commentId}
+                    className='tweet__comment-section__comment'
+                  >
+                    <h3 className='tweet__comment-section__comment__username'>
+                      {username}
+                    </h3>
+                    <div className='tweet__comment-section__comment__content'>
+                      {content}
+                    </div>
+                    <div className='tweet__comment-section__reactions'>
+                      <span
+                        className={`tweet__comment-section__reactions__counter__${
+                          isHeartFilled[commentId] ? "heart--red" : "heart"
+                        }`}
+                      >
+                        1
+                        <img
+                          src={
+                            isHeartFilled[commentId] ? fullHeart : emptyHeart
+                          }
+                          className='tweet__comment-section__reactions__heart'
+                          onClick={() => heartButtonFunction(commentId)}
+                        ></img>
+                      </span>
+                      {commentIcons.map((icon, index) => (
+                        <FontAwesomeIcon
+                          key={icon.iconName}
+                          icon={icon}
+                          className={`tweet__reactions__${icon.iconName}`}
+                          onClick={() =>
+                            handleCommentsReactions[index](tweetId, commentId)
+                          }
+                          ref={(ref) => (commentsIconsRef.current[index] = ref)}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </article>
-      ))}
+          </article>
+        )
+      )}
     </section>
   );
 };

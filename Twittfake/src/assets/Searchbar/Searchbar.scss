@@ -30,6 +30,7 @@
 
     @media #{$desktop} {
       width: 15vw;
+      height: 2.5rem;
     }
 
     &:focus-visible {
@@ -40,7 +41,7 @@
   &__icon {
     position: absolute;
     left: 1.5rem;
-    top: 0.5rem;
+    top: 0.7rem;
     color: $twittfake_gray;
   }
 }

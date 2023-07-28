@@ -25,6 +25,34 @@
   &__comment-section {
     display: none;
 
+    &__reactions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      width: 90%;
+      height: 1rem;
+      margin: 0.5rem;
+
+      &__heart {
+        width: 1rem;
+        margin-left: 0.5rem;
+        cursor: pointer;
+      }
+      &__trash-can {
+        color: red;
+        cursor: pointer;
+      }
+
+      &__counter {
+        &__heart {
+          &--red {
+            color: red;
+          }
+        }
+      }
+    }
+
     &__comment {
       background-color: $twittfake_purple_hover;
       border-radius: 1.1rem;
@@ -35,6 +63,10 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      @media #{$tablets-only} {
+        width: 75vw;
+      }
 
       @media #{$laptop} {
         width: 100%;
@@ -51,7 +83,7 @@
     }
   }
 
-  &_username {
+  &__username {
     padding-top: 0.5rem;
     font-size: 1.1rem;
     cursor: pointer;
@@ -61,7 +93,7 @@
     }
   }
 
-  &_content {
+  &__content {
     text-align: justify;
     padding: 0.5rem;
     font-size: 1rem;
@@ -74,7 +106,7 @@
       font-size: 1rem;
     }
   }
-  &_reactions {
+  &__reactions {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -93,14 +125,13 @@
         margin: 0 -0.5rem;
         &--red {
           margin: -0.5rem;
-          color: red !important;
+          color: red;
         }
       }
     }
 
     &__heart {
-      width: 1em;
-      height: 1em;
+      width: 1rem;
       cursor: pointer;
     }
     &__trash-can {

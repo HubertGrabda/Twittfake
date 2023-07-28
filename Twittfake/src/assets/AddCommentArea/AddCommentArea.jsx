@@ -3,7 +3,7 @@ import { useContext, useRef } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import "./AddCommentArea.scss";
 
-const AddCommentArea = ({ id }) => {
+const CommentArea = ({ id }) => {
   const defaultPlaceholderText = "Odpowiedź do tweeta";
   const buttonValue = "Prześlij";
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
@@ -14,7 +14,7 @@ const AddCommentArea = ({ id }) => {
     let input = addCommentInputRef.current;
     if (input.value.trim() === "") {
       input.placeholder = inputErrorMessage;
-      input.className = "textarea-wrapper__input--error";
+      input.className = "add-comment__input--error";
       return;
     }
 
@@ -34,7 +34,7 @@ const AddCommentArea = ({ id }) => {
 
     input.placeholder = defaultPlaceholderText;
     input.value = "";
-    input.className = "textarea-wrapper__input";
+    input.className = "add-comment__input";
   };
 
   return (
@@ -51,4 +51,4 @@ const AddCommentArea = ({ id }) => {
   );
 };
 
-export default AddCommentArea;
+export default CommentArea;
