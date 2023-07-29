@@ -14,7 +14,12 @@
   }
 
   @media #{$laptop} {
-    width: 30vw;
+    width: 45vw;
+    margin: 0.5rem auto;
+  }
+
+  @media #{$desktop} {
+    width: 45vw;
     margin: 0.5rem auto;
   }
 
@@ -24,6 +29,11 @@
     border: 1px solid $twittfake_purple_hover;
     padding: 0.3rem;
     width: 100%;
+
+    @media #{$desktop} {
+      width: 40vw;
+      margin: 0.5rem auto;
+    }
 
     &--error {
       resize: none;

@@ -18,8 +18,19 @@ const CommentArea = ({ id }) => {
       return;
     }
 
+    const highestCommentId = tweets.reduce((highestID, tweet) => {
+      if (tweet.comments && tweet.comments.length > 0) {
+        const maxCommentId = tweet.comments.reduce(
+          (maxID, comment) => Math.max(maxID, comment.id),
+          0
+        );
+        return Math.max(highestID, maxCommentId);
+      }
+      return highestID;
+    }, 0);
+
     const newComment = {
-      id: tweets.length + 1,
+      id: highestCommentId + 1,
       username: "Twittfake_Dev",
       content: input.value,
     };

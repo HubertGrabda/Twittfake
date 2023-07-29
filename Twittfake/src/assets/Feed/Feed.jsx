@@ -95,12 +95,13 @@ const Feed = () => {
                           isHeartFilled[tweetId] ? "heart--red" : "heart"
                         }`}
                       >
-                        1
+                        10000
                       </span>
                     ) : null}
                     {index === 1 ? (
                       <span className='tweet__reactions__counter__comments'>
                         {comments?.length ?? 0}
+
                       </span>
                     ) : null}
                     <FontAwesomeIcon
@@ -138,14 +139,15 @@ const Feed = () => {
                         }`}
                       >
                         1
-                        <img
+                        
+                      </span>
+                      <img
                           src={
                             isHeartFilled[commentId] ? fullHeart : emptyHeart
                           }
                           className='tweet__comment-section__reactions__heart'
                           onClick={() => heartButtonFunction(commentId)}
                         ></img>
-                      </span>
                       {commentIcons.map((icon, index) => (
                         <FontAwesomeIcon
                           key={icon.iconName}

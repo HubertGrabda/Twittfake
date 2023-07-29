@@ -15,11 +15,86 @@
   }
 
   @media #{$laptop} {
-    width: 55%;
+    width: 50%;
   }
   @media #{$desktop} {
     width: 45%;
     margin: 0.5rem auto;
+  }
+
+  &__username {
+    padding-top: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    @media #{$desktop} {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__content {
+    text-align: justify;
+    padding: 0.5rem;
+    font-size: 1rem;
+
+    @media #{$tablets-only} {
+      font-size: 1rem;
+      padding: 0.2rem;
+    }
+
+    @media #{$laptop} {
+      padding: 0.6rem;
+    }
+
+    @media #{$desktop} {
+      font-size: 1rem;
+    }
+  }
+
+  &__reactions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    color: $twittfake_purple;
+    height: 2rem;
+    font-size: 1rem;
+
+    @media #{$tablets-only} {
+      gap: 1.2rem;
+      font-size: 1.2rem;
+    }
+
+    &__counter {
+      &__comments {
+        margin: 0 -0.6rem;
+      }
+
+      &__heart {
+        margin: 0 -0.6rem;
+        &--red {
+          margin: -0.6rem;
+          color: red;
+        }
+      }
+    }
+
+    &__heart {
+      width: 1rem;
+      cursor: pointer;
+    }
+    &__trash-can {
+      color: red;
+      cursor: pointer;
+    }
+
+    &__comment,
+    &__pen-to-square,
+    &__retweet {
+      cursor: pointer;
+    }
   }
 
   &__comment-section {
@@ -27,16 +102,16 @@
 
     &__reactions {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       gap: 1rem;
       width: 90%;
-      height: 1rem;
+      height: 1.2rem;
       margin: 0.5rem;
 
       &__heart {
-        width: 1rem;
-        margin-left: 0.5rem;
+        width: 1.2rem;
+        margin-left: -0.5rem;
         cursor: pointer;
       }
       &__trash-can {
@@ -46,6 +121,7 @@
 
       &__counter {
         &__heart {
+          font-size: 1.1rem;
           &--red {
             color: red;
           }
@@ -69,7 +145,7 @@
       }
 
       @media #{$laptop} {
-        width: 100%;
+        width: 90%;
       }
 
       &.is-visible {
@@ -81,72 +157,5 @@
         font-size: 1rem;
       }
     }
-  }
-
-  &__username {
-    padding-top: 0.5rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-
-    @media #{$desktop} {
-      font-size: 1.3rem;
-    }
-  }
-
-  &__content {
-    text-align: justify;
-    padding: 0.5rem;
-    font-size: 1rem;
-
-    @media #{$tablets-only} {
-      font-size: 1rem;
-      padding: 0.2rem;
-    }
-    @media #{$desktop} {
-      font-size: 1rem;
-    }
-  }
-  &__reactions {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2rem;
-    padding-bottom: 0.5rem;
-    color: $twittfake_purple;
-    height: 2rem;
-
-    &__counter {
-      &__comments {
-        margin: 0 -0.5rem;
-      }
-
-      &__heart {
-        margin: 0 -0.5rem;
-        &--red {
-          margin: -0.5rem;
-          color: red;
-        }
-      }
-    }
-
-    &__heart {
-      width: 1rem;
-      cursor: pointer;
-    }
-    &__trash-can {
-      color: red;
-      cursor: pointer;
-    }
-
-    &__comment,
-    &__pen-to-square,
-    &__retweet {
-      cursor: pointer;
-    }
-  }
-
-  @media #{$desktop} {
-    font-size: 1.2rem;
   }
 }
