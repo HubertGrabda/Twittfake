@@ -31,7 +31,7 @@
     width: 100%;
 
     @media #{$desktop} {
-      width: 40vw;
+      width: 60%;
       margin: 0.5rem auto;
     }
 
@@ -39,7 +39,7 @@
       resize: none;
       border-radius: 1rem;
       padding: 0.3rem;
-      width: 100%;
+      width: 60%;
       border: 1px solid red;
     }
   }

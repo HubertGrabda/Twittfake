@@ -3,15 +3,16 @@
 .searchbar-wrapperMobile {
   display: block;
   position: absolute;
-  top: 3rem;
-  left: 15vw;
+  top: 5rem;
+  left: 10vw;
 
   &__input {
     border-radius: 9999px;
     text-align: center;
     position: relative;
     color: $twittfake_gray;
-    width: 70vw;
+    width: 80vw;
+    height: 3rem;
 
     &:focus-visible {
       outline-color: $twittfake_purple;

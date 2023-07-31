@@ -7,8 +7,9 @@
   align-items: center;
   border: 1px solid $twittfake_purple_hover;
   width: 95%;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
   border-radius: 1.1rem;
+  line-height: 1.2rem;
 
   @media #{$tablets-only} {
     width: 85%;
@@ -18,7 +19,7 @@
     width: 50%;
   }
   @media #{$desktop} {
-    width: 45%;
+    width: 40%;
     margin: 0.5rem auto;
   }
 
@@ -146,6 +147,10 @@
 
       @media #{$laptop} {
         width: 90%;
+      }
+
+      @media #{$desktop} {
+        width: 60%;
       }
 
       &.is-visible {

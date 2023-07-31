@@ -3,9 +3,9 @@
 .popularMobile {
   display: block;
   position: absolute;
-  top: 10rem;
-  right: 5vw;
-  width: 90vw;
+  top: 12rem;
+  right: 10vw;
+  width: 80vw;
   padding: 0.1rem;
   background-color: $twittfake_purple_hover;
   border-radius: 1rem;
@@ -23,16 +23,16 @@
     }
 
     &__catch-phrase {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: $twittfake_font_white;
     }
 
     &__category {
-      font-size: 0.7rem;
+      font-size: 0.9rem;
     }
 
     &__amount-of-tweets {
-      font-size: 0.7rem;
+      font-size: 0.9rem;
     }
   }
 }

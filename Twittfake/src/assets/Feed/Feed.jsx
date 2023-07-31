@@ -80,7 +80,7 @@ const Feed = () => {
           <article key={tweetId}>
             <div className='tweet'>
               <h1 className='tweet__username'>{username}</h1>
-              <p className='tweet__content'>{content}</p>
+              <text className='tweet__content'>{content}</text>
               <div className='tweet__reactions'>
                 <img
                   src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
@@ -101,7 +101,6 @@ const Feed = () => {
                     {index === 1 ? (
                       <span className='tweet__reactions__counter__comments'>
                         {comments?.length ?? 0}
-
                       </span>
                     ) : null}
                     <FontAwesomeIcon
@@ -139,15 +138,12 @@ const Feed = () => {
                         }`}
                       >
                         1
-                        
                       </span>
                       <img
-                          src={
-                            isHeartFilled[commentId] ? fullHeart : emptyHeart
-                          }
-                          className='tweet__comment-section__reactions__heart'
-                          onClick={() => heartButtonFunction(commentId)}
-                        ></img>
+                        src={isHeartFilled[commentId] ? fullHeart : emptyHeart}
+                        className='tweet__comment-section__reactions__heart'
+                        onClick={() => heartButtonFunction(commentId)}
+                      ></img>
                       {commentIcons.map((icon, index) => (
                         <FontAwesomeIcon
                           key={icon.iconName}

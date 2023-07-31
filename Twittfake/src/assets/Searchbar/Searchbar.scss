@@ -14,7 +14,7 @@
   }
 
   @media #{$desktop} {
-    right: 3rem;
+    right: 5rem;
   }
 
   &__input {
@@ -29,7 +29,7 @@
     }
 
     @media #{$desktop} {
-      width: 15vw;
+      width: 17vw;
       height: 2.5rem;
     }
 
@@ -43,5 +43,9 @@
     left: 1.5rem;
     top: 0.5rem;
     color: $twittfake_gray;
+
+    @media #{$desktop} {
+      top: 0.7rem;
+    }
   }
 }

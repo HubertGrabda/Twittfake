@@ -9,7 +9,6 @@
   margin: 1rem auto;
   padding: 0.5rem;
   animation: widthExpand 2s;
-  z-index: -1;
 
   @media #{$laptop} {
     margin: 2rem auto;
@@ -18,6 +17,7 @@
   &__text {
     font-size: 1.4rem;
     position: absolute;
+    top: -0.2rem;
     text-align: center;
     background-color: $twittfake_purple;
     border-radius: 9999px;
@@ -25,13 +25,13 @@
     animation: contentAppear 7s;
     color: $twittfake_font_white;
     cursor: pointer;
-    margin-top: 0.5rem;
-    z-index: 999;
+    height: 2rem;
 
     @media #{$tablets-only} {
       width: 35%;
     }
     @media #{$laptop} {
+      top: -0.8rem;
       width: 20%;
       animation: none;
       font-size: 1.7rem;
