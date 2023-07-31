@@ -30,7 +30,7 @@ $desktop: "(min-width:1440px)";
   background-color: $twittfake_purple;
   color: $twittfake_font_white;
   border-radius: 50%;
-  width:  1rem;
+  width: 1rem;
   height: 1rem;
   position: absolute;
   top: -0.8rem;
@@ -39,24 +39,29 @@ $desktop: "(min-width:1440px)";
   cursor: pointer;
 
   @media #{$tablets-only} {
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 
   @media #{$laptop} {
-    width: 1.7rem;
-    height: 1.7rem;
+    top: -1.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 }
 
 @mixin submitButton {
   width: 35%;
-  height: 3vh;
+  height: 4vh;
   margin: 0.5rem auto;
   border-radius: 9999px;
   color: $twittfake_font_white;
   background-color: $twittfake_purple_hover;
   border: none;
+
+  @media #{$tablets-only} {
+    height: 2.5rem;
+  }
 
   @media #{$laptop} {
     width: 30%;

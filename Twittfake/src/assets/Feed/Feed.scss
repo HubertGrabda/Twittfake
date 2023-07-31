@@ -33,10 +33,29 @@
     }
   }
 
+  &__save-edit-button {
+    display: none;
+
+    &--active {
+      display: block;
+      border-radius: 9999px;
+      width: 4rem;
+      height: 1.5rem;
+      background-color: $twittfake_purple_hover;
+      color: $twittfake_font_white;
+      border: none;
+      margin: 0.5rem;
+    }
+  }
+
   &__content {
-    text-align: justify;
+    text-align: center;
+    resize: none;
+    width: 100%;
+    overflow-y: hidden;
     padding: 0.5rem;
     font-size: 1rem;
+    border: none;
 
     @media #{$tablets-only} {
       font-size: 1rem;
@@ -49,6 +68,30 @@
 
     @media #{$desktop} {
       font-size: 1rem;
+    }
+
+    &:focus-visible {
+      outline: none;
+      border: none;
+    }
+
+    &--edit-mode {
+      width: 95%;
+      border-radius: 1rem;
+      padding: 0.5rem;
+      resize: none;
+
+      &--error {
+        width: 95%;
+        resize: inherit;
+        border-radius: inherit;
+        padding: 0.5rem;
+        border: 1px solid red;
+      }
+
+      &:focus-visible {
+        outline: $twittfake_purple;
+      }
     }
   }
 
@@ -70,13 +113,13 @@
 
     &__counter {
       &__comments {
-        margin: 0 -0.6rem;
+        margin: 0 -0.4rem;
       }
 
       &__heart {
-        margin: 0 -0.6rem;
+        margin: 0 -0.4rem;
         &--red {
-          margin: -0.6rem;
+          margin: -0.4rem;
           color: red;
         }
       }

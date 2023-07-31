@@ -56,11 +56,11 @@
     color: $twittfake_font_white;
     border-radius: 50%;
     background-color: $twittfake_purple;
-    height: 2.2rem;
-    width: 2.2rem;
+    height: 2.3rem;
+    width: 2.3rem;
     cursor: pointer;
-    padding-left: 0.6rem;
-    padding-top: 0.3rem;
+    padding-left: 0.7rem;
+    padding-top: 0.35rem;
 
     @media #{$laptop} {
       display: none;

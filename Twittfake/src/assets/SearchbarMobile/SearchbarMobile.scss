@@ -13,9 +13,10 @@
     color: $twittfake_gray;
     width: 80vw;
     height: 3rem;
+    border-color: $twittfake_purple;
 
     &:focus-visible {
-      outline-color: $twittfake_purple;
+      outline: 1px solid $twittfake_purple_hover;
     }
   }
 

@@ -2,6 +2,7 @@
 import { useContext, useRef } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import "./AddCommentArea.scss";
+import handleLinesAmount from "../../functions/handleLinesAmount";
 
 const CommentArea = ({ id }) => {
   const defaultPlaceholderText = "Odpowiedź do tweeta";
@@ -54,6 +55,8 @@ const CommentArea = ({ id }) => {
         ref={addCommentInputRef}
         className='add-comment__input'
         placeholder={defaultPlaceholderText}
+        maxLength={100}
+        onKeyDown={handleLinesAmount}
       ></textarea>
       <button className='add-comment__submit-button' onClick={addComment}>
         {buttonValue}

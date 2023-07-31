@@ -1,6 +1,7 @@
 import { useContext, useRef } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import "./AddTweetArea.scss";
+import handleLinesAmount from "../../functions/handleLinesAmount";
 
 export const AddTweetArea = () => {
   const inputPlaceholder = "O czym myślisz?";
@@ -37,6 +38,8 @@ export const AddTweetArea = () => {
         className='textarea-wrapper__input'
         placeholder={inputPlaceholder}
         ref={InputRef}
+        maxLength={100}
+        onKeyDown={handleLinesAmount}
       ></textarea>
       <button className='textarea-wrapper__submit-button' onClick={submitTweet}>
         {buttonValue}

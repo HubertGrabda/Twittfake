@@ -22,8 +22,12 @@
     height: 50%;
     border-radius: 1rem;
     resize: none;
-    border: 1px solid $twittfake_purple_hover;
+    border-color: $twittfake_purple;
     font-size: 1.3rem;
+
+    &:focus-visible {
+      outline: 1px solid $twittfake_purple_hover;
+    }
 
     &--error {
       border: 1px solid red;

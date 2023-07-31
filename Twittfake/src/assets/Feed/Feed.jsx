@@ -14,16 +14,21 @@ import emptyHeart from "../images/heart_empty.png";
 import fullHeart from "../images/heart_full.png";
 import updateStateByKey from "../../functions/updateStateByKey";
 import AddCommentArea from "../AddCommentArea/AddCommentArea";
+import handleLinesAmount from "../../functions/handleLinesAmount";
 
 const Feed = () => {
   const { tweets, setTweets } = useContext(TweetsContext);
   const reactionIconsRef = useRef([]);
   const commentsIconsRef = useRef([]);
+  const contentTextArea = useRef([]);
   const path = useLocation();
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
+  const [isUserEditing, setIsUserEditing] = useState(false);
   const icons = [faComment, faEdit, faRetweet, faTrashAlt];
   const commentIcons = [faEdit, faTrashAlt];
+  const buttonValue = "Zapisz";
+  const InputErrorMessage = "Nie można dodać pustego tweeta!";
 
   const hideOtherUsersTweets =
     path.pathname === "/Profile"
@@ -34,6 +39,30 @@ const Feed = () => {
     setHeartFilled(
       updateStateByKey((prevHeartsFilled) => !prevHeartsFilled, id)
     );
+  };
+
+  const handleEditMode = (id) => {
+    setIsUserEditing(
+      updateStateByKey((prevIsUserEditingState) => !prevIsUserEditingState, id)
+    );
+  };
+
+  const saveEdit = (id) => {
+    let input = contentTextArea.current[id];
+
+    if (input.value.trim() === "") {
+      input.placeholder = InputErrorMessage;
+      input.className = "tweet__content--edit-mode--error";
+      return;
+    } else input.value;
+
+    setTweets((tweets) =>
+      tweets.map((tweet) =>
+        tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
+      )
+    );
+
+    handleEditMode(id);
   };
 
   const handleTweetsCommentsSection = (id) => {
@@ -63,7 +92,7 @@ const Feed = () => {
 
   const handleTweetsReactions = [
     (id) => handleTweetsCommentsSection(id),
-    () => console.log("Edit has been clicked"),
+    (id) => handleEditMode(id),
     () => console.log("Retweet has been clicked"),
     (id) => deleleTweet(id),
   ];
@@ -80,7 +109,25 @@ const Feed = () => {
           <article key={tweetId}>
             <div className='tweet'>
               <h1 className='tweet__username'>{username}</h1>
-              <text className='tweet__content'>{content}</text>
+              <textarea
+                className={`tweet__content${
+                  isUserEditing[tweetId] ? "--edit-mode" : ""
+                }`}
+                defaultValue={content}
+                ref={(ref) => (contentTextArea.current[tweetId] = ref)}
+                maxLength={100}
+                rows={2}
+                readOnly={!isUserEditing[tweetId]}
+                onKeyDown={handleLinesAmount}
+              ></textarea>
+              <button
+                className={`tweet__save-edit-button${
+                  isUserEditing[tweetId] ? "--active" : ""
+                }`}
+                onClick={() => saveEdit(tweetId)}
+              >
+                {buttonValue}
+              </button>
               <div className='tweet__reactions'>
                 <img
                   src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
