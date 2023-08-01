@@ -144,35 +144,6 @@
   &__comment-section {
     display: none;
 
-    &__reactions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      width: 90%;
-      height: 1.2rem;
-      margin: 0.5rem;
-
-      &__heart {
-        width: 1.2rem;
-        margin-left: -0.5rem;
-        cursor: pointer;
-      }
-      &__trash-can {
-        color: red;
-        cursor: pointer;
-      }
-
-      &__counter {
-        &__heart {
-          font-size: 1.1rem;
-          &--red {
-            color: red;
-          }
-        }
-      }
-    }
-
     &__comment {
       background-color: $twittfake_purple_hover;
       border-radius: 1.1rem;
@@ -203,6 +174,84 @@
       &__username {
         margin: 0 auto;
         font-size: 1rem;
+      }
+
+      &__content {
+        height: 3rem;
+        border: none;
+        background-color: inherit;
+        width: 100%;
+        text-align: center;
+        resize: none;
+        margin-top: 0.7rem;
+        outline: none;
+
+        &--edit-mode {
+          height: inherit;
+          border: inherit;
+          width: inherit;
+          text-align: inherit;
+          resize: inherit;
+          margin-top: inherit;
+          outline-color: $twittfake_purple;
+          margin: 1rem auto;
+          border-radius: 1rem;
+          padding: 0.5rem;
+        }
+      }
+
+      &__submit-button {
+        display: none;
+        border-radius: 999px;
+        background-color: $twittfake_purple;
+        border: none;
+        width: 25%;
+        height: 1.6rem;
+        margin: 0.5rem auto;
+        color: $twittfake_font_white;
+
+        &--active {
+          background-color: $twittfake_purple;
+          color: $twittfake_font_white;
+          display: block;
+          height: inherit;
+          border: inherit;
+          width: 25%;
+          text-align: center;
+          margin-bottom: 1rem;
+          border-radius: 1rem;
+          padding: 0.5rem;
+        }
+      }
+
+      &__reactions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 90%;
+        height: 1.2rem;
+
+        &__heart {
+          width: 1.2rem;
+          margin-left: -0.5rem;
+          cursor: pointer;
+        }
+
+        &__trash-can {
+          color: red;
+          cursor: pointer;
+        }
+
+        &__counter {
+          &__heart {
+            font-size: 1.1rem;
+            &--red {
+              color: red;
+              font-size: 1.1rem;
+            }
+          }
+        }
       }
     }
   }

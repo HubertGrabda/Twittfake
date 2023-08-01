@@ -18,8 +18,6 @@ import handleLinesAmount from "../../functions/handleLinesAmount";
 
 const Feed = () => {
   const { tweets, setTweets } = useContext(TweetsContext);
-  const reactionIconsRef = useRef([]);
-  const commentsIconsRef = useRef([]);
   const contentTextArea = useRef([]);
   const path = useLocation();
   const [isHeartFilled, setHeartFilled] = useState({});
@@ -27,7 +25,7 @@ const Feed = () => {
   const [isUserEditing, setIsUserEditing] = useState(false);
   const icons = [faComment, faEdit, faRetweet, faTrashAlt];
   const commentIcons = [faEdit, faTrashAlt];
-  const buttonValue = "Zapisz";
+  const saveButtonValue = "Zapisz";
   const InputErrorMessage = "Nie można dodać pustego tweeta!";
 
   const hideOtherUsersTweets =
@@ -42,9 +40,14 @@ const Feed = () => {
   };
 
   const handleEditMode = (id) => {
-    setIsUserEditing(
-      updateStateByKey((prevIsUserEditingState) => !prevIsUserEditingState, id)
-    );
+    contentTextArea.current[id].value.trim() === ""
+      ? ""
+      : setIsUserEditing(
+          updateStateByKey(
+            (prevIsUserEditingState) => !prevIsUserEditingState,
+            id
+          )
+        );
   };
 
   const saveEdit = (id) => {
@@ -98,7 +101,7 @@ const Feed = () => {
   ];
 
   const handleCommentsReactions = [
-    () => console.log("Edit has been clicked"),
+    (id, commentsID) => handleEditMode(commentsID),
     (id, commentId) => deleteComment(id, commentId),
   ];
 
@@ -126,7 +129,7 @@ const Feed = () => {
                 }`}
                 onClick={() => saveEdit(tweetId)}
               >
-                {buttonValue}
+                {saveButtonValue}
               </button>
               <div className='tweet__reactions'>
                 <img
@@ -142,7 +145,7 @@ const Feed = () => {
                           isHeartFilled[tweetId] ? "heart--red" : "heart"
                         }`}
                       >
-                        10000
+                        {isHeartFilled[tweetId] ? 2 : 1}
                       </span>
                     ) : null}
                     {index === 1 ? (
@@ -153,7 +156,6 @@ const Feed = () => {
                     <FontAwesomeIcon
                       icon={icon}
                       className={`tweet__reactions__${icon.iconName}`}
-                      ref={(ref) => (reactionIconsRef.current[index] = ref)}
                       onClick={() => handleTweetsReactions[index](tweetId)}
                     />
                   </React.Fragment>
@@ -175,31 +177,46 @@ const Feed = () => {
                     <h3 className='tweet__comment-section__comment__username'>
                       {username}
                     </h3>
-                    <div className='tweet__comment-section__comment__content'>
-                      {content}
-                    </div>
-                    <div className='tweet__comment-section__reactions'>
+
+                    <textarea
+                      readOnly={!isUserEditing[commentId]}
+                      maxLength={50}
+                      onKeyDown={handleLinesAmount}
+                      className={`tweet__comment-section__comment__content${
+                        isUserEditing[commentId] ? "--edit-mode" : ""
+                      }`}
+                      defaultValue={content}
+                      ref={(ref) => (contentTextArea.current[commentId] = ref)}
+                    ></textarea>
+                    <button
+                      className={`tweet__comment-section__comment__submit-button${
+                        isUserEditing[commentId] ? "--active" : ""
+                      }`}
+                      onClick={() => saveEdit(commentId)}
+                    >
+                      {saveButtonValue}
+                    </button>
+                    <div className='tweet__comment-section__comment__reactions'>
                       <span
-                        className={`tweet__comment-section__reactions__counter__${
+                        className={`tweet__comment-section__comment__reactions__counter__${
                           isHeartFilled[commentId] ? "heart--red" : "heart"
                         }`}
                       >
-                        1
+                        {isHeartFilled[commentId] ? 2 : 1}
                       </span>
                       <img
                         src={isHeartFilled[commentId] ? fullHeart : emptyHeart}
-                        className='tweet__comment-section__reactions__heart'
+                        className='tweet__comment-section__comment__reactions__heart'
                         onClick={() => heartButtonFunction(commentId)}
                       ></img>
                       {commentIcons.map((icon, index) => (
                         <FontAwesomeIcon
                           key={icon.iconName}
                           icon={icon}
-                          className={`tweet__reactions__${icon.iconName}`}
+                          className={`tweet__comment-section__comment__reactions__${icon.iconName}`}
                           onClick={() =>
                             handleCommentsReactions[index](tweetId, commentId)
                           }
-                          ref={(ref) => (commentsIconsRef.current[index] = ref)}
                         />
                       ))}
                     </div>
