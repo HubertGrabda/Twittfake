@@ -27,6 +27,7 @@ const Feed = () => {
   const commentIcons = [faEdit, faTrashAlt];
   const saveButtonValue = "Zapisz";
   const InputErrorMessage = "Nie można dodać pustego tweeta!";
+  const url = "Twittfake.com";
 
   const hideOtherUsersTweets =
     path.pathname === "/Profile"
@@ -93,10 +94,17 @@ const Feed = () => {
     );
   };
 
+  const retweet = (content) => {
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      content
+    )}`;
+    window.open(twitterUrl, "_blank");
+  };
+
   const handleTweetsReactions = [
     (id) => handleTweetsCommentsSection(id),
     (id) => handleEditMode(id),
-    () => console.log("Retweet has been clicked"),
+    (id, content) => retweet(content),
     (id) => deleleTweet(id),
   ];
 
@@ -156,7 +164,9 @@ const Feed = () => {
                     <FontAwesomeIcon
                       icon={icon}
                       className={`tweet__reactions__${icon.iconName}`}
-                      onClick={() => handleTweetsReactions[index](tweetId)}
+                      onClick={() =>
+                        handleTweetsReactions[index](tweetId, content, url)
+                      }
                     />
                   </React.Fragment>
                 ))}
