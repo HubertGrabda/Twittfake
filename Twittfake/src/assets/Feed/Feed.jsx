@@ -26,7 +26,7 @@ const Feed = () => {
   const icons = [faComment, faEdit, faRetweet, faTrashAlt];
   const commentIcons = [faEdit, faTrashAlt];
   const saveButtonValue = "Zapisz";
-  const InputErrorMessage = "Nie można dodać pustego tweeta!";
+  const InputErrorMessage = "To pole nie może być puste!";
   const url = "Twittfake.com";
 
   const hideOtherUsersTweets =

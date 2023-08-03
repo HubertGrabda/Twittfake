@@ -3,12 +3,13 @@
 .popularMobile {
   display: block;
   position: absolute;
-  top: 12rem;
+  top: 10rem;
   right: 10vw;
   width: 80vw;
   padding: 0.1rem;
   background-color: $twittfake_purple_hover;
   border-radius: 1rem;
+  margin-bottom: 10rem;
 
   &__tile {
     display: flex;
@@ -16,6 +17,11 @@
     padding: 0.5rem;
     border-bottom: 1px solid $twittfake_font_white;
     border-radius: 10px;
+    height: 5.2rem;
+
+    @media #{$tablets-only} {
+      max-height: 6rem;
+    }
 
     &:hover {
       background-color: $twittfake_purple;
@@ -25,14 +31,27 @@
     &__catch-phrase {
       font-size: 1.2rem;
       color: $twittfake_font_white;
+
+      @media #{$tablets-only} {
+        font-size: 1.5rem;
+      }
     }
 
     &__category {
       font-size: 0.9rem;
+
+      @media #{$tablets-only} {
+        height: 1.1rem;
+      }
     }
 
     &__amount-of-tweets {
       font-size: 0.9rem;
+
+      @media #{$tablets-only} {
+        margin-top: -0.3rem;
+        font-size: 1.1rem;
+      }
     }
   }
 }

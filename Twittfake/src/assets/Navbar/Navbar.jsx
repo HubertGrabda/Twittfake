@@ -3,21 +3,31 @@ import logo from "../images/twittfake.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const navbarIcons = [faPlus, faMagnifyingGlass];
-  // const location = useLocation();
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollPos, setLastScrollPos] = useState(0);
 
-  // const hideElement =
-  //   location.pathname === "/Profile" || location.pathname === "/Search";
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    if (currentScrollPos > lastScrollPos) {
+      setShowNavbar(false);
+    } else setShowNavbar(true);
+    setLastScrollPos(currentScrollPos);
+  };
 
-  const handleOnClick = [
-    () => console.log("The plus button have been clicked"),
-    () => console.log("The search button have been clicked"),
-  ];
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollPos]);
 
   return (
-    <div className='navbar'>
+    <div className={`navbar ${showNavbar ? "" : "hidden"}`}>
       <Link to='/Profile'>
         <img
           src={logo}
@@ -31,7 +41,6 @@ const Navbar = () => {
           to={index === 1 ? "/Search" : "/CreateTweet"}
           key={icon.iconName}
           className={`navbar__${icon.iconName}`}
-          onClick={handleOnClick[index]}
         >
           <FontAwesomeIcon icon={icon} />
         </Link>
