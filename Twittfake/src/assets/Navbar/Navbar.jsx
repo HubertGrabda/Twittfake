@@ -24,7 +24,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollPos]);
+  });
 
   return (
     <div className={`navbar ${showNavbar ? "" : "hidden"}`}>

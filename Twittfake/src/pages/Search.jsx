@@ -4,24 +4,10 @@ import Navbar from "../assets/Navbar/Navbar";
 import ProfilesReference from "../assets/ProfilesReference/ProfileRefernece";
 import SearchbarMobile from "../assets/SearchbarMobile/SearchbarMobile";
 import PopularMobile from "../assets/PopularMobile/PopularMobile";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import useResizeAndRedirect from "../hooks/handleResize";
 
 const Search = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        navigate("/");
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [navigate]);
+  useResizeAndRedirect();
 
   return (
     <>

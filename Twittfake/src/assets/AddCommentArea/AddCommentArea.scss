@@ -30,6 +30,10 @@
     padding: 0.3rem;
     width: 100%;
 
+    &:focus-visible {
+      outline-color: $twittfake_purple_hover;
+    }
+
     @media #{$laptop} {
       width: 40vw;
     }
@@ -43,8 +47,20 @@
       resize: none;
       border-radius: 1rem;
       padding: 0.3rem;
-      width: 60%;
+      width: 100%;
       border: 1px solid red;
+
+      &:focus-visible {
+        outline-color: $twittfake_purple_hover;
+      }
+
+      @media #{$laptop} {
+        width: 40vw;
+      }
+
+      @media #{$desktop} {
+        width: 60%;
+      }
     }
   }
 

@@ -15,24 +15,25 @@ import fullHeart from "../images/heart_full.png";
 import updateStateByKey from "../../functions/updateStateByKey";
 import AddCommentArea from "../AddCommentArea/AddCommentArea";
 import handleLinesAmount from "../../functions/handleLinesAmount";
+import retweet from "../../functions/retweetFunction";
 
 const Feed = () => {
   const { tweets, setTweets } = useContext(TweetsContext);
-  const contentTextArea = useRef([]);
   const path = useLocation();
-  const [isHeartFilled, setHeartFilled] = useState({});
-  const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
-  const [isUserEditing, setIsUserEditing] = useState(false);
-  const icons = [faComment, faEdit, faRetweet, faTrashAlt];
-  const commentIcons = [faEdit, faTrashAlt];
-  const saveButtonValue = "Zapisz";
-  const InputErrorMessage = "To pole nie może być puste!";
-  const url = "Twittfake.com";
 
   const hideOtherUsersTweets =
     path.pathname === "/Profile"
       ? tweets.filter((tweet) => tweet.username === "Twittfake_Dev")
       : tweets;
+
+  const icons = [faComment, faEdit, faRetweet, faTrashAlt];
+  const commentIcons = [faEdit, faTrashAlt];
+  const contentTextArea = useRef([]);
+  const [isHeartFilled, setHeartFilled] = useState({});
+  const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
+  const [isUserEditing, setIsUserEditing] = useState(false);
+  const saveButtonValue = "Zapisz";
+  const InputErrorMessage = "To pole nie może być puste!";
 
   const heartButtonFunction = (id) => {
     setHeartFilled(
@@ -92,13 +93,6 @@ const Feed = () => {
           : { ...tweet }
       )
     );
-  };
-
-  const retweet = (content) => {
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      content
-    )}`;
-    window.open(twitterUrl, "_blank");
   };
 
   const handleTweetsReactions = [
@@ -165,7 +159,7 @@ const Feed = () => {
                       icon={icon}
                       className={`tweet__reactions__${icon.iconName}`}
                       onClick={() =>
-                        handleTweetsReactions[index](tweetId, content, url)
+                        handleTweetsReactions[index](tweetId, content)
                       }
                     />
                   </React.Fragment>

@@ -3,39 +3,16 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/twittfake.png";
+import submitTweetMobileOnly from "../../functions/submitTweetMobileOnly";
+import useResizeAndRedirect from "../../hooks/handleResize";
 
 const NewTweetView = () => {
-  const { tweets, setTweets } = useContext(TweetsContext);
+  const { tweets, setTweets, loggedUsername, inputPlaceholder } =
+    useContext(TweetsContext);
   const textareaInput = useRef();
-  const loggedUsername = "Twittfake_Dev";
-  const inputPlaceholder = `O czym myślisz, ${loggedUsername}?`;
   const buttonValue = "Prześlij";
-  const InputErrorMessage = "Nie można dodać pustego tweeta!";
   const navigate = useNavigate();
-
-  const submitTweet = () => {
-    let input = textareaInput.current;
-    if (input.value.trim() === "") {
-      textareaInput.current.placeholder = InputErrorMessage;
-      textareaInput.current.className =
-        "input-field-wrapper__textarea__input--error";
-      return;
-    } else input.value;
-
-    const newTweet = {
-      id: tweets.length + 1,
-      username: "Twittfake_Dev",
-      content: input.value,
-    };
-
-    setTweets([newTweet, ...tweets]);
-
-    textareaInput.current.placeholder = inputPlaceholder;
-    textareaInput.current.value = "";
-    textareaInput.current.className = "textarea-wrapper__input";
-
-    navigate("/");
-  };
+  useResizeAndRedirect();
 
   return (
     <div className='input-field-wrapper'>
@@ -56,7 +33,15 @@ const NewTweetView = () => {
         ></textarea>{" "}
         <button
           className='input-field-wrapper__textarea__submit-button'
-          onClick={() => submitTweet()}
+          onClick={() =>
+            submitTweetMobileOnly(
+              textareaInput,
+              tweets,
+              setTweets,
+              navigate,
+              inputPlaceholder
+            )
+          }
         >
           {buttonValue}
         </button>
