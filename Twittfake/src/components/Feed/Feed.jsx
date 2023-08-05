@@ -11,10 +11,10 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import { faRetweet } from "@fortawesome/free-solid-svg-icons";
 import emptyHeart from "../../images/heart_empty.png";
 import fullHeart from "../../images/heart_full.png";
-import updateStateByKey from "../../functions/updateStateByKey";
 import AddCommentArea from "../AddCommentArea/AddCommentArea";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import retweet from "../../functions/retweetFunction";
+import toggleState from "../../functions/toggleState";
 
 const Feed = () => {
   const { tweets, setTweets } = useContext(TweetsContext);
@@ -35,19 +35,24 @@ const Feed = () => {
   const InputErrorMessage = "To pole nie może być puste!";
 
   const heartButtonFunction = (id) => {
-    setHeartFilled(
-      updateStateByKey((prevHeartsFilled) => !prevHeartsFilled, id)
+    toggleState(setHeartFilled, (prevHeartsFilled) => !prevHeartsFilled, id);
+  };
+
+  const handleTweetsCommentsSection = (id) => {
+    toggleState(
+      setCommentSectionVisible,
+      (prevSectionStatus) => !prevSectionStatus,
+      id
     );
   };
 
   const handleEditMode = (id) => {
     contentTextArea.current[id].value.trim() === ""
       ? ""
-      : setIsUserEditing(
-          updateStateByKey(
-            (prevIsUserEditingState) => !prevIsUserEditingState,
-            id
-          )
+      : toggleState(
+          setIsUserEditing,
+          (prevIsUserEditingState) => !prevIsUserEditingState,
+          id
         );
   };
 
@@ -67,12 +72,6 @@ const Feed = () => {
     );
 
     handleEditMode(id);
-  };
-
-  const handleTweetsCommentsSection = (id) => {
-    setCommentSectionVisible(
-      updateStateByKey((prevSectionStatus) => !prevSectionStatus, id)
-    );
   };
 
   const deleleTweet = (id) => {
