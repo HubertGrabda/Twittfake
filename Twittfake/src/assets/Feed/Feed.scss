@@ -1,0 +1,68 @@
+@import "../Twittfake/src/assets/variables";
+
+.tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $twittfake_purple_hover;
+  width: 95%;
+  margin: 0.1rem auto;
+  border-radius: 1.1rem;
+
+  @media #{$tablets-only} {
+    width: 85%;
+  }
+
+  @media #{$laptop} {
+    width: 55%;
+  }
+  @media #{$desktop} {
+    width: 45%;
+    height: 19vh;
+    margin: 0.5rem auto;
+  }
+
+  &_username {
+    padding-top: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    @media #{$desktop} {
+      font-size: 1.3rem;
+    }
+  }
+
+  &_content {
+    text-align: justify;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+
+    @media #{$tablets-only} {
+      font-size: 1rem;
+      padding: 0.2rem;
+    }
+    @media #{$desktop} {
+      font-size: 1rem;
+    }
+  }
+  &_reactions {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    padding-bottom: 0.5rem;
+    color: $twittfake_purple;
+
+    &__icon {
+      cursor: pointer;
+
+      &__trash-can {
+        color: red;
+      }
+    }
+
+    @media #{$desktop} {
+      font-size: 1.2rem;
+    }
+  }
+}

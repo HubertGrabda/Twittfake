@@ -1,0 +1,18 @@
+:root {
+  font-family: "Mulish", sans-serif;
+  font-size: 20px;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: rgb(247, 245, 245);
+  height: 100%;
+  width: 100%;
+}
+
+.app-container {
+  position: relative;
+}

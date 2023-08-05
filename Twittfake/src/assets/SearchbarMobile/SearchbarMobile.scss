@@ -1,0 +1,27 @@
+@import "../variables";
+
+.searchbar-wrapperMobile {
+  display: block;
+  position: absolute;
+  top: 3rem;
+  left: 15vw;
+
+  &__input {
+    border-radius: 9999px;
+    text-align: center;
+    position: relative;
+    color: $twittfake_gray;
+    width: 70vw;
+
+    &:focus-visible {
+      outline-color: $twittfake_purple;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 1.5rem;
+    top: 0.5rem;
+    color: $twittfake_gray;
+  }
+}

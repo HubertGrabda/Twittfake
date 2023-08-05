@@ -1,0 +1,134 @@
+{
+  "tweets": [
+    {
+      "id": 0,
+      "username": "Twittfake_Dev",
+      "content": "Just setting up my twittfake ;)"
+    },
+    {
+      "id": 1,
+      "username": "user123",
+      "content": "Just had the most amazing meal! 🍔🍟 #foodie"
+    },
+    {
+      "id": 2,
+      "username": "coolCat88",
+      "content": "Sunny days are the best! 😎 #sunshine #summer"
+    },
+    {
+      "id": 3,
+      "username": "traveler_gal",
+      "content": "Exploring beautiful landscapes in a new country! 🌄✈️ #wanderlust"
+    },
+    {
+      "id": 4,
+      "username": "gamer_dude",
+      "content": "Reached level 50 in my favorite game! 🎮 #gaming #achievement"
+    },
+    {
+      "id": 5,
+      "username": "bookworm87",
+      "content": "Just finished an amazing book! 📚 #reading #booklover"
+    },
+    {
+      "id": 6,
+      "username": "fitness_freak",
+      "content": "Another great workout session at the gym! 💪🏋️‍♂️ #fitness #health"
+    },
+    {
+      "id": 7,
+      "username": "pet_lover123",
+      "content": "My adorable cat just learned a new trick! 🐱❤️ #pets #catlover"
+    },
+    {
+      "id": 8,
+      "username": "nature_photo",
+      "content": "Captured a stunning sunset by the beach! 🌅🏖️ #nature #photography"
+    },
+    {
+      "id": 9,
+      "username": "fashionista22",
+      "content": "Loving the new outfit I got today! 👗👠 #fashion #style"
+    },
+    {
+      "id": 10,
+      "username": "tech_geek",
+      "content": "Just got the latest smartphone, it's awesome! 📱 #technology #gadgets"
+    },
+    {
+      "id": 11,
+      "username": "foodie88",
+      "content": "Tried a new recipe today, it turned out delicious! 🍳🥗 #cooking #foodlover"
+    },
+    {
+      "id": 12,
+      "username": "fitness_journey",
+      "content": "Lost 10 pounds so far, feeling motivated! 💪🏃‍♀️ #weightloss #healthyliving"
+    },
+    {
+      "id": 13,
+      "username": "art_enthusiast",
+      "content": "Visited a mesmerizing art exhibition today! 🎨 #art #creativity"
+    },
+    {
+      "id": 14,
+      "username": "travel_bug",
+      "content": "Missing the travel adventures! Throwback to my last trip. 🌏✈️ #travel"
+    },
+    {
+      "id": 15,
+      "username": "movie_buff",
+      "content": "Just saw a mind-blowing movie, highly recommend it! 🎬🍿 #movies #entertainment"
+    },
+    {
+      "id": 16,
+      "username": "coffee_addict",
+      "content": "Nothing beats a cup of freshly brewed coffee in the morning! ☕️ #coffee #morning"
+    },
+    {
+      "id": 17,
+      "username": "inspirational_vibes",
+      "content": "Believe in yourself and you can achieve anything! 💪 #inspiration #motivation"
+    },
+    {
+      "id": 18,
+      "username": "music_lover",
+      "content": "Listening to my favorite band's new album on repeat! 🎶🎧 #music #melody"
+    },
+    {
+      "id": 19,
+      "username": "happy_soul",
+      "content": "Gratitude is the key to happiness. 🙏😊 #grateful #positivity"
+    },
+    {
+      "id": 20,
+      "username": "science_nerd",
+      "content": "Fascinating scientific discovery! 🔬🧪 #science #research"
+    },
+    {
+      "id": 21,
+      "username": "pet_adventures",
+      "content": "Took my dog on a hiking trip, he loved it! 🐶🥾 #dogs #hiking"
+    },
+    {
+      "id": 22,
+      "username": "gardening_love",
+      "content": "Harvested fresh vegetables from my garden today! 🍅🥬 #gardening #homegrown"
+    },
+    {
+      "id": 23,
+      "username": "chocoholic",
+      "content": "Indulging in some dark chocolate goodness! 🍫 #chocolate #dessert"
+    },
+    {
+      "id": 24,
+      "username": "coding_wizard",
+      "content": "Finally cracked that challenging coding problem! 💻🚀 #coding #programming"
+    },
+    {
+      "id": 25,
+      "username": "beach_bum",
+      "content": "Chilling at the beach with friends, life's good! 🏖️😎 #beach #friends"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+@import "../variables";
+
+.follow-counter {
+  display: flex;
+  gap: 1rem;
+
+  &__count {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $twittfake_gray;
+    display: flex;
+    gap: 0.3rem;
+
+    @media #{$tablets-only} {
+      font-size: 1rem;
+    }
+
+    @media #{$laptop} {
+      font-size: 1rem;
+    }
+
+    &__bold--font {
+      font-weight: 700;
+      color: black;
+    }
+  }
+}

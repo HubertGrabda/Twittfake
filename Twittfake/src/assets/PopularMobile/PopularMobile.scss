@@ -1,0 +1,38 @@
+@import "../Twittfake/src/assets/variables";
+
+.popularMobile {
+  display: block;
+  position: absolute;
+  top: 10rem;
+  right: 5vw;
+  width: 90vw;
+  padding: 0.1rem;
+  background-color: $twittfake_purple_hover;
+  border-radius: 1rem;
+
+  &__tile {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    border-bottom: 1px solid $twittfake_font_white;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: $twittfake_purple;
+      cursor: pointer;
+    }
+
+    &__catch-phrase {
+      font-size: 1rem;
+      color: $twittfake_font_white;
+    }
+
+    &__category {
+      font-size: 0.7rem;
+    }
+
+    &__amount-of-tweets {
+      font-size: 0.7rem;
+    }
+  }
+}
