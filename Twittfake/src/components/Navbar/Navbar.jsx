@@ -1,5 +1,5 @@
 import "./Navbar.scss";
-import logo from "../images/twittfake.png";
+import logo from "../../images/twittfake.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";

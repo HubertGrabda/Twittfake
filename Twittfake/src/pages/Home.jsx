@@ -1,9 +1,9 @@
-import { AddTweetArea } from "../assets/AddTweetArea/AddTweetArea";
-import Feed from "../assets/Feed/Feed";
-import Header from "../assets/Header/Header";
-import Navbar from "../assets/Navbar/Navbar";
-import ProfileRefernece from "../assets/ProfilesReference/ProfileRefernece";
-import RightSidebar from "../assets/RightSidebar/RightSidebar";
+import { AddTweetArea } from "../components/AddTweetArea/AddTweetArea";
+import Feed from "../components/Feed/Feed";
+import Header from "../components/Header/Header";
+import Navbar from "../components/Navbar/Navbar";
+import ProfileRefernece from "../components/ProfilesReference/ProfileRefernece";
+import RightSidebar from "../components/RightSidebar/RightSidebar";
 
 const Home = () => {
   return (

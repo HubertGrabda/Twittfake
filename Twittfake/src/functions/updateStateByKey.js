@@ -6,3 +6,4 @@ const updateStateByKey = (updaterFunc, id) => {
 };
 
 export default updateStateByKey;
+

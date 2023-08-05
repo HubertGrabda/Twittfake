@@ -1,9 +1,9 @@
-import Header from "../assets/Header/Header";
-import HomeButton from "../assets/HomeButton/HomeButton";
-import Navbar from "../assets/Navbar/Navbar";
-import ProfilesReference from "../assets/ProfilesReference/ProfileRefernece";
-import SearchbarMobile from "../assets/SearchbarMobile/SearchbarMobile";
-import PopularMobile from "../assets/PopularMobile/PopularMobile";
+import Header from "../components/Header/Header";
+import HomeButton from "../components/HomeButton/HomeButton";
+import Navbar from "../components/Navbar/Navbar";
+import ProfilesReference from "../components/ProfilesReference/ProfileRefernece";
+import SearchbarMobile from "../components/SearchbarMobile/SearchbarMobile";
+import PopularMobile from "../components/PopularMobile/PopularMobile";
 import useResizeAndRedirect from "../hooks/handleResize";
 
 const Search = () => {

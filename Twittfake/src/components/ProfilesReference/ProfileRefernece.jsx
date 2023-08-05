@@ -1,5 +1,5 @@
 import "./ProfileReference.scss";
-import logo from "../images/twittfake.png";
+import logo from "../../images/twittfake.png";
 import { Link } from "react-router-dom";
 
 const ProfileRefernece = () => {

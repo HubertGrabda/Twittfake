@@ -1,5 +1,5 @@
 import "./ProfileView.scss";
-import logo from "../images/twittfake.png";
+import logo from "../../images/twittfake.png";
 import FollowCount from "../FollowCount/FollowCount";
 
 const ProfileView = () => {

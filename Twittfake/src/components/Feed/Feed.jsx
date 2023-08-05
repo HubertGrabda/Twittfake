@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
 import "./Feed.scss";
-import "../../../mocks/loremIpsumSampleText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faComment,
@@ -10,8 +9,8 @@ import {
 import { useLocation } from "react-router-dom";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { faRetweet } from "@fortawesome/free-solid-svg-icons";
-import emptyHeart from "../images/heart_empty.png";
-import fullHeart from "../images/heart_full.png";
+import emptyHeart from "../../images/heart_empty.png";
+import fullHeart from "../../images/heart_full.png";
 import updateStateByKey from "../../functions/updateStateByKey";
 import AddCommentArea from "../AddCommentArea/AddCommentArea";
 import handleLinesAmount from "../../functions/handleLinesAmount";
