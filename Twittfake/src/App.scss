@@ -1,3 +1,5 @@
+@import "./components/variables";
+
 :root {
   font-family: "Mulish", sans-serif;
   font-size: 20px;
@@ -14,4 +16,13 @@ body {
 
 .app-container {
   position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $twittfake_purple_hover_ver-2;
+  border-radius: 6px;
 }
