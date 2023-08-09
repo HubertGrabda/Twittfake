@@ -1,20 +1,14 @@
 @import "../variables";
 
-.searchbar-wrapper {
-  display: none;
-  position: absolute;
-  top: 4rem;
-  right: 2.5rem;
-
+.searchbar {
   @media #{$laptop} {
-    display: block;
     position: fixed;
-    top: 1.2rem;
+    top: 1rem;
     right: 0.5rem;
   }
 
   @media #{$desktop} {
-    right: 5rem;
+    right: 13%;
   }
 
   &__input {
@@ -23,6 +17,7 @@
     position: relative;
     color: $twittfake_gray;
     width: 70vw;
+    height: 2rem;
     border-color: $twittfake_purple;
 
     @media #{$laptop} {
@@ -31,7 +26,6 @@
 
     @media #{$desktop} {
       width: 17vw;
-      height: 2.5rem;
     }
 
     &:focus-visible {
@@ -42,11 +36,8 @@
   &__icon {
     position: absolute;
     left: 1.5rem;
-    top: 0.5rem;
+    top: 50%;
     color: $twittfake_gray;
-
-    @media #{$desktop} {
-      top: 0.7rem;
-    }
+    transform: translateY(-50%);
   }
 }

@@ -4,60 +4,41 @@
   display: none;
 
   @media #{$laptop} {
+    border-radius: 1rem;
+    background-color: $twittfake_purple;
     display: flex;
     position: fixed;
-    justify-items: center;
-    align-items: center;
-    top: 1rem;
+    justify-content: center;
+    align-items: space;
     left: 0.4rem;
     gap: 0.5rem;
+    height: 2rem;
   }
 
   @media #{$desktop} {
-    top: 1rem;
-    left: 5rem;
+    width: 17vw;
+    left: 13%;
     gap: 0.5rem;
   }
 
   &__picture {
     display: block;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     cursor: pointer;
-
-    @media #{$desktop} {
-      width: 3.4rem;
-      height: 3.4rem;
-    }
   }
 
   &__username {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: $twittfake_gray;
-    position: relative;
-    display: block;
+    font-weight: 450;
+    color: $twittfake_font_white;
 
     @media #{$laptop} {
       font-size: 1.2rem;
     }
 
     @media #{$desktop} {
-      font-size: 1.7rem;
-    }
-
-    &--underline {
-      position: absolute;
-      width: 50%;
-      border: 2px solid $twittfake_purple_hover;
-      top: 2rem;
-      left: 3rem;
-
-      @media #{$desktop} {
-        top: 2.5rem;
-        left: 7rem;
-      }
+      font-size: 1.4rem;
     }
 
     &:hover {

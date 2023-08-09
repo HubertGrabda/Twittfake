@@ -1,19 +1,18 @@
 @import "../variables";
 
-.searchbar-wrapperMobile {
-  display: block;
-  position: absolute;
-  top: 3rem;
-  left: 10vw;
+.searchbar-Mobile {
+  width: 75%;
+  margin: 0.5rem auto;
 
   &__input {
     border-radius: 9999px;
     text-align: center;
     position: relative;
     color: $twittfake_gray;
-    width: 80vw;
-    height: 3rem;
-    border-color: $twittfake_purple;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    @include shadow;
 
     &:focus-visible {
       outline: 1px solid $twittfake_purple_hover;
@@ -21,9 +20,9 @@
   }
 
   &__icon {
-    position: absolute;
+    position: sticky;
     left: 1.5rem;
-    top: 1rem;
+    top: 0;
     color: $twittfake_gray;
   }
 }

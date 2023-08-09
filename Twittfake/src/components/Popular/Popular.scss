@@ -1,29 +1,20 @@
 @import "../variables";
 
 .popular {
-  display: none;
-  position: absolute;
-  top: 10rem;
-  right: 3%;
-  width: 15rem;
-  background-color: $twittfake_purple_hover;
+  background-color: $twittfake_purple;
   border-radius: 1rem;
 
   @media #{$laptop} {
     display: block;
     position: fixed;
-    top: 5rem;
+    top: 4rem;
     right: 0.5rem;
     width: 22vw;
     padding: 0.7rem;
   }
 
   @media #{$desktop} {
-    width: 15vw;
-  }
-
-  @media #{$desktop} {
-    right: 5rem;
+    right: 13%;
     width: 17vw;
   }
 
@@ -33,6 +24,7 @@
     padding: 0.5rem;
     border-bottom: 1px solid $twittfake_font_white;
     border-radius: 10px;
+    color: $twittfake_font_white;
 
     &:hover {
       background-color: $twittfake_purple;
@@ -41,14 +33,15 @@
 
     &__catch-phrase {
       font-size: 1rem;
-      color: $twittfake_font_white;
     }
 
     &__category {
       font-size: 0.7rem;
+      opacity: 0.7;
     }
 
     &__amount-of-tweets {
+      opacity: 0.7;
       font-size: 0.7rem;
     }
   }

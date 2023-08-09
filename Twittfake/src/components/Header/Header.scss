@@ -1,45 +1,20 @@
 @import "../variables";
 
 .page-title {
-  width: 100%;
-  position: relative;
+  width: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem auto;
-  padding: 0.5rem;
   animation: widthExpand 2s;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  border-radius: 9999px;
+  background-color: $twittfake_purple;
+  color: $twittfake_font_white;
+  font-size: 1.3rem;
+  font-weight: 600;
 
   @media #{$laptop} {
-    margin: 2rem auto;
-  }
-
-  &__text {
-    font-size: 1.4rem;
-    position: absolute;
-    top: -0.2rem;
-    text-align: center;
-    background-color: $twittfake_purple;
-    border-radius: 9999px;
-    width: 55%;
-    animation: contentAppear 7s;
-    color: $twittfake_font_white;
-    cursor: pointer;
-    height: 2rem;
-
-    @media #{$tablets-only} {
-      width: 35%;
-    }
-    @media #{$laptop} {
-      top: -0.8rem;
-      width: 20%;
-      animation: none;
-      font-size: 1.7rem;
-    }
-    @media #{$desktop} {
-      width: 10%;
-      height: 3rem;
-      padding: 0.5rem;
-    }
+    width: 10%;
   }
 }

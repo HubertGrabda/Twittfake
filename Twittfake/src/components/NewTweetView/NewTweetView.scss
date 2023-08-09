@@ -4,7 +4,7 @@
   border-radius: 1rem;
   width: 90%;
   height: 50vh;
-  margin: 5rem auto;
+  margin: 4rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,14 +57,16 @@
     justify-content: center;
 
     &__input {
-      border: 2px solid $twittfake_purple_hover;
       width: 85%;
       font-size: 1.2rem;
       height: 60vh;
       border-radius: 1rem;
       resize: none;
       margin: inherit;
-      outline-color: $twittfake_purple_hover;
+      @include shadow;
+      border: none;
+      margin: 0.5rem;
+      padding-left: 0.3rem;
 
       @media #{$tablets-only} {
         font-size: 1.6rem;
@@ -93,10 +95,14 @@
     &__submit-button {
       border-radius: 1rem;
       color: $twittfake_font_white;
-      background-color: $twittfake_purple_hover;
+      background-color: $twittfake_purple;
       border: none;
-      width: 4rem;
-      height: 2.5rem;
+      width: 4.2rem;
+      height: 2.7rem;
+
+      &:hover {
+        background-color: $twittfake_purple_hover;
+      }
 
       @media #{$tablets-only} {
         width: 8rem;

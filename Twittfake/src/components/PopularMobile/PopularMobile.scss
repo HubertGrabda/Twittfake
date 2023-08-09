@@ -1,12 +1,10 @@
 @import "../variables";
 
 .popularMobile {
-  position: absolute;
-  top: 7rem;
-  right: 10vw;
-  width: 80vw;
+  margin: 0 auto;
+  width: 75vw;
   padding: 0.1rem;
-  background-color: $twittfake_purple_hover;
+  background-color: $twittfake_purple;
   border-radius: 1rem;
 
   &__tile {
@@ -16,19 +14,21 @@
     border-bottom: 1px solid $twittfake_font_white;
     border-radius: 10px;
     height: 5.2rem;
+    color: $twittfake_font_white;
 
     @media #{$tablets-only} {
       max-height: 6rem;
     }
 
     &:hover {
-      background-color: $twittfake_purple;
+      background-color: $twittfake_purple_hover_ver-2;
       cursor: pointer;
     }
 
     &__catch-phrase {
       font-size: 1.2rem;
       color: $twittfake_font_white;
+      opacity: 1;
 
       @media #{$tablets-only} {
         font-size: 1.5rem;
@@ -37,6 +37,7 @@
 
     &__category {
       font-size: 0.9rem;
+      opacity: 0.7;
 
       @media #{$tablets-only} {
         height: 1.1rem;
@@ -45,6 +46,7 @@
 
     &__amount-of-tweets {
       font-size: 0.9rem;
+      opacity: 0.7;
 
       @media #{$tablets-only} {
         margin-top: -0.3rem;

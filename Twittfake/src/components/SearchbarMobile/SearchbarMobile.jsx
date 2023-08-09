@@ -1,18 +1,13 @@
 import "./SearchbarMobile.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const SearchbarMobile = () => {
+  const placeholderText = "Wyszukaj";
   return (
-    <div className='searchbar-wrapperMobile'>
+    <div className='searchbar-Mobile'>
       <input
-        className='searchbar-wrapperMobile__input'
-        placeholder='Wyszukaj'
+        className='searchbar-Mobile__input'
+        placeholder={placeholderText}
       ></input>
-      <FontAwesomeIcon
-        icon={faMagnifyingGlass}
-        className='searchbar-wrapperMobile__icon'
-      />
     </div>
   );
 };
