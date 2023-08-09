@@ -2,7 +2,7 @@
 
 .input-field-wrapper {
   border-radius: 1rem;
-  width: 90%;
+  width: 75%;
   height: 50vh;
   margin: 4rem auto;
   display: flex;
@@ -10,12 +10,7 @@
   align-items: center;
   justify-content: center;
 
-  @media #{$tablets-only} {
-    height: 60vh;
-  }
-
   &__user-data {
-    margin: 0 auto;
     display: flex;
     width: 90%;
     height: 2rem;
@@ -24,7 +19,7 @@
 
     @media #{$tablets-only} {
       padding: 0.5rem;
-      margin: 2rem auto;
+      margin: 2rem;
     }
 
     &__profile-pic {

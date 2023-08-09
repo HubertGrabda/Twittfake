@@ -7,6 +7,10 @@
   background-color: $twittfake_purple;
   border-radius: 1rem;
 
+  @media #{$tablets-only} {
+    width: 60vw;
+  }
+
   &__tile {
     display: flex;
     flex-direction: column;
@@ -31,7 +35,7 @@
       opacity: 1;
 
       @media #{$tablets-only} {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
     }
 
@@ -50,7 +54,7 @@
 
       @media #{$tablets-only} {
         margin-top: -0.3rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
     }
   }

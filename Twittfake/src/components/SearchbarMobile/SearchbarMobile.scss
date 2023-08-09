@@ -4,6 +4,10 @@
   width: 75%;
   margin: 0.5rem auto;
 
+  @media #{$tablets-only} {
+    width: 60vw;
+  }
+
   &__input {
     border-radius: 9999px;
     text-align: center;

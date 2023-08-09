@@ -165,8 +165,8 @@ const Feed = () => {
             <div
               className={
                 isCommentSectionVisible[tweetId]
-                  ? "tweet__comment-section.is-visible"
-                  : "tweet__comment-section"
+                  ? "tweet__comment-section"
+                  : "tweet__comment-section isnt-visible"
               }
             >
               <AddCommentArea id={tweetId} />

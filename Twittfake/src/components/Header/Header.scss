@@ -14,7 +14,15 @@
   font-size: 1.3rem;
   font-weight: 600;
 
+  @media #{$tablets-only} {
+    width: 23%;
+  }
+
   @media #{$laptop} {
-    width: 10%;
+    width: 15%;
+  }
+
+  @media #{$desktop} {
+    width: 11%;
   }
 }

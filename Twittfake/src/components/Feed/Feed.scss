@@ -9,7 +9,7 @@
   margin: 0 auto;
 
   @media #{$tablets-only} {
-    width: 85%;
+    width: 60%;
   }
 
   @media #{$laptop} {
@@ -28,19 +28,18 @@
     align-items: center;
     border-right: 1px solid $twittfake_purple_hover;
     border-left: 1px solid $twittfake_purple_hover;
-    width: 95%;
-    margin: 0.2rem auto;
+    width: 100%;
     border-radius: 1.1rem;
     line-height: 1.2rem;
     @include shadow;
 
     &__username {
       padding-top: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
 
       @media #{$desktop} {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
     }
 
@@ -141,35 +140,63 @@
       &__heart {
         width: 1rem;
         cursor: pointer;
+        &:hover {
+          @include reactionHoverEffect(rgba(255, 0, 0, 0.212));
+        }
       }
       &__trash-can {
         color: red;
         cursor: pointer;
+
+        &:hover {
+          @include reactionHoverEffect(rgba(255, 0, 0, 0.23));
+        }
       }
 
-      &__comment,
-      &__pen-to-square,
+      &__comment {
+        &:hover {
+          @include reactionHoverEffect(rgba(0, 0, 255, 0.367));
+        }
+      }
+      &__pen-to-square {
+        &:hover {
+          @include reactionHoverEffect(rgba(0, 128, 0, 0.363));
+        }
+      }
+
       &__retweet {
+        &:hover {
+          @include reactionHoverEffect(rgba(126, 128, 0, 0.363));
+        }
         cursor: pointer;
       }
     }
 
     &__comment-section {
-      display: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+
+      &.isnt-visible {
+        display: none;
+      }
 
       &__comment {
         background-color: $twittfake_purple_hover;
         border-radius: 1.1rem;
         padding: 0.9rem;
-        margin: 0.7rem auto;
-        width: 90vw;
+        width: 90%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
         @media #{$tablets-only} {
-          width: 75vw;
+          width: 55vw;
         }
 
         @media #{$laptop} {
@@ -177,11 +204,8 @@
         }
 
         @media #{$desktop} {
-          width: 60%;
-        }
-
-        &.is-visible {
-          display: block;
+          padding: 0.5rem;
+          width: 75%;
         }
 
         &__username {
@@ -243,16 +267,37 @@
           gap: 1rem;
           width: 90%;
           height: 1.2rem;
+          font-size: 1rem;
 
           &__heart {
             width: 1.2rem;
             margin-left: -0.5rem;
             cursor: pointer;
+            object-fit: contain;
+            padding: 0.1rem;
+
+            &:hover {
+              @include reactionHoverEffect(rgba(255, 0, 0, 0.212));
+            }
+          }
+
+          &__pen-to-square {
+            cursor: pointer;
+            padding: 0.1rem;
+
+            &:hover {
+              @include reactionHoverEffect($twittfake_purple_hover_ver-2);
+            }
           }
 
           &__trash-can {
             color: red;
             cursor: pointer;
+            padding: 0.1rem;
+
+            &:hover {
+              @include reactionHoverEffect(rgba(255, 0, 0, 0.23));
+            }
           }
 
           &__counter {

@@ -1,10 +1,12 @@
 @import "../variables";
 
 .searchbar {
+  display: none;
   @media #{$laptop} {
+    display: block;
     position: fixed;
     top: 1rem;
-    right: 0.5rem;
+    right: 1rem;
   }
 
   @media #{$desktop} {

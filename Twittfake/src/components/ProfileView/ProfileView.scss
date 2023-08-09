@@ -29,14 +29,17 @@
 
   &__feed {
     margin-top: 3rem;
-    width: 80%;
+    width: 120%;
     border-bottom: 1px solid $twittfake_purple;
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+
+    @media #{$tablets-only} {
+      width: 40%;
+    }
 
     @media #{$laptop} {
       width: 40%;
-      border-bottom: 2px solid $twittfake_gray;
     }
 
     &__user-tweets {

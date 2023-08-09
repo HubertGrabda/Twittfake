@@ -2,25 +2,25 @@
 
 .navbar {
   width: 73%;
-  max-height: 20%;
+  height: 2.9rem;
   position: fixed;
   bottom: 0.5rem;
-  left: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   background-color: $twittfake_purple_hover_ver-2;
   border-radius: 9999px;
-  transition: transform 0.3s ease-out;
+  transition: all 0.3s ease;
 
   &.hidden {
-    transform: translateY(200%);
+    transform: translate(-50%, 200%);
   }
 
   @media #{$tablets-only} {
-    width: 60%;
-    left: 20%;
-    height: 3.5rem;
+    width: 45%;
+    height: 3.4rem;
   }
 
   @media #{$laptop} {

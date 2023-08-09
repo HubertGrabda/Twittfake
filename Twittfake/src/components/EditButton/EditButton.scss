@@ -5,10 +5,10 @@
   @include buttons;
 
   @media #{$tablets-only} {
-    left: 1.7rem;
+    left: 2.5rem;
   }
 
   @media #{$laptop} {
-    left: 10rem;
+    left: 15rem;
   }
 }
