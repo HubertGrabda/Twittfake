@@ -1,17 +1,23 @@
-const submitTweet = (refName, tweets, setTweets, loggedUsername) => {
+const submitTweet = (
+  refName,
+  tweets,
+  setTweets,
+  loggedUsername,
+  errorClass
+) => {
   const InputErrorMessage = "Nie można dodać pustego tweeta!";
   const inputPlaceholder = `O czym myślisz, ${loggedUsername}?`;
 
   let input = refName.current;
   if (input.value.trim() === "") {
     refName.current.placeholder = InputErrorMessage;
-    refName.current.className = "input-field-wrapper__textarea__input--error";
+    refName.current.className = errorClass;
     return;
   } else input.value;
 
   const newTweet = {
     id: tweets.length + 1,
-    username: "Twittfake_Dev",
+    username: loggedUsername,
     content: input.value,
   };
 

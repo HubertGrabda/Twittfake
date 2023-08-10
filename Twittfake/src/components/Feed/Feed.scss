@@ -7,6 +7,7 @@
   align-items: center;
   gap: 0.5rem;
   margin: 0 auto;
+  width: 85%;
 
   @media #{$tablets-only} {
     width: 60%;
@@ -17,7 +18,7 @@
   }
 
   @media #{$desktop} {
-    width: 37%;
+    width: 34%;
     margin: 0.5rem auto;
   }
 
@@ -153,21 +154,9 @@
         }
       }
 
-      &__comment {
-        &:hover {
-          @include reactionHoverEffect(rgba(0, 0, 255, 0.367));
-        }
-      }
-      &__pen-to-square {
-        &:hover {
-          @include reactionHoverEffect(rgba(0, 128, 0, 0.363));
-        }
-      }
-
+      &__comment,
+      &__pen-to-square,
       &__retweet {
-        &:hover {
-          @include reactionHoverEffect(rgba(126, 128, 0, 0.363));
-        }
         cursor: pointer;
       }
     }
@@ -283,11 +272,6 @@
 
           &__pen-to-square {
             cursor: pointer;
-            padding: 0.1rem;
-
-            &:hover {
-              @include reactionHoverEffect($twittfake_purple_hover_ver-2);
-            }
           }
 
           &__trash-can {

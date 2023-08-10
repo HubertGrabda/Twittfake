@@ -3,15 +3,25 @@ import logo from "../../images/twittfake.png";
 import { Link } from "react-router-dom";
 
 const ProfileRefernece = () => {
+  const userLogged = localStorage.getItem("username");
+  const logInText = "Zaloguj się";
+
   return (
     <>
-      <Link to='/Profile'>
-        <div className='profile-ref'>
-          <img src={logo} className='profile-ref__picture'></img>
-          <h1 className='profile-ref__username'> @Twittfake_Dev </h1>
-          <span className='profile-ref__username--underline'></span>
-        </div>
-      </Link>
+      {userLogged ? (
+        <Link to='/Profile'>
+          <div className='profile-ref'>
+            <img src={logo} className='profile-ref__picture'></img>
+            <h1 className='profile-ref__username'> {userLogged} </h1>
+          </div>
+        </Link>
+      ) : (
+        <Link to='/SignIn'>
+          <div className='profile-ref'>
+            <h1 className='profile-ref__username'> {logInText} </h1>
+          </div>
+        </Link>
+      )}
     </>
   );
 };

@@ -79,7 +79,12 @@ $desktop: "(min-width:1440px)";
 
   @media #{$laptop} {
     width: 6rem;
-    height: 3.6vh;
+    height: 4.3vh;
+  }
+
+  @media #{$desktop} {
+    padding-bottom: 0.2rem;
+    height: 3.7vh;
   }
 
   &:hover {

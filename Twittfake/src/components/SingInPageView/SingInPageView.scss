@@ -1,10 +1,12 @@
 @import "../variables";
 
 .form-wrapper {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 50%);
   border: 3px solid #7a4988;
   width: 90vw;
-  max-height: 70vh;
-  margin: 4.5rem auto;
   border-radius: 1rem;
   position: relative;
   background-color: $twittfake_background_color;
@@ -15,8 +17,6 @@
 
   @media #{$tablets-only} {
     width: 75vw;
-    height: 55vh;
-    margin: 10rem auto;
   }
 
   @media #{$laptop} {
@@ -25,8 +25,8 @@
 
   @media #{$desktop} {
     width: 45vw;
-    height: 70vw;
     justify-content: space-evenly;
+    height: 25rem;
   }
 
   &__return-arrow {
@@ -107,6 +107,10 @@
       border-left: none;
       border-right: none;
 
+      &.error {
+        border-bottom: 2px solid red;
+      }
+
       &:focus-visible {
         outline: none;
       }
@@ -119,7 +123,7 @@
 
       @media #{$laptop} {
         font-size: 1.2rem;
-        width: 75%;
+        width: 65%;
         height: 3rem;
       }
     }
@@ -133,6 +137,7 @@
       border-top: none;
       border-left: none;
       border-right: none;
+      margin: 1rem 0;
 
       color: $twittfake_font_white;
       transition: all 0.5s ease-in-out;
@@ -152,33 +157,6 @@
         font-size: 1.2rem;
         width: 7rem;
         height: 3rem;
-      }
-    }
-  }
-
-  &__reference-to-sign-up {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2rem;
-    font-size: 1rem;
-
-    @media #{$tablets-only} {
-      margin-top: 2.5rem;
-      font-size: 1.1rem;
-    }
-
-    @media #{$laptop} {
-      margin-top: 2.5rem;
-      font-size: 1.1rem;
-    }
-
-    &__link {
-      color: $twittfake_purple;
-      cursor: pointer;
-
-      &:hover {
-        color: $twittfake_purple_hover_ver-2;
       }
     }
   }

@@ -4,7 +4,8 @@ const submitComment = (
   tweets,
   setTweets,
   inputErrorMessage,
-  defaultPlaceholderText
+  defaultPlaceholderText,
+  username
 ) => {
   let input = refName.current;
   if (input.value.trim() === "") {
@@ -26,7 +27,7 @@ const submitComment = (
 
   const newComment = {
     id: highestCommentId + 1,
-    username: "Twittfake_Dev",
+    username: username,
     content: input.value,
   };
 

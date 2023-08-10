@@ -5,7 +5,7 @@ import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitTweet from "../../functions/submitTweet";
 
 export const AddTweetArea = () => {
-  const { tweets, setTweets, loggedUsername, inputPlaceholder } =
+  const { tweets, setTweets, userLogged, inputPlaceholder } =
     useContext(TweetsContext);
   const buttonValue = "Prześlij";
   const InputRef = useRef();
@@ -16,12 +16,20 @@ export const AddTweetArea = () => {
         className='textarea-wrapper__input'
         placeholder={inputPlaceholder}
         ref={InputRef}
-        maxLength={100}
+        maxLength={85}
         onKeyDown={handleLinesAmount}
       ></textarea>
       <button
         className='textarea-wrapper__submit-button'
-        onClick={() => submitTweet(InputRef, tweets, setTweets, loggedUsername)}
+        onClick={() =>
+          submitTweet(
+            InputRef,
+            tweets,
+            setTweets,
+            userLogged,
+            "textarea-wrapper__input--error"
+          )
+        }
       >
         {buttonValue}
       </button>

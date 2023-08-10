@@ -10,7 +10,7 @@ const CommentArea = ({ id }) => {
   const buttonValue = "Prześlij";
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
   const addCommentInputRef = useRef();
-  const { tweets, setTweets } = useContext(TweetsContext);
+  const { tweets, setTweets, userLogged } = useContext(TweetsContext);
 
   return (
     <div className='add-comment'>
@@ -18,7 +18,7 @@ const CommentArea = ({ id }) => {
         ref={addCommentInputRef}
         className='add-comment__input'
         placeholder={defaultPlaceholderText}
-        maxLength={100}
+        maxLength={88}
         onKeyDown={handleLinesAmount}
       ></textarea>
       <button
@@ -30,7 +30,8 @@ const CommentArea = ({ id }) => {
             tweets,
             setTweets,
             inputErrorMessage,
-            defaultPlaceholderText
+            defaultPlaceholderText,
+            userLogged
           )
         }
       >

@@ -6,12 +6,14 @@ const TweetsContext = createContext();
 // eslint-disable-next-line react/prop-types
 const TweetsProvider = ({ children }) => {
   const [tweets, setTweets] = useState(TweetsData.tweets);
-  const loggedUsername = "Twittfake_Dev";
-  const inputPlaceholder = `O czym myślisz, ${loggedUsername}?`;
+  const userLogged = localStorage.getItem("username");
+  const inputPlaceholder = `O czym myślisz${
+    userLogged ? `, ${userLogged}` : ""
+  }?`;
 
   return (
     <TweetsContext.Provider
-      value={{ tweets, setTweets, loggedUsername, inputPlaceholder }}
+      value={{ tweets, setTweets, userLogged, inputPlaceholder }}
     >
       {children}
     </TweetsContext.Provider>

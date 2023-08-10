@@ -17,12 +17,12 @@ import retweet from "../../functions/retweetFunction";
 import toggleState from "../../functions/toggleState";
 
 const Feed = () => {
-  const { tweets, setTweets } = useContext(TweetsContext);
+  const { tweets, setTweets, loggedUser } = useContext(TweetsContext);
   const path = useLocation();
 
   const hideOtherUsersTweets =
     path.pathname === "/Profile"
-      ? tweets.filter((tweet) => tweet.username === "Twittfake_Dev")
+      ? tweets.filter((tweet) => tweet.username === loggedUser)
       : tweets;
 
   const icons = [faComment, faEdit, faRetweet, faTrashAlt];
