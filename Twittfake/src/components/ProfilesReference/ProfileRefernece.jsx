@@ -3,7 +3,7 @@ import logo from "../../images/twittfake.png";
 import { Link } from "react-router-dom";
 
 const ProfileRefernece = () => {
-  const userLogged = localStorage.getItem("username");
+  const userLogged = sessionStorage.getItem("username");
   const logInText = "Zaloguj się";
 
   return (

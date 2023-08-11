@@ -193,8 +193,7 @@
         }
 
         @media #{$desktop} {
-          padding: 0.5rem;
-          width: 75%;
+          width: 80%;
         }
 
         &__username {
@@ -211,10 +210,14 @@
           outline: none;
           margin: 0.2rem auto;
 
+          @media #{$desktop} {
+            height: 3.8rem;
+          }
+
           &--edit-mode {
             height: inherit;
             border: inherit;
-            width: 95%;
+            width: 100%;
             text-align: inherit;
             resize: inherit;
             margin-top: inherit;

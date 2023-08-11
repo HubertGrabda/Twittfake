@@ -10,34 +10,40 @@ const CommentArea = ({ id }) => {
   const buttonValue = "Prześlij";
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
   const addCommentInputRef = useRef();
-  const { tweets, setTweets, userLogged } = useContext(TweetsContext);
+  const { tweets, setTweets } = useContext(TweetsContext);
+  const userLogged = sessionStorage.getItem("username");
 
   return (
-    <div className='add-comment'>
-      <textarea
-        ref={addCommentInputRef}
-        className='add-comment__input'
-        placeholder={defaultPlaceholderText}
-        maxLength={88}
-        onKeyDown={handleLinesAmount}
-      ></textarea>
-      <button
-        className='add-comment__submit-button'
-        onClick={() =>
-          submitComment(
-            id,
-            addCommentInputRef,
-            tweets,
-            setTweets,
-            inputErrorMessage,
-            defaultPlaceholderText,
-            userLogged
-          )
-        }
-      >
-        {buttonValue}
-      </button>
-    </div>
+    <>
+      {" "}
+      {userLogged && (
+        <div className='add-comment'>
+          <textarea
+            ref={addCommentInputRef}
+            className='add-comment__input'
+            placeholder={defaultPlaceholderText}
+            maxLength={80}
+            onKeyDown={handleLinesAmount}
+          ></textarea>
+          <button
+            className='add-comment__submit-button'
+            onClick={() =>
+              submitComment(
+                id,
+                addCommentInputRef,
+                tweets,
+                setTweets,
+                inputErrorMessage,
+                defaultPlaceholderText,
+                userLogged
+              )
+            }
+          >
+            {buttonValue}
+          </button>
+        </div>
+      )}{" "}
+    </>
   );
 };
 
