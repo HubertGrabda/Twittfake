@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
+
 const SingInPageView = () => {
   const buttonText = "Zaloguj";
   const usernamePlaceholderText = "Nazwa użytkownika";
@@ -13,21 +14,32 @@ const SingInPageView = () => {
   const InputsRef = useRef([]);
   const usernameInputError = "Podaj nazwę użytkownika!";
   const defaultInputClassName = "form-wrapper__inputs-field__input";
+  const errorInputClassName = "form-wrapper__inputs-field__input error";
   const navigate = useNavigate();
-  const [errorOccurred, setErrorOccured] = useState(false);
+  const [errorOccurred, setErrorOccured] = useState([]);
 
-  const inputIsValid = (input) => {
+  const inputIsValid = (input, id) => {
     if (
       input.value.trim() === "" ||
-      input.value.length < 5 ||
-      input.value.length > 15
+      input.value.length <= 5 ||
+      input.value.length >= 15
     ) {
-      setErrorOccured(true);
-      input.className = defaultInputClassName + " error";
+      setErrorOccured((prevErrorOccurred) => {
+        const updatedErrorOccurred = [...prevErrorOccurred];
+        updatedErrorOccurred[id] = true;
+        return updatedErrorOccurred;
+      });
+      input.className = errorInputClassName;
       return false;
+    } else {
+      setErrorOccured((prevErrorOccurred) => {
+        const updatedErrorOccurred = [...prevErrorOccurred];
+        updatedErrorOccurred[id] = false;
+        return updatedErrorOccurred;
+      });
+      input.className = defaultInputClassName;
+      return true;
     }
-    setErrorOccured(false);
-    return true;
   };
 
   const logInFunction = (e) => {
@@ -36,13 +48,13 @@ const SingInPageView = () => {
     const usernameInput = InputsRef.current[0];
     const passwordInput = InputsRef.current[1];
 
-    const isUsernameValid = inputIsValid(usernameInput);
-    const isPasswordValid = inputIsValid(passwordInput);
+    const isUsernameValid = inputIsValid(usernameInput, 0);
+    // console.log(inputIsValid(usernameInput, 0));
+    const isPasswordValid = inputIsValid(passwordInput, 1);
+    // console.log(inputIsValid(passwordInput, 0));
 
     if (isUsernameValid && isPasswordValid) {
       navigate("/");
-    } else if (!isPasswordValid) {
-      passwordInput.className = `${defaultInputClassName} error`;
     }
   };
 
@@ -71,7 +83,7 @@ const SingInPageView = () => {
         <label
           htmlFor='username-input'
           className={`form-wrapper__inputs-field__error ${
-            errorOccurred ? "display" : ""
+            errorOccurred[0] ? "display" : ""
           }`}
         >
           {usernameInputError}
@@ -80,15 +92,15 @@ const SingInPageView = () => {
           maxLength={15}
           type='password'
           id='password-input'
+          ref={(ref) => (InputsRef.current[1] = ref)}
           className={defaultInputClassName}
           placeholder={passwordPlaceholderText}
-          ref={(ref) => (InputsRef.current[1] = ref)}
           required
         ></input>
         <label
           htmlFor='password-input'
           className={`form-wrapper__inputs-field__error ${
-            errorOccurred ? "display" : ""
+            errorOccurred[1] ? "display" : ""
           }`}
         >
           {passwordErrorText}

@@ -1,10 +1,7 @@
 @import "../variables";
 
 .form-wrapper {
-  position: fixed;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%, 25%);
+  margin: 7rem auto;
   border: 3px solid #7a4988;
   width: 90vw;
   border-radius: 1rem;
