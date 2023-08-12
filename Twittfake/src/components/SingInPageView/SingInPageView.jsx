@@ -6,36 +6,37 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 
 const SingInPageView = () => {
-  const buttonText = "Zaloguj";
-  const usernamePlaceholderText = "Nazwa użytkownika";
-  const passwordPlaceholderText = "Hasło";
-  const passwordErrorText = "Hasło powinno zawierać od 5 do 15 znaków!";
-  const welcomeText = "Zaloguj się";
-  const InputsRef = useRef([]);
-  const usernameInputError = "Podaj nazwę użytkownika!";
-  const defaultInputClassName = "form-wrapper__inputs-field__input";
-  const errorInputClassName = "form-wrapper__inputs-field__input error";
-  const navigate = useNavigate();
-  const [errorOccurred, setErrorOccured] = useState([]);
+  const buttonText = "Zaloguj",
+    usernamePlaceholderText = "Nazwa użytkownika",
+    passwordPlaceholderText = "Hasło",
+    welcomeText = "Zaloguj się",
+    passwordErrorText = "Hasło powinno zawierać od 5 do 15 znaków!",
+    usernameInputError = "Podaj nazwę użytkownika!",
+    defaultInputClassName = "form-wrapper__inputs-field__input",
+    errorInputClassName = "form-wrapper__inputs-field__input error",
+    navigate = useNavigate(),
+    InputsRef = useRef([]),
+    [errorOccurred, setErrorOccured] = useState([]);
 
   const inputIsValid = (input, id) => {
     if (
-      input.value.trim() === "" ||
-      input.value.length <= 5 ||
-      input.value.length >= 15
+      input?.value.trim() === "" ||
+      input?.value.length <= 5 ||
+      input?.value.length >= 15
     ) {
-      setErrorOccured((prevErrorOccurred) => {
-        const updatedErrorOccurred = [...prevErrorOccurred];
-        updatedErrorOccurred[id] = true;
-        return updatedErrorOccurred;
+      setErrorOccured((prevErrorState) => {
+        const errorStateArray = [...(prevErrorState ?? [])];
+        errorStateArray[id] = true;
+        return errorStateArray;
       });
+
       input.className = errorInputClassName;
       return false;
     } else {
-      setErrorOccured((prevErrorOccurred) => {
-        const updatedErrorOccurred = [...prevErrorOccurred];
-        updatedErrorOccurred[id] = false;
-        return updatedErrorOccurred;
+      setErrorOccured((prevErrorState) => {
+        const errorStateArray = [...(prevErrorState ?? [])];
+        errorStateArray[id] = false;
+        return errorStateArray;
       });
       input.className = defaultInputClassName;
       return true;
@@ -49,9 +50,7 @@ const SingInPageView = () => {
     const passwordInput = InputsRef.current[1];
 
     const isUsernameValid = inputIsValid(usernameInput, 0);
-    // console.log(inputIsValid(usernameInput, 0));
     const isPasswordValid = inputIsValid(passwordInput, 1);
-    // console.log(inputIsValid(passwordInput, 0));
 
     if (isUsernameValid && isPasswordValid) {
       navigate("/");

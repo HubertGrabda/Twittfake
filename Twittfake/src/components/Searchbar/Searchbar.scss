@@ -10,7 +10,7 @@
   }
 
   @media #{$desktop} {
-    right: 14%;
+    right: 18%;
   }
 
   &__input {
@@ -27,7 +27,7 @@
     }
 
     @media #{$desktop} {
-      width: 17vw;
+      width: 15vw;
     }
 
     &:focus-visible {

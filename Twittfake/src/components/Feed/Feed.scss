@@ -18,7 +18,7 @@
   }
 
   @media #{$desktop} {
-    width: 34%;
+    width: 32%;
     margin: 0.5rem auto;
   }
 
@@ -209,10 +209,6 @@
           resize: none;
           outline: none;
           margin: 0.2rem auto;
-
-          @media #{$desktop} {
-            height: 3.8rem;
-          }
 
           &--edit-mode {
             height: inherit;
