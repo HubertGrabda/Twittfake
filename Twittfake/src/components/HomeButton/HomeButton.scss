@@ -1,7 +1,7 @@
 @import "../variables";
 
 .home-icon {
-  right: 0.5rem;
+  right: 1.5rem;
   @include buttons;
 
   @media #{$tablets-only} {

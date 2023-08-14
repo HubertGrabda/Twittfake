@@ -50,7 +50,7 @@ $desktop: "(min-width:1440px)";
   display: block;
   cursor: pointer;
   position: fixed;
-  top: 0.7rem;
+  top: 1rem;
 
   @media #{$tablets-only} {
     padding: 0.5rem;

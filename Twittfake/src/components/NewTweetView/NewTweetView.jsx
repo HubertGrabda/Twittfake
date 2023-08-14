@@ -7,8 +7,11 @@ import submitTweetMobileOnly from "../../functions/submitTweetMobileOnly";
 import useResizeAndRedirect from "../../hooks/handleResize";
 
 const NewTweetView = () => {
-  const { tweets, setTweets, loggedUsername, inputPlaceholder } =
-    useContext(TweetsContext);
+  const { tweets, setTweets } = useContext(TweetsContext);
+  const loggedUsername = sessionStorage.getItem("username");
+  const inputPlaceholder = `O czym myślisz${
+    loggedUsername ? `, ${loggedUsername}` : ""
+  }?`;
   const textareaInput = useRef();
   const buttonValue = "Prześlij";
   const navigate = useNavigate();

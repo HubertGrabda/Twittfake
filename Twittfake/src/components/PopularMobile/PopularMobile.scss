@@ -8,12 +8,14 @@
   border-radius: 1rem;
 
   @media #{$tablets-only} {
+    margin: 4rem auto;
     width: 60vw;
   }
 
   &__tile {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 0.5rem;
     border-bottom: 1px solid $twittfake_font_white;
     border-radius: 10px;
@@ -21,7 +23,7 @@
     color: $twittfake_font_white;
 
     @media #{$tablets-only} {
-      max-height: 6rem;
+      height: 6rem;
     }
 
     &:hover {
@@ -35,10 +37,9 @@
       opacity: 1;
 
       @media #{$tablets-only} {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
     }
-
     &__category {
       font-size: 0.9rem;
       opacity: 0.7;
@@ -53,7 +54,6 @@
       opacity: 0.7;
 
       @media #{$tablets-only} {
-        margin-top: -0.3rem;
         font-size: 1rem;
       }
     }

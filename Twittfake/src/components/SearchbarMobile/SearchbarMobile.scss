@@ -21,6 +21,11 @@
     &:focus-visible {
       outline: 1px solid $twittfake_purple_hover;
     }
+
+    @media #{$tablets-only} {
+      height: 2.7rem;
+    }
+
   }
 
   &__icon {

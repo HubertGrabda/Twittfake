@@ -15,18 +15,19 @@ import AddCommentArea from "../AddCommentArea/AddCommentArea";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import retweet from "../../functions/retweetFunction";
 import toggleState from "../../functions/toggleState";
+import showIconsAccordingToUsername from "../../functions/showIconsAccordingToUsername";
 
 const Feed = () => {
   const { tweets, setTweets } = useContext(TweetsContext);
-  const path = useLocation();
   const userLogged = sessionStorage.getItem("username");
+  const path = useLocation();
 
   const hideOtherUsersTweets =
     path.pathname === "/Profile"
       ? tweets.filter((tweet) => tweet.username === userLogged)
       : tweets;
 
-  const icons = [faComment, faEdit, faRetweet, faTrashAlt];
+  const icons = [faComment, faRetweet, faEdit, faTrashAlt];
   const commentIcons = [faEdit, faTrashAlt];
   const contentTextArea = useRef([]);
   const [isHeartFilled, setHeartFilled] = useState({});
@@ -137,7 +138,12 @@ const Feed = () => {
                 className='tweet__reactions__heart'
                 onClick={() => heartButtonFunction(tweetId)}
               ></img>
-              {icons.map((icon, index) => (
+              {showIconsAccordingToUsername(
+                username,
+                userLogged,
+                icons,
+                -2
+              ).map((icon, index) => (
                 <React.Fragment key={index}>
                   {index === 0 ? (
                     <span
@@ -211,7 +217,12 @@ const Feed = () => {
                       className='tweet__comment-section__comment__reactions__heart'
                       onClick={() => heartButtonFunction(commentId)}
                     ></img>
-                    {commentIcons.map((icon, index) => (
+                    {showIconsAccordingToUsername(
+                      username,
+                      userLogged,
+                      commentIcons,
+                      -2
+                    ).map((icon, index) => (
                       <FontAwesomeIcon
                         key={icon.iconName}
                         icon={icon}
