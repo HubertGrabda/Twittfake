@@ -6,7 +6,6 @@ import {
   faEdit,
   faTrashAlt,
 } from "@fortawesome/free-regular-svg-icons";
-import { useLocation } from "react-router-dom";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { faRetweet } from "@fortawesome/free-solid-svg-icons";
 import emptyHeart from "../../images/heart_empty.png";
@@ -18,14 +17,8 @@ import toggleState from "../../functions/toggleState";
 import showIconsAccordingToUsername from "../../functions/showIconsAccordingToUsername";
 
 const Feed = () => {
-  const { tweets, setTweets } = useContext(TweetsContext);
+  const { tweets, setTweets, filteredItems } = useContext(TweetsContext);
   const userLogged = sessionStorage.getItem("username");
-  const path = useLocation();
-
-  const hideOtherUsersTweets =
-    path.pathname === "/Profile"
-      ? tweets.filter((tweet) => tweet.username === userLogged)
-      : tweets;
 
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
   const commentIcons = [faEdit, faTrashAlt];
@@ -33,6 +26,7 @@ const Feed = () => {
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
   const [isUserEditing, setIsUserEditing] = useState(false);
+
   const saveButtonValue = "Zapisz";
   const InputErrorMessage = "To pole nie może być puste!";
 
@@ -109,41 +103,36 @@ const Feed = () => {
 
   return (
     <section className='tweets-wrapper'>
-      {hideOtherUsersTweets.map(
-        ({ id: tweetId, username, content, comments }) => (
-          <article className='tweet' key={tweetId}>
-            <h1 className='tweet__username'>{username}</h1>
-            <textarea
-              className={`tweet__content${
-                isUserEditing[tweetId] ? "--edit-mode" : ""
-              }`}
-              defaultValue={content}
-              ref={(ref) => (contentTextArea.current[tweetId] = ref)}
-              maxLength={100}
-              rows={2}
-              readOnly={!isUserEditing[tweetId]}
-              onKeyDown={handleLinesAmount}
-            ></textarea>
-            <button
-              className={`tweet__save-edit-button${
-                isUserEditing[tweetId] ? "--active" : ""
-              }`}
-              onClick={() => saveEdit(tweetId)}
-            >
-              {saveButtonValue}
-            </button>
-            <div className='tweet__reactions'>
-              <img
-                src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
-                className='tweet__reactions__heart'
-                onClick={() => heartButtonFunction(tweetId)}
-              ></img>
-              {showIconsAccordingToUsername(
-                username,
-                userLogged,
-                icons,
-                -2
-              ).map((icon, index) => (
+      {filteredItems.map(({ id: tweetId, username, content, comments }) => (
+        <article className='tweet' key={tweetId}>
+          <h1 className='tweet__username'>{username}</h1>
+          <textarea
+            className={`tweet__content${
+              isUserEditing[tweetId] ? "--edit-mode" : ""
+            }`}
+            defaultValue={content}
+            ref={(ref) => (contentTextArea.current[tweetId] = ref)}
+            maxLength={100}
+            rows={2}
+            readOnly={!isUserEditing[tweetId]}
+            onKeyDown={handleLinesAmount}
+          ></textarea>
+          <button
+            className={`tweet__save-edit-button${
+              isUserEditing[tweetId] ? "--active" : ""
+            }`}
+            onClick={() => saveEdit(tweetId)}
+          >
+            {saveButtonValue}
+          </button>
+          <div className='tweet__reactions'>
+            <img
+              src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
+              className='tweet__reactions__heart'
+              onClick={() => heartButtonFunction(tweetId)}
+            ></img>
+            {showIconsAccordingToUsername(username, userLogged, icons, -2).map(
+              (icon, index) => (
                 <React.Fragment key={index}>
                   {index === 0 ? (
                     <span
@@ -167,78 +156,75 @@ const Feed = () => {
                     }
                   />
                 </React.Fragment>
-              ))}
-            </div>
-            <div
-              className={
-                isCommentSectionVisible[tweetId]
-                  ? "tweet__comment-section"
-                  : "tweet__comment-section isnt-visible"
-              }
-            >
-              <AddCommentArea id={tweetId} />
-              {comments?.map(({ id: commentId, username, content }) => (
-                <div
-                  key={commentId}
-                  className='tweet__comment-section__comment'
-                >
-                  <h3 className='tweet__comment-section__comment__username'>
-                    {username}
-                  </h3>
+              )
+            )}
+          </div>
+          <div
+            className={
+              isCommentSectionVisible[tweetId]
+                ? "tweet__comment-section"
+                : "tweet__comment-section isnt-visible"
+            }
+          >
+            <AddCommentArea id={tweetId} />
+            {comments?.map(({ id: commentId, username, content }) => (
+              <div key={commentId} className='tweet__comment-section__comment'>
+                <h3 className='tweet__comment-section__comment__username'>
+                  {username}
+                </h3>
 
-                  <textarea
-                    readOnly={!isUserEditing[commentId]}
-                    maxLength={50}
-                    onKeyDown={handleLinesAmount}
-                    className={`tweet__comment-section__comment__content${
-                      isUserEditing[commentId] ? "--edit-mode" : ""
+                <textarea
+                  readOnly={!isUserEditing[commentId]}
+                  maxLength={50}
+                  onKeyDown={handleLinesAmount}
+                  className={`tweet__comment-section__comment__content${
+                    isUserEditing[commentId] ? "--edit-mode" : ""
+                  }`}
+                  defaultValue={content}
+                  ref={(ref) => (contentTextArea.current[commentId] = ref)}
+                ></textarea>
+                <button
+                  className={`tweet__comment-section__comment__submit-button${
+                    isUserEditing[commentId] ? "--active" : ""
+                  }`}
+                  onClick={() => saveEdit(commentId)}
+                >
+                  {saveButtonValue}
+                </button>
+                <div className='tweet__comment-section__comment__reactions'>
+                  <span
+                    className={`tweet__comment-section__comment__reactions__counter__${
+                      isHeartFilled[commentId] ? "heart--red" : "heart"
                     }`}
-                    defaultValue={content}
-                    ref={(ref) => (contentTextArea.current[commentId] = ref)}
-                  ></textarea>
-                  <button
-                    className={`tweet__comment-section__comment__submit-button${
-                      isUserEditing[commentId] ? "--active" : ""
-                    }`}
-                    onClick={() => saveEdit(commentId)}
                   >
-                    {saveButtonValue}
-                  </button>
-                  <div className='tweet__comment-section__comment__reactions'>
-                    <span
-                      className={`tweet__comment-section__comment__reactions__counter__${
-                        isHeartFilled[commentId] ? "heart--red" : "heart"
-                      }`}
-                    >
-                      {isHeartFilled[commentId] ? 2 : 1}
-                    </span>
-                    <img
-                      src={isHeartFilled[commentId] ? fullHeart : emptyHeart}
-                      className='tweet__comment-section__comment__reactions__heart'
-                      onClick={() => heartButtonFunction(commentId)}
-                    ></img>
-                    {showIconsAccordingToUsername(
-                      username,
-                      userLogged,
-                      commentIcons,
-                      -2
-                    ).map((icon, index) => (
-                      <FontAwesomeIcon
-                        key={icon.iconName}
-                        icon={icon}
-                        className={`tweet__comment-section__comment__reactions__${icon.iconName}`}
-                        onClick={() =>
-                          handleCommentsReactions[index](tweetId, commentId)
-                        }
-                      />
-                    ))}
-                  </div>
+                    {isHeartFilled[commentId] ? 2 : 1}
+                  </span>
+                  <img
+                    src={isHeartFilled[commentId] ? fullHeart : emptyHeart}
+                    className='tweet__comment-section__comment__reactions__heart'
+                    onClick={() => heartButtonFunction(commentId)}
+                  ></img>
+                  {showIconsAccordingToUsername(
+                    username,
+                    userLogged,
+                    commentIcons,
+                    -2
+                  ).map((icon, index) => (
+                    <FontAwesomeIcon
+                      key={icon.iconName}
+                      icon={icon}
+                      className={`tweet__comment-section__comment__reactions__${icon.iconName}`}
+                      onClick={() =>
+                        handleCommentsReactions[index](tweetId, commentId)
+                      }
+                    />
+                  ))}
                 </div>
-              ))}
-            </div>
-          </article>
-        )
-      )}
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
     </section>
   );
 };

@@ -27,18 +27,19 @@
     display: none;
   }
 
+  &__person,
   &__users-profile-pic,
   &__magnifying-glass {
     animation: contentAppear 7s;
     border-radius: 50%;
-    width: 1.35rem;
-    height: 1.35rem;
     color: $twittfake_font_white;
     cursor: pointer;
 
+    &:hover {
+      color: $twittfake_font_white;
+    }
+
     @media #{$tablets-only} {
-      width: 2.5rem;
-      height: 2.5rem;
       font-size: 1.7rem;
     }
 
@@ -48,16 +49,12 @@
   }
 
   &__users-profile-pic {
-    @media #{$laptop} {
-      width: 3rem;
-      height: 3rem;
-      cursor: pointer;
-    }
-  }
+    width: 1.35rem;
+    height: 1.35rem;
 
-  &__magnifying-glass {
-    @media #{$laptop} {
-      display: none;
+    @media #{$tablets-only} {
+      width: 2rem;
+      height: 2rem;
     }
   }
 
@@ -71,14 +68,14 @@
     width: 2rem;
     height: 2rem;
 
+    &:hover {
+      color: $twittfake_font_white;
+    }
+
     @media #{$tablets-only} {
       font-size: 1.7rem;
       width: 2.7rem;
       height: 2.7rem;
-    }
-
-    @media #{$laptop} {
-      display: none;
     }
   }
 }
