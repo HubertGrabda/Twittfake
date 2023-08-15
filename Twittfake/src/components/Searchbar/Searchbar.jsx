@@ -3,24 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
+import filterItems from "../../functions/filterItems";
 
 const Searchbar = () => {
   const placeholderText = "Wyszukaj";
-  const { tweets, setSearchInput, setFilteredItems } =
-    useContext(TweetsContext);
-
-  const filterItems = (inputValue) => {
-    const filteredResults = tweets.filter((tweet) =>
-      tweet.content.toLowerCase().includes(inputValue.toLowerCase())
-    );
-
-    setFilteredItems(filteredResults);
-  };
+  const { tweets, setFilteredItems } = useContext(TweetsContext);
 
   const handleSearchInputChange = (event) => {
     const inputValue = event.target.value;
-    setSearchInput(inputValue);
-    filterItems(inputValue);
+    filterItems(tweets, inputValue, setFilteredItems);
   };
 
   return (

@@ -5,7 +5,8 @@ import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitTweet from "../../functions/submitTweet";
 
 export const AddTweetArea = () => {
-  const { tweets, setTweets } = useContext(TweetsContext);
+  const { tweets, setTweets, filteredItems, setFilteredItems } =
+    useContext(TweetsContext);
   const buttonValue = "Prześlij";
   const InputRef = useRef();
   const userLogged = sessionStorage.getItem("username");
@@ -32,7 +33,9 @@ export const AddTweetArea = () => {
                 tweets,
                 setTweets,
                 userLogged,
-                "textarea-wrapper__input--error"
+                "textarea-wrapper__input--error",
+                setFilteredItems,
+                filteredItems
               )
             }
           >

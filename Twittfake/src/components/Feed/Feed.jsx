@@ -15,10 +15,17 @@ import handleLinesAmount from "../../functions/handleLinesAmount";
 import retweet from "../../functions/retweetFunction";
 import toggleState from "../../functions/toggleState";
 import showIconsAccordingToUsername from "../../functions/showIconsAccordingToUsername";
+import { useLocation } from "react-router-dom";
 
 const Feed = () => {
   const { tweets, setTweets, filteredItems } = useContext(TweetsContext);
   const userLogged = sessionStorage.getItem("username");
+  const path = useLocation();
+
+  const isItUserProfile =
+    path.pathname === "/Profile"
+      ? tweets.filter((tweet) => tweet.username === userLogged)
+      : filteredItems;
 
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
   const commentIcons = [faEdit, faTrashAlt];
@@ -91,8 +98,8 @@ const Feed = () => {
 
   const handleTweetsReactions = [
     (id) => handleTweetsCommentsSection(id),
-    (id) => handleEditMode(id),
     (id, content) => retweet(content),
+    (id) => handleEditMode(id),
     (id) => deleleTweet(id),
   ];
 
@@ -103,7 +110,7 @@ const Feed = () => {
 
   return (
     <section className='tweets-wrapper'>
-      {filteredItems.map(({ id: tweetId, username, content, comments }) => (
+      {isItUserProfile.map(({ id: tweetId, username, content, comments }) => (
         <article className='tweet' key={tweetId}>
           <h1 className='tweet__username'>{username}</h1>
           <textarea

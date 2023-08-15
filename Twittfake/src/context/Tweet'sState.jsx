@@ -7,7 +7,6 @@ const TweetsContext = createContext();
 const TweetsProvider = ({ children }) => {
   const [tweets, setTweets] = useState(TweetsData.tweets);
   const [username, setUsername] = useState();
-  const [searchInput, setSearchInput] = useState("");
   const [filteredItems, setFilteredItems] = useState(tweets);
 
   return (
@@ -17,8 +16,6 @@ const TweetsProvider = ({ children }) => {
         setTweets,
         username,
         setUsername,
-        searchInput,
-        setSearchInput,
         filteredItems,
         setFilteredItems,
       }}
