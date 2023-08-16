@@ -22,7 +22,7 @@ const Feed = () => {
   const userLogged = sessionStorage.getItem("username");
   const path = useLocation();
 
-  const isItUserProfile =
+  const isItUsersProfile =
     path.pathname === "/Profile"
       ? tweets.filter((tweet) => tweet.username === userLogged)
       : filteredItems;
@@ -110,7 +110,7 @@ const Feed = () => {
 
   return (
     <section className='tweets-wrapper'>
-      {isItUserProfile.map(({ id: tweetId, username, content, comments }) => (
+      {isItUsersProfile.map(({ id: tweetId, username, content, comments }) => (
         <article className='tweet' key={tweetId}>
           <h1 className='tweet__username'>{username}</h1>
           <textarea

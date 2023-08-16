@@ -1,18 +1,20 @@
 import "./Popular.scss";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
+import filterItems from "../../functions/filterItems";
 
 const Popular = () => {
-  const { tweets } = useContext(TweetsContext);
+  const { tweets, setFilteredItems } = useContext(TweetsContext);
+
+  const tileInnerHtmlValue = useRef([]);
 
   const hashtagsArray = [];
+  const countMap = {};
+  const duplicates = [];
 
   tweets.map((tweet) => {
     hashtagsArray.push(tweet?.hashtag ?? null);
   });
-
-  const countMap = {};
-  const duplicates = [];
 
   hashtagsArray.forEach((hashtag) => {
     if (hashtag !== null) {
@@ -25,10 +27,25 @@ const Popular = () => {
 
   return (
     <section className='popular'>
-      {duplicates.map((element) => {
+      {duplicates.map((element, index) => {
         return (
-          <div className='popular__tile' key={element}>
-            <span className='popular__tile__catch-phrase'> #{element} </span>
+          <div
+            className='popular__tile'
+            key={element}
+            onClick={() =>
+              filterItems(
+                tweets,
+                tileInnerHtmlValue.current[index].innerHTML,
+                setFilteredItems
+              )
+            }
+          >
+            <span
+              className='popular__tile__catch-phrase'
+              ref={(ref) => (tileInnerHtmlValue.current[index] = ref)}
+            >
+              #{element}
+            </span>
             <span className='popular__tile__amount-of-tweets'>
               Tweety: {countMap[element]}
             </span>
