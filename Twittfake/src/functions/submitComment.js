@@ -5,7 +5,8 @@ const submitComment = (
   setTweets,
   inputErrorMessage,
   defaultPlaceholderText,
-  username
+  username,
+  setFilteredItems
 ) => {
   let input = refName.current;
   if (input.value.trim() === "") {
@@ -32,6 +33,14 @@ const submitComment = (
   };
 
   setTweets((prevTweets) =>
+    prevTweets.map((tweet) =>
+      tweet.id === id
+        ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
+        : tweet
+    )
+  );
+
+  setFilteredItems((prevTweets) =>
     prevTweets.map((tweet) =>
       tweet.id === id
         ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
