@@ -1,0 +1,47 @@
+@import "../variables";
+
+.textarea-wrapper {
+  display: none;
+
+  @media #{$laptop} {
+    display: flex;
+    flex-direction: column;
+    width: 44%;
+    margin: 0 auto;
+  }
+
+  @media #{$desktop} {
+    width: 32%;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    resize: none;
+    border: none;
+    font-size: 1.3rem;
+    @include shadow;
+
+    &:focus-visible {
+      outline: 1px solid $twittfake_purple_hover;
+    }
+
+    &--error {
+      width: 100%;
+      border: 1px solid red;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      resize: none;
+      font-size: 1.3rem;
+
+      &:focus-visible {
+        outline: 1px solid red;
+      }
+    }
+  }
+
+  &__submit-button {
+    @include submitButton;
+  }
+}

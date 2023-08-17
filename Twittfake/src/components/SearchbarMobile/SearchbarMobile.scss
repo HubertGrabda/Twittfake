@@ -1,0 +1,45 @@
+@import "../variables";
+
+.searchbar-Mobile {
+  width: 75%;
+  margin: 0.5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media #{$tablets-only} {
+    width: 60vw;
+  }
+
+  &__submit-button {
+    @include submitButton;
+    width: 100%;
+  }
+
+  &__input {
+    border-radius: 9999px;
+    text-align: center;
+    position: relative;
+    color: $twittfake_gray;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    @include shadow;
+
+    &:focus-visible {
+      outline: 1px solid $twittfake_purple_hover;
+    }
+
+    @media #{$tablets-only} {
+      height: 2.7rem;
+    }
+  }
+
+  &__icon {
+    position: sticky;
+    left: 1.5rem;
+    top: 0;
+    color: $twittfake_gray;
+  }
+}

@@ -1,0 +1,51 @@
+@import "../variables";
+
+.popular {
+  display: none;
+  border-radius: 1rem;
+  background-color: $twittfake_purple;
+
+  @media #{$laptop} {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    width: 22vw;
+    padding: 0.7rem;
+  }
+
+  @media #{$desktop} {
+    right: 18%;
+    width: 15vw;
+  }
+
+  &__tile {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    border-bottom: 1px solid $twittfake_font_white;
+    border-radius: 10px;
+    color: $twittfake_font_white;
+
+    &:hover {
+      background-color: $twittfake_purple_hover_ver-3;
+      cursor: pointer;
+    }
+
+    &__catch-phrase {
+      font-size: 1rem;
+    }
+
+    &__category {
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    &__amount-of-tweets {
+      opacity: 0.7;
+      font-size: 0.7rem;
+    }
+  }
+}

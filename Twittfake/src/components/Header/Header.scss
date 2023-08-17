@@ -1,0 +1,30 @@
+@import "../variables";
+
+.page-title {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: widthExpand 2s;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  border-radius: 9999px;
+  background-color: $twittfake_purple;
+  color: $twittfake_font_white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  @media #{$tablets-only} {
+    width: 23%;
+    font-size: 1.5rem;
+  }
+
+  @media #{$laptop} {
+    width: 15%;
+  }
+
+  @media #{$desktop} {
+    width: 11%;
+  }
+}

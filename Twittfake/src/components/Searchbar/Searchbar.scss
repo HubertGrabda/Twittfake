@@ -1,0 +1,45 @@
+@import "../variables";
+
+.searchbar {
+  display: none;
+  @media #{$laptop} {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  @media #{$desktop} {
+    right: 18%;
+  }
+
+  &__input {
+    border-radius: 9999px;
+    text-align: center;
+    position: relative;
+    color: $twittfake_gray;
+    width: 70vw;
+    height: 2rem;
+    border-color: $twittfake_purple;
+
+    @media #{$laptop} {
+      width: 22vw;
+    }
+
+    @media #{$desktop} {
+      width: 15vw;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $twittfake_purple_hover;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    color: $twittfake_gray;
+    transform: translateY(-50%);
+  }
+}

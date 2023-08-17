@@ -1,0 +1,14 @@
+@import "../variables";
+
+.home-icon {
+  right: 1.5rem;
+  @include buttons;
+
+  @media #{$tablets-only} {
+    right: 2.5rem;
+  }
+
+  @media #{$laptop} {
+    right: 15rem;
+  }
+}

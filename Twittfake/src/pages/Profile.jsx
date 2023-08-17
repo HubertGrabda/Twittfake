@@ -1,15 +1,13 @@
-import Header from "../assets/Header/Header";
-import ProfileView from "../assets/ProfileView/ProfileView";
-import Navbar from "../assets/Navbar/Navbar";
-import Feed from "../assets/Feed/Feed";
-import HomeButton from "../assets/HomeButton/HomeButton";
-import EditButton from "../assets/EditButton/EditButton";
+import Header from "../components/Header/Header";
+import ProfileView from "../components/ProfileView/ProfileView";
+import Navbar from "../components/Navbar/Navbar";
+import Feed from "../components/Feed/Feed";
+import HomeButton from "../components/HomeButton/HomeButton";
 
 const Profile = () => {
   return (
     <>
       <HomeButton />
-      <EditButton />
       <Header name={"Profil"} />
       <ProfileView />
       <Feed />

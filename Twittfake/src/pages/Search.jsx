@@ -1,19 +1,22 @@
-import Header from "../assets/Header/Header";
-import HomeButton from "../assets/HomeButton/HomeButton";
-import Navbar from "../assets/Navbar/Navbar";
-import PopularMobile from "../assets/PopularMobile/PopularMobile";
-import ProfilesReference from "../assets/ProfilesReference/ProfileRefernece";
-import SearchbarMobile from "../assets/SearchbarMobile/SearchbarMobile";
+import Header from "../components/Header/Header";
+import HomeButton from "../components/HomeButton/HomeButton";
+import Navbar from "../components/Navbar/Navbar";
+import ProfilesReference from "../components/ProfilesReference/ProfileRefernece";
+import SearchbarMobile from "../components/SearchbarMobile/SearchbarMobile";
+import PopularMobile from "../components/PopularMobile/PopularMobile";
+import useResizeAndRedirect from "../hooks/handleResize";
 
 const Search = () => {
+  useResizeAndRedirect();
+
   return (
     <>
       <Header name='Wyszukaj' />
       <ProfilesReference />
       <HomeButton />
-      <Navbar />
       <SearchbarMobile />
       <PopularMobile />
+      <Navbar />
     </>
   );
 };
