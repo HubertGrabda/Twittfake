@@ -8,7 +8,6 @@ const TweetsProvider = ({ children }) => {
   const [tweets, setTweets] = useState(TweetsData.tweets);
   const [username, setUsername] = useState();
   const [filteredItems, setFilteredItems] = useState(tweets);
-  
 
   return (
     <TweetsContext.Provider

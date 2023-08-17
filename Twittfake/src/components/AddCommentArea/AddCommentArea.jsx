@@ -10,11 +10,12 @@ const CommentArea = ({ id }) => {
   const buttonValue = "Prześlij";
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
   const addCommentInputRef = useRef();
-  const { tweets, setTweets, setFilteredItems } = useContext(TweetsContext);
+  const { tweets, setTweets } = useContext(TweetsContext);
   const userLogged = sessionStorage.getItem("username");
 
   return (
     <>
+      {" "}
       {userLogged && (
         <div className='add-comment'>
           <textarea
@@ -34,15 +35,14 @@ const CommentArea = ({ id }) => {
                 setTweets,
                 inputErrorMessage,
                 defaultPlaceholderText,
-                userLogged,
-                setFilteredItems
+                userLogged
               )
             }
           >
             {buttonValue}
           </button>
         </div>
-      )}
+      )}{" "}
     </>
   );
 };
