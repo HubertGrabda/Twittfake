@@ -1,13 +1,17 @@
-$twittfake_purple: #7a4988 !default;
-$twittfake_purple_hover: rgb(191, 171, 237) !default;
-$twittfake_purple_hover_ver-2: rgb(122, 73, 136, 0.5) !default;
+$twittfake_purple: #7a4988;
+$twittfake_purple_hover: rgb(191, 171, 237);
+$twittfake_purple_hover_ver-2: rgb(122, 73, 136, 0.5);
 $twittfake_purple_hover_ver-3: #83698a;
-$twittfake_gray: #9f9f9f !default;
-$twittfake_font_white: rgb(255, 255, 240) !default;
+$twittfake_gray: #9f9f9f;
+$twittfake_font_white: rgb(255, 255, 240);
 $twittfake_background_color: #e6e6fa;
 $tablets-only: "(min-width: 700px) and (max-width:1024px)";
 $laptop: "(min-width: 1024px)";
 $desktop: "(min-width:1440px)";
+
+$main-color: $twittfake_purple;
+$secondary-color: $twittfake_purple_hover;
+$semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
 
 @keyframes widthExpand {
   from {

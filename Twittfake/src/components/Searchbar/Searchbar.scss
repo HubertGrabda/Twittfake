@@ -20,7 +20,7 @@
     color: $twittfake_gray;
     width: 70vw;
     height: 2rem;
-    border-color: $twittfake_purple;
+    border-color: $main-color;
 
     @media #{$laptop} {
       width: 22vw;
@@ -31,7 +31,7 @@
     }
 
     &:focus-visible {
-      outline: 1px solid $twittfake_purple_hover;
+      outline: 1px solid $secondary-color;
     }
   }
 
