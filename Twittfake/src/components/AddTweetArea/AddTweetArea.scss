@@ -24,7 +24,7 @@
     @include shadow;
 
     &:focus-visible {
-      outline: 1px solid $secondary-color;
+      outline: 1px solid $twittfake_purple_hover;
     }
 
     &--error {

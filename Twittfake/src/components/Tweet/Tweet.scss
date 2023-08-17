@@ -5,8 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid $secondary-color;
-  border-left: 1px solid $secondary-color;
+  border-right: 1px solid $twittfake_purple_hover;
+  border-left: 1px solid $twittfake_purple_hover;
   width: 100%;
   border-radius: 1.1rem;
   line-height: 1.2rem;
@@ -30,7 +30,7 @@
       border-radius: 9999px;
       width: 4rem;
       height: 1.5rem;
-      background-color: $secondary-color;
+      background-color: $twittfake_purple_hover;
       color: $twittfake_font_white;
       border: none;
       margin: 0.5rem;
@@ -80,7 +80,7 @@
       }
 
       &:focus-visible {
-        outline: $main-color;
+        outline: $twittfake_purple;
       }
     }
   }
@@ -93,7 +93,7 @@
     gap: 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    color: $main-color;
+    color: $twittfake_purple;
     height: 2rem;
     font-size: 1rem;
 
@@ -153,7 +153,7 @@
     }
 
     .comment {
-      background-color: $secondary-color;
+      background-color: $twittfake_purple_hover;
       border-radius: 1.1rem;
       padding: 0.9rem;
       width: 90%;
@@ -193,7 +193,7 @@
           text-align: inherit;
           resize: inherit;
           margin-top: inherit;
-          outline-color: $main-color;
+          outline-color: $twittfake_purple;
           margin: 1rem auto;
           border-radius: 1rem;
           padding: 0.5rem;
@@ -203,7 +203,7 @@
       &__submit-button {
         display: none;
         border-radius: 999px;
-        background-color: $main-color;
+        background-color: $twittfake_purple;
         border: none;
         width: 25%;
         height: 1.6rem;
@@ -211,7 +211,7 @@
         color: $twittfake_font_white;
 
         &--active {
-          background-color: $main-color;
+          background-color: $twittfake_purple;
           color: $twittfake_font_white;
           display: block;
           height: inherit;

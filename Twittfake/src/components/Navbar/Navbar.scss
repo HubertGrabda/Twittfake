@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: $semi-transparent-secondary-color;
+  background-color: $twittfake_purple_hover_ver-2;
   border-radius: 9999px;
   transition: all 0.3s ease;
 
@@ -62,7 +62,7 @@
     animation: contentAppear 7s;
     color: $twittfake_font_white;
     border-radius: 50%;
-    background-color: $main-color;
+    background-color: $twittfake_purple;
     text-align: center;
     font-size: 1.3rem;
     width: 2rem;

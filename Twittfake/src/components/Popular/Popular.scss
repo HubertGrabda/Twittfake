@@ -3,7 +3,7 @@
 .popular {
   display: none;
   border-radius: 1rem;
-  background-color: $main-color;
+  background-color: $twittfake_purple;
 
   @media #{$laptop} {
     display: flex;
@@ -30,7 +30,7 @@
     color: $twittfake_font_white;
 
     &:hover {
-      background-color: $secondary-color;
+      background-color: $twittfake_purple_hover_ver-3;
       cursor: pointer;
     }
 

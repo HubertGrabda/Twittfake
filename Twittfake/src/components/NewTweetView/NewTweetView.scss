@@ -82,7 +82,7 @@
         }
 
         &:focus-visible {
-          outline-color: $secondary-color;
+          outline-color: $twittfake_purple_hover;
         }
       }
     }
@@ -90,13 +90,13 @@
     &__submit-button {
       border-radius: 1rem;
       color: $twittfake_font_white;
-      background-color: $main-color;
+      background-color: $twittfake_purple;
       border: none;
       width: 4.2rem;
       height: 2.7rem;
 
       &:hover {
-        background-color: $secondary-color;
+        background-color: $twittfake_purple_hover;
       }
 
       @media #{$tablets-only} {

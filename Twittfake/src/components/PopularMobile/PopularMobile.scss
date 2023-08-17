@@ -4,7 +4,7 @@
   margin: 0 auto;
   width: 75vw;
   padding: 0.1rem;
-  background-color: $main-color;
+  background-color: $twittfake_purple;
   border-radius: 1rem;
 
   @media #{$tablets-only} {
@@ -27,7 +27,7 @@
     }
 
     &:hover {
-      background-color: $secondary-color;
+      background-color: $twittfake_purple_hover_ver-2;
       cursor: pointer;
     }
 
