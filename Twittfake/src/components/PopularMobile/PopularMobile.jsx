@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./PopularMobile.scss";
 import { TweetsContext } from "../../context/Tweet'sState";
+import { Link } from "react-router-dom";
 
 const PopularMobile = () => {
   const { tweets } = useContext(TweetsContext);
@@ -26,13 +27,13 @@ const PopularMobile = () => {
   return (
     <div className='popularMobile'>
       {duplicates.slice(0, 4).map((element) => (
-        <section className='popularMobile__tile' key={element}>
-          <span className='popularMobile__tile__category'>{element}</span>
-          <span className='popularMobile__tile__catch-phrase'> {element} </span>
-          <span className='popularMobile__tile__amount-of-tweets'>
+        <Link to='/' className='tile' key={element}>
+          <span className='tile__category'>{element}</span>
+          <span className='tile__catch-phrase'> {element} </span>
+          <span className='tile__amount-of-tweets'>
             Tweety: {countMap[element]}
           </span>
-        </section>
+        </Link>
       ))}
     </div>
   );

@@ -12,7 +12,7 @@
     width: 60vw;
   }
 
-  &__tile {
+  .tile {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,6 +21,7 @@
     border-radius: 10px;
     height: 5.2rem;
     color: $twittfake_font_white;
+    text-decoration: none;
 
     @media #{$tablets-only} {
       height: 6rem;

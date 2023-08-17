@@ -13,10 +13,10 @@ import React, { useRef } from "react";
 import TweetService from "../../services/TweetService";
 import PropTypes from "prop-types";
 import "./Tweet.scss";
+import TweetComment from "../TweetComment/TweetComment";
 
 const Tweet = ({ tweetId, username, content, comments }) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
-  const commentIcons = [faEdit, faTrashAlt];
   const contentTextArea = useRef([]);
   const tweetService = TweetService();
 
@@ -32,7 +32,6 @@ const Tweet = ({ tweetId, username, content, comments }) => {
     saveEdit,
     retweet,
     deleleTweet,
-    deleteComment,
   } = tweetService;
 
   const saveButtonValue = "Zapisz";
@@ -42,11 +41,6 @@ const Tweet = ({ tweetId, username, content, comments }) => {
     (id, content) => retweet(content),
     (id) => handleEditMode(id, contentTextArea),
     (id) => deleleTweet(id),
-  ];
-
-  const handleCommentsReactions = [
-    (id, commentsID) => handleEditMode(commentsID),
-    (id, commentId) => deleteComment(id, commentId),
   ];
 
   return (
@@ -112,57 +106,13 @@ const Tweet = ({ tweetId, username, content, comments }) => {
       >
         <AddCommentArea id={tweetId} />
         {comments?.map(({ id: commentId, username, content }) => (
-          <div key={commentId} className='comment'>
-            <h3 className='comment__username'>{username}</h3>
-
-            <textarea
-              readOnly={!isUserEditing[commentId]}
-              maxLength={50}
-              onKeyDown={handleLinesAmount}
-              className={`comment__content${
-                isUserEditing[commentId] ? "--edit-mode" : ""
-              }`}
-              defaultValue={content}
-              ref={(ref) => (contentTextArea.current[commentId] = ref)}
-            ></textarea>
-            <button
-              className={`comment__submit-button${
-                isUserEditing[commentId] ? "--active" : ""
-              }`}
-              onClick={() => saveEdit(commentId, contentTextArea)}
-            >
-              {saveButtonValue}
-            </button>
-            <div className='comment__reactions'>
-              <span
-                className={`comment__reactions__counter__${
-                  isHeartFilled[commentId] ? "heart--red" : "heart"
-                }`}
-              >
-                {isHeartFilled[commentId] ? 2 : 1}
-              </span>
-              <img
-                src={isHeartFilled[commentId] ? fullHeart : emptyHeart}
-                className='comment__reactions__heart'
-                onClick={() => heartButtonFunction(commentId)}
-              ></img>
-              {showIconsAccordingToUsername(
-                username,
-                userLogged,
-                commentIcons,
-                -2
-              ).map((icon, index) => (
-                <FontAwesomeIcon
-                  key={icon.iconName}
-                  icon={icon}
-                  className={`comment__reactions__${icon.iconName}`}
-                  onClick={() =>
-                    handleCommentsReactions[index](tweetId, commentId)
-                  }
-                />
-              ))}
-            </div>
-          </div>
+          <TweetComment
+            key={commentId}
+            commentId={commentId}
+            username={username}
+            content={content}
+            tweetId={tweetId}
+          />
         ))}
       </div>
     </article>
