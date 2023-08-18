@@ -7,34 +7,17 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import useHandleScroll from "../../hooks/useHandleScroll";
 
 const Navbar = () => {
   const userLogged = sessionStorage.getItem("username");
   const navbarIcons = [faPlus, faMagnifyingGlass];
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollPos, setLastScrollPos] = useState(0);
-
   const routeToLoginOrProfile = userLogged ? "/Profile" : "SignIn";
 
-  const handleScroll = () => {
-    const currentScrollPos = window.scrollY;
-    if (currentScrollPos > lastScrollPos) {
-      setShowNavbar(false);
-    } else setShowNavbar(true);
-    setLastScrollPos(currentScrollPos);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
+  const showElement = useHandleScroll();
 
   return (
-    <div className={`navbar ${showNavbar ? "" : "hidden"}`}>
+    <div className={`navbar${showElement ? "--hidden" : ""}`}>
       <Link to={routeToLoginOrProfile}>
         {userLogged ? (
           <img

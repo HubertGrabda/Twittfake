@@ -16,7 +16,7 @@ const SearchbarMobile = () => {
   return (
     <div className='searchbar-Mobile'>
       <input className='searchbar-Mobile__input' onChange={handleInput}></input>
-      <Link to='/'>
+      <Link to='/SearchResult'>
         <button className='searchbar-Mobile__submit-button'>
           {buttonText}
         </button>

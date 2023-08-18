@@ -13,7 +13,7 @@ const PopularMobile = () => {
     <div className='popularMobile'>
       {duplicates.slice(0, 4).map((element) => (
         <Link
-          to='/'
+          to='/SearchResult'
           className='tile'
           key={element}
           onClick={() => filterItems(tweets, element, setFilteredItems)}
