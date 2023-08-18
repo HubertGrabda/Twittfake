@@ -19,7 +19,7 @@ const PopularMobile = () => {
           onClick={() => filterItems(tweets, element, setFilteredItems)}
         >
           <span className='tile__category'>{element}</span>
-          <span className='tile__catch-phrase'> {element} </span>
+          <span className='tile__catch-phrase'> #{element} </span>
           <span className='tile__amount-of-tweets'>
             Tweety: {countMap[element]}
           </span>

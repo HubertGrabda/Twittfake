@@ -1,36 +1,24 @@
 import "./Popular.scss";
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import filterItems from "../../functions/filterItems";
 import popularTrendsFilter from "../../functions/popularTrendsFilter";
 
 const Popular = () => {
   const { tweets, setFilteredItems } = useContext(TweetsContext);
-  const tileInnerHtmlValue = useRef([]);
 
   const { duplicates, countMap } = popularTrendsFilter(tweets);
 
   return (
     <section className='popular'>
-      {duplicates.map((element, index) => {
+      {duplicates.map((element) => {
         return (
           <div
             className='popular__tile'
             key={element}
-            onClick={() =>
-              filterItems(
-                tweets,
-                tileInnerHtmlValue.current[index].innerHTML,
-                setFilteredItems
-              )
-            }
+            onClick={() => filterItems(tweets, element, setFilteredItems)}
           >
-            <span
-              className='popular__tile__catch-phrase'
-              ref={(ref) => (tileInnerHtmlValue.current[index] = ref)}
-            >
-              #{element}
-            </span>
+            <span className='popular__tile__catch-phrase'>#{element}</span>
             <span className='popular__tile__amount-of-tweets'>
               Tweety: {countMap[element]}
             </span>
