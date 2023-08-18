@@ -16,7 +16,8 @@ const SingInPageView = () => {
     errorInputClassName = "form-wrapper__inputs-field__input error",
     navigate = useNavigate(),
     InputsRef = useRef([]),
-    [errorOccurred, setErrorOccured] = useState([]);
+    [errorOccurred, setErrorOccured] = useState([]),
+    [inputValue, setInputValue] = useState();
 
   const inputIsValid = (input, id) => {
     if (
@@ -53,6 +54,7 @@ const SingInPageView = () => {
     const isPasswordValid = inputIsValid(passwordInput, 1);
 
     if (isUsernameValid && isPasswordValid) {
+      sessionStorage.setItem("username", inputValue);
       navigate("/");
     }
   };
@@ -76,7 +78,7 @@ const SingInPageView = () => {
           type='text'
           className={defaultInputClassName}
           placeholder={usernamePlaceholderText}
-          onInput={(e) => sessionStorage.setItem("username", e.target.value)}
+          onInput={(e) => setInputValue(e.target.value)}
           required
         ></input>
         <label

@@ -19,23 +19,23 @@ const NewTweetView = () => {
 
   return (
     <div className='input-field-wrapper'>
-      <div className='input-field-wrapper__user-data'>
+      <div className='user-data'>
         <img
           src={logo}
-          className='input-field-wrapper__user-data__profile-pic'
+          className='user-data__profile-pic'
         ></img>
-        <h4 className='input-field-wrapper__user-data__username'>
+        <h4 className='user-data__username'>
           {loggedUsername}
         </h4>
       </div>
-      <div className='input-field-wrapper__textarea'>
+      <div className='textarea'>
         <textarea
           ref={textareaInput}
-          className='input-field-wrapper__textarea__input'
+          className='textarea__input'
           placeholder={inputPlaceholder}
         ></textarea>{" "}
         <button
-          className='input-field-wrapper__textarea__submit-button'
+          className='textarea__submit-button'
           onClick={() =>
             submitTweetMobileOnly(
               textareaInput,

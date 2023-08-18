@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
 
-  &__user-data {
+  .user-data {
     display: flex;
     width: 90%;
     height: 2rem;
@@ -42,7 +42,7 @@
     }
   }
 
-  &__textarea {
+  .textarea {
     margin-bottom: 0.5rem;
     width: 100%;
     height: 55%;

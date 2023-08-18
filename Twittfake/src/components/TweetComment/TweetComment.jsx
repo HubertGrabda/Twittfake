@@ -1,4 +1,5 @@
 import TweetService from "../../services/TweetService";
+import "./TweetComment.scss";
 import emptyHeart from "../../images/heart_empty.png";
 import fullHeart from "../../images/heart_full.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
