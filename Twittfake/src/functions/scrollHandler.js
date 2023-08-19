@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useScrollHandler = () => {
+const ScrollHandler = () => {
   const [showElement, setShowElement] = useState(true);
   const [lastScrollPos, setLastScrollPos] = useState(0);
 
@@ -25,4 +25,4 @@ const useScrollHandler = () => {
   return showElement;
 };
 
-export default useScrollHandler;
+export default ScrollHandler;

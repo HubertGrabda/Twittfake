@@ -7,7 +7,7 @@ import submitTweetMobileOnly from "../../functions/submitTweetMobileOnly";
 import useResizeAndRedirect from "../../hooks/handleResize";
 
 const NewTweetView = () => {
-  const { tweets, setTweets } = useContext(TweetsContext);
+  const { tweets, setTweets, setFilteredItems } = useContext(TweetsContext);
   const loggedUsername = sessionStorage.getItem("username");
   const inputPlaceholder = `O czym myślisz${
     loggedUsername ? `, ${loggedUsername}` : ""
@@ -20,13 +20,8 @@ const NewTweetView = () => {
   return (
     <div className='input-field-wrapper'>
       <div className='user-data'>
-        <img
-          src={logo}
-          className='user-data__profile-pic'
-        ></img>
-        <h4 className='user-data__username'>
-          {loggedUsername}
-        </h4>
+        <img src={logo} className='user-data__profile-pic'></img>
+        <h4 className='user-data__username'>{loggedUsername}</h4>
       </div>
       <div className='textarea'>
         <textarea
@@ -42,7 +37,8 @@ const NewTweetView = () => {
               tweets,
               setTweets,
               navigate,
-              inputPlaceholder
+              inputPlaceholder,
+              setFilteredItems
             )
           }
         >

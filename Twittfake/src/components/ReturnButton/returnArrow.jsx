@@ -1,11 +1,11 @@
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./returnArrow.scss";
-import useScrollHandler from "../../hooks/useHandleScroll";
 import { Link } from "react-router-dom";
+import ScrollHandler from "../../functions/scrollHandler";
 
 const ReturnButton = () => {
-  const showElement = useScrollHandler();
+  const showElement = ScrollHandler();
 
   return (
     <Link to='/Search'>
