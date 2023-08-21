@@ -11,6 +11,7 @@ const TweetService = () => {
   const [isUserEditing, setIsUserEditing] = useState(false);
   const { tweets, setTweets, setFilteredItems } = useContext(TweetsContext);
   const InputErrorMessage = "To pole nie może być puste!";
+  const saveButtonValue = "Zapisz";
 
   const heartButtonFunction = (id) => {
     toggleState(setHeartFilled, (prevHeartsFilled) => !prevHeartsFilled, id);
@@ -123,6 +124,7 @@ const TweetService = () => {
     retweet,
     deleleTweet,
     deleteComment,
+    saveButtonValue,
   };
 };
 

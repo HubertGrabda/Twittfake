@@ -38,7 +38,8 @@ const NewTweetView = () => {
               setTweets,
               navigate,
               inputPlaceholder,
-              setFilteredItems
+              setFilteredItems,
+              loggedUsername
             )
           }
         >

@@ -10,10 +10,10 @@ const SingInPageView = () => {
     usernamePlaceholderText = "Nazwa użytkownika",
     passwordPlaceholderText = "Hasło",
     welcomeText = "Zaloguj się",
-    passwordErrorText = "Hasło powinno zawierać od 5 do 15 znaków!",
-    usernameInputError = "Podaj nazwę użytkownika!",
-    defaultInputClassName = "form-wrapper__inputs-field__input",
-    errorInputClassName = "form-wrapper__inputs-field__input error",
+    ErrorText = (inputName) =>
+      `${inputName} musi zawierać od 5 do 15 znaków!`,
+    defaultInputClassName = "form__input",
+    errorInputClassName = "form__input error",
     navigate = useNavigate(),
     InputsRef = useRef([]),
     [errorOccurred, setErrorOccured] = useState([]),
@@ -70,7 +70,7 @@ const SingInPageView = () => {
         />
       </Link>
 
-      <form className='form-wrapper__inputs-field' noValidate>
+      <form className='form' noValidate>
         <input
           id='username-input'
           maxLength={13}
@@ -83,11 +83,9 @@ const SingInPageView = () => {
         ></input>
         <label
           htmlFor='username-input'
-          className={`form-wrapper__inputs-field__error ${
-            errorOccurred[0] ? "display" : ""
-          }`}
+          className={`form__error-label ${errorOccurred[0] ? "display" : ""}`}
         >
-          {usernameInputError}
+          {ErrorText("Nazwa użytkownika")}
         </label>
         <input
           maxLength={15}
@@ -100,16 +98,11 @@ const SingInPageView = () => {
         ></input>
         <label
           htmlFor='password-input'
-          className={`form-wrapper__inputs-field__error ${
-            errorOccurred[1] ? "display" : ""
-          }`}
+          className={`form__error-label ${errorOccurred[1] ? "display" : ""}`}
         >
-          {passwordErrorText}
+          {ErrorText("Hasło")}
         </label>
-        <button
-          className='form-wrapper__inputs-field__submit-button'
-          onClick={logInFunction}
-        >
+        <button className='form__submit-button' onClick={logInFunction}>
           {buttonText}
         </button>
       </form>

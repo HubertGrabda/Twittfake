@@ -5,8 +5,10 @@ import Navbar from "../components/Navbar/Navbar";
 import Popular from "../components/Popular/Popular";
 import Searchbar from "../components/Searchbar/Searchbar";
 import ProfileRefernece from "../components/ProfilesReference/ProfileRefernece";
+import useResetFilter from "../hooks/ResetFilter";
 
 const Home = () => {
+  useResetFilter();
   return (
     <>
       <ProfileRefernece />

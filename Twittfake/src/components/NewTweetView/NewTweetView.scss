@@ -67,6 +67,10 @@
         font-size: 1.6rem;
       }
 
+      &:focus-visible {
+        outline-color: $secondary-color;
+      }
+
       &--error {
         resize: inherit;
         width: 85%;
@@ -79,10 +83,6 @@
 
         @media #{$tablets-only} {
           font-size: 1.6rem;
-        }
-
-        &:focus-visible {
-          outline-color: $secondary-color;
         }
       }
     }
