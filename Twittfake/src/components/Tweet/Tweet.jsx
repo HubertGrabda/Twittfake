@@ -18,7 +18,6 @@ import TweetComment from "../TweetComment/TweetComment";
 const Tweet = ({ tweetId, username, content, comments }) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
   const contentTextArea = useRef([]);
-  const tweetService = TweetService();
 
   const {
     userLogged,
@@ -32,7 +31,8 @@ const Tweet = ({ tweetId, username, content, comments }) => {
     saveEdit,
     retweet,
     deleleTweet,
-  } = tweetService;
+    otherUsersProfileReference,
+  } = TweetService();
 
   const saveButtonValue = "Zapisz";
 
@@ -45,7 +45,12 @@ const Tweet = ({ tweetId, username, content, comments }) => {
 
   return (
     <article className='tweet' key={tweetId}>
-      <h1 className='tweet__username'>{username}</h1>
+      <h1
+        className='tweet__username'
+        onClick={() => otherUsersProfileReference(username)}
+      >
+        {username}{" "}
+      </h1>
       <textarea
         className={`tweet__content${
           isUserEditing[tweetId] ? "--edit-mode" : ""

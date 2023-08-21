@@ -5,13 +5,13 @@ import { useLocation } from "react-router-dom";
 import Tweet from "../Tweet/Tweet";
 
 const Feed = () => {
-  const { tweets, filteredItems } = useContext(TweetsContext);
+  const { tweets, filteredItems, whosProfileToDisplay } =
+    useContext(TweetsContext);
   const path = useLocation();
-  const userLogged = sessionStorage.getItem("username");
 
   const isItUsersProfile =
     path.pathname === "/Profile"
-      ? tweets.filter((tweet) => tweet.username === userLogged)
+      ? tweets.filter((tweet) => tweet.username === whosProfileToDisplay)
       : filteredItems;
 
   return (

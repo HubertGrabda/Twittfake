@@ -2,6 +2,7 @@
 import { useState, useContext, useRef } from "react";
 import toggleState from "../functions/toggleState";
 import { TweetsContext } from "../context/Tweet'sState";
+import { useNavigate } from "react-router-dom";
 
 const TweetService = () => {
   const userLogged = sessionStorage.getItem("username");
@@ -9,9 +10,12 @@ const TweetService = () => {
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
   const [isUserEditing, setIsUserEditing] = useState(false);
-  const { tweets, setTweets, setFilteredItems } = useContext(TweetsContext);
+  const { tweets, setTweets, setFilteredItems, setWhosProfileToDisplay } =
+    useContext(TweetsContext);
   const InputErrorMessage = "To pole nie może być puste!";
   const saveButtonValue = "Zapisz";
+
+  const navigate = useNavigate();
 
   const heartButtonFunction = (id) => {
     toggleState(setHeartFilled, (prevHeartsFilled) => !prevHeartsFilled, id);
@@ -77,6 +81,11 @@ const TweetService = () => {
     setFilteredItems(tweets.filter((tweet) => tweet.id !== id));
   };
 
+  const otherUsersProfileReference = (username) => {
+    setWhosProfileToDisplay(username);
+    navigate("/Profile");
+  };
+
   const deleteComment = (tweetId, commentId) => {
     setTweets((prevTweets) =>
       prevTweets.map((tweet) =>
@@ -125,6 +134,7 @@ const TweetService = () => {
     deleleTweet,
     deleteComment,
     saveButtonValue,
+    otherUsersProfileReference,
   };
 };
 

@@ -1,14 +1,14 @@
 import "./ProfileView.scss";
 import logo from "../../images/TwittfakeLogoAlt.png";
 import FollowCount from "../FollowCount/FollowCount";
+import PropTypes from "prop-types";
 
-const ProfileView = () => {
-  const loggedUsername = sessionStorage.getItem("username");
+const ProfileView = ({ username }) => {
   return (
     <>
       <div className='profile-wrapper'>
         <img src={logo} className='profile-wrapper__picture'></img>
-        <h1 className='profile-wrapper__username'> {loggedUsername} </h1>
+        <h1 className='profile-wrapper__username'> {username} </h1>
         <FollowCount />
         <div className='profile-wrapper__feed'></div>
         <h1 className='profile-wrapper__feed__user-tweets'>
@@ -17,6 +17,10 @@ const ProfileView = () => {
       </div>
     </>
   );
+};
+
+ProfileView.propTypes = {
+  username: PropTypes.string.isRequired,
 };
 
 export default ProfileView;
