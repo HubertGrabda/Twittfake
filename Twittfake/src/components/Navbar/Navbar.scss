@@ -1,7 +1,7 @@
 @import "../variables";
 
 .navbar {
-  width: 73%;
+  width: 75%;
   height: 2.9rem;
   position: fixed;
   bottom: 0.5rem;
@@ -15,7 +15,7 @@
   transform: translateX(-50%);
 
   &--hidden {
-    width: 73%;
+    width: 75%;
     height: 2.9rem;
     position: fixed;
     bottom: 0.5rem;
@@ -27,6 +27,11 @@
     border-radius: 9999px;
     transition: transform 0.5s ease;
     transform: translate(-50%, 200%);
+
+    @media #{$tablets-only} {
+      width: 45%;
+      height: 3.4rem;
+    }
   }
 
   @media #{$tablets-only} {
