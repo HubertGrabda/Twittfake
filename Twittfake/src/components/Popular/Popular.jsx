@@ -5,7 +5,8 @@ import filterItems from "../../functions/filterItems";
 import popularTrendsFilter from "../../functions/popularTrendsFilter";
 
 const Popular = () => {
-  const { tweets, setFilteredItems } = useContext(TweetsContext);
+  const { tweets, setFilteredItems, setTileIsClicked } =
+    useContext(TweetsContext);
 
   const { duplicates, countMap } = popularTrendsFilter(tweets);
 
@@ -16,7 +17,9 @@ const Popular = () => {
           <div
             className='popular__tile'
             key={element}
-            onClick={() => filterItems(tweets, element, setFilteredItems)}
+            onClick={() =>
+              filterItems(tweets, element, setFilteredItems, setTileIsClicked)
+            }
           >
             <span className='popular__tile__catch-phrase'>#{element}</span>
             <span className='popular__tile__amount-of-tweets'>

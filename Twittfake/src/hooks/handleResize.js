@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const useResizeAndRedirect = () => {
+const useRedirect = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,4 +18,4 @@ const useResizeAndRedirect = () => {
   }, [navigate]);
 };
 
-export default useResizeAndRedirect;
+export default useRedirect;

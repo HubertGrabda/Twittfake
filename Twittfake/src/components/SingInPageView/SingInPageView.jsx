@@ -10,8 +10,7 @@ const SingInPageView = () => {
     usernamePlaceholderText = "Nazwa użytkownika",
     passwordPlaceholderText = "Hasło",
     welcomeText = "Zaloguj się",
-    ErrorText = (inputName) =>
-      `${inputName} musi zawierać od 5 do 15 znaków!`,
+    ErrorText = (inputName) => `${inputName} musi zawierać od 5 do 15 znaków!`,
     defaultInputClassName = "form__input",
     errorInputClassName = "form__input error",
     navigate = useNavigate(),

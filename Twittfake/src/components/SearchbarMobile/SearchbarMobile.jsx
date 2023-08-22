@@ -5,12 +5,13 @@ import filterItems from "../../functions/filterItems";
 import { TweetsContext } from "../../context/Tweet'sState";
 
 const SearchbarMobile = () => {
-  const { tweets, setFilteredItems } = useContext(TweetsContext);
+  const { tweets, setFilteredItems, setTileIsClicked } =
+    useContext(TweetsContext);
   const buttonText = "Wyszukaj";
 
   const handleInput = (e) => {
     const inputValue = e.target.value;
-    filterItems(tweets, inputValue, setFilteredItems);
+    filterItems(tweets, inputValue, setFilteredItems, setTileIsClicked);
   };
 
   return (

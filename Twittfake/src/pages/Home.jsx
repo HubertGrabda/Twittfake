@@ -6,6 +6,7 @@ import Popular from "../components/Popular/Popular";
 import Searchbar from "../components/Searchbar/Searchbar";
 import ProfileRefernece from "../components/ProfilesReference/ProfileRefernece";
 import useResetFilter from "../hooks/ResetFilter";
+import ReturnButton from "../components/ReturnButton/returnArrow";
 
 const Home = () => {
   useResetFilter();
@@ -13,6 +14,7 @@ const Home = () => {
     <>
       <ProfileRefernece />
       <Header name={"Główna"} />
+      <ReturnButton returnTo={""} />
       <AddTweetArea />
       <Feed />
       <Navbar />

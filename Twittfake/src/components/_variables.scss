@@ -13,6 +13,26 @@ $main-color: $twittfake_purple;
 $secondary-color: $twittfake_purple_hover;
 $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
 
+@mixin backgroundClr {
+  background: rgb(122, 73, 136);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(122, 73, 136, 0.3897934173669467) 13%,
+    rgba(237, 234, 234, 1) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(122, 73, 136, 0.3897934173669467) 13%,
+    rgba(237, 234, 234, 1) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(122, 73, 136, 0.3897934173669467) 13%,
+    rgba(237, 234, 234, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7a4988",endColorstr="#edeaea",GradientType=1);
+}
+
 @keyframes widthExpand {
   from {
     transform: scaleX(0);
@@ -48,14 +68,14 @@ $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
   background-color: $twittfake_purple;
   color: $twittfake_font_white;
   border-radius: 50%;
-  width: 1.3rem;
-  height: 1.3rem;
+  width:  1.2rem;
+  height: 1.2rem;
   padding: 0.4rem;
   display: block;
   cursor: pointer;
   position: fixed;
   top: 1rem;
-  #{"#{$side}"}: 2rem;
+  #{"#{$side}"}: 1.5rem;
   transition: all 0.5s ease;
   transform: translateX(0%);
   z-index: 9999;
@@ -63,14 +83,14 @@ $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
   @media #{$tablets-only} {
     #{"#{$side}"}: 5rem;
     padding: 0.5rem;
-    width: 1.7em;
-    height: 1.7em;
+    width:  1.3em;
+    height: 1.3em;
   }
 
   @media #{$laptop} {
-    #{"#{$side}"}: 15rem;
-    width: 2rem;
-    height: 2rem;
+    #{"#{$side}"}: 28%;
+    width: 1.3rem;
+    height: 1.3rem;
   }
 }
 
