@@ -35,7 +35,7 @@ export const AddTweetArea = () => {
                 userLogged,
                 "textarea-wrapper__input--error",
                 setFilteredItems,
-                filteredItems
+                filteredItems,
               )
             }
           >

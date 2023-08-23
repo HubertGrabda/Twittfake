@@ -17,7 +17,7 @@ const Navbar = () => {
   const showElement = ScrollHandler();
 
   return (
-    <div className={`navbar${showElement ? "--hidden" : ""}`}>
+    <div className={`navbar${showElement ? "" : "--hidden"}`}>
       <Link to={routeToLoginOrProfile}>
         {userLogged ? (
           <img

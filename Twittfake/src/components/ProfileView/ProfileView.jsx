@@ -2,8 +2,13 @@ import "./ProfileView.scss";
 import logo from "../../images/TwittfakeLogoAlt.png";
 import FollowCount from "../FollowCount/FollowCount";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { TweetsContext } from "../../context/Tweet'sState";
 
 const ProfileView = ({ username }) => {
+  const { whosProfileToDisplay } = useContext(TweetsContext);
+  username = whosProfileToDisplay;
+
   return (
     <>
       <div className='profile-wrapper'>

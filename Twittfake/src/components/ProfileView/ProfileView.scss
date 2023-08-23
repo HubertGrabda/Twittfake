@@ -45,7 +45,14 @@
     &__user-tweets {
       font-size: 1rem;
       position: absolute;
-      top: 8.5rem;
+      top: 8rem;
+
+      @media #{$laptop} {
+        top: 7rem;
+      }
+      @media #{$desktop} {
+        top: 8.5rem;
+      }
     }
   }
 }
