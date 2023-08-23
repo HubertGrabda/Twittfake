@@ -17,20 +17,20 @@ $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
   background: rgb(122, 73, 136);
   background: -moz-radial-gradient(
     circle,
-    rgba(122, 73, 136, 0.3897934173669467) 13%,
-    rgba(237, 234, 234, 1) 100%
+    rgba(122, 73, 136, 0.05085784313725494) 0%,
+    rgba(55, 21, 143, 0.04805672268907568) 100%
   );
   background: -webkit-radial-gradient(
     circle,
-    rgba(122, 73, 136, 0.3897934173669467) 13%,
-    rgba(237, 234, 234, 1) 100%
+    rgba(122, 73, 136, 0.05085784313725494) 0%,
+    rgba(55, 21, 143, 0.04805672268907568) 100%
   );
   background: radial-gradient(
     circle,
-    rgba(122, 73, 136, 0.3897934173669467) 13%,
-    rgba(237, 234, 234, 1) 100%
+    rgba(122, 73, 136, 0.05085784313725494) 0%,
+    rgba(55, 21, 143, 0.04805672268907568) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7a4988",endColorstr="#edeaea",GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7a4988",endColorstr="#37158f",GradientType=1);
 }
 
 @keyframes widthExpand {
@@ -59,9 +59,9 @@ $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
 }
 
 @mixin shadow {
-  -webkit-box-shadow: 0px -2px 15px -5px rgba(68, 34, 68, 1);
-  -moz-box-shadow: 0px -2px 15px -5px rgba(68, 34, 68, 1);
-  box-shadow: 0px -2px 15px -5px rgba(68, 34, 68, 1);
+  -webkit-box-shadow: 0px 0px 28px -14px rgba(122, 73, 136, 1);
+  -moz-box-shadow: 0px 0px 28px -14px rgba(122, 73, 136, 1);
+  box-shadow: 0px 0px 28px -14px rgba(122, 73, 136, 1);
 }
 
 @mixin buttons($side) {
