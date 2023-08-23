@@ -3,7 +3,8 @@ import logo from "../../images/twittfake.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
+import { TweetsContext } from "../../context/Tweet'sState";
 
 const SingInPageView = () => {
   const buttonText = "Zaloguj",
@@ -16,6 +17,7 @@ const SingInPageView = () => {
     navigate = useNavigate(),
     InputsRef = useRef([]),
     [errorOccurred, setErrorOccured] = useState([]),
+    { setUserIsLogged } = useContext(TweetsContext),
     [inputValue, setInputValue] = useState();
 
   const inputIsValid = (input, id) => {
@@ -55,6 +57,7 @@ const SingInPageView = () => {
     if (isUsernameValid && isPasswordValid) {
       sessionStorage.setItem("username", inputValue);
       navigate("/");
+      setUserIsLogged(true);
     }
   };
 

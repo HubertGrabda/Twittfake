@@ -5,13 +5,12 @@
 
   @media #{$laptop} {
     border-radius: 1rem;
-    background-color:$main-color;
+    background-color: $main-color;
     display: flex;
     position: fixed;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     left: 1.5rem;
-    gap: 0.5rem;
     height: 2rem;
     width: 22vw;
   }
@@ -19,34 +18,49 @@
   @media #{$desktop} {
     left: 18%;
     width: 15vw;
-    gap: 0.5rem;
   }
 
-  &__picture {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    cursor: pointer;
-    object-fit: contain;
-  }
+  .profile-link {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
 
-  &__username {
-    padding-top: 0.4rem;
-    font-weight: 450;
-    color: $twittfake_font_white;
-
-    &:hover {
-      color: $twittfake_gray;
+    &__picture {
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
       cursor: pointer;
+      object-fit: contain;
     }
 
-    @media #{$laptop} {
-      font-size: 1.2rem;
-    }
+    &__username {
+      padding-top: 0.4rem;
+      font-weight: 450;
+      color: $twittfake_font_white;
 
-    @media #{$desktop} {
-      font-size: 1.4rem;
+      &:hover {
+        color: $twittfake_gray;
+        cursor: pointer;
+      }
+
+      @media #{$laptop} {
+        font-size: 1.2rem;
+      }
+
+      @media #{$desktop} {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__log-out-button {
+    color: $twittfake_font_white;
+    cursor: pointer;
+    &:hover {
+      color: red;
     }
   }
 }

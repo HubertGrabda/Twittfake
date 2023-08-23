@@ -48,9 +48,6 @@
       top: 8rem;
 
       @media #{$laptop} {
-        top: 7rem;
-      }
-      @media #{$desktop} {
         top: 8.5rem;
       }
     }

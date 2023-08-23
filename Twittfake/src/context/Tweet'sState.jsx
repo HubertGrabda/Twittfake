@@ -12,6 +12,7 @@ const TweetsProvider = ({ children }) => {
   const [whosProfileToDisplay, setWhosProfileToDisplay] =
     useState(loggedUsername);
   const [tileIsClicked, setTileIsClicked] = useState(false);
+  const [userIsLogged, setUserIsLogged] = useState(false);
 
   return (
     <TweetsContext.Provider
@@ -26,6 +27,8 @@ const TweetsProvider = ({ children }) => {
         setFilteredItems,
         whosProfileToDisplay,
         setWhosProfileToDisplay,
+        userIsLogged,
+        setUserIsLogged,
       }}
     >
       {children}
