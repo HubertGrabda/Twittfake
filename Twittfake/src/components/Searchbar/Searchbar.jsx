@@ -7,11 +7,12 @@ import filterItems from "../../functions/filterItems";
 
 const Searchbar = () => {
   const placeholderText = "Wyszukaj";
-  const { tweets, setFilteredItems } = useContext(TweetsContext);
+  const { tweets, setFilteredItems, setTileIsClicked } =
+    useContext(TweetsContext);
 
   const handleSearchInputChange = (event) => {
     const inputValue = event.target.value;
-    filterItems(tweets, inputValue, setFilteredItems);
+    filterItems(tweets, inputValue, setFilteredItems, setTileIsClicked);
   };
 
   return (

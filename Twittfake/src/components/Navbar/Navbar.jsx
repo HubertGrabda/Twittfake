@@ -8,11 +8,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ScrollHandler from "../../functions/scrollHandler";
+import { useContext } from "react";
+import { TweetsContext } from "../../context/Tweet'sState";
 
 const Navbar = () => {
   const userLogged = sessionStorage.getItem("username");
   const navbarIcons = [faPlus, faMagnifyingGlass];
   const routeToLoginOrProfile = userLogged ? "/Profile" : "SignIn";
+  const { setWhosProfileToDisplay } = useContext(TweetsContext);
 
   const showElement = ScrollHandler();
 
@@ -24,6 +27,7 @@ const Navbar = () => {
             src={logo}
             alt="user's logo"
             className='navbar__users-profile-pic'
+            onClick={() => setWhosProfileToDisplay(userLogged)}
           />
         ) : (
           <FontAwesomeIcon
