@@ -7,14 +7,8 @@
 }
 
 [data-theme="dark"] {
-  background-color: $backgroundClr-dark;
+  background-color: rgb(21, 32, 43);
   color: $font-color-dark;
-
-  * {
-    background-color: $backgroundClr-dark;
-    color: $font-color-dark;
-    animation: all 0.3s ease;
-  }
 }
 
 * {

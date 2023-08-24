@@ -21,6 +21,10 @@
     width: 15vw;
   }
 
+  &.--dark {
+    background-color: $backgroundClr-dark;
+  }
+
   &__tile {
     display: flex;
     flex-direction: column;
@@ -28,7 +32,6 @@
     border-bottom: 1px solid $twittfake_font_white;
     border-radius: 10px;
     color: $twittfake_font_white;
-    background-color: inherit;
 
     &:hover {
       background-color: $secondary-color;

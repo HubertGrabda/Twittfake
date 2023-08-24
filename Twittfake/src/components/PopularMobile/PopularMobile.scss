@@ -7,6 +7,10 @@
   background-color: $main-color;
   border-radius: 1rem;
 
+  &.--dark {
+    background-color: $backgroundClr-dark;
+  }
+
   @media #{$tablets-only} {
     margin: 4rem auto;
     width: 60vw;

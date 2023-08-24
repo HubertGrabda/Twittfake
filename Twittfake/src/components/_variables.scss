@@ -12,8 +12,10 @@ $desktop: "(min-width:1440px)";
 $main-color: $twittfake_purple;
 $secondary-color: $twittfake_purple_hover;
 $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
+$font-white: $twittfake_font_white;
+$font-gray: #71767b;
 
-$backgroundClr-dark: #352f44;
+$backgroundClr-dark: $semi-transparent-secondary-color;
 $font-color-dark: $twittfake_font_white;
 
 @mixin backgroundClr {

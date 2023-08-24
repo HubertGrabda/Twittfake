@@ -5,13 +5,14 @@ import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { useTheme } from "../../context/ThemeContext";
 
 const ProfileRefernece = () => {
   let userLogged = sessionStorage.getItem("username");
   const logInText = "Zaloguj się";
   const { setWhosProfileToDisplay, setUserIsLogged } =
     useContext(TweetsContext);
-
+  const { theme } = useTheme();
   const logOut = () => {
     userLogged = sessionStorage.removeItem("username");
     setUserIsLogged(false);
@@ -20,7 +21,7 @@ const ProfileRefernece = () => {
   return (
     <>
       {userLogged ? (
-        <div className='profile-ref'>
+        <div className={`profile-ref${theme === "light" ? "" : " --dark"}`}>
           <Link
             to='/Profile'
             onClick={() => setWhosProfileToDisplay(userLogged)}

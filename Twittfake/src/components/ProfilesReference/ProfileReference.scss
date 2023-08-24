@@ -20,13 +20,16 @@
     width: 15vw;
   }
 
+  &.--dark {
+    background-color: $backgroundClr-dark;
+  }
+
   .profile-link {
     display: flex;
     height: 100%;
     align-items: center;
     gap: 1.5rem;
     text-decoration: none;
-    background-color: transparent;
 
     &__picture {
       display: block;

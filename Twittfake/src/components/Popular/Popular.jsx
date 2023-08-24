@@ -3,15 +3,17 @@ import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import filterItems from "../../functions/filterItems";
 import popularTrendsFilter from "../../functions/popularTrendsFilter";
+import { useTheme } from "../../context/ThemeContext";
 
 const Popular = () => {
   const { tweets, setFilteredItems, setTileIsClicked } =
     useContext(TweetsContext);
 
   const { duplicates, countMap } = popularTrendsFilter(tweets);
+  const { theme } = useTheme();
 
   return (
-    <section className='popular'>
+    <section className={`popular${theme === "light" ? "" : " --dark"}`}>
       {duplicates.map((element) => {
         return (
           <div

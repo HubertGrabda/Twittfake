@@ -9,12 +9,13 @@
   width: 100%;
   border-radius: 1.1rem;
   line-height: 1.2rem;
+  color: black;
+  @include shadow;
 
   &.--dark {
-    background-color: #5C5470;
+    background-color: $semi-transparent-secondary-color;
+    color: $font-white;
   }
-
-  @include shadow;
 
   &__username {
     background-color: transparent;
@@ -51,6 +52,7 @@
     font-size: 1rem;
     border: none;
     background-color: transparent;
+    color: inherit;
 
     @media #{$tablets-only} {
       font-size: 1rem;
@@ -100,9 +102,9 @@
     gap: 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    color: $main-color;
-    height: 2rem;
-    font-size: 1rem;
+    color: $font-gray;
+
+    font-size: 1.1rem;
 
     @media #{$tablets-only} {
       gap: 1.2rem;
