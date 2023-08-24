@@ -14,10 +14,12 @@ import TweetService from "../../services/TweetService";
 import PropTypes from "prop-types";
 import "./Tweet.scss";
 import TweetComment from "../TweetComment/TweetComment";
+import { useTheme } from "../../context/ThemeContext";
 
 const Tweet = ({ tweetId, username, content, comments }) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
   const contentTextArea = useRef([]);
+  const { theme } = useTheme();
 
   const {
     userLogged,
@@ -44,7 +46,10 @@ const Tweet = ({ tweetId, username, content, comments }) => {
   ];
 
   return (
-    <article className='tweet' key={tweetId}>
+    <article
+      className={`tweet${theme === "light" ? "" : " --dark"}`}
+      key={tweetId}
+    >
       <h1
         className='tweet__username'
         onClick={() => otherUsersProfileReference(username)}
@@ -82,7 +87,7 @@ const Tweet = ({ tweetId, username, content, comments }) => {
               {index === 0 ? (
                 <span
                   className={`tweet__reactions__counter__${
-                    isHeartFilled[tweetId] ? "heart--red" : "heart"
+                    isHeartFilled[tweetId] ? "heart --red" : "heart"
                   }`}
                 >
                   {isHeartFilled[tweetId] ? 2 : 1}
@@ -125,7 +130,7 @@ const Tweet = ({ tweetId, username, content, comments }) => {
 };
 
 Tweet.propTypes = {
-tweetId: PropTypes.number.isRequired,
+  tweetId: PropTypes.number.isRequired,
   username: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   comments: PropTypes.arrayOf(

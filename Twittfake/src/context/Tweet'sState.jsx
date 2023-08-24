@@ -1,9 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useState } from "react";
 import TweetsData from "../../mocks/MockTweets.json";
+import PropTypes from "prop-types";
 
 const TweetsContext = createContext();
 
-// eslint-disable-next-line react/prop-types
 const TweetsProvider = ({ children }) => {
   const loggedUsername = sessionStorage.getItem("username");
   const [tweets, setTweets] = useState(TweetsData.tweets);
@@ -14,26 +15,30 @@ const TweetsProvider = ({ children }) => {
   const [tileIsClicked, setTileIsClicked] = useState(false);
   const [userIsLogged, setUserIsLogged] = useState(false);
 
+  const tweetContextValue = {
+    tweets,
+    setTweets,
+    username,
+    setUsername,
+    tileIsClicked,
+    setTileIsClicked,
+    filteredItems,
+    setFilteredItems,
+    whosProfileToDisplay,
+    setWhosProfileToDisplay,
+    userIsLogged,
+    setUserIsLogged,
+  };
+
   return (
-    <TweetsContext.Provider
-      value={{
-        tweets,
-        setTweets,
-        username,
-        setUsername,
-        tileIsClicked,
-        setTileIsClicked,
-        filteredItems,
-        setFilteredItems,
-        whosProfileToDisplay,
-        setWhosProfileToDisplay,
-        userIsLogged,
-        setUserIsLogged,
-      }}
-    >
+    <TweetsContext.Provider value={tweetContextValue}>
       {children}
     </TweetsContext.Provider>
   );
+};
+
+TweetsProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export { TweetsContext, TweetsProvider };

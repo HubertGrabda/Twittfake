@@ -26,6 +26,7 @@
     align-items: center;
     gap: 1.5rem;
     text-decoration: none;
+    background-color: transparent;
 
     &__picture {
       display: block;
@@ -33,12 +34,13 @@
       height: 2rem;
       border-radius: 50%;
       cursor: pointer;
-      object-fit: contain;
+      object-fit: fill;
     }
 
     &__username {
       padding-top: 0.4rem;
       font-weight: 450;
+      background-color: inherit;
       color: $twittfake_font_white;
 
       &:hover {
@@ -58,6 +60,7 @@
 
   &__log-out-button {
     color: $twittfake_font_white;
+    background-color: transparent;
     cursor: pointer;
     &:hover {
       color: red;

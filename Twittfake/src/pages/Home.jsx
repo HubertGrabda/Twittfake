@@ -11,7 +11,7 @@ import ProfileRefernece from "../components/ProfilesReference/ProfileRefernece";
 const Home = () => {
   useResetFilter();
   return (
-    <>
+    <div className='home-wrapper'>
       <ProfileRefernece />
       <Header name={"Główna"} />
       <ReturnButton returnTo={""} />
@@ -20,7 +20,7 @@ const Home = () => {
       <Navbar />
       <Searchbar />
       <Popular />
-    </>
+    </div>
   );
 };
 

@@ -28,6 +28,7 @@
     border-bottom: 1px solid $twittfake_font_white;
     border-radius: 10px;
     color: $twittfake_font_white;
+    background-color: inherit;
 
     &:hover {
       background-color: $secondary-color;
@@ -36,14 +37,11 @@
 
     &__catch-phrase {
       font-size: 1rem;
-    }
-
-    &__category {
-      font-size: 0.7rem;
-      opacity: 0.7;
+      background-color: inherit;
     }
 
     &__amount-of-tweets {
+      background-color: inherit;
       opacity: 0.7;
       font-size: 0.7rem;
     }

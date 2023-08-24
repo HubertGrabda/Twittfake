@@ -1,7 +1,7 @@
 @import "../variables";
 
 .comment {
-  background-color: $secondary-color;
+  background-color: $semi-transparent-secondary-color;
   border-radius: 1.1rem;
   padding: 0.9rem;
   width: 90%;
@@ -24,11 +24,12 @@
 
   &__username {
     font-size: 1rem;
+    background-color: transparent;
   }
 
   &__content {
     border: none;
-    background-color: inherit;
+    background-color: transparent;
     width: 100%;
     text-align: center;
     resize: none;
@@ -64,6 +65,7 @@
   }
 
   &__reactions {
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,6 +75,7 @@
     font-size: 1rem;
 
     &__heart {
+      background-color: transparent;
       width: 1.2rem;
       margin-left: -0.5rem;
       cursor: pointer;
@@ -85,10 +88,12 @@
     }
 
     &__pen-to-square {
+      background-color: transparent;
       cursor: pointer;
     }
 
     &__trash-can {
+      background-color: transparent;
       color: red;
       cursor: pointer;
       padding: 0.1rem;
@@ -100,8 +105,10 @@
 
     &__counter {
       &__heart {
+        background-color: transparent;
         font-size: 1.1rem;
         &--red {
+          background-color: transparent;
           color: red;
           font-size: 1.1rem;
         }

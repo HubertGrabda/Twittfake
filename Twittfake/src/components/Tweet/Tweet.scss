@@ -3,17 +3,21 @@
 .tweet {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   border-right: 1px solid $secondary-color;
   border-left: 1px solid $secondary-color;
-  background-color: white;
   width: 100%;
   border-radius: 1.1rem;
   line-height: 1.2rem;
+
+  &.--dark {
+    background-color: #5C5470;
+  }
+
   @include shadow;
 
   &__username {
+    background-color: transparent;
     padding-top: 0.5rem;
     font-size: 1rem;
     cursor: pointer;
@@ -46,6 +50,7 @@
     padding: 0.1rem;
     font-size: 1rem;
     border: none;
+    background-color: transparent;
 
     @media #{$tablets-only} {
       font-size: 1rem;
@@ -87,6 +92,7 @@
   }
 
   &__reactions {
+    background-color: transparent;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -105,12 +111,15 @@
 
     &__counter {
       &__comments {
+        background-color: transparent;
         margin: 0 -0.4rem;
       }
 
       &__heart {
+        background-color: transparent;
+
         margin: 0 -0.4rem;
-        &--red {
+        &.--red {
           margin: -0.4rem;
           color: red;
         }
@@ -118,6 +127,8 @@
     }
 
     &__heart {
+      background-color: transparent;
+
       width: 1rem;
       cursor: pointer;
       &:hover {
@@ -125,6 +136,8 @@
       }
     }
     &__trash-can {
+      background-color: transparent;
+
       color: red;
       cursor: pointer;
 
@@ -136,6 +149,8 @@
     &__comment,
     &__pen-to-square,
     &__retweet {
+      background-color: transparent;
+
       cursor: pointer;
     }
   }
@@ -148,6 +163,7 @@
     width: 100%;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
+    background-color: transparent;
 
     &--isnt-visible {
       display: none;

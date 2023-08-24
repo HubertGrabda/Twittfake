@@ -3,10 +3,12 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import "./AddTweetArea.scss";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitTweet from "../../functions/submitTweet";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export const AddTweetArea = () => {
   const { tweets, setTweets, filteredItems, setFilteredItems } =
     useContext(TweetsContext);
+  const { theme } = useContext(ThemeContext);
   const buttonValue = "Prześlij";
   const InputRef = useRef();
   const userLogged = sessionStorage.getItem("username");
@@ -19,7 +21,7 @@ export const AddTweetArea = () => {
       {userLogged && (
         <div className='textarea-wrapper'>
           <textarea
-            className='textarea-wrapper__input'
+            className={`textarea-wrapper__input${ theme === "light" ? "" : " --dark"}`}
             placeholder={inputPlaceholder}
             ref={InputRef}
             maxLength={85}
@@ -35,7 +37,7 @@ export const AddTweetArea = () => {
                 userLogged,
                 "textarea-wrapper__input--error",
                 setFilteredItems,
-                filteredItems,
+                filteredItems
               )
             }
           >

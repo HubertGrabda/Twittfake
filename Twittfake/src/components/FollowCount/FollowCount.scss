@@ -7,7 +7,6 @@
   &__count {
     font-size: 0.8rem;
     font-weight: 500;
-    color: $twittfake_gray;
     display: flex;
     gap: 0.3rem;
 
@@ -21,7 +20,7 @@
 
     &__bold--font {
       font-weight: 700;
-      color: black;
+      color: $twittfake_gray;
     }
   }
 }

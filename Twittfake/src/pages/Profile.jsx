@@ -5,12 +5,14 @@ import Feed from "../components/Feed/Feed";
 import HomeButton from "../components/HomeButton/HomeButton";
 import { useContext } from "react";
 import { TweetsContext } from "../context/Tweet'sState";
+import ThemeChangeButton from "../components/ThemeChangeButton/ThemeChangeButton";
 
 const Profile = () => {
   const { whosProfileToDisplay } = useContext(TweetsContext);
 
   return (
     <>
+      <ThemeChangeButton></ThemeChangeButton>
       <HomeButton />
       <Header name={"Profil"} />
       <ProfileView username={whosProfileToDisplay} />

@@ -13,6 +13,9 @@ $main-color: $twittfake_purple;
 $secondary-color: $twittfake_purple_hover;
 $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
 
+$backgroundClr-dark: #352f44;
+$font-color-dark: $twittfake_font_white;
+
 @mixin backgroundClr {
   background: rgb(122, 73, 136);
   background: -moz-radial-gradient(
@@ -79,6 +82,7 @@ $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
   transition: all 0.5s ease;
   transform: translateX(0%);
   z-index: 9999;
+  border: none;
 
   @media #{$tablets-only} {
     #{"#{$side}"}: 5rem;

@@ -23,6 +23,10 @@
     font-size: 1.3rem;
     @include shadow;
 
+    &.--dark {
+      background-color: #5c5470;
+    }
+
     &:focus-visible {
       outline: 1px solid $secondary-color;
     }

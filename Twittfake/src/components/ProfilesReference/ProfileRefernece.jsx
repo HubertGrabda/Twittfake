@@ -9,7 +9,7 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 const ProfileRefernece = () => {
   let userLogged = sessionStorage.getItem("username");
   const logInText = "Zaloguj się";
-  const { setWhosProfileToDisplay, userIsLogged, setUserIsLogged } =
+  const { setWhosProfileToDisplay, setUserIsLogged } =
     useContext(TweetsContext);
 
   const logOut = () => {
@@ -19,7 +19,7 @@ const ProfileRefernece = () => {
 
   return (
     <>
-      {userIsLogged ? (
+      {userLogged ? (
         <div className='profile-ref'>
           <Link
             to='/Profile'

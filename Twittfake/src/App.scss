@@ -6,11 +6,25 @@
   box-sizing: border-box;
 }
 
+[data-theme="dark"] {
+  background-color: $backgroundClr-dark;
+  color: $font-color-dark;
+
+  * {
+    background-color: $backgroundClr-dark;
+    color: $font-color-dark;
+    animation: all 0.3s ease;
+  }
+}
+
+* {
+  animation: all 0.3s ease-in-out;
+}
+
 body {
   margin-top: 1rem;
   padding: 0;
   border: 0;
-  // background-color: rgb(247, 245, 245);
   @include backgroundClr;
 }
 

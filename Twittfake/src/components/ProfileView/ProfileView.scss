@@ -1,7 +1,6 @@
 @import "../variables";
 
 .profile-wrapper {
-  background-color: white;
   width: 100%;
   border-top: 3px solid $main-color;
   display: flex;
@@ -19,7 +18,7 @@
     height: 6rem;
     position: absolute;
     top: -3rem;
-    object-fit: scale-down;
+    object-fit: fill;
   }
 
   &__username {
