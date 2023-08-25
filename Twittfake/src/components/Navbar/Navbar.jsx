@@ -8,16 +8,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ScrollHandler from "../../functions/scrollHandler";
+import useGetUsername from "../../hooks/useGetUsername";
 
 const Navbar = () => {
-  const userLogged = sessionStorage.getItem("username");
+  const userLogged = useGetUsername();
   const navbarIcons = [faPlus, faMagnifyingGlass];
   const routeToLoginOrProfile = userLogged ? "/Profile" : "SignIn";
 
   const showElement = ScrollHandler();
 
   return (
-    <div className={`navbar${showElement ? "--hidden" : ""}`}>
+    <div className={`navbar${showElement ? "" : "--hidden"}`}>
       <Link to={routeToLoginOrProfile}>
         {userLogged ? (
           <img

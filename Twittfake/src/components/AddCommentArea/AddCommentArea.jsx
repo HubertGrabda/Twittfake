@@ -4,6 +4,7 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import "./AddCommentArea.scss";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitComment from "../../functions/submitComment";
+import useGetUsername from "../../hooks/useGetUsername";
 
 const CommentArea = ({ id }) => {
   const defaultPlaceholderText = "Odpowiedz na tweet";
@@ -11,7 +12,7 @@ const CommentArea = ({ id }) => {
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
   const addCommentInputRef = useRef();
   const { tweets, setTweets, setFilteredItems } = useContext(TweetsContext);
-  const userLogged = sessionStorage.getItem("username");
+  const userLogged = useGetUsername();
 
   return (
     <>

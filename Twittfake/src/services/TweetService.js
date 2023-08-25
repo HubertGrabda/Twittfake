@@ -2,9 +2,10 @@
 import { useState, useContext, useRef } from "react";
 import toggleState from "../functions/toggleState";
 import { TweetsContext } from "../context/Tweet'sState";
+import useGetUsername from "../hooks/useGetUsername";
 
 const TweetService = () => {
-  const userLogged = sessionStorage.getItem("username");
+  const userLogged = useGetUsername();
 
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});

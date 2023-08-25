@@ -1,9 +1,10 @@
 import "./ProfileReference.scss";
 import logo from "../../images/twittfake.png";
 import { Link } from "react-router-dom";
+import useGetUsername from "../../hooks/useGetUsername";
 
 const ProfileRefernece = () => {
-  const userLogged = sessionStorage.getItem("username");
+  const userLogged = useGetUsername();
   const logInText = "Zaloguj się";
 
   return (

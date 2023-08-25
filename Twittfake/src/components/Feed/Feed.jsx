@@ -3,11 +3,12 @@ import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { useLocation } from "react-router-dom";
 import Tweet from "../Tweet/Tweet";
+import useGetUsername from "../../hooks/useGetUsername";
 
 const Feed = () => {
   const { tweets, filteredItems } = useContext(TweetsContext);
   const path = useLocation();
-  const userLogged = sessionStorage.getItem("username");
+  const userLogged = useGetUsername();
 
   const isItUsersProfile =
     path.pathname === "/Profile"
