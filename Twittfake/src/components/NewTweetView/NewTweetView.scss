@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
 
-  &__user-data {
+  .user-data {
     display: flex;
     width: 90%;
     height: 2rem;
@@ -42,7 +42,7 @@
     }
   }
 
-  &__textarea {
+  .textarea {
     margin-bottom: 0.5rem;
     width: 100%;
     height: 55%;
@@ -67,6 +67,10 @@
         font-size: 1.6rem;
       }
 
+      &:focus-visible {
+        outline-color: $secondary-color;
+      }
+
       &--error {
         resize: inherit;
         width: 85%;
@@ -80,23 +84,19 @@
         @media #{$tablets-only} {
           font-size: 1.6rem;
         }
-
-        &:focus-visible {
-          outline-color: $twittfake_purple_hover;
-        }
       }
     }
 
     &__submit-button {
       border-radius: 1rem;
       color: $twittfake_font_white;
-      background-color: $twittfake_purple;
+      background-color: $main-color;
       border: none;
       width: 4.2rem;
       height: 2.7rem;
 
       &:hover {
-        background-color: $twittfake_purple_hover;
+        background-color: $secondary-color;
       }
 
       @media #{$tablets-only} {

@@ -1,0 +1,111 @@
+@import "../variables";
+
+.comment {
+  background-color: $secondary-color;
+  border-radius: 1.1rem;
+  padding: 0.9rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media #{$tablets-only} {
+    width: 55vw;
+  }
+
+  @media #{$laptop} {
+    width: 90%;
+  }
+
+  @media #{$desktop} {
+    width: 80%;
+  }
+
+  &__username {
+    font-size: 1rem;
+  }
+
+  &__content {
+    border: none;
+    background-color: inherit;
+    width: 100%;
+    text-align: center;
+    resize: none;
+    outline: none;
+
+    &--edit-mode {
+      height: inherit;
+      border: inherit;
+      width: 100%;
+      text-align: inherit;
+      resize: inherit;
+      margin-top: inherit;
+      outline-color: $main-color;
+      margin: 1rem auto;
+      border-radius: 1rem;
+      padding: 0.5rem;
+    }
+  }
+
+  &__submit-button {
+    display: none;
+    border-radius: 999px;
+    background-color: $main-color;
+    border: none;
+    width: 25%;
+    height: 1.6rem;
+    margin: 0.5rem auto;
+    color: $twittfake_font_white;
+
+    &--active {
+      @include submitButton;
+    }
+  }
+
+  &__reactions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 90%;
+    height: 1.2rem;
+    font-size: 1rem;
+
+    &__heart {
+      width: 1.2rem;
+      margin-left: -0.5rem;
+      cursor: pointer;
+      object-fit: contain;
+      padding: 0.1rem;
+
+      &:hover {
+        @include reactionHoverEffect(rgba(255, 0, 0, 0.212));
+      }
+    }
+
+    &__pen-to-square {
+      cursor: pointer;
+    }
+
+    &__trash-can {
+      color: red;
+      cursor: pointer;
+      padding: 0.1rem;
+
+      &:hover {
+        @include reactionHoverEffect(rgba(255, 0, 0, 0.23));
+      }
+    }
+
+    &__counter {
+      &__heart {
+        font-size: 1.1rem;
+        &--red {
+          color: red;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}

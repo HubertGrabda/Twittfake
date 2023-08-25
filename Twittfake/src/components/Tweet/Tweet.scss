@@ -1,0 +1,155 @@
+@import "../variables";
+
+.tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid $secondary-color;
+  border-left: 1px solid $secondary-color;
+  width: 100%;
+  border-radius: 1.1rem;
+  line-height: 1.2rem;
+  @include shadow;
+
+  &__username {
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+    @media #{$desktop} {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__save-edit-button {
+    display: none;
+
+    &--active {
+      display: block;
+      border-radius: 9999px;
+      width: 4rem;
+      height: 1.5rem;
+      background-color: $secondary-color;
+      color: $twittfake_font_white;
+      border: none;
+      margin: 0.5rem;
+    }
+  }
+
+  &__content {
+    text-align: center;
+    resize: none;
+    width: 100%;
+    overflow-y: hidden;
+    padding: 0.1rem;
+    font-size: 1rem;
+    border: none;
+
+    @media #{$tablets-only} {
+      font-size: 1rem;
+      padding: 0.2rem;
+    }
+
+    @media #{$laptop} {
+      padding-top: 0.6rem;
+    }
+
+    @media #{$desktop} {
+      font-size: 1rem;
+    }
+
+    &:focus-visible {
+      outline: none;
+      border: none;
+    }
+
+    &--edit-mode {
+      width: 95%;
+      border-radius: 1rem;
+      padding: 0.5rem;
+      resize: none;
+
+      &--error {
+        width: 95%;
+        resize: inherit;
+        border-radius: inherit;
+        margin: 1rem;
+        padding: 0.5rem;
+        border: 1px solid red;
+      }
+
+      &:focus-visible {
+        outline: $main-color;
+      }
+    }
+  }
+
+  &__reactions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: $main-color;
+    height: 2rem;
+    font-size: 1rem;
+
+    @media #{$tablets-only} {
+      gap: 1.2rem;
+      font-size: 1.2rem;
+    }
+
+    &__counter {
+      &__comments {
+        margin: 0 -0.4rem;
+      }
+
+      &__heart {
+        margin: 0 -0.4rem;
+        &--red {
+          margin: -0.4rem;
+          color: red;
+        }
+      }
+    }
+
+    &__heart {
+      width: 1rem;
+      cursor: pointer;
+      &:hover {
+        @include reactionHoverEffect(rgba(255, 0, 0, 0.212));
+      }
+    }
+    &__trash-can {
+      color: red;
+      cursor: pointer;
+
+      &:hover {
+        @include reactionHoverEffect(rgba(255, 0, 0, 0.23));
+      }
+    }
+
+    &__comment,
+    &__pen-to-square,
+    &__retweet {
+      cursor: pointer;
+    }
+  }
+
+  .comment-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    &--isnt-visible {
+      display: none;
+    }
+  }
+}

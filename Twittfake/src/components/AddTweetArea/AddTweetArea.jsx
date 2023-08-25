@@ -3,13 +3,14 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import "./AddTweetArea.scss";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitTweet from "../../functions/submitTweet";
+import useGetUsername from "../../hooks/useGetUsername";
 
 export const AddTweetArea = () => {
   const { tweets, setTweets, filteredItems, setFilteredItems } =
     useContext(TweetsContext);
   const buttonValue = "Prześlij";
   const InputRef = useRef();
-  const userLogged = sessionStorage.getItem("username");
+  const userLogged = useGetUsername();
   const inputPlaceholder = `O czym myślisz${
     userLogged ? `, ${userLogged}` : ""
   }?`;

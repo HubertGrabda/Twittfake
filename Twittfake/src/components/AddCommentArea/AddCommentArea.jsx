@@ -4,18 +4,18 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import "./AddCommentArea.scss";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitComment from "../../functions/submitComment";
+import useGetUsername from "../../hooks/useGetUsername";
 
 const CommentArea = ({ id }) => {
   const defaultPlaceholderText = "Odpowiedz na tweet";
   const buttonValue = "Prześlij";
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
   const addCommentInputRef = useRef();
-  const { tweets, setTweets } = useContext(TweetsContext);
-  const userLogged = sessionStorage.getItem("username");
+  const { tweets, setTweets, setFilteredItems } = useContext(TweetsContext);
+  const userLogged = useGetUsername();
 
   return (
     <>
-      {" "}
       {userLogged && (
         <div className='add-comment'>
           <textarea
@@ -35,14 +35,15 @@ const CommentArea = ({ id }) => {
                 setTweets,
                 inputErrorMessage,
                 defaultPlaceholderText,
-                userLogged
+                userLogged,
+                setFilteredItems
               )
             }
           >
             {buttonValue}
           </button>
         </div>
-      )}{" "}
+      )}
     </>
   );
 };
