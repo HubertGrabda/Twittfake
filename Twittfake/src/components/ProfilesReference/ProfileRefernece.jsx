@@ -20,30 +20,30 @@ const ProfileRefernece = () => {
 
   return (
     <>
-      {userLogged ? (
-        <div className={`profile-ref${theme === "light" ? "" : " --dark"}`}>
-          <Link
-            to='/Profile'
-            onClick={() => setWhosProfileToDisplay(userLogged)}
-            className='profile-link'
-          >
-            <img src={logo} className='profile-link__picture'></img>
-            <h1 className='profile-link__username'> {userLogged} </h1>
-          </Link>
+      <div className={`profile-ref${theme === "light" ? "" : " --dark"}`}>
+        {userLogged ? (
+          <>
+            <Link
+              to='/Profile'
+              onClick={() => setWhosProfileToDisplay(userLogged)}
+              className='profile-link'
+            >
+              <img src={logo} className='profile-link__picture'></img>
+              <h1 className='profile-link__username'> {userLogged} </h1>
+            </Link>
 
-          <FontAwesomeIcon
-            icon={faArrowRightFromBracket}
-            className='profile-ref__log-out-button'
-            onClick={logOut}
-          />
-        </div>
-      ) : (
-        <div className='profile-ref'>
+            <FontAwesomeIcon
+              icon={faArrowRightFromBracket}
+              className='profile-ref__log-out-button'
+              onClick={logOut}
+            />
+          </>
+        ) : (
           <Link to='/SignIn' className='profile-link'>
             <h1 className='profile-link__username'> {logInText} </h1>
           </Link>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };

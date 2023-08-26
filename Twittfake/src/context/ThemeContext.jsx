@@ -7,14 +7,21 @@ export const useTheme = () => {
   return useContext(ThemeContext);
 };
 
+const bodyAttributeSetter = (value) =>
+  document.querySelector("body").setAttribute("data-theme", value);
+
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const rememberTheme = localStorage.getItem("selectedTheme");
+  const defaultTheme = "light";
+  const [theme, setTheme] = useState(rememberTheme || defaultTheme);
+  bodyAttributeSetter(theme);
+
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
       const newTheme = prevTheme === "light" ? "dark" : "light";
-      sessionStorage.setItem("selectedTheme", newTheme);
-      document.querySelector("body").setAttribute("data-theme", newTheme);
+      localStorage.setItem("selectedTheme", newTheme);
+      bodyAttributeSetter(newTheme);
       return newTheme;
     });
   };

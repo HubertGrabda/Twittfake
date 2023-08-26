@@ -9,6 +9,10 @@
 [data-theme="dark"] {
   background-color: rgb(21, 32, 43);
   color: $font-color-dark;
+
+  input {
+    background-color: $font-color-dark;
+  }
 }
 
 * {

@@ -130,8 +130,7 @@
 
     &__heart {
       background-color: transparent;
-
-      width: 1rem;
+      width: 1.2rem;
       cursor: pointer;
       &:hover {
         @include reactionHoverEffect(rgba(255, 0, 0, 0.212));
