@@ -78,12 +78,11 @@
 
     &__heart {
       background-color: transparent;
-      width: 1.2rem;
+      width: 1.3rem;
       margin-left: -0.5rem;
       cursor: pointer;
       object-fit: contain;
       padding: 0.1rem;
-
       &:hover {
         @include reactionHoverEffect(rgba(255, 0, 0, 0.212));
       }
