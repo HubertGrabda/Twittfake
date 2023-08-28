@@ -15,6 +15,7 @@ import PropTypes from "prop-types";
 import "./Tweet.scss";
 import TweetComment from "../TweetComment/TweetComment";
 import { useTheme } from "../../context/ThemeContext";
+import { classNames } from "../../functions/classNames";
 
 const Tweet = ({ tweetId, username, content, comments }) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
@@ -47,7 +48,7 @@ const Tweet = ({ tweetId, username, content, comments }) => {
 
   return (
     <article
-      className={`tweet${theme === "light" ? "" : " --dark"}`}
+className={classNames([theme === 'light' ? 'tweet': 'tweet --dark'])}
       key={tweetId}
     >
       <h1

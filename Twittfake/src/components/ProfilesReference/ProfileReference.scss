@@ -26,9 +26,11 @@
 
   .profile-link {
     display: flex;
+    width: 85%;
     height: 100%;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: center;
+    gap: 15px;
     text-decoration: none;
 
     &__picture {

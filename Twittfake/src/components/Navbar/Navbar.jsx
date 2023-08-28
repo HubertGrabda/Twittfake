@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import ScrollHandler from "../../functions/scrollHandler";
 import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
+import { classNames } from "../../functions/classNames";
 
 const Navbar = () => {
   const userLogged = sessionStorage.getItem("username");
@@ -20,7 +21,8 @@ const Navbar = () => {
   const showElement = ScrollHandler();
 
   return (
-    <div className={`navbar${showElement ? "" : "--hidden"}`}>
+    
+    <div className={classNames([showElement ? "navbar" : 'navbar --hidden'])}>
       <Link to={routeToLoginOrProfile}>
         {userLogged ? (
           <img

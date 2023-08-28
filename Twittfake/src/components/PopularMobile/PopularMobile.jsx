@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import popularTrendsFilter from "../../functions/popularTrendsFilter";
 import filterItems from "../../functions/filterItems";
 import { useTheme } from "../../context/ThemeContext";
+import { classNames } from "../../functions/classNames";
+
 
 const PopularMobile = () => {
   const { tweets, setFilteredItems, setTileIsClicked } =
@@ -13,8 +15,8 @@ const PopularMobile = () => {
   const { theme } = useTheme();
 
   return (
-    <div className={`popularMobile${theme === "light" ? "" : " --dark"}`}>
-      {duplicates.slice(0, 4).map((element) => (
+    <div className={classNames([theme === "light" ? "popularMobile" : "popularMobile --dark"])}>
+    {duplicates.slice(0, 4).map((element) => (
         <Link
           to='/SearchResult'
           className='tile'

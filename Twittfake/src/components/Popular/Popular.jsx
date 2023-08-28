@@ -4,6 +4,7 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import filterItems from "../../functions/filterItems";
 import popularTrendsFilter from "../../functions/popularTrendsFilter";
 import { useTheme } from "../../context/ThemeContext";
+import { classNames } from "../../functions/classNames";
 
 const Popular = () => {
   const { tweets, setFilteredItems, setTileIsClicked } =
@@ -13,7 +14,7 @@ const Popular = () => {
   const { theme } = useTheme();
 
   return (
-    <section className={`popular${theme === "light" ? "" : " --dark"}`}>
+    <section className={classNames([theme === "light" ? "popular" : "popular --dark"])}>
       {duplicates.map((element) => {
         return (
           <div

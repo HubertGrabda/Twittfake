@@ -12,8 +12,11 @@ const Searchbar = () => {
 
   const handleSearchInputChange = (event) => {
     const inputValue = event.target.value;
-    filterItems(tweets, inputValue, setFilteredItems, setTileIsClicked);
+    if (inputValue.trim() === "") {
+      setTileIsClicked(false)
+    } else filterItems(tweets, inputValue, setFilteredItems, setTileIsClicked);
   };
+
 
   return (
     <div className='searchbar'>

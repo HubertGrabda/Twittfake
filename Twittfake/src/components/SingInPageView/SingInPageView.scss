@@ -12,7 +12,7 @@
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 22.5vh;
+  margin-top: 35%;
 
   @media #{$tablets-only} {
     width: 75vw;
@@ -20,7 +20,8 @@
 
   @media #{$laptop} {
     width: 60vw;
-  }
+    margin-top: 5%;
+    }
 
   @media #{$desktop} {
     width: 45vw;

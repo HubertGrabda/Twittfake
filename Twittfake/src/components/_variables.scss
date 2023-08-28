@@ -114,7 +114,7 @@ $font-color-dark: $twittfake_font_white;
 
 @mixin submitButton {
   width: 35%;
-  height: 5.5vh;
+  height: 40px;
   border-radius: 9999px;
   margin: 0.5rem auto;
   color: $twittfake_font_white;
@@ -127,12 +127,12 @@ $font-color-dark: $twittfake_font_white;
 
   @media #{$laptop} {
     width: 6rem;
-    height: 4.3vh;
-  }
+    
+      }
 
   @media #{$desktop} {
     padding-bottom: 0.2rem;
-    height: 3.7vh;
+    
   }
 
   &:hover {
