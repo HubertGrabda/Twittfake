@@ -59,6 +59,10 @@
     padding-bottom: 1rem;
     background-color: transparent;
 
+    &.--dark {
+      color: $font-gray;
+    }
+
     @media #{$tablets-only} {
       font-size: 2rem;
       padding: none;

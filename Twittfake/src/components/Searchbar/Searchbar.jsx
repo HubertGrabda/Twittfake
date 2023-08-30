@@ -10,10 +10,14 @@ const Searchbar = () => {
   const { tweets, setFilteredItems, setTileIsClicked } =
     useContext(TweetsContext);
 
+    
+
   const handleSearchInputChange = (event) => {
     const inputValue = event.target.value;
     if (inputValue.trim() === "") {
-      setTileIsClicked(false)
+      setFilteredItems(tweets);
+    setTileIsClicked(false);
+      
     } else filterItems(tweets, inputValue, setFilteredItems, setTileIsClicked);
   };
 

@@ -5,6 +5,10 @@ import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useRef, useState } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
+import { classNames } from "../../functions/classNames";
+import { useTheme } from "../../context/ThemeContext";
+
+
 
 const SingInPageView = () => {
   const buttonText = "Zaloguj",
@@ -18,6 +22,7 @@ const SingInPageView = () => {
     InputsRef = useRef([]),
     [errorOccurred, setErrorOccured] = useState([]),
     { setUserIsLogged } = useContext(TweetsContext),
+    { theme } = useTheme(),
     [inputValue, setInputValue] = useState();
 
   const inputIsValid = (input, id) => {
@@ -63,7 +68,7 @@ const SingInPageView = () => {
 
   return (
     <div className='form-wrapper'>
-      <h1 className='form-wrapper__welcome-text'> {welcomeText} </h1>
+      <h1 className={classNames([theme === 'light' ? "form-wrapper__welcome-text" : "form-wrapper__welcome-text --dark"])}> {welcomeText} </h1>
       <img src={logo} alt='Logo' className='form-wrapper__logo' />
       <Link to='/'>
         <FontAwesomeIcon

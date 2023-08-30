@@ -8,7 +8,7 @@ const useResetFilter = () => {
   useEffect(() => {
     setFilteredItems(tweets);
     setTileIsClicked(false);
-  }, [0]);
+  }, []);
 };
 
 export default useResetFilter;

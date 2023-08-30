@@ -8,7 +8,6 @@ const TweetsContext = createContext();
 const TweetsProvider = ({ children }) => {
   const loggedUsername = sessionStorage.getItem("username");
   const [tweets, setTweets] = useState(TweetsData.tweets);
-  const [username, setUsername] = useState();
   const [filteredItems, setFilteredItems] = useState(tweets);
   const [whosProfileToDisplay, setWhosProfileToDisplay] =
     useState(loggedUsername);
@@ -18,8 +17,6 @@ const TweetsProvider = ({ children }) => {
   const tweetContextValue = {
     tweets,
     setTweets,
-    username,
-    setUsername,
     tileIsClicked,
     setTileIsClicked,
     filteredItems,
