@@ -6,9 +6,10 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "../../context/ThemeContext";
+import getUsername from "../../functions/useGetUsername";
 
 const ProfileRefernece = () => {
-  let userLogged = sessionStorage.getItem("username");
+  let userLogged = getUsername();
   const logInText = "Zaloguj się";
   const { setWhosProfileToDisplay, setUserIsLogged } =
     useContext(TweetsContext);

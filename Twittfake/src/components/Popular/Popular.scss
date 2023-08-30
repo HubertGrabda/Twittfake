@@ -11,14 +11,14 @@
     gap: 0.5rem;
     position: fixed;
     top: 4rem;
-    right: 1rem;
-    width: 22vw;
+    right: 2rem;
+    width: 23vw;
     padding: 0.7rem;
   }
 
   @media #{$desktop} {
-    right: 18%;
-    width: 15vw;
+    right: 13.5%;
+    width: 20vw;
   }
 
   &.--dark {

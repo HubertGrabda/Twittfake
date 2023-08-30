@@ -12,11 +12,11 @@ import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { classNames } from "../../functions/classNames";
 
+
 const Navbar = () => {
-  const userLogged = sessionStorage.getItem("username");
+  const { setWhosProfileToDisplay, userLogged } = useContext(TweetsContext);
   const navbarIcons = [faPlus, faMagnifyingGlass];
   const routeToLoginOrProfile = userLogged ? "/Profile" : "SignIn";
-  const { setWhosProfileToDisplay } = useContext(TweetsContext);
 
   const showElement = ScrollHandler();
 

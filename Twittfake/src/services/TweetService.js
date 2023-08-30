@@ -3,9 +3,10 @@ import { useState, useContext, useRef } from "react";
 import toggleState from "../functions/toggleState";
 import { TweetsContext } from "../context/Tweet'sState";
 import { useNavigate } from "react-router-dom";
+import getUsername from "../functions/useGetUsername";
 
 const TweetService = () => {
-  const userLogged = sessionStorage.getItem("username");
+  const userLogged = getUsername();
 
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});

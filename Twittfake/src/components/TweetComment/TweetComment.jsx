@@ -12,6 +12,7 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
   const contentTextArea = useRef([]);
 
   const {
+    userLogged,
     isUserEditing,
     handleLinesAmount,
     saveEdit,
@@ -23,7 +24,7 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
     handleEditMode,
   } = tweetService;
 
-  const userLogged = sessionStorage.getItem("username");
+  
 
   const handleCommentsReactions = [
     (id, commentsID) => handleEditMode(commentsID),

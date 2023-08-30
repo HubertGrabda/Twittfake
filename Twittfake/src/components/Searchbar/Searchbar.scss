@@ -6,11 +6,11 @@
     display: block;
     position: fixed;
     top: 1rem;
-    right: 1rem;
+    right: 2rem;
   }
 
   @media #{$desktop} {
-    right: 18%;
+    right: 13.5%;
   }
 
   &__input {
@@ -23,11 +23,11 @@
     border-color: $main-color;
 
     @media #{$laptop} {
-      width: 22vw;
+      width: 23vw;
     }
 
     @media #{$desktop} {
-      width: 15vw;
+      width: 20vw;
     }
 
     &:focus-visible {
