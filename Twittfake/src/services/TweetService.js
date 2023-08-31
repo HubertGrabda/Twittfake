@@ -3,7 +3,8 @@ import { useState, useContext, useRef } from "react";
 import toggleState from "../functions/toggleState";
 import { TweetsContext } from "../context/Tweet'sState";
 import { useNavigate } from "react-router-dom";
-import getUsername from "../functions/useGetUsername";
+import getUsername from "../functions/getUsername";
+
 
 const TweetService = () => {
   const userLogged = getUsername();

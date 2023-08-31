@@ -1,4 +1,3 @@
-
 const getUsername = () => {
   const userLogged = sessionStorage.getItem("username");
   return userLogged;
