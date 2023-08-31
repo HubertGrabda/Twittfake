@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 
 const ReturnButton = ({ returnTo }) => {
-  const { setFilteredItems, tweets, tileIsClicked, setTileIsClicked } =
+  const { setFilteredTweetsData, tweets, tileIsClicked, setTileIsClicked } =
     useContext(TweetsContext);
   const showElement = ScrollHandler();
   const path = useLocation();
@@ -17,7 +17,7 @@ const ReturnButton = ({ returnTo }) => {
     path.pathname === "/" ? tileIsClicked : showElement;
 
   const handleClick = () => {
-    setFilteredItems(tweets), setTileIsClicked(false);
+    setFilteredTweetsData(tweets), setTileIsClicked(false);
   };
 
   return (

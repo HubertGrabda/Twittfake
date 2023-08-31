@@ -4,8 +4,8 @@ const submitTweet = (
   setTweets,
   loggedUsername,
   errorClass,
-  setFilteredItems,
-  filteredItems
+  setFilteredTweetsData,
+  filteredTweetsData
 ) => {
   const InputErrorMessage = "Nie można dodać pustego tweeta!";
   const inputPlaceholder = `O czym myślisz, ${loggedUsername}?`;
@@ -24,7 +24,7 @@ const submitTweet = (
   };
 
   setTweets([newTweet, ...tweets]);
-  setFilteredItems([newTweet, ...filteredItems]);
+  setFilteredTweetsData([newTweet, ...filteredTweetsData]);
 
   refName.current.placeholder = inputPlaceholder;
   refName.current.value = "";

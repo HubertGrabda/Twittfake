@@ -1,11 +1,7 @@
 import PropTypes from "prop-types";
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const ThemeContext = createContext();
-
-export const useTheme = () => {
-  return useContext(ThemeContext);
-};
 
 const bodyAttributeSetter = (value) =>
   document.querySelector("body").setAttribute("data-theme", value);
@@ -15,7 +11,6 @@ export const ThemeProvider = ({ children }) => {
   const defaultTheme = "light";
   const [theme, setTheme] = useState(rememberTheme || defaultTheme);
   bodyAttributeSetter(theme);
-
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {

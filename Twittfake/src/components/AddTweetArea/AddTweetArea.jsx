@@ -6,8 +6,13 @@ import submitTweet from "../../functions/submitTweet";
 import { ThemeContext } from "../../context/ThemeContext";
 
 export const AddTweetArea = () => {
-  const { tweets, setTweets, filteredItems, setFilteredItems, userLogged } =
-    useContext(TweetsContext);
+  const {
+    tweets,
+    setTweets,
+    filteredTweetsData,
+    setFilteredTweetsData,
+    userLogged,
+  } = useContext(TweetsContext);
   const { theme } = useContext(ThemeContext);
   const buttonValue = "Prześlij";
   const InputRef = useRef();
@@ -38,8 +43,8 @@ export const AddTweetArea = () => {
                 setTweets,
                 userLogged,
                 "textarea-wrapper__input--error",
-                setFilteredItems,
-                filteredItems
+                setFilteredTweetsData,
+                filteredTweetsData
               )
             }
           >

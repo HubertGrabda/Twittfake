@@ -5,14 +5,14 @@ import { useLocation } from "react-router-dom";
 import Tweet from "../Tweet/Tweet";
 
 const Feed = () => {
-  const { tweets, filteredItems, whosProfileToDisplay } =
+  const { tweets, filteredTweetsData, whosProfileToDisplay } =
     useContext(TweetsContext);
   const path = useLocation();
 
   const isItUsersProfile =
     path.pathname === "/Profile"
       ? tweets.filter((tweet) => tweet.username === whosProfileToDisplay)
-      : filteredItems;
+      : filteredTweetsData;
 
   return (
     <section className='tweets-wrapper'>

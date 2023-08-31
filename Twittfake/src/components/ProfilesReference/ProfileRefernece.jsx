@@ -5,8 +5,8 @@ import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import { useTheme } from "../../context/ThemeContext";
 import getUsername from "../../functions/getUsername";
+import { useTheme } from "../../hooks/useTheme";
 
 const ProfileRefernece = () => {
   let userLogged = getUsername();

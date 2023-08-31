@@ -9,7 +9,7 @@ const TweetsContext = createContext();
 const TweetsProvider = ({ children }) => {
   const userLogged = getUsername();
   const [tweets, setTweets] = useState(TweetsData.tweets);
-  const [filteredItems, setFilteredItems] = useState(tweets);
+  const [filteredTweetsData, setFilteredTweetsData] = useState(tweets);
   const [whosProfileToDisplay, setWhosProfileToDisplay] =
     useState(userLogged);
   const [tileIsClicked, setTileIsClicked] = useState(false);
@@ -21,8 +21,8 @@ const TweetsProvider = ({ children }) => {
     setTweets,
     tileIsClicked,
     setTileIsClicked,
-    filteredItems,
-    setFilteredItems,
+    filteredTweetsData,
+    setFilteredTweetsData,
     whosProfileToDisplay,
     setWhosProfileToDisplay,
     userIsLogged,

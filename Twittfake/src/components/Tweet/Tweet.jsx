@@ -14,7 +14,7 @@ import TweetService from "../../services/TweetService";
 import PropTypes from "prop-types";
 import "./Tweet.scss";
 import TweetComment from "../TweetComment/TweetComment";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../../hooks/useTheme";
 import { classNames } from "../../functions/classNames";
 
 const Tweet = ({ tweetId, username, content, comments }) => {

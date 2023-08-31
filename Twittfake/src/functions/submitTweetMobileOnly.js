@@ -4,7 +4,7 @@ const submitTweetMobileOnly = (
   setTweets,
   navigate,
   inputPlaceholder,
-  setFilteredItems,
+  setFilteredTweetsData,
   loggedUsername
 ) => {
   const InputErrorMessage = "Nie można dodać pustego tweeta!";
@@ -23,7 +23,7 @@ const submitTweetMobileOnly = (
   };
 
   setTweets([newTweet, ...tweets]);
-  setFilteredItems([newTweet, ...tweets]);
+  setFilteredTweetsData([newTweet, ...tweets]);
 
   refName.current.placeholder = inputPlaceholder;
   refName.current.value = "";

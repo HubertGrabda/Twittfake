@@ -4,25 +4,33 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import { Link } from "react-router-dom";
 import popularTrendsFilter from "../../functions/popularTrendsFilter";
 import filterItems from "../../functions/filterItems";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../../hooks/useTheme";
 import { classNames } from "../../functions/classNames";
 
-
 const PopularMobile = () => {
-  const { tweets, setFilteredItems, setTileIsClicked } =
+  const { tweets, setFilteredTweetsData, setTileIsClicked } =
     useContext(TweetsContext);
   const { duplicates, countMap } = popularTrendsFilter(tweets);
   const { theme } = useTheme();
 
   return (
-    <div className={classNames([theme === "light" ? "popularMobile" : "popularMobile --dark"])}>
-    {duplicates.slice(0, 4).map((element) => (
+    <div
+      className={classNames([
+        theme === "light" ? "popularMobile" : "popularMobile --dark",
+      ])}
+    >
+      {duplicates.slice(0, 4).map((element) => (
         <Link
           to='/SearchResult'
           className='tile'
           key={element}
           onClick={() =>
-            filterItems(tweets, element, setFilteredItems, setTileIsClicked)
+            filterItems(
+              tweets,
+              element,
+              setFilteredTweetsData,
+              setTileIsClicked
+            )
           }
         >
           <span className='tile__category'>{element}</span>

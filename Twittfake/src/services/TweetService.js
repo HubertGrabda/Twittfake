@@ -5,14 +5,13 @@ import { TweetsContext } from "../context/Tweet'sState";
 import { useNavigate } from "react-router-dom";
 import getUsername from "../functions/getUsername";
 
-
 const TweetService = () => {
   const userLogged = getUsername();
 
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
   const [isUserEditing, setIsUserEditing] = useState(false);
-  const { tweets, setTweets, setFilteredItems, setWhosProfileToDisplay } =
+  const { tweets, setTweets, setFilteredTweetsData, setWhosProfileToDisplay } =
     useContext(TweetsContext);
   const InputErrorMessage = "To pole nie może być puste!";
   const saveButtonValue = "Zapisz";
@@ -62,7 +61,7 @@ const TweetService = () => {
         tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
       )
     );
-    setFilteredItems((tweets) =>
+    setFilteredTweetsData((tweets) =>
       tweets.map((tweet) =>
         tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
       )
@@ -80,7 +79,7 @@ const TweetService = () => {
 
   const deleleTweet = (id) => {
     setTweets(tweets.filter((tweet) => tweet.id !== id));
-    setFilteredItems(tweets.filter((tweet) => tweet.id !== id));
+    setFilteredTweetsData(tweets.filter((tweet) => tweet.id !== id));
   };
 
   const otherUsersProfileReference = (username) => {
@@ -102,7 +101,7 @@ const TweetService = () => {
       )
     );
 
-    setFilteredItems((prevTweets) =>
+    setFilteredTweetsData((prevTweets) =>
       prevTweets.map((tweet) =>
         tweet.id === tweetId
           ? {

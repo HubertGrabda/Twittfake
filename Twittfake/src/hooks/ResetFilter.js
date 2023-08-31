@@ -2,12 +2,13 @@ import { useContext, useEffect } from "react";
 import { TweetsContext } from "../context/Tweet'sState";
 
 const useResetFilter = () => {
-  const { setFilteredItems, tweets, setTileIsClicked } =
+  const { setFilteredTweetsData, tweets, setTileIsClicked } =
     useContext(TweetsContext);
 
   useEffect(() => {
-    setFilteredItems(tweets);
+    setFilteredTweetsData(tweets);
     setTileIsClicked(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 

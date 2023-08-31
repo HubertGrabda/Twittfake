@@ -10,7 +10,7 @@ const CommentArea = ({ id }) => {
   const buttonValue = "Prześlij";
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
   const addCommentInputRef = useRef();
-  const { tweets, setTweets, setFilteredItems, userLogged } =
+  const { tweets, setTweets, setFilteredTweetsData, userLogged } =
     useContext(TweetsContext);
 
   return (
@@ -35,7 +35,7 @@ const CommentArea = ({ id }) => {
                 inputErrorMessage,
                 defaultPlaceholderText,
                 userLogged,
-                setFilteredItems
+                setFilteredTweetsData
               )
             }
           >

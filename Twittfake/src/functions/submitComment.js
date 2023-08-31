@@ -6,7 +6,7 @@ const submitComment = (
   inputErrorMessage,
   defaultPlaceholderText,
   username,
-  setFilteredItems
+  setFilteredTweetsData
 ) => {
   let input = refName.current;
   if (input.value.trim() === "") {
@@ -40,7 +40,7 @@ const submitComment = (
     )
   );
 
-  setFilteredItems((prevTweets) =>
+  setFilteredTweetsData((prevTweets) =>
     prevTweets.map((tweet) =>
       tweet.id === id
         ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }

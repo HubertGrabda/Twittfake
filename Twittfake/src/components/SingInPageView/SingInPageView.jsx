@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useRef, useState } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { classNames } from "../../functions/classNames";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../../hooks/useTheme";
 
 const SingInPageView = () => {
   const buttonText = "Zaloguj",

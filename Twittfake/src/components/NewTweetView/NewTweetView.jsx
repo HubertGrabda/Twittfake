@@ -7,7 +7,8 @@ import submitTweetMobileOnly from "../../functions/submitTweetMobileOnly";
 import useResizeAndRedirect from "../../hooks/handleResize";
 
 const NewTweetView = () => {
-  const { tweets, setTweets, setFilteredItems } = useContext(TweetsContext);
+  const { tweets, setTweets, setFilteredTweetsData } =
+    useContext(TweetsContext);
   const loggedUsername = sessionStorage.getItem("username");
   const inputPlaceholder = `O czym myślisz${
     loggedUsername ? `, ${loggedUsername}` : ""
@@ -38,7 +39,7 @@ const NewTweetView = () => {
               setTweets,
               navigate,
               inputPlaceholder,
-              setFilteredItems,
+              setFilteredTweetsData,
               loggedUsername
             )
           }

@@ -3,25 +3,32 @@ import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import filterItems from "../../functions/filterItems";
 import popularTrendsFilter from "../../functions/popularTrendsFilter";
-import { useTheme } from "../../context/ThemeContext";
 import { classNames } from "../../functions/classNames";
+import { useTheme } from "../../hooks/useTheme";
 
 const Popular = () => {
-  const { tweets, setFilteredItems, setTileIsClicked } =
+  const { tweets, setFilteredTweetsData, setTileIsClicked } =
     useContext(TweetsContext);
 
   const { duplicates, countMap } = popularTrendsFilter(tweets);
   const { theme } = useTheme();
 
   return (
-    <section className={classNames([theme === "light" ? "popular" : "popular --dark"])}>
+    <section
+      className={classNames([theme === "light" ? "popular" : "popular --dark"])}
+    >
       {duplicates.map((element) => {
         return (
           <div
             className='popular__tile'
             key={element}
             onClick={() =>
-              filterItems(tweets, element, setFilteredItems, setTileIsClicked)
+              filterItems(
+                tweets,
+                element,
+                setFilteredTweetsData,
+                setTileIsClicked
+              )
             }
           >
             <span className='popular__tile__catch-phrase'>#{element}</span>
