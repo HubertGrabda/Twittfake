@@ -8,7 +8,7 @@
   border-radius: 1rem;
 
   &.--dark {
-    background-color: $backgroundClr-dark;
+    background-color: $backgroundClr-dark-theme;
   }
 
   @media #{$tablets-only} {

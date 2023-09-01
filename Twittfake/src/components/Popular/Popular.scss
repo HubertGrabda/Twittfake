@@ -8,7 +8,7 @@
   @media #{$laptop} {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.1rem;
     position: fixed;
     top: 4rem;
     right: 2rem;
@@ -21,7 +21,7 @@
   }
 
   &.--dark {
-    background-color: $backgroundClr-dark;
+    background-color: $backgroundClr-dark-theme;
   }
 
   &__tile {
