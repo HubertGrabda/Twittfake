@@ -4,6 +4,7 @@ import "./AddTweetArea.scss";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitTweet from "../../functions/submitTweet";
 import { ThemeContext } from "../../context/ThemeContext";
+import { classNames } from "../../functions/classNames";
 
 export const AddTweetArea = () => {
   const {
@@ -14,9 +15,9 @@ export const AddTweetArea = () => {
     userLogged,
   } = useContext(TweetsContext);
   const { theme } = useContext(ThemeContext);
+  const inputRef = useRef();
+  
   const buttonValue = "Prześlij";
-  const InputRef = useRef();
-
   const inputPlaceholder = `O czym myślisz${
     userLogged ? `, ${userLogged}` : ""
   }?`;
@@ -26,11 +27,13 @@ export const AddTweetArea = () => {
       {userLogged && (
         <div className='textarea-wrapper'>
           <textarea
-            className={`textarea-wrapper__input${
-              theme === "light" ? "" : " --dark"
-            }`}
+            className={classNames([
+              theme === "light"
+                ? "textarea-wrapper__input"
+                : "textarea-wrapper__input --dark",
+            ])}
             placeholder={inputPlaceholder}
-            ref={InputRef}
+            ref={inputRef}
             maxLength={85}
             onKeyDown={handleLinesAmount}
           ></textarea>
@@ -38,7 +41,7 @@ export const AddTweetArea = () => {
             className='textarea-wrapper__submit-button'
             onClick={() =>
               submitTweet(
-                InputRef,
+                inputRef,
                 tweets,
                 setTweets,
                 userLogged,

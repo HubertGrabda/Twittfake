@@ -41,14 +41,14 @@ const Tweet = ({ tweetId, username, content, comments }) => {
 
   const handleTweetsReactions = [
     (id) => handleTweetsCommentsSection(id),
-    (id, content) => retweet(content),
+    () => retweet(content),
     (id) => handleEditMode(id, contentTextArea),
     (id) => deleleTweet(id),
   ];
 
   return (
     <article
-className={classNames([theme === 'light' ? 'tweet': 'tweet --dark'])}
+      className={classNames([theme === "light" ? "tweet" : "tweet --dark"])}
       key={tweetId}
     >
       <h1

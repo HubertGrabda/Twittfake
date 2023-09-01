@@ -16,33 +16,31 @@ const SingInPageView = () => {
     ErrorText = (inputName) => `${inputName} musi zawierać od 5 do 15 znaków!`,
     defaultInputClassName = "form__input",
     errorInputClassName = "form__input error",
-    navigate = useNavigate(),
     InputsRef = useRef([]),
     [errorOccurred, setErrorOccured] = useState([]),
     { setUserIsLogged } = useContext(TweetsContext),
+    navigate = useNavigate(),
     { theme } = useTheme(),
-    [inputValue, setInputValue] = useState();
+    [inputValue, setInputValue] = useState(),
+    setError = (id, boolean) => {
+      setErrorOccured((prevErrorState) => {
+        const errorStateArray = [...(prevErrorState ?? [])];
+        errorStateArray[id] = boolean;
+        return errorStateArray;
+      });
+    };
 
   const inputIsValid = (input, id) => {
     if (
       input?.value.trim() === "" ||
       input?.value.length <= 5 ||
-      input?.value.length >= 15
+      input?.value.length > 15
     ) {
-      setErrorOccured((prevErrorState) => {
-        const errorStateArray = [...(prevErrorState ?? [])];
-        errorStateArray[id] = true;
-        return errorStateArray;
-      });
-
+      setError(id, true);
       input.className = errorInputClassName;
       return false;
     } else {
-      setErrorOccured((prevErrorState) => {
-        const errorStateArray = [...(prevErrorState ?? [])];
-        errorStateArray[id] = false;
-        return errorStateArray;
-      });
+      setError(id, false);
       input.className = defaultInputClassName;
       return true;
     }
