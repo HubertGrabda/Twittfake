@@ -14,9 +14,10 @@ $secondary-color: $twittfake_purple_hover_ver-3;
 $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
 $font-white: $twittfake_font_white;
 $font-gray: #71767b;
+$font-dark: #333;
 
-$backgroundClr-dark: $semi-transparent-secondary-color;
-$font-color-dark: $twittfake_font_white;
+$backgroundClr-dark-theme: $semi-transparent-secondary-color;
+$font-color-dark-theme: $twittfake_font_white;
 
 @mixin backgroundClr {
   background: rgb(122, 73, 136);

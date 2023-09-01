@@ -3,7 +3,7 @@
 .popular {
   display: none;
   border-radius: 1rem;
-  background-color: $main-color;
+  padding: 0;
 
   @media #{$laptop} {
     display: flex;
@@ -13,7 +13,6 @@
     top: 4rem;
     right: 2rem;
     width: 23vw;
-    padding: 0.7rem;
   }
 
   @media #{$desktop} {
@@ -30,8 +29,9 @@
     flex-direction: column;
     padding: 0.5rem;
     border-bottom: 1px solid $twittfake_font_white;
-    border-radius: 10px;
+    border-radius: 1rem;
     color: $twittfake_font_white;
+    background-color: $main-color;
 
     &:hover {
       background-color: $secondary-color;
