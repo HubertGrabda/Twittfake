@@ -4,9 +4,11 @@ import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../images/twittfake.png";
 import submitTweetMobileOnly from "../../functions/submitTweetMobileOnly";
-import useResizeAndRedirect from "../../hooks/handleResize";
+import useRedirect from "../../hooks/useRedirect";
 
 const NewTweetView = () => {
+  useRedirect();
+
   const { tweets, setTweets, setFilteredTweetsData } =
     useContext(TweetsContext);
   const loggedUsername = sessionStorage.getItem("username");
@@ -16,7 +18,6 @@ const NewTweetView = () => {
   const textareaInput = useRef();
   const buttonValue = "Prześlij";
   const navigate = useNavigate();
-  useResizeAndRedirect();
 
   return (
     <div className='input-field-wrapper'>

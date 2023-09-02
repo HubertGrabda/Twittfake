@@ -5,11 +5,11 @@ import Navbar from "../components/Navbar/Navbar";
 import Popular from "../components/Popular/Popular";
 import Searchbar from "../components/Searchbar/Searchbar";
 import ReturnButton from "../components/ReturnButton/returnArrow";
-import useResetFilter from "../hooks/ResetFilter";
 import ProfileRefernece from "../components/ProfilesReference/ProfileRefernece";
+import useResetFilter from "../hooks/useResetFilter";
 
 const Home = () => {
-  useResetFilter();
+  useResetFilter()
   return (
     <div className='home-wrapper'>
       <ProfileRefernece />

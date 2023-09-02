@@ -4,10 +4,11 @@ import Navbar from "../components/Navbar/Navbar";
 import ProfilesReference from "../components/ProfilesReference/ProfileRefernece";
 import SearchbarMobile from "../components/SearchbarMobile/SearchbarMobile";
 import PopularMobile from "../components/PopularMobile/PopularMobile";
-import useResizeAndRedirect from "../hooks/handleResize";
+import useRedirect from "../hooks/useRedirect";
+
 
 const Search = () => {
-  useResizeAndRedirect();
+  useRedirect();
 
   return (
     <>
