@@ -23,7 +23,7 @@
     font-size: 1.3rem;
     @include shadow;
 
-    &.--dark {
+    &--isDark {
       background-color: $backgroundClr-dark-theme;
     }
 

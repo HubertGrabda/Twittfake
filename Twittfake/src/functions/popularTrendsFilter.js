@@ -5,19 +5,19 @@ const popularTrendsFilter = (tweets) => {
     hashtagsArray.push(tweet?.hashtag ?? null);
   });
 
-  const countMap = {};
+  const countObj = {};
   const duplicates = [];
 
   hashtagsArray.forEach((hashtag) => {
     if (hashtag !== null) {
-      countMap[hashtag] = (countMap[hashtag] ?? 0) + 1;
-      if (countMap[hashtag] === 2) {
+      countObj[hashtag] = (countObj[hashtag] ?? 0) + 1;
+      if (countObj[hashtag] === 2) {
         duplicates.push(hashtag);
       }
     }
   });
 
-  return { countMap, duplicates };
+  return { countMap: countObj, duplicates };
 };
 
 export default popularTrendsFilter;

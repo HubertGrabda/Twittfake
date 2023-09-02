@@ -66,9 +66,8 @@ const SingInPageView = () => {
     <div className='form-wrapper'>
       <h1
         className={classNames([
-          theme === "light"
-            ? "form-wrapper__welcome-text"
-            : "form-wrapper__welcome-text --dark",
+          "form-wrapper__welcome-text",
+          theme === "isDark" && "form-wrapper__welcome-text--isDark",
         ])}
       >
         {" "}

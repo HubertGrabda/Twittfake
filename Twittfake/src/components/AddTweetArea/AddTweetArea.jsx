@@ -16,7 +16,7 @@ export const AddTweetArea = () => {
   } = useContext(TweetsContext);
   const { theme } = useContext(ThemeContext);
   const inputRef = useRef();
-  
+
   const buttonValue = "Prześlij";
   const inputPlaceholder = `O czym myślisz${
     userLogged ? `, ${userLogged}` : ""
@@ -28,9 +28,8 @@ export const AddTweetArea = () => {
         <div className='textarea-wrapper'>
           <textarea
             className={classNames([
-              theme === "light"
-                ? "textarea-wrapper__input"
-                : "textarea-wrapper__input --dark",
+              "textarea-wrapper__input",
+              theme === "isDark" && "textarea-wrapper__input--isDark",
             ])}
             placeholder={inputPlaceholder}
             ref={inputRef}

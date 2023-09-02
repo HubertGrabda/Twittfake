@@ -48,7 +48,7 @@ const Tweet = ({ tweetId, username, content, comments }) => {
 
   return (
     <article
-      className={classNames([theme === "light" ? "tweet" : "tweet --dark"])}
+      className={classNames(["tweet", theme === "isDark" && "tweet--isDark"])}
       key={tweetId}
     >
       <h1

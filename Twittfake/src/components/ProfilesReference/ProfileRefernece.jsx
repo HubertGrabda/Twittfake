@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import getUsername from "../../functions/getUsername";
 import { useTheme } from "../../hooks/useTheme";
+import { classNames } from "../../functions/classNames";
 
 const ProfileRefernece = () => {
   let userLogged = getUsername();
@@ -21,7 +22,12 @@ const ProfileRefernece = () => {
 
   return (
     <>
-      <div className={`profile-ref${theme === "light" ? "" : " --dark"}`}>
+      <div
+        className={classNames([
+          "profile-ref",
+          theme === "isDark" && "profile-ref--dark",
+        ])}
+      >
         {userLogged ? (
           <>
             <Link

@@ -4,21 +4,14 @@ import { TweetsContext } from "../../context/Tweet'sState";
 import { Link } from "react-router-dom";
 import popularTrendsFilter from "../../functions/popularTrendsFilter";
 import filterItems from "../../functions/filterItems";
-import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../functions/classNames";
 
 const PopularMobile = () => {
   const { tweets, setFilteredTweetsData, setTileIsClicked } =
     useContext(TweetsContext);
   const { duplicates, countMap } = popularTrendsFilter(tweets);
-  const { theme } = useTheme();
-
+  
   return (
-    <div
-      className={classNames([
-        theme === "light" ? "popularMobile" : "popularMobile --dark",
-      ])}
-    >
+    <div className='popularMobile'>
       {duplicates.slice(0, 4).map((element) => (
         <Link
           to='/SearchResult'

@@ -2,6 +2,7 @@
 
 .searchbar {
   display: none;
+
   @media #{$laptop} {
     display: block;
     position: fixed;
@@ -21,6 +22,15 @@
     width: 70vw;
     height: 2rem;
     border-color: $main-color;
+
+    &--isDark {
+      background-color: $main-color;
+      border: none;
+
+      &::placeholder {
+        color: white;
+      }
+    }
 
     @media #{$laptop} {
       width: 23vw;

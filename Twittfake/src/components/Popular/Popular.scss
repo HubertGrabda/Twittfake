@@ -20,10 +20,6 @@
     width: 20vw;
   }
 
-  &.--dark {
-    background-color: $backgroundClr-dark-theme;
-  }
-
   &__tile {
     display: flex;
     flex-direction: column;
@@ -40,11 +36,9 @@
 
     &__catch-phrase {
       font-size: 1rem;
-      background-color: inherit;
     }
 
     &__amount-of-tweets {
-      background-color: inherit;
       opacity: 0.7;
       font-size: 0.7rem;
     }

@@ -12,7 +12,7 @@
   color: black;
   @include shadow;
 
-  &.--dark {
+  &--isDark {
     background-color: $semi-transparent-secondary-color;
     color: $font-white;
   }

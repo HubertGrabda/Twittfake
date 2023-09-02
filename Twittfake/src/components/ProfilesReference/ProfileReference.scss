@@ -20,7 +20,7 @@
     width: 20vw;
   }
 
-  &.--dark {
+  &--isDark {
     background-color: $backgroundClr-dark-theme;
   }
 
@@ -66,7 +66,7 @@
   &__log-out-button {
     color: $twittfake_font_white;
     background-color: transparent;
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     cursor: pointer;
     &:hover {
       color: red;

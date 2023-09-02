@@ -11,7 +11,7 @@ const ThemeChangeButton = () => {
       <FontAwesomeIcon
         onClick={toggleTheme}
         className='theme-change-button'
-        icon={theme === "light" ? faMoon : faSun}
+        icon={theme === "isBright" ? faMoon : faSun}
       ></FontAwesomeIcon>
     </>
   );

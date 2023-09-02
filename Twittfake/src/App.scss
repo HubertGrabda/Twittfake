@@ -6,13 +6,9 @@
   box-sizing: border-box;
 }
 
-[data-theme="dark"] {
+[data-theme="isDark"] {
   background-color: rgb(21, 32, 43);
   color: $font-color-dark-theme;
-
-  input {
-    background-color: $font-color-dark-theme;
-  }
 }
 
 * {
