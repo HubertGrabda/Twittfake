@@ -1,5 +1,5 @@
 import "./ProfileReference.scss";
-import logo from "../../images/twittfake.png";
+import logo from "../../images/TwittfakeLogoAlt.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
@@ -12,7 +12,7 @@ import { classNames } from "../../functions/classNames";
 const ProfileRefernece = () => {
   let userLogged = getUsername();
   const logInText = "Zaloguj się";
-  const { setWhosProfileToDisplay, setUserIsLogged } =
+  const { setWhosProfileToDisplay, setUserIsLogged, userIsLogged } =
     useContext(TweetsContext);
   const { theme } = useTheme();
   const logOut = () => {
@@ -28,7 +28,7 @@ const ProfileRefernece = () => {
           theme === "isDark" && "profile-ref--dark",
         ])}
       >
-        {userLogged ? (
+        {userIsLogged ? (
           <>
             <Link
               to='/Profile'

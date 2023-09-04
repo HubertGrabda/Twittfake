@@ -1,5 +1,5 @@
 import "./SingInPageView.scss";
-import logo from "../../images/twittfake.png";
+import logo from "../../images/TwittfakeLogoAlt.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { Link, useNavigate } from "react-router-dom";

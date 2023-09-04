@@ -11,6 +11,8 @@ const submitTweet = (
   const inputPlaceholder = `O czym myślisz, ${loggedUsername}?`;
 
   let input = refName.current;
+  const inputsCurrentClassname = input.className;
+
   if (input.value.trim() === "") {
     refName.current.placeholder = InputErrorMessage;
     refName.current.className = errorClass;
@@ -28,7 +30,7 @@ const submitTweet = (
 
   refName.current.placeholder = inputPlaceholder;
   refName.current.value = "";
-  refName.current.className = "textarea-wrapper__input";
+  refName.current.className = inputsCurrentClassname;
 };
 
 export default submitTweet;

@@ -9,8 +9,8 @@ $tablets-only: "(min-width: 700px) and (max-width:1024px)";
 $laptop: "(min-width: 1024px)";
 $desktop: "(min-width:1440px)";
 
-$main-color: $twittfake_purple;
-$secondary-color: $twittfake_purple_hover_ver-3;
+$main-color: #120d3e;
+$secondary-color: #120d3ead;
 $semi-transparent-secondary-color: $twittfake_purple_hover_ver-2;
 $font-white: $twittfake_font_white;
 $font-gray: #71767b;
@@ -65,13 +65,13 @@ $font-color-dark-theme: $twittfake_font_white;
 }
 
 @mixin shadow {
-  -webkit-box-shadow: inset 0px -9px 50px -30px rgba(122, 73, 136, 1);
--moz-box-shadow: inset 0px -9px 50px -30px rgba(122, 73, 136, 1);
-box-shadow: inset 0px -9px 50px -30px rgba(122, 73, 136, 1);
+  -webkit-box-shadow: inset 0px -9px 50px -30px rgb(18, 13, 62, 0.5);
+  -moz-box-shadow: inset 0px -9px 50px -30px rgb(18, 13, 62, 0.5);
+  box-shadow: inset 0px -9px 50px -30px rgb(18, 13, 62, 0.5);
 }
 
 @mixin buttons($side) {
-  background-color: $twittfake_purple;
+  background-color: $main-color;
   color: $twittfake_font_white;
   border-radius: 50%;
   width: 1.2rem;
@@ -119,7 +119,7 @@ box-shadow: inset 0px -9px 50px -30px rgba(122, 73, 136, 1);
   border-radius: 9999px;
   margin: 0.5rem auto;
   color: $twittfake_font_white;
-  background-color: $twittfake_purple;
+  background-color: $main-color;
   border: none;
 
   @media #{$tablets-only} {
@@ -135,6 +135,6 @@ box-shadow: inset 0px -9px 50px -30px rgba(122, 73, 136, 1);
   }
 
   &:hover {
-    background-color: $twittfake_purple_hover;
+    background-color: $secondary-color;
   }
 }

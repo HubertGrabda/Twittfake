@@ -1,11 +1,11 @@
 @import "../variables";
 
 .form-wrapper {
-  border: 3px solid #7a4988;
+  border: 3px solid $main-color;
   width: 90vw;
   border-radius: 1rem;
   position: relative;
-  background-color: $twittfake_background_color;
+  background-color: $secondary-color;
   border: none;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@
     left: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    color: $semi-transparent-secondary-color;
+    color: $font-white;
     transition: all 0.3s ease-in-out;
 
     @media #{$tablets-only} {
@@ -58,6 +58,7 @@
     text-align: center;
     padding-bottom: 1rem;
     background-color: transparent;
+    color: $font-white;
 
     &--isDark {
       color: $font-gray;
@@ -152,7 +153,7 @@
       border-radius: 9999px;
       height: 2rem;
       width: 5rem;
-      background-color: $semi-transparent-secondary-color;
+      background-color: $main-color;
       border-bottom: 0.2rem solid $secondary-color;
       border-top: none;
       border-left: none;

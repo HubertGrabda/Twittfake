@@ -1,6 +1,10 @@
 const getUsername = () => {
   const userLogged = sessionStorage.getItem("username");
-  return userLogged;
+  if (userLogged) {
+    return userLogged;
+  } else {
+    return false;
+  }
 };
 
 export default getUsername;

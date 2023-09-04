@@ -10,6 +10,8 @@ const submitTweetMobileOnly = (
   const InputErrorMessage = "Nie można dodać pustego tweeta!";
 
   let input = refName.current;
+  const inputsCurrentClassname = input.className;
+
   if (input.value.trim() === "") {
     refName.current.placeholder = InputErrorMessage;
     refName.current.className = "input-field-wrapper__textarea__input--error";
@@ -27,7 +29,7 @@ const submitTweetMobileOnly = (
 
   refName.current.placeholder = inputPlaceholder;
   refName.current.value = "";
-  refName.current.className = "textarea-wrapper__input";
+  refName.current.className = inputsCurrentClassname;
 
   navigate("/");
 };

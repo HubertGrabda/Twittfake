@@ -10,10 +10,9 @@ const TweetsProvider = ({ children }) => {
   const userLogged = getUsername();
   const [tweets, setTweets] = useState(TweetsData.tweets);
   const [filteredTweetsData, setFilteredTweetsData] = useState(tweets);
-  const [whosProfileToDisplay, setWhosProfileToDisplay] =
-    useState(userLogged);
+  const [whosProfileToDisplay, setWhosProfileToDisplay] = useState(userLogged);
   const [tileIsClicked, setTileIsClicked] = useState(false);
-  const [userIsLogged, setUserIsLogged] = useState(false);
+  const [userIsLogged, setUserIsLogged] = useState(userLogged);
 
   const tweetContextValue = {
     userLogged,

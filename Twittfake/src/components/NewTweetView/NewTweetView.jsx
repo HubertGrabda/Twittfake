@@ -2,9 +2,9 @@ import "./NewTweetView.scss";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../images/twittfake.png";
 import submitTweetMobileOnly from "../../functions/submitTweetMobileOnly";
 import useRedirect from "../../hooks/useRedirect";
+import logo from "../../images/TwittfakeLogoAlt.png";
 
 const NewTweetView = () => {
   useRedirect();

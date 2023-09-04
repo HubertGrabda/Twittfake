@@ -13,8 +13,9 @@
   @include shadow;
 
   &--isDark {
-    background-color: $semi-transparent-secondary-color;
+    background-color: transparent;
     color: $font-white;
+    border: 1px solid $font-gray;
   }
 
   &__username {

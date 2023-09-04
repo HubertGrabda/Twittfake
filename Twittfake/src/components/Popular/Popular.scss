@@ -29,6 +29,10 @@
     color: $twittfake_font_white;
     background-color: $main-color;
 
+    &--isDark {
+      background-color: $secondary-color;
+    }
+
     &:hover {
       background-color: $secondary-color;
       cursor: pointer;

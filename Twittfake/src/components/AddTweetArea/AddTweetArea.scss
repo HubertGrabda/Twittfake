@@ -24,7 +24,8 @@
     @include shadow;
 
     &--isDark {
-      background-color: $backgroundClr-dark-theme;
+      background-color: transparent;
+      border: 1px solid $font_gray;
     }
 
     &:focus-visible {
