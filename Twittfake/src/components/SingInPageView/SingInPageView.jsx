@@ -77,7 +77,7 @@ const SingInPageView = () => {
         />
       </Link>
 
-      <form className='form' noValidate>
+      <form className='form'>
         <input
           id='username-input'
           maxLength={13}
