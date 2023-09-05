@@ -62,28 +62,25 @@
       border: none;
       margin: 0.5rem;
       padding-left: 0.3rem;
+      background-color: transparent;
+
+      &--isDark {
+        border: 1px solid $font_gray;
+        color: white;
+      }
 
       @media #{$tablets-only} {
         font-size: 1.6rem;
       }
 
       &:focus-visible {
-        outline-color: $secondary-color;
+        outline: none;
       }
 
       &--error {
-        resize: inherit;
-        width: 85%;
-        font-size: inherit;
-        height: 60vh;
-        border-radius: 1rem;
-        padding: 0.5rem;
-        margin: inherit;
+        background-color: transparent;
         border: 2px solid red;
-
-        @media #{$tablets-only} {
-          font-size: 1.6rem;
-        }
+        color: white;
       }
     }
 

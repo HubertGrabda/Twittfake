@@ -12,7 +12,6 @@ import { useContext } from "react";
 import { TweetsContext } from "../../context/Tweet'sState";
 import { classNames } from "../../functions/classNames";
 
-
 const Navbar = () => {
   const { setWhosProfileToDisplay, userLogged } = useContext(TweetsContext);
   const navbarIcons = [faPlus, faMagnifyingGlass];
@@ -21,8 +20,9 @@ const Navbar = () => {
   const showElement = ScrollHandler();
 
   return (
-    
-    <div className={classNames([showElement ? "navbar" : 'navbar --hidden'])}>
+    <div
+      className={classNames(["navbar", showElement ? "" : "navbar--hidden"])}
+    >
       <Link to={routeToLoginOrProfile}>
         {userLogged ? (
           <img

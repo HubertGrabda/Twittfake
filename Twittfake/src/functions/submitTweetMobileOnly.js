@@ -1,3 +1,5 @@
+import { classNames } from "./classNames";
+
 const submitTweetMobileOnly = (
   refName,
   tweets,
@@ -5,16 +7,21 @@ const submitTweetMobileOnly = (
   navigate,
   inputPlaceholder,
   setFilteredTweetsData,
-  loggedUsername
+  loggedUsername,
+  theme
 ) => {
-  const InputErrorMessage = "Nie można dodać pustego tweeta!";
-
   let input = refName.current;
-  const inputsCurrentClassname = input.className;
 
-  if (input.value.trim() === "") {
+  const errorClassName = "textarea__input textarea__input--error";
+  const InputErrorMessage = "Nie można dodać pustego tweeta!";
+  const defaultClassName = classNames([
+    "textarea__input",
+    theme === "isDark" && "textarea__input--isDark",
+  ]);
+
+  if (!input?.value) {
     refName.current.placeholder = InputErrorMessage;
-    refName.current.className = "input-field-wrapper__textarea__input--error";
+    refName.current.className = errorClassName;
     return;
   } else input.value;
 
@@ -29,7 +36,7 @@ const submitTweetMobileOnly = (
 
   refName.current.placeholder = inputPlaceholder;
   refName.current.value = "";
-  refName.current.className = inputsCurrentClassname;
+  refName.current.className = defaultClassName;
 
   navigate("/");
 };

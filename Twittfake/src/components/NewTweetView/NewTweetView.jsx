@@ -5,19 +5,23 @@ import { useNavigate } from "react-router-dom";
 import submitTweetMobileOnly from "../../functions/submitTweetMobileOnly";
 import useRedirect from "../../hooks/useRedirect";
 import logo from "../../images/TwittfakeLogoAlt.png";
+import getUsername from "../../functions/getUsername";
+import { useTheme } from "../../hooks/useTheme";
+import { classNames } from "../../functions/classNames";
 
 const NewTweetView = () => {
   useRedirect();
 
   const { tweets, setTweets, setFilteredTweetsData } =
     useContext(TweetsContext);
-  const loggedUsername = sessionStorage.getItem("username");
+  const loggedUsername = getUsername();
   const inputPlaceholder = `O czym myślisz${
     loggedUsername ? `, ${loggedUsername}` : ""
   }?`;
   const textareaInput = useRef();
   const buttonValue = "Prześlij";
   const navigate = useNavigate();
+  const { theme } = useTheme();
 
   return (
     <div className='input-field-wrapper'>
@@ -28,7 +32,10 @@ const NewTweetView = () => {
       <div className='textarea'>
         <textarea
           ref={textareaInput}
-          className='textarea__input'
+          className={classNames([
+            "textarea__input",
+            theme === "isDark" && "textarea__input--isDark",
+          ])}
           placeholder={inputPlaceholder}
         ></textarea>{" "}
         <button
@@ -41,7 +48,8 @@ const NewTweetView = () => {
               navigate,
               inputPlaceholder,
               setFilteredTweetsData,
-              loggedUsername
+              loggedUsername,
+              theme
             )
           }
         >

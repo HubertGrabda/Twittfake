@@ -44,9 +44,9 @@ export const AddTweetArea = () => {
                 tweets,
                 setTweets,
                 userLogged,
-                "textarea-wrapper__input--error",
                 setFilteredTweetsData,
-                filteredTweetsData
+                filteredTweetsData,
+                theme
               )
             }
           >

@@ -21,10 +21,12 @@
     resize: none;
     border: none;
     font-size: 1.3rem;
+    background-color: transparent;
+
     @include shadow;
 
     &--isDark {
-      background-color: transparent;
+      color: white;
       border: 1px solid $font_gray;
     }
 
@@ -33,12 +35,14 @@
     }
 
     &--error {
+      background-color: transparent;
       width: 100%;
       border: 1px solid red;
       padding: 0.5rem;
       border-radius: 1rem;
       resize: none;
       font-size: 1.3rem;
+      color: white;
 
       &:focus-visible {
         outline: 1px solid red;

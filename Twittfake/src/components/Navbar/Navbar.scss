@@ -9,29 +9,14 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: $semi-transparent-secondary-color;
+  background-color: $secondary-color;
   border-radius: 9999px;
   transition: all 0.5s ease;
   transform: translateX(-50%);
 
-  &.--hidden {
-    width: 75%;
-    height: 2.9rem;
-    position: fixed;
-    bottom: 0.5rem;
-    left: 50%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: $semi-transparent-secondary-color;
-    border-radius: 9999px;
+  &--hidden {
     transition: transform 0.5s ease;
     transform: translate(-50%, 200%);
-
-    @media #{$tablets-only} {
-      width: 45%;
-      height: 3.4rem;
-    }
   }
 
   @media #{$tablets-only} {
@@ -83,7 +68,6 @@
     font-size: 1.3rem;
     width: 2rem;
     height: 2rem;
-    
 
     &:hover {
       color: $twittfake_font_white;

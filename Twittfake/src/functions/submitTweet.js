@@ -1,21 +1,27 @@
+import { classNames } from "./classNames";
+
 const submitTweet = (
   refName,
   tweets,
   setTweets,
   loggedUsername,
-  errorClass,
   setFilteredTweetsData,
-  filteredTweetsData
+  filteredTweetsData,
+  theme
 ) => {
+  let input = refName.current;
+
   const InputErrorMessage = "Nie można dodać pustego tweeta!";
   const inputPlaceholder = `O czym myślisz, ${loggedUsername}?`;
+  const errorClassName = "textarea-wrapper__input--error";
+  const defaultClassName = classNames([
+    "textarea-wrapper__input",
+    theme === "isDark" && "textarea-wrapper__input--isDark",
+  ]);
 
-  let input = refName.current;
-  const inputsCurrentClassname = input.className;
-
-  if (input.value.trim() === "") {
+  if (!input.value) {
     refName.current.placeholder = InputErrorMessage;
-    refName.current.className = errorClass;
+    refName.current.className = errorClassName;
     return;
   } else input.value;
 
@@ -30,7 +36,7 @@ const submitTweet = (
 
   refName.current.placeholder = inputPlaceholder;
   refName.current.value = "";
-  refName.current.className = inputsCurrentClassname;
+  refName.current.className = defaultClassName;
 };
 
 export default submitTweet;

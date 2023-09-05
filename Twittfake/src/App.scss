@@ -9,6 +9,22 @@
 [data-theme="isDark"] {
   background-color: rgb(21, 32, 43);
   color: $font-color-dark-theme;
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: white;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: white;
+  }
 }
 
 * {
@@ -27,6 +43,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $semi-transparent-secondary-color;
+  background-color: $main-color;
   border-radius: 6px;
 }
