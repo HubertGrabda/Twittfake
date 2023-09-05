@@ -31,11 +31,7 @@ const SingInPageView = () => {
     };
 
   const inputIsValid = (input, id) => {
-    if (
-      input?.value.trim() === "" ||
-      input?.value.length <= 5 ||
-      input?.value.length > 15
-    ) {
+    if (!input?.value || input?.value.length <= 5 || input?.value.length > 15) {
       setError(id, true);
       input.className = errorInputClassName;
       return false;

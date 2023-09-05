@@ -24,8 +24,6 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
     handleEditMode,
   } = tweetService;
 
-  
-
   const handleCommentsReactions = [
     (id, commentsID) => handleEditMode(commentsID),
     (id, commentId) => deleteComment(id, commentId),

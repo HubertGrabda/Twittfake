@@ -38,7 +38,7 @@ const TweetService = () => {
   };
 
   const handleEditMode = (id, contentTextArea) => {
-    contentTextArea?.current[id].value.trim() === ""
+    !contentTextArea?.current[id].value
       ? ""
       : toggleState(
           setIsUserEditing,
@@ -50,7 +50,7 @@ const TweetService = () => {
   const saveEdit = (id, contentTextArea) => {
     let input = contentTextArea.current[id];
 
-    if (input.value.trim() === "") {
+    if (!input.value) {
       input.placeholder = InputErrorMessage;
       input.className = "tweet__content--edit-mode--error";
       return;

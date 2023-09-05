@@ -88,7 +88,7 @@ const Tweet = ({ tweetId, username, content, comments }) => {
               {index === 0 ? (
                 <span
                   className={`tweet__reactions__counter__${
-                    isHeartFilled[tweetId] ? "heart --red" : "heart"
+                    isHeartFilled[tweetId] ? "heart--red" : "heart"
                   }`}
                 >
                   {isHeartFilled[tweetId] ? 2 : 1}

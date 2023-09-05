@@ -16,7 +16,7 @@ const Searchbar = () => {
 
   const handleSearchInputChange = (event) => {
     const inputValue = event.target.value;
-    if (inputValue.trim() === "") {
+    if (!inputValue) {
       setFilteredTweetsData(tweets);
       setTileIsClicked(false);
     } else

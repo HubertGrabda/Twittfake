@@ -9,7 +9,7 @@ const submitComment = (
   setFilteredTweetsData
 ) => {
   let input = refName.current;
-  if (input.value.trim() === "") {
+  if (!input.value) {
     input.placeholder = inputErrorMessage;
     input.className = "add-comment__input--error";
     return;
