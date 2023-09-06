@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./AddCommentArea.scss";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitComment from "../../functions/submitComment";
+import useGetUsername from "../../hooks/useGetUsername";
 
 const CommentArea = ({ id }) => {
   const defaultPlaceholderText = "Odpowiedz na tweet";
@@ -29,16 +30,16 @@ const CommentArea = ({ id }) => {
   return (
     <>
       {userLogged && (
-        <div className='add-comment'>
+        <div className="add-comment">
           <textarea
             ref={addCommentInputRef}
-            className='add-comment__input'
+            className="add-comment__input"
             placeholder={defaultPlaceholderText}
             maxLength={80}
             onKeyDown={handleLinesAmount}
           />
           <button
-            className='add-comment__submit-button'
+            className="add-comment__submit-button"
             onClick={handleCommentSubmit}
           >
             {buttonValue}
