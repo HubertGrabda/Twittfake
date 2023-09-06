@@ -45,7 +45,7 @@
     }
 
     &:hover {
-      color: $secondary-color;
+      color: $twittfake_purple_hover_ver-2;
       transform: scale(1.1);
     }
   }
@@ -120,7 +120,7 @@
       width: 100%;
       height: 2rem;
       padding: 0.5rem;
-      border-bottom: 2px solid $secondary-color;
+      border-bottom: 2px solid $twittfake_purple_hover_ver-2;
       border-top: none;
       border-left: none;
       border-right: none;
@@ -151,8 +151,8 @@
       border-radius: 9999px;
       height: 2rem;
       width: 5rem;
-      background-color: $main-color;
-      border-bottom: 0.2rem solid $secondary-color;
+      background-color: $twittfake_purple;
+      border-bottom: 0.2rem solid $twittfake_purple_hover;
       border-top: none;
       border-left: none;
       border-right: none;
@@ -162,7 +162,7 @@
 
       &:hover {
         transform: scale(1.1);
-        background-color: $secondary-color;
+        background-color: $twittfake_purple_hover_ver-2;
       }
 
       @media #{$tablets-only} {

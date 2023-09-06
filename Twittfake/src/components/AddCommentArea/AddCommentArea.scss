@@ -23,14 +23,14 @@
   &__input {
     resize: none;
     border-radius: 1rem;
-    border: 1px solid $secondary-color;
+    border: 1px solid $twittfake_purple_hover;
     padding: 0.3rem;
     width: 100%;
     background-color: transparent;
     border: 1px solid $font-gray;
 
     &:focus-visible {
-      outline-color: $secondary-color;
+      outline-color: $twittfake_purple_hover;
     }
 
     @media #{$tablets-only} {
