@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "./HomeButton.scss";
 import { Link } from "react-router-dom";
-import ScrollHandler from "../../functions/scrollHandler";
-import { classNames } from "../../functions/classNames";
+import ScrollHandler from "../../shared/scrollHandler";
+import { classNames } from "../../shared/classNames";
 
 const HomeButton = () => {
   const showElement = ScrollHandler();
@@ -14,7 +14,7 @@ const HomeButton = () => {
         icon={faHome}
         className={classNames([
           "home-icon",
-          showElement ? "" : "home-icon--hidden",
+          !showElement && "home-icon--hidden",
         ])}
       />
     </Link>

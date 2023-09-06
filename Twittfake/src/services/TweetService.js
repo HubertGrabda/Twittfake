@@ -1,8 +1,8 @@
-import { useState, useContext } from "react";
-import toggleState from "../functions/toggleState";
-import { TweetsContext } from "../context/Tweet'sState";
+import { useState } from "react";
+import toggleState from "../shared/toggleState";
 import { useNavigate } from "react-router-dom";
-import getUsername from "../functions/getUsername";
+import getUsername from "../shared/getUsername";
+import { useTweetContext } from "../hooks/useTweetContext";
 
 const TweetService = () => {
   const userLogged = getUsername();
@@ -10,8 +10,8 @@ const TweetService = () => {
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
   const [isUserEditing, setIsUserEditing] = useState(false);
-  const { tweets, setTweets, setFilteredTweetsData, setWhosProfileToDisplay } =
-    useContext(TweetsContext);
+  const { tweets, setTweets, setFilteredTweetsData, setprofileToDisplay } =
+    useTweetContext();
   const InputErrorMessage = "To pole nie może być puste!";
   const saveButtonValue = "Zapisz";
 
@@ -87,7 +87,7 @@ const TweetService = () => {
   };
 
   const otherUsersProfileReference = (username) => {
-    setWhosProfileToDisplay(username);
+    setprofileToDisplay(username);
     navigate("/Profile");
   };
 

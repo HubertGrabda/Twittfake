@@ -1,7 +1,7 @@
 import emptyHeart from "../../images/heart_empty.png";
 import fullHeart from "../../images/heart_full.png";
 import AddCommentArea from "../AddCommentArea/AddCommentArea";
-import handleLinesAmount from "../../functions/handleLinesAmount";
+import handleLinesAmount from "../../shared/handleLinesAmount";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faComment,
@@ -15,7 +15,7 @@ import PropTypes from "prop-types";
 import "./Tweet.scss";
 import TweetComment from "../TweetComment/TweetComment";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../functions/classNames";
+import { classNames } from "../../shared/classNames";
 
 const Tweet = ({ tweetId, username, content, comments }) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];

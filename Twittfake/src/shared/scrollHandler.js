@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 const ScrollHandler = () => {
-  const [showElement, setShowElement] = useState(true);
+  const [scrollingUp, setScrollingUp] = useState(true);
   const [lastScrollPos, setLastScrollPos] = useState(0);
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
     if (currentScrollPos > lastScrollPos) {
-      setShowElement(false);
+      setScrollingUp(false);
     } else {
-      setShowElement(true);
+      setScrollingUp(true);
     }
     setLastScrollPos(currentScrollPos);
   };
@@ -22,7 +22,7 @@ const ScrollHandler = () => {
     };
   });
 
-  return showElement;
+  return scrollingUp;
 };
 
 export default ScrollHandler;

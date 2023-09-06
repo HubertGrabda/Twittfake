@@ -1,9 +1,9 @@
-const filterItems = (data, inputValue, setResultState, setTileIsClicked) => {
+const filterItems = (data, inputValue, setResultState, setTagIsClicked) => {
   const filteredResults = data.filter((item) =>
     item.content.toLowerCase().includes(inputValue.toLowerCase())
   );
 
-  setTileIsClicked(true);
+  setTagIsClicked(true);
   setResultState(filteredResults);
 };
 

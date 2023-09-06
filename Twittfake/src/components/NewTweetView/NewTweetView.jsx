@@ -1,19 +1,18 @@
 import "./NewTweetView.scss";
-import { TweetsContext } from "../../context/Tweet'sState";
+import { TweetsContext } from "../../context/TweetContext";
 import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import submitTweetMobileOnly from "../../functions/submitTweetMobileOnly";
+import submitTweetMobileOnly from "../../shared/submitTweetMobileOnly";
 import useRedirect from "../../hooks/useRedirect";
 import logo from "../../images/TwittfakeLogoAlt.png";
-import getUsername from "../../functions/getUsername";
+import getUsername from "../../shared/getUsername";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../functions/classNames";
+import { classNames } from "../../shared/classNames";
 
 const NewTweetView = () => {
   useRedirect();
 
-  const { tweets, setTweets, setFilteredTweetsData } =
-    useContext(TweetsContext);
+  const { tweets, setTweets, setFilteredTweetsData } = useTweetContext();
   const loggedUsername = getUsername();
   const inputPlaceholder = `O czym myślisz${
     loggedUsername ? `, ${loggedUsername}` : ""

@@ -3,10 +3,10 @@ import logo from "../../images/TwittfakeLogoAlt.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useRef, useState } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
-import { classNames } from "../../functions/classNames";
+import { useRef, useState } from "react";
+import { classNames } from "../../shared/classNames";
 import { useTheme } from "../../hooks/useTheme";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
 const SingInPageView = () => {
   const buttonText = "Zaloguj",
@@ -18,7 +18,7 @@ const SingInPageView = () => {
     errorInputClassName = "form__input error",
     InputsRef = useRef([]),
     [errorOccurred, setErrorOccured] = useState([]),
-    { setUserIsLogged } = useContext(TweetsContext),
+    { setisUserLogged } = useTweetContext(),
     navigate = useNavigate(),
     { theme } = useTheme(),
     [inputValue, setInputValue] = useState(),
@@ -54,7 +54,7 @@ const SingInPageView = () => {
     if (isUsernameValid && isPasswordValid) {
       sessionStorage.setItem("username", inputValue);
       navigate("/");
-      setUserIsLogged(true);
+      setisUserLogged(true);
     }
   };
 

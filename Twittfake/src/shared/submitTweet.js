@@ -20,10 +20,10 @@ const submitTweet = (
   ]);
 
   if (!input.value) {
-    refName.current.placeholder = InputErrorMessage;
-    refName.current.className = errorClassName;
+    input.placeholder = InputErrorMessage;
+    input.className = errorClassName;
     return;
-  } else input.value;
+  }
 
   const newTweet = {
     id: tweets.length + 1,
@@ -34,9 +34,9 @@ const submitTweet = (
   setTweets([newTweet, ...tweets]);
   setFilteredTweetsData([newTweet, ...filteredTweetsData]);
 
-  refName.current.placeholder = inputPlaceholder;
-  refName.current.value = "";
-  refName.current.className = defaultClassName;
+  input.placeholder = inputPlaceholder;
+  input.value = "";
+  input.className = defaultClassName;
 };
 
 export default submitTweet;

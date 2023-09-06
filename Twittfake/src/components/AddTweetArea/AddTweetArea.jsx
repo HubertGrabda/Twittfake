@@ -1,10 +1,10 @@
 import { useContext, useRef } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
 import "./AddTweetArea.scss";
-import handleLinesAmount from "../../functions/handleLinesAmount";
-import submitTweet from "../../functions/submitTweet";
+import handleLinesAmount from "../../shared/handleLinesAmount";
+import submitTweet from "../../shared/submitTweet";
 import { ThemeContext } from "../../context/ThemeContext";
-import { classNames } from "../../functions/classNames";
+import { classNames } from "../../shared/classNames";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
 export const AddTweetArea = () => {
   const {
@@ -13,7 +13,7 @@ export const AddTweetArea = () => {
     filteredTweetsData,
     setFilteredTweetsData,
     userLogged,
-  } = useContext(TweetsContext);
+  } = useTweetContext();
   const { theme } = useContext(ThemeContext);
   const inputRef = useRef();
 

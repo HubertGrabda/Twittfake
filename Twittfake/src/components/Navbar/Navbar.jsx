@@ -7,29 +7,26 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import ScrollHandler from "../../functions/scrollHandler";
-import { useContext } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
-import { classNames } from "../../functions/classNames";
+import ScrollHandler from "../../shared/scrollHandler";
+import { classNames } from "../../shared/classNames";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Navbar = () => {
-  const { setWhosProfileToDisplay, userLogged } = useContext(TweetsContext);
+  const { setprofileToDisplay, userLogged } = useTweetContext();
   const navbarIcons = [faPlus, faMagnifyingGlass];
   const routeToLoginOrProfile = userLogged ? "/Profile" : "SignIn";
 
   const showElement = ScrollHandler();
 
   return (
-    <div
-      className={classNames(["navbar", showElement ? "" : "navbar--hidden"])}
-    >
+    <div className={classNames(["navbar", !showElement && "navbar--hidden"])}>
       <Link to={routeToLoginOrProfile}>
         {userLogged ? (
           <img
             src={logo}
             alt="user's logo"
             className='navbar__users-profile-pic'
-            onClick={() => setWhosProfileToDisplay(userLogged)}
+            onClick={() => setprofileToDisplay(userLogged)}
           />
         ) : (
           <FontAwesomeIcon

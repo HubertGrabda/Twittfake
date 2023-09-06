@@ -4,18 +4,22 @@ import Header from "../components/Header/Header";
 import Navbar from "../components/Navbar/Navbar";
 import Popular from "../components/Popular/Popular";
 import Searchbar from "../components/Searchbar/Searchbar";
-import ReturnButton from "../components/ReturnButton/returnArrow";
-import ProfileRefernece from "../components/ProfilesReference/ProfileRefernece";
+import ProfileReference from "../components/ProfileReference/ProfileReference";
 import useResetFilter from "../hooks/useResetFilter";
+import ReturnArrow from "../components/ReturnArrow/returnArrow";
+import { useTweetContext } from "../hooks/useTweetContext";
 
 const Home = () => {
-  useResetFilter()
+  useResetFilter();
+
+  const { isUserLogged } = useTweetContext();
+
   return (
     <div className='home-wrapper'>
-      <ProfileRefernece />
+      <ProfileReference />
       <Header name={"Główna"} />
-      <ReturnButton returnTo={""} />
-      <AddTweetArea />
+      <ReturnArrow returnTo='/' />
+      {isUserLogged && <AddTweetArea />}
       <Feed />
       <Navbar />
       <Searchbar />

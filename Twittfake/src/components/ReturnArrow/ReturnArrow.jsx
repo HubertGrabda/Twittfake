@@ -2,22 +2,21 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./returnArrow.scss";
 import { Link, useLocation } from "react-router-dom";
-import ScrollHandler from "../../functions/scrollHandler";
+import ScrollHandler from "../../shared/scrollHandler";
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
-const ReturnButton = ({ returnTo }) => {
-  const { setFilteredTweetsData, tweets, tileIsClicked, setTileIsClicked } =
-    useContext(TweetsContext);
+const ReturnArrow = ({ returnTo }) => {
+  const { setFilteredTweetsData, tweets, TagIsClicked, setTagIsClicked } =
+    useTweetContext();
   const showElement = ScrollHandler();
   const path = useLocation();
 
   const showElementBasedOnUrl =
-    path.pathname === "/" ? tileIsClicked : showElement;
+    path.pathname === "/" ? TagIsClicked : showElement;
 
   const handleClick = () => {
-    setFilteredTweetsData(tweets), setTileIsClicked(false);
+    setFilteredTweetsData(tweets), setTagIsClicked(false);
   };
 
   return (
@@ -30,8 +29,8 @@ const ReturnButton = ({ returnTo }) => {
   );
 };
 
-ReturnButton.propTypes = {
+ReturnArrow.propTypes = {
   returnTo: PropTypes.string.isRequired,
 };
 
-export default ReturnButton;
+export default ReturnArrow;

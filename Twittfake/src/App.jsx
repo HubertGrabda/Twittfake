@@ -1,6 +1,6 @@
 import "./App.scss";
 import SingInPageView from "./components/SingInPageView/SingInPageView";
-import { TweetsProvider } from "./context/Tweet'sState";
+import { TweetsProvider } from "./context/TweetContext";
 import CreateTweet from "./pages/CreateTweet";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";

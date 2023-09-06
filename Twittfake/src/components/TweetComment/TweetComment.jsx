@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import PropTypes from "prop-types";
 import { useRef } from "react";
-import { classNames } from "../../functions/classNames";
+import { classNames } from "../../shared/classNames";
 
 const TweetComment = ({ commentId, username, content, tweetId }) => {
   const tweetService = TweetService();

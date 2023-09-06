@@ -1,15 +1,14 @@
 import { useContext } from "react";
 import "./PopularMobile.scss";
-import { TweetsContext } from "../../context/Tweet'sState";
+import { TweetsContext } from "../../context/TweetContext";
 import { Link } from "react-router-dom";
-import popularTrendsFilter from "../../functions/popularTrendsFilter";
-import filterItems from "../../functions/filterItems";
+import popularTrendsFilter from "../../shared/popularTrendsFilter";
+import filterItems from "../../shared/filterItems";
 
 const PopularMobile = () => {
-  const { tweets, setFilteredTweetsData, setTileIsClicked } =
-    useContext(TweetsContext);
+  const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
   const { duplicates, countMap } = popularTrendsFilter(tweets);
-  
+
   return (
     <div className='popularMobile'>
       {duplicates.slice(0, 4).map((element) => (
@@ -18,12 +17,7 @@ const PopularMobile = () => {
           className='tile'
           key={element}
           onClick={() =>
-            filterItems(
-              tweets,
-              element,
-              setFilteredTweetsData,
-              setTileIsClicked
-            )
+            filterItems(tweets, element, setFilteredTweetsData, setTagIsClicked)
           }
         >
           <span className='tile__category'>{element}</span>

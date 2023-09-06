@@ -1,17 +1,15 @@
 import "./Feed.scss";
-import { useContext } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
 import { useLocation } from "react-router-dom";
 import Tweet from "../Tweet/Tweet";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Feed = () => {
-  const { tweets, filteredTweetsData, whosProfileToDisplay } =
-    useContext(TweetsContext);
+  const { tweets, filteredTweetsData, profileToDisplay } = useTweetContext();
   const path = useLocation();
 
   const isItUsersProfile =
     path.pathname === "/Profile"
-      ? tweets.filter((tweet) => tweet.username === whosProfileToDisplay)
+      ? tweets.filter((tweet) => tweet.username === profileToDisplay)
       : filteredTweetsData;
 
   return (

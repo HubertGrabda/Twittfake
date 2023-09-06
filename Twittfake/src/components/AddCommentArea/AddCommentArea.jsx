@@ -1,9 +1,9 @@
-import { useContext, useRef } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
+import { useRef } from "react";
 import PropTypes from "prop-types";
 import "./AddCommentArea.scss";
-import handleLinesAmount from "../../functions/handleLinesAmount";
-import submitComment from "../../functions/submitComment";
+import handleLinesAmount from "../../shared/handleLinesAmount";
+import submitComment from "../../shared/submitComment";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
 const CommentArea = ({ id }) => {
   const defaultPlaceholderText = "Odpowiedz na tweet";
@@ -11,7 +11,7 @@ const CommentArea = ({ id }) => {
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
   const addCommentInputRef = useRef();
   const { tweets, setTweets, setFilteredTweetsData, userLogged } =
-    useContext(TweetsContext);
+    useTweetContext();
 
   const handleCommentSubmit = () => {
     submitComment(
@@ -29,16 +29,16 @@ const CommentArea = ({ id }) => {
   return (
     <>
       {userLogged && (
-        <div className="add-comment">
+        <div className='add-comment'>
           <textarea
             ref={addCommentInputRef}
-            className="add-comment__input"
+            className='add-comment__input'
             placeholder={defaultPlaceholderText}
             maxLength={80}
             onKeyDown={handleLinesAmount}
           />
           <button
-            className="add-comment__submit-button"
+            className='add-comment__submit-button'
             onClick={handleCommentSubmit}
           >
             {buttonValue}

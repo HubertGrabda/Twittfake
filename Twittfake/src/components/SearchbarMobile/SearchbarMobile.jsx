@@ -1,17 +1,16 @@
 import { useContext } from "react";
 import "./SearchbarMobile.scss";
 import { Link } from "react-router-dom";
-import filterItems from "../../functions/filterItems";
-import { TweetsContext } from "../../context/Tweet'sState";
+import filterItems from "../../shared/filterItems";
+import { TweetsContext } from "../../context/TweetContext";
 
 const SearchbarMobile = () => {
-  const { tweets, setFilteredTweetsData, setTileIsClicked } =
-    useContext(TweetsContext);
+  const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
   const buttonText = "Wyszukaj";
 
   const handleInput = (e) => {
     const inputValue = e.target.value;
-    filterItems(tweets, inputValue, setFilteredTweetsData, setTileIsClicked);
+    filterItems(tweets, inputValue, setFilteredTweetsData, setTagIsClicked);
   };
 
   return (

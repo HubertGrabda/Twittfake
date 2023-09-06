@@ -1,16 +1,14 @@
 import "./Searchbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
-import filterItems from "../../functions/filterItems";
-import { classNames } from "../../functions/classNames";
+import filterItems from "../../shared/filterItems";
+import { classNames } from "../../shared/classNames";
 import { useTheme } from "../../hooks/useTheme";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Searchbar = () => {
   const placeholderText = "Wyszukaj";
-  const { tweets, setFilteredTweetsData, setTileIsClicked } =
-    useContext(TweetsContext);
+  const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
 
   const { theme } = useTheme();
 
@@ -18,9 +16,9 @@ const Searchbar = () => {
     const inputValue = event.target.value;
     if (!inputValue) {
       setFilteredTweetsData(tweets);
-      setTileIsClicked(false);
+      setTagIsClicked(false);
     } else
-      filterItems(tweets, inputValue, setFilteredTweetsData, setTileIsClicked);
+      filterItems(tweets, inputValue, setFilteredTweetsData, setTagIsClicked);
   };
 
   return (

@@ -1,23 +1,22 @@
 import "./ProfileReference.scss";
 import logo from "../../images/TwittfakeLogoAlt.png";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import getUsername from "../../functions/getUsername";
+import getUsername from "../../shared/getUsername";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../functions/classNames";
+import { classNames } from "../../shared/classNames";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
-const ProfileRefernece = () => {
+const ProfileReference = () => {
   let userLogged = getUsername();
   const logInText = "Zaloguj się";
-  const { setWhosProfileToDisplay, setUserIsLogged, userIsLogged } =
-    useContext(TweetsContext);
+  const { setprofileToDisplay, setisUserLogged, isUserLogged } =
+    useTweetContext();
   const { theme } = useTheme();
   const logOut = () => {
     userLogged = sessionStorage.removeItem("username");
-    setUserIsLogged(false);
+    setisUserLogged(false);
   };
 
   return (
@@ -28,11 +27,11 @@ const ProfileRefernece = () => {
           theme === "isDark" && "profile-ref--dark",
         ])}
       >
-        {userIsLogged ? (
+        {isUserLogged ? (
           <>
             <Link
               to='/Profile'
-              onClick={() => setWhosProfileToDisplay(userLogged)}
+              onClick={() => setprofileToDisplay(userLogged)}
               className='profile-link'
             >
               <img src={logo} className='profile-link__picture'></img>
@@ -55,4 +54,4 @@ const ProfileRefernece = () => {
   );
 };
 
-export default ProfileRefernece;
+export default ProfileReference;

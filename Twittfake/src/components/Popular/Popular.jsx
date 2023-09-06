@@ -1,14 +1,12 @@
 import "./Popular.scss";
-import { useContext } from "react";
-import { TweetsContext } from "../../context/Tweet'sState";
-import filterItems from "../../functions/filterItems";
-import popularTrendsFilter from "../../functions/popularTrendsFilter";
+import filterItems from "../../shared/filterItems";
+import popularTrendsFilter from "../../shared/popularTrendsFilter";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../functions/classNames";
+import { classNames } from "../../shared/classNames";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Popular = () => {
-  const { tweets, setFilteredTweetsData, setTileIsClicked } =
-    useContext(TweetsContext);
+  const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
 
   const { duplicates, countMap } = popularTrendsFilter(tweets);
   const { theme } = useTheme();
@@ -28,7 +26,7 @@ const Popular = () => {
                 tweets,
                 element,
                 setFilteredTweetsData,
-                setTileIsClicked
+                setTagIsClicked
               )
             }
           >
