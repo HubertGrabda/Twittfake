@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { useState, useContext, useRef } from "react";
+import { useState, useContext } from "react";
 import toggleState from "../functions/toggleState";
 import { TweetsContext } from "../context/Tweet'sState";
 import { useNavigate } from "react-router-dom";
@@ -38,36 +37,41 @@ const TweetService = () => {
   };
 
   const handleEditMode = (id, contentTextArea) => {
-    !contentTextArea?.current[id].value
-      ? ""
-      : toggleState(
-          setIsUserEditing,
-          (prevIsUserEditingState) => !prevIsUserEditingState,
-          id
-        );
+    contentTextArea?.current[id].value &&
+      toggleState(
+        setIsUserEditing,
+        (prevIsUserEditingState) => !prevIsUserEditingState,
+        id
+      );
   };
 
   const saveEdit = (id, contentTextArea) => {
-    let input = contentTextArea.current[id];
+    let input = contentTextArea?.current[id];
+    const cacheInputClassName = input.className.includes("--error")
+      ? input.className.replace(/--error/g, "")
+      : input.className;
+    const errorClassName = `${cacheInputClassName}--error`;
 
+    if (cacheInputClassName === errorClassName) {
+      return;
+    }
     if (!input.value) {
       input.placeholder = InputErrorMessage;
-      input.className = "tweet__content--edit-mode--error";
+      input.className = errorClassName;
       return;
-    } else input.value;
-
-    setTweets((tweets) =>
-      tweets.map((tweet) =>
-        tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
-      )
-    );
-    setFilteredTweetsData((tweets) =>
-      tweets.map((tweet) =>
-        tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
-      )
-    );
-
-    handleEditMode(id);
+    } else {
+      setTweets((tweets) =>
+        tweets.map((tweet) =>
+          tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
+        )
+      );
+      setFilteredTweetsData((tweets) =>
+        tweets.map((tweet) =>
+          tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
+        )
+      );
+      handleEditMode(id, contentTextArea);
+    }
   };
 
   const retweet = (content) => {

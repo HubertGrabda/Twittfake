@@ -36,18 +36,16 @@
     resize: none;
     outline: none;
     color: inherit;
+    border-radius: 1rem;
 
     &--edit-mode {
-      height: inherit;
-      border: inherit;
-      width: 100%;
-      text-align: inherit;
-      resize: inherit;
-      margin-top: inherit;
-      outline-color: $main-color;
-      margin: 1rem auto;
-      border-radius: 1rem;
-      padding: 0.5rem;
+      background-color: $font-white;
+      color: $font-gray;
+      &--error {
+        border: 1px solid red;
+        background-color: $font-white;
+        color: $font-gray;
+      }
     }
   }
 

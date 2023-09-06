@@ -21,6 +21,7 @@ const Tweet = ({ tweetId, username, content, comments }) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
   const contentTextArea = useRef([]);
   const { theme } = useTheme();
+  const saveButtonValue = "Zapisz";
 
   const {
     userLogged,
@@ -36,8 +37,6 @@ const Tweet = ({ tweetId, username, content, comments }) => {
     deleleTweet,
     otherUsersProfileReference,
   } = TweetService();
-
-  const saveButtonValue = "Zapisz";
 
   const handleTweetsReactions = [
     (id) => handleTweetsCommentsSection(id),
@@ -69,9 +68,10 @@ const Tweet = ({ tweetId, username, content, comments }) => {
         onKeyDown={handleLinesAmount}
       ></textarea>
       <button
-        className={`tweet__save-edit-button${
-          isUserEditing[tweetId] ? "--active" : ""
-        }`}
+        className={classNames([
+          "tweet__save-edit-button",
+          isUserEditing[tweetId] && "tweet__save-edit-button--active",
+        ])}
         onClick={() => saveEdit(tweetId, contentTextArea)}
       >
         {saveButtonValue}
@@ -87,9 +87,11 @@ const Tweet = ({ tweetId, username, content, comments }) => {
             <React.Fragment key={index}>
               {index === 0 ? (
                 <span
-                  className={`tweet__reactions__counter__${
-                    isHeartFilled[tweetId] ? "heart--red" : "heart"
-                  }`}
+                  className={classNames([
+                    "tweet__reactions__counter__heart",
+                    isHeartFilled[tweetId] &&
+                      "tweet__reactions__counter__heart--red",
+                  ])}
                 >
                   {isHeartFilled[tweetId] ? 2 : 1}
                 </span>

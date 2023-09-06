@@ -90,7 +90,10 @@ const SingInPageView = () => {
         ></input>
         <label
           htmlFor='username-input'
-          className={`form__error-label ${errorOccurred[0] ? "display" : ""}`}
+          className={classNames([
+            "form__error-label",
+            errorOccurred[0] && "form__error-label--display",
+          ])}
         >
           {ErrorText("Nazwa użytkownika")}
         </label>
@@ -105,7 +108,10 @@ const SingInPageView = () => {
         ></input>
         <label
           htmlFor='password-input'
-          className={`form__error-label ${errorOccurred[1] ? "display" : ""}`}
+          className={classNames([
+            "form__error-label",
+            errorOccurred[1] && "form__error-label--display",
+          ])}
         >
           {ErrorText("Hasło")}
         </label>

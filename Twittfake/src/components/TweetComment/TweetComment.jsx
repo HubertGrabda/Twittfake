@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import PropTypes from "prop-types";
 import { useRef } from "react";
+import { classNames } from "../../functions/classNames";
 
 const TweetComment = ({ commentId, username, content, tweetId }) => {
   const tweetService = TweetService();
@@ -25,7 +26,7 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
   } = tweetService;
 
   const handleCommentsReactions = [
-    (id, commentsID) => handleEditMode(commentsID),
+    (id, commentsID) => handleEditMode(commentsID, contentTextArea),
     (id, commentId) => deleteComment(id, commentId),
   ];
 
@@ -34,14 +35,14 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
   return (
     <div key={commentId} className='comment'>
       <h3 className='comment__username'>{username}</h3>
-
       <textarea
         readOnly={!isUserEditing[commentId]}
         maxLength={50}
         onKeyDown={handleLinesAmount}
-        className={`comment__content${
-          isUserEditing[commentId] ? "--edit-mode" : ""
-        }`}
+        className={classNames([
+          "comment__content",
+          isUserEditing[commentId] && "comment__content--edit-mode",
+        ])}
         defaultValue={content}
         ref={(ref) => (contentTextArea.current[commentId] = ref)}
       ></textarea>
