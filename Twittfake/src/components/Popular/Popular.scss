@@ -3,7 +3,7 @@
 .popular {
   display: none;
   border-radius: 1rem;
-  padding: 0;
+  background-color: $main-color;
 
   @media #{$laptop} {
     display: flex;

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./AddCommentArea.scss";
 import handleLinesAmount from "../../functions/handleLinesAmount";
 import submitComment from "../../functions/submitComment";
+import useGetUsername from "../../hooks/useGetUsername";
 
 const CommentArea = ({ id }) => {
   const defaultPlaceholderText = "Odpowiedz na tweet";
