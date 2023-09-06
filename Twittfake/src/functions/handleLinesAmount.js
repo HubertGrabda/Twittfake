@@ -1,7 +1,7 @@
 const handleLinesAmount = (e) => {
-  const MAX_LINES = 2;
+  const maxLines = 2;
   const lines = e.target.value.split("\n").length;
-  if (lines >= MAX_LINES && e.key === "Enter") {
+  if (lines >= maxLines && e.key === "Enter") {
     e.preventDefault();
   }
 };
