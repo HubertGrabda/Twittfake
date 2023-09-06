@@ -50,7 +50,7 @@ const CommentArea = ({ id }) => {
 };
 
 CommentArea.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.node.isRequired,
 };
 
 export default CommentArea;

@@ -133,7 +133,7 @@ const Tweet = ({ tweetId, username, content, comments }) => {
 };
 
 Tweet.propTypes = {
-  tweetId: PropTypes.number.isRequired,
+  tweetId: PropTypes.node.isRequired,
   username: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   comments: PropTypes.arrayOf(

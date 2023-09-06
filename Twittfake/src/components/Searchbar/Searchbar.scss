@@ -18,10 +18,9 @@
     border-radius: 9999px;
     text-align: center;
     position: relative;
-    color: $twittfake_gray;
     width: 70vw;
     height: 2rem;
-    border-color: $twittfake_purple;
+    border-color: $main-color;
 
     &--isDark {
       background-color: $main-color;
@@ -41,7 +40,7 @@
     }
 
     &:focus-visible {
-      outline: 1px solid $twittfake_purple_hover;
+      outline: 1px solid $main-color;
     }
   }
 
@@ -49,7 +48,7 @@
     position: absolute;
     left: 1.5rem;
     top: 50%;
-    color: $twittfake_gray;
+    color: $font_gray;
     transform: translateY(-50%);
   }
 }

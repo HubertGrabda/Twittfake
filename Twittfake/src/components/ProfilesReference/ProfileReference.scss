@@ -21,7 +21,7 @@
   }
 
   &--isDark {
-    background-color: $backgroundClr-dark-theme;
+    background-color: $main-color;
   }
 
   .profile-link {
@@ -46,10 +46,10 @@
       padding-top: 0.4rem;
       font-weight: 450;
       background-color: inherit;
-      color: $twittfake_font_white;
+      color: $font_white;
 
       &:hover {
-        color: $twittfake_gray;
+        color: $font-gray;
         cursor: pointer;
       }
 
@@ -64,7 +64,7 @@
   }
 
   &__log-out-button {
-    color: $twittfake_font_white;
+    color: $font-white;
     background-color: transparent;
     padding-right: 0.5rem;
     cursor: pointer;
