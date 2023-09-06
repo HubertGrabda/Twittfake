@@ -23,7 +23,6 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
     showIconsAccordingToUsername,
     deleteComment,
     handleEditMode,
-    userLogged,
   } = tweetService;
 
   const handleCommentsReactions = [
