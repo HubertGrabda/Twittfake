@@ -29,6 +29,10 @@
     background-color: transparent;
     border: 1px solid $font-gray;
 
+    &--isDark {
+      color: white;
+    }
+
     &:focus-visible {
       outline-color: $main-color;
     }

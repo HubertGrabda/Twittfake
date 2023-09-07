@@ -3,16 +3,13 @@ import ProfileView from "../components/ProfileView/ProfileView";
 import Navbar from "../components/Navbar/Navbar";
 import Feed from "../components/Feed/Feed";
 import HomeButton from "../components/HomeButton/HomeButton";
-import { useContext } from "react";
-import { TweetsContext } from "../context/TweetContext";
-import ThemeChangeButton from "../components/ThemeChangeButton/ThemeChangeButton";
+import { useTweetContext } from "../hooks/useTweetContext";
 
 const Profile = () => {
   const { profileToDisplay } = useTweetContext();
 
   return (
     <>
-      <ThemeChangeButton></ThemeChangeButton>
       <HomeButton />
       <Header name={"Profil"} />
       <ProfileView username={profileToDisplay} />

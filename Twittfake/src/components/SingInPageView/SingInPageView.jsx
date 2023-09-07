@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import { classNames } from "../../shared/classNames";
+import { classNames } from "../../shared";
 import { useTheme } from "../../hooks/useTheme";
 import { useTweetContext } from "../../hooks/useTweetContext";
 

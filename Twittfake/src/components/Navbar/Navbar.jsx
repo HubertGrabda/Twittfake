@@ -7,8 +7,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import ScrollHandler from "../../shared/scrollHandler";
-import { classNames } from "../../shared/classNames";
+import { classNames, ScrollHandler } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Navbar = () => {

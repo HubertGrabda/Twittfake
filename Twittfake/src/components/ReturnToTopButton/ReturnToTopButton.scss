@@ -1,0 +1,9 @@
+@import "../variables";
+
+.return-icon {
+  @include buttons(left);
+
+  &--hidden {
+    @include buttons--hidden(left);
+  }
+}

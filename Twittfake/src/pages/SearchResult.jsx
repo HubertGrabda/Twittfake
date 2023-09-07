@@ -3,13 +3,15 @@ import Header from "../components/Header/Header";
 import SearchbarMobile from "../components/SearchbarMobile/SearchbarMobile";
 import HomeButton from "../components/HomeButton/HomeButton";
 import useRedirect from "../hooks/useRedirect";
-import ReturnArrow from "../components/ReturnArrow/returnArrow";
+import ReturnArrow from "../components/ReturnArrow/ReturnArrow";
+import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton";
 
 const SearchResult = () => {
   useRedirect();
   return (
     <>
       <Header name='Wyniki' />
+      <ReturnToTopButton />
       <ReturnArrow returnTo={"Search"} />
       <HomeButton />
       <SearchbarMobile />

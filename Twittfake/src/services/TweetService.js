@@ -1,17 +1,19 @@
 import { useState } from "react";
-import toggleState from "../shared/toggleState";
+import { toggleState } from "../shared";
 import { useNavigate } from "react-router-dom";
-import getUsername from "../shared/getUsername";
 import { useTweetContext } from "../hooks/useTweetContext";
 
 const TweetService = () => {
-  const userLogged = getUsername();
-
   const [isHeartFilled, setHeartFilled] = useState({});
   const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
   const [isUserEditing, setIsUserEditing] = useState(false);
-  const { tweets, setTweets, setFilteredTweetsData, setprofileToDisplay } =
-    useTweetContext();
+  const {
+    tweets,
+    setTweets,
+    setFilteredTweetsData,
+    setprofileToDisplay,
+    userLogged,
+  } = useTweetContext();
   const InputErrorMessage = "To pole nie może być puste!";
   const saveButtonValue = "Zapisz";
 

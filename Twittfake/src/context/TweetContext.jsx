@@ -2,7 +2,7 @@
 import { createContext, useState } from "react";
 import TweetsData from "../../mocks/MockTweets.json";
 import PropTypes from "prop-types";
-import getUsername from "../shared/getUsername";
+import { getUsername } from "../shared";
 
 const TweetsContext = createContext();
 

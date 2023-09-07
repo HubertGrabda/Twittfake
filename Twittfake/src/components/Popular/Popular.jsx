@@ -1,8 +1,6 @@
 import "./Popular.scss";
-import filterItems from "../../shared/filterItems";
-import popularTrendsFilter from "../../shared/popularTrendsFilter";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../shared/classNames";
+import { classNames, filterItems, popularTrendsFilter } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Popular = () => {

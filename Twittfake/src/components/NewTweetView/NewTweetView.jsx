@@ -1,32 +1,26 @@
 import "./NewTweetView.scss";
-import { TweetsContext } from "../../context/TweetContext";
-import { useContext, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import submitTweetMobileOnly from "../../shared/submitTweetMobileOnly";
+import { useRef } from "react";
 import useRedirect from "../../hooks/useRedirect";
 import logo from "../../images/TwittfakeLogoAlt.png";
-import getUsername from "../../shared/getUsername";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../shared/classNames";
+import { classNames } from "../../shared";
+import { useTweetContext } from "../../hooks/useTweetContext";
+import SubmitService from "../../services/SubmitService";
+import { AddTweetInputPlaceholder, submitButtonText } from "../../const/input";
 
 const NewTweetView = () => {
   useRedirect();
 
-  const { tweets, setTweets, setFilteredTweetsData } = useTweetContext();
-  const loggedUsername = getUsername();
-  const inputPlaceholder = `O czym myślisz${
-    loggedUsername ? `, ${loggedUsername}` : ""
-  }?`;
-  const textareaInput = useRef();
-  const buttonValue = "Prześlij";
-  const navigate = useNavigate();
+  const { userLogged } = useTweetContext();
   const { theme } = useTheme();
+  const textareaInput = useRef();
+  const { submitTweet } = SubmitService();
 
   return (
     <div className='input-field-wrapper'>
       <div className='user-data'>
         <img src={logo} className='user-data__profile-pic'></img>
-        <h4 className='user-data__username'>{loggedUsername}</h4>
+        <h4 className='user-data__username'>{userLogged}</h4>
       </div>
       <div className='textarea'>
         <textarea
@@ -35,24 +29,13 @@ const NewTweetView = () => {
             "textarea__input",
             theme === "isDark" && "textarea__input--isDark",
           ])}
-          placeholder={inputPlaceholder}
+          placeholder={AddTweetInputPlaceholder(userLogged)}
         ></textarea>{" "}
         <button
           className='textarea__submit-button'
-          onClick={() =>
-            submitTweetMobileOnly(
-              textareaInput,
-              tweets,
-              setTweets,
-              navigate,
-              inputPlaceholder,
-              setFilteredTweetsData,
-              loggedUsername,
-              theme
-            )
-          }
+          onClick={() => submitTweet(textareaInput)}
         >
-          {buttonValue}
+          {submitButtonText}
         </button>
       </div>
     </div>

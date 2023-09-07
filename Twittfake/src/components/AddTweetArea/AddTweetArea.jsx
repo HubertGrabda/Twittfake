@@ -1,56 +1,36 @@
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import "./AddTweetArea.scss";
-import handleLinesAmount from "../../shared/handleLinesAmount";
-import submitTweet from "../../shared/submitTweet";
-import { ThemeContext } from "../../context/ThemeContext";
-import { classNames } from "../../shared/classNames";
+import { classNames, handleLinesAmount } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
+import SubmitService from "../../services/SubmitService";
+import { useTheme } from "../../hooks/useTheme";
+import { AddTweetInputPlaceholder, submitButtonText } from "../../const/input";
 
 export const AddTweetArea = () => {
-  const {
-    tweets,
-    setTweets,
-    filteredTweetsData,
-    setFilteredTweetsData,
-    userLogged,
-  } = useTweetContext();
-  const { theme } = useContext(ThemeContext);
+  const { userLogged } = useTweetContext();
+  const { submitTweet } = SubmitService();
+  const { theme } = useTheme();
   const inputRef = useRef();
-
-  const buttonValue = "Prześlij";
-  const inputPlaceholder = `O czym myślisz${
-    userLogged ? `, ${userLogged}` : ""
-  }?`;
 
   return (
     <>
       {userLogged && (
-        <div className='textarea-wrapper'>
+        <div className='textarea'>
           <textarea
             className={classNames([
-              "textarea-wrapper__input",
-              theme === "isDark" && "textarea-wrapper__input--isDark",
+              "textarea__input",
+              theme === "isDark" && "textarea__input--isDark",
             ])}
-            placeholder={inputPlaceholder}
+            placeholder={AddTweetInputPlaceholder(userLogged)}
             ref={inputRef}
             maxLength={85}
             onKeyDown={handleLinesAmount}
           ></textarea>
           <button
-            className='textarea-wrapper__submit-button'
-            onClick={() =>
-              submitTweet(
-                inputRef,
-                tweets,
-                setTweets,
-                userLogged,
-                setFilteredTweetsData,
-                filteredTweetsData,
-                theme
-              )
-            }
+            className='textarea__submit-button'
+            onClick={() => submitTweet(inputRef)}
           >
-            {buttonValue}
+            {submitButtonText}
           </button>
         </div>
       )}

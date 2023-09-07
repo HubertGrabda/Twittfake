@@ -1,9 +1,7 @@
-import { useContext } from "react";
 import "./PopularMobile.scss";
-import { TweetsContext } from "../../context/TweetContext";
 import { Link } from "react-router-dom";
-import popularTrendsFilter from "../../shared/popularTrendsFilter";
-import filterItems from "../../shared/filterItems";
+import { filterItems, popularTrendsFilter } from "../../shared";
+import { useTweetContext } from "../../hooks/useTweetContext";
 
 const PopularMobile = () => {
   const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();

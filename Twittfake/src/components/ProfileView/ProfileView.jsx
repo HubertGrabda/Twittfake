@@ -2,8 +2,8 @@ import "./ProfileView.scss";
 import logo from "../../images/TwittfakeLogoAlt.png";
 import FollowCount from "../FollowCount/FollowCount";
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import { TweetsContext } from "../../context/TweetContext";
+import { useTweetContext } from "../../hooks/useTweetContext";
+
 
 const ProfileView = ({ username }) => {
   const { profileToDisplay } = useTweetContext();

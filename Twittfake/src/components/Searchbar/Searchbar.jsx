@@ -1,8 +1,7 @@
 import "./Searchbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import filterItems from "../../shared/filterItems";
-import { classNames } from "../../shared/classNames";
+import { classNames, filterItems } from "../../shared";
 import { useTheme } from "../../hooks/useTheme";
 import { useTweetContext } from "../../hooks/useTweetContext";
 

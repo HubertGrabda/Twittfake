@@ -6,8 +6,10 @@ import Popular from "../components/Popular/Popular";
 import Searchbar from "../components/Searchbar/Searchbar";
 import ProfileReference from "../components/ProfileReference/ProfileReference";
 import useResetFilter from "../hooks/useResetFilter";
-import ReturnArrow from "../components/ReturnArrow/returnArrow";
 import { useTweetContext } from "../hooks/useTweetContext";
+import ThemeChangeButton from "../components/ThemeChangeButton/ThemeChangeButton";
+import ReturnArrow from "../components/ReturnArrow/ReturnArrow";
+import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton";
 
 const Home = () => {
   useResetFilter();
@@ -18,7 +20,9 @@ const Home = () => {
     <div className='home-wrapper'>
       <ProfileReference />
       <Header name={"Główna"} />
-      <ReturnArrow returnTo='/' />
+      <ReturnToTopButton/>
+      <ReturnArrow returnTo='' />
+      <ThemeChangeButton />
       {isUserLogged && <AddTweetArea />}
       <Feed />
       <Navbar />

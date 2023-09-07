@@ -1,12 +1,11 @@
-import { useContext } from "react";
 import "./SearchbarMobile.scss";
 import { Link } from "react-router-dom";
-import filterItems from "../../shared/filterItems";
-import { TweetsContext } from "../../context/TweetContext";
+import { filterItems } from "../../shared";
+import { useTweetContext } from "../../hooks/useTweetContext";
+import { submitButtonText } from "../../const/input";
 
 const SearchbarMobile = () => {
   const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
-  const buttonText = "Wyszukaj";
 
   const handleInput = (e) => {
     const inputValue = e.target.value;
@@ -18,7 +17,7 @@ const SearchbarMobile = () => {
       <input className='searchbar-Mobile__input' onChange={handleInput}></input>
       <Link to='/SearchResult'>
         <button className='searchbar-Mobile__submit-button'>
-          {buttonText}
+          {submitButtonText}
         </button>
       </Link>
     </div>

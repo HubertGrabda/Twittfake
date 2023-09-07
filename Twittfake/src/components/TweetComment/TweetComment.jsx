@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import PropTypes from "prop-types";
 import { useRef } from "react";
-import { classNames } from "../../shared/classNames";
+import { classNames, handleLinesAmount } from "../../shared";
 
 const TweetComment = ({ commentId, username, content, tweetId }) => {
   const tweetService = TweetService();
@@ -15,7 +15,6 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
   const {
     userLogged,
     isUserEditing,
-    handleLinesAmount,
     saveEdit,
     saveButtonValue,
     isHeartFilled,
@@ -86,10 +85,10 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
 };
 
 TweetComment.propTypes = {
-  commentId: PropTypes.number.isRequired,
   username: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  tweetId: PropTypes.number.isRequired,
+  tweetId: PropTypes.node.isRequired,
+  commentId: PropTypes.node.isRequired,
 };
 
 export default TweetComment;

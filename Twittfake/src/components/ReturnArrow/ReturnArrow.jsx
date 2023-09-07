@@ -2,7 +2,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./returnArrow.scss";
 import { Link, useLocation } from "react-router-dom";
-import ScrollHandler from "../../shared/scrollHandler";
+import { ScrollHandler, classNames } from "../../shared";
 import PropTypes from "prop-types";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
@@ -18,12 +18,14 @@ const ReturnArrow = ({ returnTo }) => {
   const handleClick = () => {
     setFilteredTweetsData(tweets), setTagIsClicked(false);
   };
-
   return (
     <Link to={`/${returnTo}`} onClick={() => handleClick()}>
       <FontAwesomeIcon
         icon={faArrowLeft}
-        className={`return-icon${showElementBasedOnUrl ? "" : "--hidden"}`}
+        className={classNames([
+          "return-icon",
+          !showElementBasedOnUrl && "return-icon--hidden",
+        ])}
       ></FontAwesomeIcon>
     </Link>
   );

@@ -1,5 +1,9 @@
 @import "../variables";
 
 .theme-change-button {
-  @include buttons(left);
+  @include buttons(right);
+
+  &--hidden {
+    @include buttons--hidden(right);
+  }
 }

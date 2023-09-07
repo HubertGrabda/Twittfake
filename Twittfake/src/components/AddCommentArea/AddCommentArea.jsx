@@ -1,29 +1,22 @@
 import { useRef } from "react";
 import PropTypes from "prop-types";
 import "./AddCommentArea.scss";
-import handleLinesAmount from "../../shared/handleLinesAmount";
-import submitComment from "../../shared/submitComment";
+import { classNames, handleLinesAmount } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
+import SubmitService from "../../services/SubmitService";
+import { AddCommentInputPlaceholder } from "../../const/input";
+import { useTheme } from "../../hooks/useTheme";
 
 const CommentArea = ({ id }) => {
-  const defaultPlaceholderText = "Odpowiedz na tweet";
   const buttonValue = "Prześlij";
   const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
   const addCommentInputRef = useRef();
-  const { tweets, setTweets, setFilteredTweetsData, userLogged } =
-    useTweetContext();
+  const { userLogged } = useTweetContext();
+  const { submitComment } = SubmitService();
+  const { theme } = useTheme();
 
   const handleCommentSubmit = () => {
-    submitComment(
-      id,
-      addCommentInputRef,
-      tweets,
-      setTweets,
-      inputErrorMessage,
-      defaultPlaceholderText,
-      userLogged,
-      setFilteredTweetsData
-    );
+    submitComment(id, addCommentInputRef, inputErrorMessage);
   };
 
   return (
@@ -32,8 +25,11 @@ const CommentArea = ({ id }) => {
         <div className='add-comment'>
           <textarea
             ref={addCommentInputRef}
-            className='add-comment__input'
-            placeholder={defaultPlaceholderText}
+            className={classNames([
+              "add-comment__input",
+              theme === "isDark" && "add-comment__input--isDark",
+            ])}
+            placeholder={AddCommentInputPlaceholder}
             maxLength={80}
             onKeyDown={handleLinesAmount}
           />

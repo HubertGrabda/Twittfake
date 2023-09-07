@@ -3,9 +3,8 @@ import logo from "../../images/TwittfakeLogoAlt.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import getUsername from "../../shared/getUsername";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../shared/classNames";
+import { classNames, getUsername } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 const ProfileReference = () => {
