@@ -6,7 +6,6 @@ export const ScrollHandler = () => {
   const [lastScrollPos, setLastScrollPos] = useState(0);
 
   const path = useLocation();
-
   const isMainPage = path.pathname === "/" ? true : false;
 
   const handleScroll = () => {
@@ -15,6 +14,7 @@ export const ScrollHandler = () => {
       document.documentElement.scrollHeight - window.innerHeight;
 
     console.log(currentScrollPos);
+
     if (isMainPage === "true" && currentScrollPos === maxScrollPos) {
       setScrollingUp(true);
     } else if (currentScrollPos > lastScrollPos) {
@@ -26,7 +26,7 @@ export const ScrollHandler = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    setTimeout(() => window.addEventListener("scroll", handleScroll), 150);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

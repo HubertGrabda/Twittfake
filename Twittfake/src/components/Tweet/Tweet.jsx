@@ -109,24 +109,26 @@ const Tweet = ({ tweetId, username, content, comments }) => {
           )
         )}
       </div>
-      <div
-        className={
-          isCommentSectionVisible[tweetId]
-            ? "comment-section"
-            : "comment-section--isnt-visible"
-        }
-      >
-        <AddCommentArea id={tweetId} />
-        {comments?.map(({ id: commentId, username, content }) => (
-          <TweetComment
-            key={commentId}
-            commentId={commentId}
-            username={username}
-            content={content}
-            tweetId={tweetId}
-          />
-        ))}
-      </div>
+      {userLogged && (
+        <div
+          className={
+            isCommentSectionVisible[tweetId]
+              ? "comment-section"
+              : "comment-section--isnt-visible"
+          }
+        >
+          <AddCommentArea id={tweetId} />
+          {comments?.map(({ id: commentId, username, content }) => (
+            <TweetComment
+              key={commentId}
+              commentId={commentId}
+              username={username}
+              content={content}
+              tweetId={tweetId}
+            />
+          ))}
+        </div>
+      )}
     </article>
   );
 };
