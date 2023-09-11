@@ -17,10 +17,10 @@ const Home = () => {
   const { isUserLogged } = useTweetContext();
 
   return (
-    <div className='home-wrapper'>
+    <>
       <ProfileReference />
       <Header name={"Główna"} />
-      <ReturnToTopButton/>
+      <ReturnToTopButton />
       <ReturnArrow returnTo='' />
       <ThemeChangeButton />
       {isUserLogged && <AddTweetArea />}
@@ -28,7 +28,7 @@ const Home = () => {
       <Navbar />
       <Searchbar />
       <Popular />
-    </div>
+    </>
   );
 };
 

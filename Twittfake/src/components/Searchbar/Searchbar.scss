@@ -25,10 +25,7 @@
     &--isDark {
       background-color: $main-color;
       border: none;
-
-      &::placeholder {
-        color: white;
-      }
+      color: white;
     }
 
     @media #{$laptop} {

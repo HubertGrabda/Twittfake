@@ -56,9 +56,10 @@ const Tweet = ({ tweetId, username, content, comments }) => {
         {username}{" "}
       </h1>
       <textarea
-        className={`tweet__content${
-          isUserEditing[tweetId] ? "--edit-mode" : ""
-        }`}
+        className={classNames([
+          "tweet__content",
+          isUserEditing[tweetId] && "tweet__content--edit-mode",
+        ])}
         defaultValue={content}
         ref={(ref) => (contentTextArea.current[tweetId] = ref)}
         maxLength={100}
@@ -111,11 +112,11 @@ const Tweet = ({ tweetId, username, content, comments }) => {
       </div>
       {userLogged && (
         <div
-          className={
-            isCommentSectionVisible[tweetId]
-              ? "comment-section"
-              : "comment-section--isnt-visible"
-          }
+          className={classNames([
+            "comment-section",
+            !isCommentSectionVisible[tweetId] &&
+              "comment-section--isnt-visible",
+          ])}
         >
           <AddCommentArea id={tweetId} />
           {comments?.map(({ id: commentId, username, content }) => (

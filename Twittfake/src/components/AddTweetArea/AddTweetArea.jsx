@@ -4,13 +4,18 @@ import { classNames, handleLinesAmount } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import SubmitService from "../../services/SubmitService";
 import { useTheme } from "../../hooks/useTheme";
-import { AddTweetInputPlaceholder, submitButtonText } from "../../const/input";
+import {
+  ADD_TWEET_INPUT_PLACEHOLDER,
+  SUBMIT_BUTTON_TEXT,
+} from "../../const/input";
 
 export const AddTweetArea = () => {
   const { userLogged } = useTweetContext();
-  const { submitTweet } = SubmitService();
+  const { submitTweet, errorOccured } = SubmitService();
   const { theme } = useTheme();
   const inputRef = useRef();
+
+  const InputErrorMessage = "Nie można dodać pustego tweeta!";
 
   return (
     <>
@@ -20,8 +25,13 @@ export const AddTweetArea = () => {
             className={classNames([
               "textarea__input",
               theme === "isDark" && "textarea__input--isDark",
+              errorOccured && "textarea__input--error",
             ])}
-            placeholder={AddTweetInputPlaceholder(userLogged)}
+            placeholder={
+              errorOccured
+                ? InputErrorMessage
+                : ADD_TWEET_INPUT_PLACEHOLDER(userLogged)
+            }
             ref={inputRef}
             maxLength={85}
             onKeyDown={handleLinesAmount}
@@ -30,7 +40,7 @@ export const AddTweetArea = () => {
             className='textarea__submit-button'
             onClick={() => submitTweet(inputRef)}
           >
-            {submitButtonText}
+            {SUBMIT_BUTTON_TEXT}
           </button>
         </div>
       )}

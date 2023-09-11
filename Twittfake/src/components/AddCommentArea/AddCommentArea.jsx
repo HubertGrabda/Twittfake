@@ -4,38 +4,38 @@ import "./AddCommentArea.scss";
 import { classNames, handleLinesAmount } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import SubmitService from "../../services/SubmitService";
-import { AddCommentInputPlaceholder } from "../../const/input";
+import { ADD_COMMENT_INPUT_PLACEHOLDER } from "../../const/input";
 import { useTheme } from "../../hooks/useTheme";
 
 const CommentArea = ({ id }) => {
-  const buttonValue = "Prześlij";
-  const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
-  const addCommentInputRef = useRef();
+  const commentInputRef = useRef();
   const { userLogged } = useTweetContext();
-  const { submitComment } = SubmitService();
+  const { submitComment, errorOccured } = SubmitService();
   const { theme } = useTheme();
 
-  const handleCommentSubmit = () => {
-    submitComment(id, addCommentInputRef, inputErrorMessage);
-  };
+  const inputErrorMessage = "Nie można dodać pustej odpowiedzi!";
+  const buttonValue = "Prześlij";
 
   return (
     <>
       {userLogged && (
         <div className='add-comment'>
           <textarea
-            ref={addCommentInputRef}
+            ref={commentInputRef}
             className={classNames([
               "add-comment__input",
               theme === "isDark" && "add-comment__input--isDark",
+              errorOccured && "add-comment__input--error",
             ])}
-            placeholder={AddCommentInputPlaceholder}
+            placeholder={
+              errorOccured ? inputErrorMessage : ADD_COMMENT_INPUT_PLACEHOLDER
+            }
             maxLength={80}
             onKeyDown={handleLinesAmount}
           />
           <button
             className='add-comment__submit-button'
-            onClick={handleCommentSubmit}
+            onClick={() => submitComment(id, commentInputRef)}
           >
             {buttonValue}
           </button>

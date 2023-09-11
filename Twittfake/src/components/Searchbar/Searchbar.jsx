@@ -8,10 +8,9 @@ import { useTweetContext } from "../../hooks/useTweetContext";
 const Searchbar = () => {
   const placeholderText = "Wyszukaj";
   const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
-
   const { theme } = useTheme();
 
-  const handleSearchInputChange = (event) => {
+  const handleSearch = (event) => {
     const inputValue = event.target.value;
     if (!inputValue) {
       setFilteredTweetsData(tweets);
@@ -28,7 +27,7 @@ const Searchbar = () => {
           theme === "isDark" && "searchbar__input--isDark",
         ])}
         placeholder={placeholderText}
-        onChange={handleSearchInputChange}
+        onChange={handleSearch}
       ></input>
       <FontAwesomeIcon icon={faMagnifyingGlass} className='searchbar__icon' />
     </div>

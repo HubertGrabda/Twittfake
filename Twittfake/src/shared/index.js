@@ -8,30 +8,30 @@ export const ScrollHandler = () => {
   const path = useLocation();
   const isMainPage = path.pathname === "/" ? true : false;
 
-  const handleScroll = () => {
-    const currentScrollPos = window.scrollY;
-    const maxScrollPos =
-      document.documentElement.scrollHeight - window.innerHeight;
-
-    console.log(currentScrollPos);
-
-    if (isMainPage === "true" && currentScrollPos === maxScrollPos) {
-      setScrollingUp(true);
-    } else if (currentScrollPos > lastScrollPos) {
-      setScrollingUp(false);
-    } else {
-      setScrollingUp(true);
-    }
-    setLastScrollPos(currentScrollPos);
-  };
-
   useEffect(() => {
-    setTimeout(() => window.addEventListener("scroll", handleScroll), 150);
+    let timeout;
+
+    const handleScroll = () => {
+      clearTimeout(timeout);
+
+      timeout = setTimeout(() => {
+        const currentScrollPos = window.scrollY;
+
+        if (currentScrollPos > lastScrollPos) {
+          setScrollingUp(false);
+        } else {
+          setScrollingUp(true);
+        }
+        setLastScrollPos(currentScrollPos);
+      }, 200);
+    };
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, [isMainPage, lastScrollPos]);
 
   return scrollingUp;
 };
@@ -99,3 +99,5 @@ export const toggleState = (setterName, updaterFunc, id) => {
     [id]: updaterFunc(prevState[id]),
   }));
 };
+
+export const clearInput = (input) => (input.value = "");

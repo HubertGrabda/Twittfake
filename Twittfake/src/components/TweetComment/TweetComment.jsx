@@ -46,18 +46,21 @@ const TweetComment = ({ commentId, username, content, tweetId }) => {
         ref={(ref) => (contentTextArea.current[commentId] = ref)}
       ></textarea>
       <button
-        className={`comment__submit-button${
-          isUserEditing[commentId] ? "--active" : ""
-        }`}
+        className={classNames([
+          "comment__submit-button",
+          isUserEditing[commentId] && "comment__submit-button--active",
+        ])}
         onClick={() => saveEdit(commentId, contentTextArea)}
       >
         {saveButtonValue}
       </button>
       <div className='comment__reactions'>
         <span
-          className={`comment__reactions__counter__${
-            isHeartFilled[commentId] ? "heart--red" : "heart"
-          }`}
+          className={classNames([
+            "comment__reactions__counter__heart",
+            isHeartFilled[commentId] &&
+              "comment__reactions__counter__heart--red",
+          ])}
         >
           {isHeartFilled[commentId] ? 2 : 1}
         </span>

@@ -2,61 +2,24 @@ import "./SingInPageView.scss";
 import logo from "../../images/TwittfakeLogoAlt.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
 import { classNames } from "../../shared";
 import { useTheme } from "../../hooks/useTheme";
-import { useTweetContext } from "../../hooks/useTweetContext";
+import { Link } from "react-router-dom";
+import SignInService from "../../services/SignInService";
 
 const SingInPageView = () => {
-  const buttonText = "Zaloguj",
-    usernamePlaceholderText = "Nazwa użytkownika",
-    passwordPlaceholderText = "Hasło",
-    welcomeText = "Zaloguj się",
-    ErrorText = (inputName) => `${inputName} musi zawierać od 5 do 15 znaków!`,
-    defaultInputClassName = "form__input",
-    errorInputClassName = "form__input error",
-    InputsRef = useRef([]),
-    [errorOccurred, setErrorOccured] = useState([]),
-    { setisUserLogged } = useTweetContext(),
-    navigate = useNavigate(),
-    { theme } = useTheme(),
-    [inputValue, setInputValue] = useState(),
-    setError = (id, boolean) => {
-      setErrorOccured((prevErrorState) => {
-        const errorStateArray = [...(prevErrorState ?? [])];
-        errorStateArray[id] = boolean;
-        return errorStateArray;
-      });
-    };
+  const buttonText = "Zaloguj";
+  const usernamePlaceholderText = "Nazwa użytkownika";
+  const passwordPlaceholderText = "Hasło";
+  const welcomeText = "Zaloguj się";
+  const ErrorText = (inputName) =>
+    `${inputName} musi zawierać od 5 do 15 znaków!`;
+  const defaultInputClassName = "form__input";
+  const errorInputClassName = "form__input error";
 
-  const inputIsValid = (input, id) => {
-    if (!input?.value || input?.value.length <= 5 || input?.value.length > 15) {
-      setError(id, true);
-      input.className = errorInputClassName;
-      return false;
-    } else {
-      setError(id, false);
-      input.className = defaultInputClassName;
-      return true;
-    }
-  };
-
-  const logInFunction = (e) => {
-    e.preventDefault();
-
-    const usernameInput = InputsRef.current[0];
-    const passwordInput = InputsRef.current[1];
-
-    const isUsernameValid = inputIsValid(usernameInput, 0);
-    const isPasswordValid = inputIsValid(passwordInput, 1);
-
-    if (isUsernameValid && isPasswordValid) {
-      sessionStorage.setItem("username", inputValue);
-      navigate("/");
-      setisUserLogged(true);
-    }
-  };
+  const { logInFunction, InputsRef, errorOccurred, setInputValue } =
+    SignInService();
+  const { theme } = useTheme();
 
   return (
     <div className='form-wrapper'>
@@ -83,10 +46,12 @@ const SingInPageView = () => {
           maxLength={13}
           ref={(ref) => (InputsRef.current[0] = ref)}
           type='text'
-          className={defaultInputClassName}
+          className={classNames([
+            defaultInputClassName,
+            errorOccurred[0] && errorInputClassName,
+          ])}
           placeholder={usernamePlaceholderText}
           onInput={(e) => setInputValue(e.target.value)}
-          required
         ></input>
         <label
           htmlFor='username-input'
@@ -102,9 +67,11 @@ const SingInPageView = () => {
           type='password'
           id='password-input'
           ref={(ref) => (InputsRef.current[1] = ref)}
-          className={defaultInputClassName}
+          className={classNames([
+            defaultInputClassName,
+            errorOccurred[1] && errorInputClassName,
+          ])}
           placeholder={passwordPlaceholderText}
-          required
         ></input>
         <label
           htmlFor='password-input'

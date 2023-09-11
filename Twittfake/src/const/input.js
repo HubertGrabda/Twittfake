@@ -1,11 +1,13 @@
-const AddTweetInputPlaceholder = (userLogged) =>
+const ADD_TWEET_INPUT_PLACEHOLDER = (userLogged) =>
   `O czym myślisz${userLogged ? `, ${userLogged}` : ""}?`;
 
-const submitButtonText = "Prześlij";
-const AddCommentInputPlaceholder = "Odpowiedz na tweet";
+const SUBMIT_BUTTON_TEXT = "Prześlij";
+const ADD_COMMENT_INPUT_PLACEHOLDER = "Odpowiedz na tweet";
+const SEARCH_BUTTON_TEXT = "Szukaj";
 
 export {
-  AddTweetInputPlaceholder,
-  submitButtonText,
-  AddCommentInputPlaceholder,
+  ADD_TWEET_INPUT_PLACEHOLDER,
+  SUBMIT_BUTTON_TEXT,
+  ADD_COMMENT_INPUT_PLACEHOLDER,
+  SEARCH_BUTTON_TEXT,
 };

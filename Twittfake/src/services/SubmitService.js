@@ -1,11 +1,7 @@
 import { useTweetContext } from "../hooks/useTweetContext";
-import { useTheme } from "../hooks/useTheme";
-import { classNames } from "../shared";
 import { useNavigate } from "react-router-dom";
-import {
-  AddCommentInputPlaceholder,
-  AddTweetInputPlaceholder,
-} from "../const/input";
+import { useState } from "react";
+import { clearInput } from "../shared";
 
 const SubmitService = () => {
   const {
@@ -15,24 +11,16 @@ const SubmitService = () => {
     setFilteredTweetsData,
     userLogged: loggedUsername,
   } = useTweetContext();
-  const { theme } = useTheme();
   const navigate = useNavigate();
+  const [errorOccured, setErrorOccured] = useState(false);
 
   const submitTweet = (refName) => {
     let input = refName.current;
 
-    const InputErrorMessage = "Nie można dodać pustego tweeta!";
-    const errorClassName = "textarea__input--error";
-    const defaultClassName = classNames([
-      "textarea__input",
-      theme === "isDark" && "textarea__input--isDark",
-    ]);
-
     if (!input.value) {
-      input.placeholder = InputErrorMessage;
-      input.className = errorClassName;
+      setErrorOccured(true);
       return;
-    }
+    } else setErrorOccured(false);
 
     const newTweet = {
       id: tweets.length + 1,
@@ -43,23 +31,21 @@ const SubmitService = () => {
     setTweets([newTweet, ...tweets]);
     setFilteredTweetsData([newTweet, ...filteredTweetsData]);
 
-    input.placeholder = AddTweetInputPlaceholder(loggedUsername);
-    input.value = "";
-    input.className = defaultClassName;
+    clearInput(input);
 
     if (window.innerWidth <= 1024) {
       navigate("/");
     }
   };
 
-  const submitComment = (id, refName, inputErrorMessage) => {
+  const submitComment = (id, refName) => {
     let input = refName.current;
 
     if (!input.value) {
-      input.placeholder = inputErrorMessage;
-      input.className = "add-comment__input--error";
+      setErrorOccured(true);
       return;
     }
+    setErrorOccured(false);
 
     const highestCommentId = tweets.reduce((highestID, tweet) => {
       if (tweet.comments && tweet.comments.length > 0) {
@@ -94,12 +80,10 @@ const SubmitService = () => {
       )
     );
 
-    input.placeholder = AddCommentInputPlaceholder;
-    input.value = "";
-    input.className = "add-comment__input";
+    clearInput(input);
   };
 
-  return { submitTweet, submitComment };
+  return { submitTweet, submitComment, errorOccured };
 };
 
 export default SubmitService;

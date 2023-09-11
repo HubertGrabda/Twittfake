@@ -2,29 +2,27 @@
 
 .form-wrapper {
   width: 90vw;
+  height: 55vh;
   border: none;
   border-radius: 1rem;
-  background-color: $secondary-color;
+  background-color: $main-color;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   position: fixed;
+  justify-content: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  @media #{$tablets-only} {
-    width: 75vw;
-  }
+  padding: 1rem;
 
   @media #{$laptop} {
-    width: 60vw;
+    width: 55vw;
+    height: 60vh;
   }
 
   @media #{$desktop} {
-    width: 45vw;
-    height: 27rem;
+    width: 40vw;
   }
 
   &__return-arrow {
@@ -53,9 +51,9 @@
   &__welcome-text {
     font-size: 1.2rem;
     text-align: center;
-    padding-bottom: 1rem;
     background-color: transparent;
     color: $font-white;
+    margin-top: 1rem;
 
     &--isDark {
       color: $font-gray;
@@ -63,12 +61,10 @@
 
     @media #{$tablets-only} {
       font-size: 2rem;
-      padding: none;
     }
 
     @media #{$laptop} {
       font-size: 2rem;
-      padding: none;
     }
   }
 
@@ -95,21 +91,16 @@
   .form {
     width: 90%;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
+    flex-direction: inherit;
+    align-items: inherit;
     background-color: transparent;
-
-    @media #{$desktop} {
-      gap: 1rem;
-    }
+    gap: 0.5rem;
+    padding: 1rem;
 
     &__error-label {
-      display: none;
+      opacity: 0;
       &--display {
-        margin: 0;
-        display: block;
+        opacity: 100;
         color: red;
       }
     }

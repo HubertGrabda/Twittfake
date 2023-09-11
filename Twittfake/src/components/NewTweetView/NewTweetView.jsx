@@ -3,10 +3,13 @@ import { useRef } from "react";
 import useRedirect from "../../hooks/useRedirect";
 import logo from "../../images/TwittfakeLogoAlt.png";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames } from "../../shared";
+import { classNames, handleLinesAmount } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import SubmitService from "../../services/SubmitService";
-import { AddTweetInputPlaceholder, submitButtonText } from "../../const/input";
+import {
+  ADD_TWEET_INPUT_PLACEHOLDER,
+  SUBMIT_BUTTON_TEXT,
+} from "../../const/input";
 
 const NewTweetView = () => {
   useRedirect();
@@ -29,13 +32,15 @@ const NewTweetView = () => {
             "textarea__input",
             theme === "isDark" && "textarea__input--isDark",
           ])}
-          placeholder={AddTweetInputPlaceholder(userLogged)}
+          placeholder={ADD_TWEET_INPUT_PLACEHOLDER(userLogged)}
+          maxLength={80}
+          onKeyDown={handleLinesAmount}
         ></textarea>{" "}
         <button
           className='textarea__submit-button'
           onClick={() => submitTweet(textareaInput)}
         >
-          {submitButtonText}
+          {SUBMIT_BUTTON_TEXT}
         </button>
       </div>
     </div>
