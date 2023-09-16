@@ -1,4 +1,3 @@
-import { AddTweetArea } from "../components/AddTweetArea/AddTweetArea";
 import Feed from "../components/Feed/Feed";
 import Header from "../components/Header/Header";
 import Navbar from "../components/Navbar/Navbar";
@@ -10,6 +9,7 @@ import { useTweetContext } from "../hooks/useTweetContext";
 import ThemeChangeButton from "../components/ThemeChangeButton/ThemeChangeButton";
 import ReturnArrow from "../components/ReturnArrow/ReturnArrow";
 import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton";
+import { AddTweetAreaContainer } from "../components/AddTweetArea/AddTweetAreaContainer";
 
 const Home = () => {
   useResetFilter();
@@ -23,7 +23,7 @@ const Home = () => {
       <ReturnToTopButton />
       <ReturnArrow returnTo='' />
       <ThemeChangeButton />
-      {isUserLogged && <AddTweetArea />}
+      {isUserLogged && <AddTweetAreaContainer />}
       <Feed />
       <Navbar />
       <Searchbar />

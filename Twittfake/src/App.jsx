@@ -1,5 +1,4 @@
 import "./App.scss";
-import SingInPageView from "./components/SingInPageView/SingInPageView";
 import { TweetsProvider } from "./context/TweetContext";
 import CreateTweet from "./pages/CreateTweet";
 import Home from "./pages/Home";
@@ -8,6 +7,7 @@ import Search from "./pages/Search";
 import { Route, Routes } from "react-router-dom";
 import SearchResult from "./pages/SearchResult";
 import { ThemeProvider } from "./context/ThemeContext";
+import SingInPageContainer from "./components/SingInPage/SignInPageContainer";
 
 const App = () => (
   <TweetsProvider>
@@ -17,7 +17,7 @@ const App = () => (
         <Route path='/Profile' element={<Profile />}></Route>
         <Route path='/Search' element={<Search />}></Route>
         <Route path='/CreateTweet' element={<CreateTweet />}></Route>
-        <Route path='/SignIn' element={<SingInPageView />}></Route>
+        <Route path='/SignIn' element={<SingInPageContainer />}></Route>
         <Route path='SearchResult' element={<SearchResult />}></Route>
       </Routes>
     </ThemeProvider>

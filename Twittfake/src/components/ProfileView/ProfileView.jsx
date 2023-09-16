@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 
-const ProfileView = ({ username }) => {
+const ProfileView = () => {
   const { profileToDisplay } = useTweetContext();
-  username = profileToDisplay;
+  const username = profileToDisplay;
 
   return (
     <>

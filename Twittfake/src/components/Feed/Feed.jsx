@@ -1,6 +1,6 @@
 import "./Feed.scss";
 import { useLocation } from "react-router-dom";
-import Tweet from "../Tweet/Tweet";
+import TweetContainer from "../Tweet/TweetContainer";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Feed = () => {
@@ -15,7 +15,7 @@ const Feed = () => {
   return (
     <section className='tweets-wrapper'>
       {isItUsersProfile.map(({ id: tweetId, username, content, comments }) => (
-        <Tweet
+        <TweetContainer
           key={tweetId}
           tweetId={tweetId}
           username={username}

@@ -13,6 +13,7 @@ const ProfileReference = () => {
   const { setprofileToDisplay, setisUserLogged, isUserLogged } =
     useTweetContext();
   const { theme } = useTheme();
+
   const logOut = () => {
     userLogged = sessionStorage.removeItem("username");
     setisUserLogged(false);

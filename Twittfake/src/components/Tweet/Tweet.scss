@@ -49,7 +49,7 @@
     resize: none;
     width: 100%;
     overflow-y: hidden;
-    padding: 0.1rem;
+    padding: 0.2rem;
     font-size: 1rem;
     border: none;
     background-color: transparent;
@@ -78,6 +78,8 @@
       border-radius: 1rem;
       padding: 0.5rem;
       resize: none;
+      background-color: $font-gray;
+      color: $font-white;
 
       &--error {
         width: 95%;

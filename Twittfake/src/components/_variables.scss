@@ -110,8 +110,9 @@ $font-white: $twittfake_font_white;
   border-radius: 9999px;
   margin: 0.5rem auto;
   color: $twittfake_font_white;
-  background-color: $secondary-color;
+  background-color: $main-color;
   border: none;
+  display: block;
 
   @media #{$tablets-only} {
     height: 2.5rem;
