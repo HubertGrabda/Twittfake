@@ -6,6 +6,7 @@ const ADD_COMMENT_INPUT_PLACEHOLDER = "Odpowiedz na tweet";
 const ADD_COMMENT_INPUT_PLACEHOLDER_ERROR =
   "Nie można dodać pustej odpowiedzi!";
 const SEARCH_BUTTON_TEXT = "Szukaj";
+const SAVE_BUTTON_TEXT = "Zapisz";
 
 export {
   ADD_TWEET_INPUT_PLACEHOLDER,
@@ -14,4 +15,5 @@ export {
   ADD_COMMENT_INPUT_PLACEHOLDER_ERROR,
   SEARCH_BUTTON_TEXT,
   ADD_TWEET_PLACEHOLDER_ERROR,
+  SAVE_BUTTON_TEXT,
 };

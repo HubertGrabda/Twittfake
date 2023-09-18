@@ -6,6 +6,7 @@ $desktop: "(min-width:1440px)";
 
 $main-color: #120d3e;
 $secondary-color: #3a375c;
+$ternery-color: #2e2b52;
 $font-gray: #71767b;
 $font-dark: #333;
 $font-white: $twittfake_font_white;
@@ -110,7 +111,7 @@ $font-white: $twittfake_font_white;
   border-radius: 9999px;
   margin: 0.5rem auto;
   color: $twittfake_font_white;
-  background-color: $secondary-color;
+  background-color: $ternery-color;
   border: none;
   display: block;
 
@@ -127,6 +128,6 @@ $font-white: $twittfake_font_white;
   }
 
   &:hover {
-    background-color: $secondary-color;
+    background-color: $main-color;
   }
 }

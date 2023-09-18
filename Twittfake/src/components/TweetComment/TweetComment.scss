@@ -51,13 +51,6 @@
 
   &__submit-button {
     display: none;
-    border-radius: 999px;
-    background-color: $main-color;
-    border: none;
-    width: 25%;
-    height: 1.6rem;
-    margin: 0.5rem auto;
-    color: $twittfake_font_white;
 
     &--active {
       @include submitButton;

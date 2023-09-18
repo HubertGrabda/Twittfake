@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { classNames, handleLinesAmount } from "../../shared";
 import React from "react";
-import TweetComment from "../TweetComment/TweetComment";
+import TweetCommentContainer from "../TweetComment/TweetComment";
 import AddCommentAreaContainer from "../AddCommentArea/AddCommentAreaContainer";
 import "./Tweet.scss";
 import PropTypes from "prop-types";
@@ -96,7 +96,7 @@ const TweetView = (props) => (
       >
         <AddCommentAreaContainer id={props.tweetId} />
         {props.comments?.map(({ id: commentId, username, content }) => (
-          <TweetComment
+          <TweetCommentContainer
             key={commentId}
             commentId={commentId}
             username={username}
