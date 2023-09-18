@@ -2,10 +2,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "./HomeButton.scss";
 import { Link } from "react-router-dom";
-import { classNames, ScrollHandler } from "../../shared";
+import { classNames } from "../../shared";
+import ScrollService from "../../services/ScrollService";
 
 const HomeButton = () => {
-  const showElement = ScrollHandler();
+  const showElement = ScrollService();
 
   return (
     <Link to='/'>

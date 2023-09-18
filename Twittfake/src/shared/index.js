@@ -1,41 +1,3 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-
-export const ScrollHandler = () => {
-  const [scrollingUp, setScrollingUp] = useState(true);
-  const [lastScrollPos, setLastScrollPos] = useState(0);
-
-  const path = useLocation();
-  const isMainPage = path.pathname === "/" ? true : false;
-
-  useEffect(() => {
-    let timeout;
-
-    const handleScroll = () => {
-      clearTimeout(timeout);
-
-      timeout = setTimeout(() => {
-        const currentScrollPos = window.scrollY;
-
-        if (currentScrollPos > lastScrollPos) {
-          setScrollingUp(false);
-        } else {
-          setScrollingUp(true);
-        }
-        setLastScrollPos(currentScrollPos);
-      }, 200);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMainPage, lastScrollPos]);
-
-  return scrollingUp;
-};
-
 export function classNames(array) {
   return array.filter((value) => value).join(" ");
 }
@@ -44,13 +6,13 @@ export const filterItems = (
   data,
   inputValue,
   setResultState,
-  setTagIsClicked
+  setIsTagClicked
 ) => {
   const filteredResults = data.filter((item) =>
     item.content.toLowerCase().includes(inputValue.toLowerCase())
   );
 
-  setTagIsClicked(true);
+  setIsTagClicked(true);
   setResultState(filteredResults);
 };
 

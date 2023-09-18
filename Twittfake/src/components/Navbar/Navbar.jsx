@@ -7,15 +7,16 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { classNames, ScrollHandler } from "../../shared";
+import { classNames} from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
+import ScrollService from "../../services/ScrollService";
 
 const Navbar = () => {
   const { setprofileToDisplay, userLogged } = useTweetContext();
   const navbarIcons = [faPlus, faMagnifyingGlass];
   const routeToLoginOrProfile = userLogged ? "/Profile" : "SignIn";
 
-  const showElement = ScrollHandler();
+  const showElement = ScrollService();
 
   return (
     <div className={classNames(["navbar", !showElement && "navbar--hidden"])}>

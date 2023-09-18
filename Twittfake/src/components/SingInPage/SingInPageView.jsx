@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 
 const SingInPageView = (props) => (
   <div className='form-wrapper'>
-    <h1
+    <p
       className={classNames([
         "form-wrapper__welcome-text",
         props.theme === "isDark" && "form-wrapper__welcome-text--isDark",
@@ -16,7 +16,7 @@ const SingInPageView = (props) => (
     >
       {" "}
       {props.welcomeText}{" "}
-    </h1>
+    </p>
     <img src={logo} alt='Logo' className='form-wrapper__logo' />
     <Link to='/'>
       <FontAwesomeIcon

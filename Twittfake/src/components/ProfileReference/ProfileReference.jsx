@@ -35,7 +35,7 @@ const ProfileReference = () => {
               className='profile-link'
             >
               <img src={logo} className='profile-link__picture'></img>
-              <h1 className='profile-link__username'> {userLogged} </h1>
+              <p className='profile-link__username'> {userLogged} </p>
             </Link>
 
             <FontAwesomeIcon
@@ -46,7 +46,7 @@ const ProfileReference = () => {
           </>
         ) : (
           <Link to='/SignIn' className='profile-link'>
-            <h1 className='profile-link__username'> {logInText} </h1>
+            <p className='profile-link__username'> {logInText} </p>
           </Link>
         )}
       </div>

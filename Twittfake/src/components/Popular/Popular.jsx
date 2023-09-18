@@ -4,7 +4,7 @@ import { classNames, filterItems, popularTrendsFilter } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Popular = () => {
-  const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
+  const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
 
   const { duplicates, countMap } = popularTrendsFilter(tweets);
   const { theme } = useTheme();
@@ -24,7 +24,7 @@ const Popular = () => {
                 tweets,
                 element,
                 setFilteredTweetsData,
-                setTagIsClicked
+                setIsTagClicked
               )
             }
           >

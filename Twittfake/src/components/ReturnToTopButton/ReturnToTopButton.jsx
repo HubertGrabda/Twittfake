@@ -1,10 +1,11 @@
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ReturnToTopButton.scss";
-import { ScrollHandler, classNames } from "../../shared";
+import { classNames } from "../../shared";
+import ScrollService from "../../services/ScrollService";
 
 const ReturnToTopButton = () => {
-  const showElement = ScrollHandler();
+  const hideElement = ScrollService();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -18,7 +19,7 @@ const ReturnToTopButton = () => {
       icon={faArrowUp}
       className={classNames([
         "return-icon",
-        showElement && "return-icon--hidden",
+        hideElement && "return-icon--hidden",
       ])}
       onClick={() => scrollToTop()}
     ></FontAwesomeIcon>

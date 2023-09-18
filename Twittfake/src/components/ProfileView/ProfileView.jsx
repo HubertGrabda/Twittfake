@@ -13,12 +13,12 @@ const ProfileView = () => {
     <>
       <div className='profile-wrapper'>
         <img src={logo} className='profile-wrapper__picture'></img>
-        <h1 className='profile-wrapper__username'> {username} </h1>
+        <p className='profile-wrapper__username'> {username} </p>
         <FollowCount />
         <div className='profile-wrapper__feed'></div>
-        <h1 className='profile-wrapper__feed__user-tweets'>
+        <p className='profile-wrapper__feed__user-tweets'>
           Tweety użytkownika
-        </h1>
+        </p>
       </div>
     </>
   );

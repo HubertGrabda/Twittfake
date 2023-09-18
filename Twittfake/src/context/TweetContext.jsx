@@ -11,15 +11,15 @@ const TweetsProvider = ({ children }) => {
   const [tweets, setTweets] = useState(TweetsData.tweets);
   const [filteredTweetsData, setFilteredTweetsData] = useState(tweets);
   const [profileToDisplay, setprofileToDisplay] = useState(userLogged);
-  const [TagIsClicked, setTagIsClicked] = useState(false);
+  const [isTagClicked, setIsTagClicked] = useState(false);
   const [isUserLogged, setisUserLogged] = useState(userLogged);
 
   const tweetContextValue = {
     userLogged,
     tweets,
     setTweets,
-    TagIsClicked,
-    setTagIsClicked,
+    isTagClicked,
+    setIsTagClicked,
     filteredTweetsData,
     setFilteredTweetsData,
     profileToDisplay,

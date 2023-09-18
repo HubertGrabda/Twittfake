@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useTweetContext } from "./useTweetContext";
 
 const useResetFilter = () => {
-  const { setFilteredTweetsData, tweets, setTagIsClicked } = useTweetContext();
+  const { setFilteredTweetsData, tweets, setIsTagClicked } = useTweetContext();
 
   useEffect(() => {
     setFilteredTweetsData(tweets);
-    setTagIsClicked(false);
+    setIsTagClicked(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };

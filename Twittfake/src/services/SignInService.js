@@ -8,6 +8,7 @@ const SignInService = () => {
   const { setisUserLogged } = useTweetContext();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState();
+  
   const setError = (id, boolean) => {
     setErrorOccured((prevErrorState) => {
       const errorStateArray = [...(prevErrorState ?? [])];

@@ -15,12 +15,12 @@ const TweetView = (props) => (
     ])}
     key={props.tweetId}
   >
-    <h1
+    <p
       className='tweet__username'
       onClick={() => props.otherUsersProfileReference(props.username)}
     >
       {props.username}{" "}
-    </h1>
+    </p>
     <textarea
       className={classNames([
         "tweet__content",
@@ -134,7 +134,7 @@ TweetView.propTypes = {
       content: PropTypes.string.isRequired,
     })
   ),
-  userLogged: PropTypes.string.isRequired,
+  userLogged: PropTypes.node,
   isCommentSectionVisible: PropTypes.object.isRequired,
 };
 

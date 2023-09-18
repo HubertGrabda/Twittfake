@@ -73,7 +73,7 @@ TweetCommentView.propTypes = {
   commentId: PropTypes.node.isRequired,
   username: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  isUserEditing: PropTypes.object.isRequired,
+  isUserEditing: PropTypes.bool.isRequired,
   contentTextArea: PropTypes.shape({
     current: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,

@@ -5,11 +5,11 @@ import { useTweetContext } from "../../hooks/useTweetContext";
 import { SEARCH_BUTTON_TEXT } from "../../const/input";
 
 const SearchbarMobile = () => {
-  const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
+  const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
 
   const handleInput = (e) => {
     const inputValue = e.target.value;
-    filterItems(tweets, inputValue, setFilteredTweetsData, setTagIsClicked);
+    filterItems(tweets, inputValue, setFilteredTweetsData, setIsTagClicked);
   };
 
   return (

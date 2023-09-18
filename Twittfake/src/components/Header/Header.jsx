@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Header = ({ name }) => (
   <>
-    <header className='page-title'>{name}</header>
+    <header className='header'>{name}</header>
   </>
 );
 

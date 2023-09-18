@@ -1,7 +1,6 @@
 @import "./components/variables";
 
 :root {
-  font-family: "Mulish", sans-serif;
   font-size: 20px;
   box-sizing: border-box;
 }
@@ -32,6 +31,7 @@
 }
 
 body {
+  font-family: "DM Sans", sans-serif;
   margin-top: 1rem;
   padding: 0;
   border: 0;

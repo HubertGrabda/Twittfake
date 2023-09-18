@@ -7,16 +7,16 @@ import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Searchbar = () => {
   const placeholderText = "Wyszukaj";
-  const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
+  const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
   const { theme } = useTheme();
 
   const handleSearch = (event) => {
     const inputValue = event.target.value;
     if (!inputValue) {
       setFilteredTweetsData(tweets);
-      setTagIsClicked(false);
+      setIsTagClicked(false);
     } else
-      filterItems(tweets, inputValue, setFilteredTweetsData, setTagIsClicked);
+      filterItems(tweets, inputValue, setFilteredTweetsData, setIsTagClicked);
   };
 
   return (

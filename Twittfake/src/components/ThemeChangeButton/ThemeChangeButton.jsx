@@ -2,11 +2,12 @@ import "./ThemeChangeButton.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import { useTheme } from "../../hooks/useTheme";
-import { ScrollHandler, classNames } from "../../shared";
+import { classNames } from "../../shared";
+import ScrollService from "../../services/ScrollService";
 
 const ThemeChangeButton = () => {
   const { theme, toggleTheme } = useTheme();
-  const showElement = ScrollHandler();
+  const showElement = ScrollService();
 
   return (
     <>

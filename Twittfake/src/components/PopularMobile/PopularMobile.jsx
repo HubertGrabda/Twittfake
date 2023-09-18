@@ -4,7 +4,7 @@ import { filterItems, popularTrendsFilter } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 const PopularMobile = () => {
-  const { tweets, setFilteredTweetsData, setTagIsClicked } = useTweetContext();
+  const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
   const { duplicates, countMap } = popularTrendsFilter(tweets);
 
   return (
@@ -15,7 +15,7 @@ const PopularMobile = () => {
           className='tile'
           key={element}
           onClick={() =>
-            filterItems(tweets, element, setFilteredTweetsData, setTagIsClicked)
+            filterItems(tweets, element, setFilteredTweetsData, setIsTagClicked)
           }
         >
           <span className='tile__category'>{element}</span>
