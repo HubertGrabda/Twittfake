@@ -15,12 +15,12 @@ const TweetView = (props) => (
     ])}
     key={props.tweetId}
   >
-    <p
+    <h3
       className='tweet__username'
       onClick={() => props.otherUsersProfileReference(props.username)}
     >
       {props.username}{" "}
-    </p>
+    </h3>
     <textarea
       className={classNames([
         "tweet__content",

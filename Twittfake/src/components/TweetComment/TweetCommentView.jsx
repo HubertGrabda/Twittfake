@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 
 const TweetCommentView = (props) => (
   <div key={props.commentId} className='comment'>
-    <h3 className='comment__username'>{props.username}</h3>
+    <h4 className='comment__username'>{props.username}</h4>
     <textarea
       readOnly={!props.isUserEditing[props.commentId]}
       maxLength={50}
