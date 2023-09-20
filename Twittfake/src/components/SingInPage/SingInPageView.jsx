@@ -29,7 +29,7 @@ const SingInPageView = (props) => (
       <input
         id='username-input'
         maxLength={13}
-        ref={(ref) => (props.InputsRef.current[0] = ref)}
+        ref={(ref) => (props.inputsRef.current[0] = ref)}
         type='text'
         className={classNames([
           props.defaultInputClassName,
@@ -51,7 +51,7 @@ const SingInPageView = (props) => (
         maxLength={15}
         type='password'
         id='password-input'
-        ref={(ref) => (props.InputsRef.current[1] = ref)}
+        ref={(ref) => (props.inputsRef.current[1] = ref)}
         className={classNames([
           props.defaultInputClassName,
           props.errorOccurred[1] && props.errorInputClassName,
@@ -67,7 +67,7 @@ const SingInPageView = (props) => (
       >
         {props.ErrorText("Hasło")}
       </label>
-      <button className='form__submit-button' onClick={props.logInFunction}>
+      <button className='form__submit-button' onClick={props.logIn}>
         {props.buttonText}
       </button>
     </form>
@@ -82,8 +82,8 @@ SingInPageView.propTypes = {
   ErrorText: PropTypes.func.isRequired,
   defaultInputClassName: PropTypes.string.isRequired,
   errorInputClassName: PropTypes.string.isRequired,
-  logInFunction: PropTypes.func.isRequired,
-  InputsRef: PropTypes.object.isRequired,
+  logIn: PropTypes.func.isRequired,
+  inputsRef: PropTypes.object.isRequired,
   errorOccurred: PropTypes.arrayOf(PropTypes.bool).isRequired,
   setInputValue: PropTypes.func.isRequired,
   theme: PropTypes.string.isRequired,

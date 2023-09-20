@@ -16,15 +16,6 @@ export const filterItems = (
   setResultState(filteredResults);
 };
 
-export const getUsername = () => {
-  const userLogged = sessionStorage.getItem("username");
-  if (userLogged) {
-    return userLogged;
-  } else {
-    return false;
-  }
-};
-
 export const handleLinesAmount = (e) => {
   const maxLines = 2;
   const lines = e.target.value.split("\n").length;

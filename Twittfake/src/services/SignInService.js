@@ -3,52 +3,80 @@ import { useNavigate } from "react-router-dom";
 import { useTweetContext } from "../hooks/useTweetContext";
 
 const SignInService = () => {
-  const InputsRef = useRef([]);
+  const inputsRef = useRef([]);
   const [errorOccurred, setErrorOccured] = useState([]);
   const { setisUserLogged } = useTweetContext();
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState();
+  const setInputValue = () => {};
   
-  const setError = (id, boolean) => {
+  const setError = (inputId, isError) => {
     setErrorOccured((prevErrorState) => {
       const errorStateArray = [...(prevErrorState ?? [])];
-      errorStateArray[id] = boolean;
+      errorStateArray[inputId] = isError;
       return errorStateArray;
     });
   };
 
-  const inputIsValid = (input, id) => {
-    if (!input?.value || input?.value.length <= 5 || input?.value.length > 15) {
-      setError(id, true);
+  const isValidInput = (inputElement, inputId) => {
+    const {
+      value: {
+        length: inputValueLength,
+      } = {},
+    } = inputElement || {};
+
+    if (inputValueLength <= 5 || inputValueLength > 15) {
+      setError(inputId, true);
       return false;
     } else {
-      setError(id, false);
-      return true;
+      setError(inputId, false);
+      return inputElement;
     }
   };
 
-  const logInFunction = (e) => {
+  const getUsername = () => {
+    const userLogged = sessionStorage.getItem("username");
+
+    if (userLogged) {
+      return userLogged;
+    } else {
+      return false;
+    }
+  };
+  
+  const logOut = () => {
+    sessionStorage.removeItem("username");
+    setisUserLogged(false);
+  }
+
+  const getValidInput = (input) => {
+    return isValidInput(input) || null;
+  }
+
+  const logIn = (e) => {
     e.preventDefault();
 
-    const usernameInput = InputsRef.current[0];
-    const passwordInput = InputsRef.current[1];
+    const {
+      current: inputElement = [],
+    } = inputsRef || {};
 
-    const isUsernameValid = inputIsValid(usernameInput, 0);
-    const isPasswordValid = inputIsValid(passwordInput, 1);
+    const usernameInput = getValidInput(inputElement[0]);
+    const passwordInput = getValidInput(inputElement[1]);
 
-    if (isUsernameValid && isPasswordValid) {
-      sessionStorage.setItem("username", inputValue);
+    if (usernameInput && passwordInput) {
+      sessionStorage.setItem("username", usernameInput.value);
       navigate("/");
       setisUserLogged(true);
     }
   };
 
   return {
-    inputIsValid,
-    logInFunction,
-    InputsRef,
+    isValidInput,
+    logIn,
+    inputsRef,
     errorOccurred,
     setInputValue,
+    logOut,
+    getUsername,
   };
 };
 

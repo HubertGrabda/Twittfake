@@ -12,7 +12,7 @@ const SingInPageContainer = () => {
 
   const ErrorText = (inputName) =>
     `${inputName} musi zawierać od 5 do 15 znaków!`;
-  const { logInFunction, InputsRef, errorOccurred, setInputValue } =
+  const { logIn, inputsRef, errorOccurred, setInputValue } =
     SignInService();
   const { theme } = useTheme();
 
@@ -25,8 +25,8 @@ const SingInPageContainer = () => {
       ErrorText={ErrorText}
       defaultInputClassName={defaultInputClassName}
       errorInputClassName={errorInputClassName}
-      logInFunction={logInFunction}
-      InputsRef={InputsRef}
+      logIn={logIn}
+      inputsRef={inputsRef}
       errorOccurred={errorOccurred}
       setInputValue={setInputValue}
       theme={theme}
