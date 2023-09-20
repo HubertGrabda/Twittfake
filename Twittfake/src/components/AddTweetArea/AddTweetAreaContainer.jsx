@@ -12,11 +12,11 @@ export const AddTweetAreaContainer = () => {
 
   return (
     <AddTweetAreaView
-      userLogged            ={userLogged}
-      submitTweet             ={submitTweet}
-      errorOccured            ={errorOccured}
-      theme             ={theme}
-      inputRef          ={inputRef}
+      userLogged={userLogged}
+      submitTweet={submitTweet}
+      errorOccured={errorOccured}
+      theme={theme}
+      inputRef={inputRef}
     />
   );
 };

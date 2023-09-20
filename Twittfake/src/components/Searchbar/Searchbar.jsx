@@ -5,9 +5,9 @@ import { classNames } from "../../shared";
 import { useTheme } from "../../hooks/useTheme";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import TweetService from "../../services/TweetService";
+import { SEARCHBAR_PLACEHOLDER } from "../../const/input";
 
 const Searchbar = () => {
-  const placeholderText = "Wyszukaj";
   const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
   const { theme } = useTheme();
   const { filterItems } = TweetService();
@@ -27,7 +27,7 @@ const Searchbar = () => {
           "searchbar__input",
           theme === "isDark" && "searchbar__input--isDark",
         ])}
-        placeholder={placeholderText}
+        placeholder={SEARCHBAR_PLACEHOLDER}
         onChange={handleSearch}
       ></input>
       <FontAwesomeIcon icon={faMagnifyingGlass} className='searchbar__icon' />
