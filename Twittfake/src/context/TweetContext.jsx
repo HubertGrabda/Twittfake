@@ -2,17 +2,21 @@
 import { createContext, useState } from "react";
 import TweetsData from "../../mocks/MockTweets.json";
 import PropTypes from "prop-types";
-import { getUsername } from "../shared";
+import AccountService from "../services/AccountService";
 
 const TweetsContext = createContext();
 
 const TweetsProvider = ({ children }) => {
+  const { getUsername } = AccountService();
   const userLogged = getUsername();
+  const userLoggedInitialState = sessionStorage.getItem("username");
   const [tweets, setTweets] = useState(TweetsData.tweets);
   const [filteredTweetsData, setFilteredTweetsData] = useState(tweets);
-  const [profileToDisplay, setprofileToDisplay] = useState(userLogged);
+  const [profileToDisplay, setProfileToDisplay] = useState(
+    userLoggedInitialState
+  );
   const [isTagClicked, setIsTagClicked] = useState(false);
-  const [isUserLogged, setisUserLogged] = useState(userLogged);
+  const [isUserLogged, setIsUserLogged] = useState(userLoggedInitialState);
 
   const tweetContextValue = {
     userLogged,
@@ -23,9 +27,9 @@ const TweetsProvider = ({ children }) => {
     filteredTweetsData,
     setFilteredTweetsData,
     profileToDisplay,
-    setprofileToDisplay,
+    setProfileToDisplay,
     isUserLogged,
-    setisUserLogged,
+    setIsUserLogged,
   };
 
   return (

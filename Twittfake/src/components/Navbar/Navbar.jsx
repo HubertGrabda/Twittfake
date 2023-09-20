@@ -7,15 +7,14 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { classNames} from "../../shared";
+import { classNames } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import ScrollService from "../../services/ScrollService";
 
 const Navbar = () => {
-  const { setprofileToDisplay, userLogged } = useTweetContext();
+  const { setProfileToDisplay, userLogged } = useTweetContext();
   const navbarIcons = [faPlus, faMagnifyingGlass];
-  const routeToLoginOrProfile = userLogged ? "/Profile" : "SignIn";
-
+  const routeToLoginOrProfile = userLogged ? "/Profile" : "/SignIn";
   const showElement = ScrollService();
 
   return (
@@ -26,7 +25,7 @@ const Navbar = () => {
             src={logo}
             alt="user's logo"
             className='navbar__users-profile-pic'
-            onClick={() => setprofileToDisplay(userLogged)}
+            onClick={() => setProfileToDisplay(userLogged)}
           />
         ) : (
           <FontAwesomeIcon

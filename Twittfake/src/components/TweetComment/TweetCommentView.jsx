@@ -6,27 +6,40 @@ import fullHeart from "../../images/heart_full.png";
 import "./TweetComment.scss";
 import PropTypes from "prop-types";
 
-const TweetCommentView = (props) => (
-  <div key={props.commentId} className='comment'>
-    <h4 className='comment__username'>{props.username}</h4>
+const TweetCommentView = ({
+  commentId,
+  username,
+  content,
+  tweetId,
+  contentTextArea,
+  userLogged,
+  isUserEditing,
+  saveEdit,
+  isHeartFilled,
+  heartButtonFunction,
+  showIconsAccordingToUsername,
+  commentIcons,
+  handleCommentsReactions,
+}) => (
+  <div key={commentId} className='comment'>
+    <h4 className='comment__username'>{username}</h4>
     <textarea
-      readOnly={!props.isUserEditing[props.commentId]}
+      readOnly={!isUserEditing[commentId]}
       maxLength={50}
       onKeyDown={handleLinesAmount}
       className={classNames([
         "comment__content",
-        props.isUserEditing[props.commentId] && "comment__content--edit-mode",
+        isUserEditing[commentId] && "comment__content--edit-mode",
       ])}
-      defaultValue={props.content}
-      ref={(ref) => (props.contentTextArea.current[props.commentId] = ref)}
+      defaultValue={content}
+      ref={(ref) => (contentTextArea.current[commentId] = ref)}
     ></textarea>
     <button
       className={classNames([
         "comment__submit-button",
-        props.isUserEditing[props.commentId] &&
-          "comment__submit-button--active",
+        isUserEditing[commentId] && "comment__submit-button--active",
       ])}
-      onClick={() => props.saveEdit(props.commentId, props.contentTextArea)}
+      onClick={() => saveEdit(commentId, contentTextArea)}
     >
       {SAVE_BUTTON_TEXT}
     </button>
@@ -34,37 +47,26 @@ const TweetCommentView = (props) => (
       <span
         className={classNames([
           "comment__reactions__counter__heart",
-          props.isHeartFilled[props.commentId] &&
-            "comment__reactions__counter__heart--red",
+          isHeartFilled[commentId] && "comment__reactions__counter__heart--red",
         ])}
       >
-        {props.isHeartFilled[props.commentId] ? 2 : 1}
+        {isHeartFilled[commentId] ? 2 : 1}
       </span>
       <img
-        src={props.isHeartFilled[props.commentId] ? fullHeart : emptyHeart}
+        src={isHeartFilled[commentId] ? fullHeart : emptyHeart}
         className='comment__reactions__heart'
-        onClick={() => props.heartButtonFunction(props.commentId)}
+        onClick={() => heartButtonFunction(commentId)}
       ></img>
-      {props
-        .showIconsAccordingToUsername(
-          props.username,
-          props.userLogged,
-          props.commentIcons,
-          -2
-        )
-        .map((icon, index) => (
+      {showIconsAccordingToUsername(username, userLogged, commentIcons, -2).map(
+        (icon, index) => (
           <FontAwesomeIcon
             key={icon.iconName}
             icon={icon}
             className={`comment__reactions__${icon.iconName}`}
-            onClick={() =>
-              props.handleCommentsReactions[index](
-                props.tweetId,
-                props.commentId
-              )
-            }
+            onClick={() => handleCommentsReactions[index](tweetId, commentId)}
           />
-        ))}
+        )
+      )}
     </div>
   </div>
 );
@@ -73,7 +75,7 @@ TweetCommentView.propTypes = {
   commentId: PropTypes.node.isRequired,
   username: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  isUserEditing: PropTypes.bool.isRequired,
+  isUserEditing: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   contentTextArea: PropTypes.shape({
     current: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,

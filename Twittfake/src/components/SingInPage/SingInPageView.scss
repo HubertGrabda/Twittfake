@@ -2,7 +2,6 @@
 
 .form-wrapper {
   width: 90vw;
-  height: 55vh;
   border: none;
   border-radius: 1rem;
   background-color: $secondary-color;
@@ -53,7 +52,7 @@
     text-align: center;
     background-color: transparent;
     color: $font-white;
-    margin-top: 1rem;
+    margin-top: 2.5rem;
 
     &--isDark {
       color: $font-gray;
@@ -98,9 +97,9 @@
     padding: 1rem;
 
     &__error-label {
-      opacity: 0;
+      display: none;
       &--display {
-        opacity: 100;
+        display: flex;
         color: red;
       }
     }

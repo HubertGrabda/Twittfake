@@ -15,10 +15,10 @@ const NewTweetPageContainer = () => {
 
   return (
     <NewTweetPageView
-      userLogged={userLogged}
-      theme={theme}
-      textareaInput={textareaInput}
-      submitTweet={submitTweet}
+      userLogged              ={userLogged}
+      theme                   ={theme}
+      textareaInput           ={textareaInput}
+      submitTweet             ={submitTweet}
     />
   );
 };

@@ -1,11 +1,13 @@
 import "./PopularMobile.scss";
 import { Link } from "react-router-dom";
-import { filterItems, popularTrendsFilter } from "../../shared";
+import { popularTrendsFilter } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
+import TweetService from "../../services/TweetService";
 
 const PopularMobile = () => {
-  const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
+  const { tweets } = useTweetContext();
   const { duplicates, countMap } = popularTrendsFilter(tweets);
+  const { filterItems } = TweetService();
 
   return (
     <div className='popularMobile'>
@@ -14,9 +16,7 @@ const PopularMobile = () => {
           to='/SearchResult'
           className='tile'
           key={element}
-          onClick={() =>
-            filterItems(tweets, element, setFilteredTweetsData, setIsTagClicked)
-          }
+          onClick={() => filterItems(element)}
         >
           <span className='tile__category'>{element}</span>
           <span className='tile__catch-phrase'> #{element} </span>

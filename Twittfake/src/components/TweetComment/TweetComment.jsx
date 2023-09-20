@@ -28,22 +28,22 @@ const TweetCommentContainer = ({ commentId, username, content, tweetId }) => {
 
   return (
     <TweetCommentView
-      commentId={commentId}
-      username={username}
-      content={content}
-      tweetId={tweetId}
-      contentTextArea={contentTextArea}
-      userLogged={userLogged}
-      isUserEditing={isUserEditing}
-      saveEdit={saveEdit}
-      saveButtonValue={saveButtonValue}
-      isHeartFilled={isHeartFilled}
-      heartButtonFunction={heartButtonFunction}
-      showIconsAccordingToUsername={showIconsAccordingToUsername}
-      deleteComment={deleteComment}
-      handleEditMode={handleEditMode}
-      commentIcons={commentIcons}
-      handleCommentsReactions={handleCommentsReactions}
+      commentId                                     ={commentId}
+      username                                      ={username}
+      content                                       ={content}
+      tweetId                                       ={tweetId}
+      contentTextArea                                 ={contentTextArea}
+      userLogged                                      ={userLogged}
+      isUserEditing                                                         ={isUserEditing}
+      saveEdit                                ={saveEdit}
+      saveButtonValue                                                     ={saveButtonValue}
+      isHeartFilled                                                     ={isHeartFilled}
+      heartButtonFunction                                                     ={heartButtonFunction}
+      showIconsAccordingToUsername                                                      ={showIconsAccordingToUsername}
+      deleteComment                                                     ={deleteComment}
+      handleEditMode                                                      ={handleEditMode}
+      commentIcons                                                      ={commentIcons}
+      handleCommentsReactions                                                     ={handleCommentsReactions}
     />
   );
 };

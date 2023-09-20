@@ -1,13 +1,14 @@
 import "./Popular.scss";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames, filterItems, popularTrendsFilter } from "../../shared";
+import { classNames, popularTrendsFilter } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
+import TweetService from "../../services/TweetService";
 
 const Popular = () => {
-  const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
-
+  const { tweets } = useTweetContext();
   const { duplicates, countMap } = popularTrendsFilter(tweets);
   const { theme } = useTheme();
+  const { filterItems } = TweetService();
 
   return (
     <section className='popular'>
@@ -19,14 +20,7 @@ const Popular = () => {
               theme === "isDark" && "popular__tile--isDark",
             ])}
             key={element}
-            onClick={() =>
-              filterItems(
-                tweets,
-                element,
-                setFilteredTweetsData,
-                setIsTagClicked
-              )
-            }
+            onClick={() => filterItems(element)}
           >
             <span className='popular__tile__catch-phrase'>#{element}</span>
             <span className='popular__tile__amount-of-tweets'>

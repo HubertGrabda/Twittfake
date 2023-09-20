@@ -7,26 +7,31 @@ import {
 } from "../../const/input";
 import PropTypes from "prop-types";
 
-const NewTweetPageView = (props) => (
+const NewTweetPageView = ({
+  userLogged,
+  theme,
+  textareaInput,
+  submitTweet,
+}) => (
   <div className='input-field-wrapper'>
     <div className='user-data'>
       <img src={logo} className='user-data__profile-pic'></img>
-      <h4 className='user-data__username'>{props.userLogged}</h4>
+      <h4 className='user-data__username'>{userLogged}</h4>
     </div>
     <div className='textarea'>
       <textarea
-        ref={props.textareaInput}
+        ref={textareaInput}
         className={classNames([
           "textarea__input",
-          props.theme === "isDark" && "textarea__input--isDark",
+          theme === "isDark" && "textarea__input--isDark",
         ])}
-        placeholder={ADD_TWEET_INPUT_PLACEHOLDER(props.userLogged)}
+        placeholder={ADD_TWEET_INPUT_PLACEHOLDER(userLogged)}
         maxLength={80}
         onKeyDown={handleLinesAmount}
       ></textarea>{" "}
       <button
         className='textarea__submit-button'
-        onClick={() => props.submitTweet(props.textareaInput)}
+        onClick={() => submitTweet(textareaInput)}
       >
         {SUBMIT_BUTTON_TEXT}
       </button>

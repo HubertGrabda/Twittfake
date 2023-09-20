@@ -16,7 +16,6 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
   const contentTextArea = useRef([]);
   const { theme } = useTheme();
-  const saveButtonValue = "Zapisz";
 
   const {
     userLogged,
@@ -48,7 +47,6 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
       icons={icons}
       contentTextArea={contentTextArea}
       theme={theme}
-      saveButtonValue={saveButtonValue}
       userLogged={userLogged}
       isHeartFilled={isHeartFilled}
       isCommentSectionVisible={isCommentSectionVisible}

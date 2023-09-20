@@ -11,8 +11,9 @@ const TweetService = () => {
     tweets,
     setTweets,
     setFilteredTweetsData,
-    setprofileToDisplay,
+    setProfileToDisplay,
     userLogged,
+    setIsTagClicked,
   } = useTweetContext();
   const InputErrorMessage = "To pole nie może być puste!";
   const saveButtonValue = "Zapisz";
@@ -89,7 +90,7 @@ const TweetService = () => {
   };
 
   const otherUsersProfileReference = (username) => {
-    setprofileToDisplay(username);
+    setProfileToDisplay(username);
     navigate("/Profile");
   };
 
@@ -121,6 +122,15 @@ const TweetService = () => {
     );
   };
 
+  const filterItems = (inputValue) => {
+    const filteredResults = tweets.filter((item) =>
+      item.content.toLowerCase().includes(inputValue.toLowerCase())
+    );
+
+    setIsTagClicked(true);
+    setFilteredTweetsData(filteredResults);
+  };
+
   return {
     userLogged,
     isHeartFilled,
@@ -142,6 +152,7 @@ const TweetService = () => {
     deleteComment,
     saveButtonValue,
     otherUsersProfileReference,
+    filterItems,
   };
 };
 

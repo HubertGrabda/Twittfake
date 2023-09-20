@@ -8,6 +8,7 @@ import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton
 
 const SearchResult = () => {
   useRedirect();
+
   return (
     <>
       <Header name='Wyniki' />

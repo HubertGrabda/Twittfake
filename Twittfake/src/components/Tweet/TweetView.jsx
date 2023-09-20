@@ -6,102 +6,107 @@ import TweetCommentContainer from "../TweetComment/TweetComment";
 import AddCommentAreaContainer from "../AddCommentArea/AddCommentAreaContainer";
 import "./Tweet.scss";
 import PropTypes from "prop-types";
+import { SAVE_BUTTON_TEXT } from "../../const/input";
 
-const TweetView = (props) => (
+const TweetView = ({
+  handleTweetsReactions,
+  emptyHeart,
+  fullHeart,
+  icons,
+  contentTextArea,
+  theme,
+  userLogged,
+  isHeartFilled,
+  isCommentSectionVisible,
+  isUserEditing,
+  heartButtonFunction,
+  showIconsAccordingToUsername,
+  saveEdit,
+  otherUsersProfileReference,
+  tweetId,
+  username,
+  content,
+  comments,
+}) => (
   <article
-    className={classNames([
-      "tweet",
-      props.theme === "isDark" && "tweet--isDark",
-    ])}
-    key={props.tweetId}
+    className={classNames(["tweet", theme === "isDark" && "tweet--isDark"])}
+    key={tweetId}
   >
     <h3
       className='tweet__username'
-      onClick={() => props.otherUsersProfileReference(props.username)}
+      onClick={() => otherUsersProfileReference(username)}
     >
-      {props.username}{" "}
+      {username}{" "}
     </h3>
     <textarea
       className={classNames([
         "tweet__content",
-        props.isUserEditing[props.tweetId] && "tweet__content--edit-mode",
+        isUserEditing[tweetId] && "tweet__content--edit-mode",
       ])}
-      defaultValue={props.content}
-      ref={(ref) => (props.contentTextArea.current[props.tweetId] = ref)}
+      defaultValue={content}
+      ref={(ref) => (contentTextArea.current[tweetId] = ref)}
       maxLength={75}
-      readOnly={!props.isUserEditing[props.tweetId]}
+      readOnly={!isUserEditing[tweetId]}
       onKeyDown={handleLinesAmount}
     ></textarea>
     <button
       className={classNames([
         "tweet__save-edit-button",
-        props.isUserEditing[props.tweetId] && "tweet__save-edit-button--active",
+        isUserEditing[tweetId] && "tweet__save-edit-button--active",
       ])}
-      onClick={() => props.saveEdit(props.tweetId, props.contentTextArea)}
+      onClick={() => saveEdit(tweetId, contentTextArea)}
     >
-      {props.saveButtonValue}
+      {SAVE_BUTTON_TEXT}
     </button>
     <div className='tweet__reactions'>
       <img
-        src={
-          props.isHeartFilled[props.tweetId]
-            ? props.fullHeart
-            : props.emptyHeart
-        }
+        src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
         className='tweet__reactions__heart'
-        onClick={() => props.heartButtonFunction(props.tweetId)}
+        onClick={() => heartButtonFunction(tweetId)}
       ></img>
-      {props
-        .showIconsAccordingToUsername(
-          props.username,
-          props.userLogged,
-          props.icons,
-          -2
-        )
-        .map((icon, index) => (
+      {showIconsAccordingToUsername(username, userLogged, icons, -2).map(
+        (icon, index) => (
           <React.Fragment key={index}>
             {index === 0 ? (
               <span
                 className={classNames([
                   "tweet__reactions__counter__heart",
-                  props.isHeartFilled[props.tweetId] &&
+                  isHeartFilled[tweetId] &&
                     "tweet__reactions__counter__heart--red",
                 ])}
               >
-                {props.isHeartFilled[props.tweetId] ? 2 : 1}
+                {isHeartFilled[tweetId] ? 2 : 1}
               </span>
             ) : null}
             {index === 1 ? (
               <span className='tweet__reactions__counter__comments'>
-                {props.comments?.length ?? 0}
+                {comments?.length ?? 0}
               </span>
             ) : null}
             <FontAwesomeIcon
               icon={icon}
               className={`tweet__reactions__${icon.iconName}`}
-              onClick={() =>
-                props.handleTweetsReactions[index](props.tweetId, props.content)
-              }
+              onClick={() => handleTweetsReactions[index](tweetId, content)}
             />
           </React.Fragment>
-        ))}
+        )
+      )}
     </div>
-    {props.userLogged && (
+    {userLogged && (
       <div
         className={classNames([
           "comment-section",
-          !props.isCommentSectionVisible[props.tweetId] &&
-            "comment-section--isnt-visible",
+          !isCommentSectionVisible[tweetId] && "comment-section--isnt-visible",
         ])}
       >
-        <AddCommentAreaContainer id={props.tweetId} />
-        {props.comments?.map(({ id: commentId, username, content }) => (
+        <AddCommentAreaContainer id={tweetId} />
+        {comments?.map(({ id: commentId, username, content }) => (
           <TweetCommentContainer
             key={commentId}
             commentId={commentId}
             username={username}
             content={content}
-            tweetId={props.tweetId}
+            tweetId={tweetId}
           />
         ))}
       </div>
@@ -120,7 +125,6 @@ TweetView.propTypes = {
   saveEdit: PropTypes.func.isRequired,
   otherUsersProfileReference: PropTypes.func.isRequired,
   heartButtonFunction: PropTypes.func.isRequired,
-  saveButtonValue: PropTypes.string.isRequired,
   isHeartFilled: PropTypes.object.isRequired,
   emptyHeart: PropTypes.string.isRequired,
   fullHeart: PropTypes.string.isRequired,

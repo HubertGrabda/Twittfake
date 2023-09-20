@@ -6,16 +6,29 @@ import { classNames } from "../../shared";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const SingInPageView = (props) => (
+const SingInPageView = ({
+  buttonText,
+  usernamePlaceholderText,
+  passwordPlaceholderText,
+  welcomeText,
+  errorText,
+  defaultInputClassName,
+  errorInputClassName,
+  logIn,
+  inputsRef,
+  errorOccurred,
+  setInputValue,
+  theme,
+}) => (
   <div className='form-wrapper'>
     <p
       className={classNames([
         "form-wrapper__welcome-text",
-        props.theme === "isDark" && "form-wrapper__welcome-text--isDark",
+        theme === "isDark" && "form-wrapper__welcome-text--isDark",
       ])}
     >
       {" "}
-      {props.welcomeText}{" "}
+      {welcomeText}{" "}
     </p>
     <img src={logo} alt='Logo' className='form-wrapper__logo' />
     <Link to='/'>
@@ -29,46 +42,46 @@ const SingInPageView = (props) => (
       <input
         id='username-input'
         maxLength={13}
-        ref={(ref) => (props.InputsRef.current[0] = ref)}
+        ref={(ref) => (inputsRef.current[0] = ref)}
         type='text'
         className={classNames([
-          props.defaultInputClassName,
-          props.errorOccurred[0] && props.errorInputClassName,
+          defaultInputClassName,
+          errorOccurred[0] && errorInputClassName,
         ])}
-        placeholder={props.usernamePlaceholderText}
-        onInput={(e) => props.setInputValue(e.target.value)}
+        placeholder={usernamePlaceholderText}
+        onInput={(e) => setInputValue(e.target.value)}
       ></input>
       <label
         htmlFor='username-input'
         className={classNames([
           "form__error-label",
-          props.errorOccurred[0] && "form__error-label--display",
+          errorOccurred[0] && "form__error-label--display",
         ])}
       >
-        {props.ErrorText("Nazwa użytkownika")}
+        {errorText("Nazwa użytkownika")}
       </label>
       <input
         maxLength={15}
         type='password'
         id='password-input'
-        ref={(ref) => (props.InputsRef.current[1] = ref)}
+        ref={(ref) => (inputsRef.current[1] = ref)}
         className={classNames([
-          props.defaultInputClassName,
-          props.errorOccurred[1] && props.errorInputClassName,
+          defaultInputClassName,
+          errorOccurred[1] && errorInputClassName,
         ])}
-        placeholder={props.passwordPlaceholderText}
+        placeholder={passwordPlaceholderText}
       ></input>
       <label
         htmlFor='password-input'
         className={classNames([
           "form__error-label",
-          props.errorOccurred[1] && "form__error-label--display",
+          errorOccurred[1] && "form__error-label--display",
         ])}
       >
-        {props.ErrorText("Hasło")}
+        {errorText("Hasło")}
       </label>
-      <button className='form__submit-button' onClick={props.logInFunction}>
-        {props.buttonText}
+      <button className='form__submit-button' onClick={logIn}>
+        {buttonText}
       </button>
     </form>
   </div>
@@ -79,11 +92,11 @@ SingInPageView.propTypes = {
   usernamePlaceholderText: PropTypes.string.isRequired,
   passwordPlaceholderText: PropTypes.string.isRequired,
   welcomeText: PropTypes.string.isRequired,
-  ErrorText: PropTypes.func.isRequired,
+  errorText: PropTypes.func.isRequired,
   defaultInputClassName: PropTypes.string.isRequired,
   errorInputClassName: PropTypes.string.isRequired,
-  logInFunction: PropTypes.func.isRequired,
-  InputsRef: PropTypes.object.isRequired,
+  logIn: PropTypes.func.isRequired,
+  inputsRef: PropTypes.object.isRequired,
   errorOccurred: PropTypes.arrayOf(PropTypes.bool).isRequired,
   setInputValue: PropTypes.func.isRequired,
   theme: PropTypes.string.isRequired,

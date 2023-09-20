@@ -7,19 +7,26 @@ import {
 import "./AddCommentArea.scss";
 import PropTypes from "prop-types";
 
-const AddCommentAreaView = (props) => (
+const AddCommentAreaView = ({
+  id,
+  userLogged,
+  commentInputRef,
+  submitComment,
+  errorOccured,
+  theme,
+}) => (
   <>
-    {props.userLogged && (
+    {userLogged && (
       <div className='add-comment'>
         <textarea
-          ref={props.commentInputRef}
+          ref={commentInputRef}
           className={classNames([
             "add-comment__input",
-            props.theme === "isDark" && "add-comment__input--isDark",
-            props.errorOccured && "add-comment__input--error",
+            theme === "isDark" && "add-comment__input--isDark",
+            errorOccured && "add-comment__input--error",
           ])}
           placeholder={
-            props.errorOccured
+            errorOccured
               ? ADD_COMMENT_INPUT_PLACEHOLDER_ERROR
               : ADD_COMMENT_INPUT_PLACEHOLDER
           }
@@ -28,7 +35,7 @@ const AddCommentAreaView = (props) => (
         />
         <button
           className='add-comment__submit-button'
-          onClick={() => props.submitComment(props.id, props.commentInputRef)}
+          onClick={() => submitComment(id, commentInputRef)}
         >
           {SUBMIT_BUTTON_TEXT}
         </button>

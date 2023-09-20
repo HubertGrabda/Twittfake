@@ -1,5 +1,5 @@
 import SingInPageView from "./SingInPageView";
-import SignInService from "../../services/SignInService";
+import AccountService from "../../services/AccountService";
 import { useTheme } from "../../hooks/useTheme";
 
 const SingInPageContainer = () => {
@@ -10,10 +10,9 @@ const SingInPageContainer = () => {
   const defaultInputClassName = "form__input";
   const errorInputClassName = "form__input--error";
 
-  const ErrorText = (inputName) =>
+  const errorText = (inputName) =>
     `${inputName} musi zawierać od 5 do 15 znaków!`;
-  const { logInFunction, InputsRef, errorOccurred, setInputValue } =
-    SignInService();
+  const { logIn, inputsRef, errorOccurred, setInputValue } = AccountService();
   const { theme } = useTheme();
 
   return (
@@ -22,12 +21,12 @@ const SingInPageContainer = () => {
       usernamePlaceholderText={usernamePlaceholderText}
       passwordPlaceholderText={passwordPlaceholderText}
       welcomeText={welcomeText}
-      ErrorText={ErrorText}
+      errorText={errorText}
       defaultInputClassName={defaultInputClassName}
       errorInputClassName={errorInputClassName}
-      logInFunction={logInFunction}
-      InputsRef={InputsRef}
+      logIn={logIn}
       errorOccurred={errorOccurred}
+      inputsRef={inputsRef}
       setInputValue={setInputValue}
       theme={theme}
     />

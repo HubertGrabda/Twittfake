@@ -4,20 +4,16 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "../../hooks/useTheme";
-import { classNames, getUsername } from "../../shared";
+import { classNames } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
+import AccountService from "../../services/AccountService";
 
 const ProfileReference = () => {
-  let userLogged = getUsername();
   const logInText = "Zaloguj się";
-  const { setprofileToDisplay, setisUserLogged, isUserLogged } =
-    useTweetContext();
+  const { setProfileToDisplay, isUserLogged } = useTweetContext();
   const { theme } = useTheme();
-
-  const logOut = () => {
-    userLogged = sessionStorage.removeItem("username");
-    setisUserLogged(false);
-  };
+  const { logOut, getUsername } = AccountService();
+  const userLogged = getUsername();
 
   return (
     <>
@@ -31,7 +27,7 @@ const ProfileReference = () => {
           <>
             <Link
               to='/Profile'
-              onClick={() => setprofileToDisplay(userLogged)}
+              onClick={() => setProfileToDisplay(userLogged)}
               className='profile-link'
             >
               <img src={logo} className='profile-link__picture'></img>
@@ -41,7 +37,7 @@ const ProfileReference = () => {
             <FontAwesomeIcon
               icon={faArrowRightFromBracket}
               className='profile-ref__log-out-button'
-              onClick={logOut}
+              onClick={() => logOut()}
             />
           </>
         ) : (

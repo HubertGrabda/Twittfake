@@ -2,29 +2,6 @@ export function classNames(array) {
   return array.filter((value) => value).join(" ");
 }
 
-export const filterItems = (
-  data,
-  inputValue,
-  setResultState,
-  setIsTagClicked
-) => {
-  const filteredResults = data.filter((item) =>
-    item.content.toLowerCase().includes(inputValue.toLowerCase())
-  );
-
-  setIsTagClicked(true);
-  setResultState(filteredResults);
-};
-
-export const getUsername = () => {
-  const userLogged = sessionStorage.getItem("username");
-  if (userLogged) {
-    return userLogged;
-  } else {
-    return false;
-  }
-};
-
 export const handleLinesAmount = (e) => {
   const maxLines = 2;
   const lines = e.target.value.split("\n").length;
