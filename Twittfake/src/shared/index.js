@@ -29,7 +29,7 @@ export const popularTrendsFilter = (tweets) => {
     }
   });
 
-  return { countMap: countObj, duplicates };
+  return { countObj, duplicates };
 };
 
 export const toggleState = (setterName, updaterFunc, id) => {

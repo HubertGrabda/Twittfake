@@ -6,7 +6,7 @@ import TweetService from "../../services/TweetService";
 
 const Popular = () => {
   const { tweets } = useTweetContext();
-  const { duplicates, countMap } = popularTrendsFilter(tweets);
+  const { duplicates, countObj } = popularTrendsFilter(tweets);
   const { theme } = useTheme();
   const { filterItems } = TweetService();
 
@@ -24,7 +24,7 @@ const Popular = () => {
           >
             <span className='popular__tile__catch-phrase'>#{element}</span>
             <span className='popular__tile__amount-of-tweets'>
-              Tweety: {countMap[element]}
+              Tweety: {countObj[element]}
             </span>
           </div>
         );
