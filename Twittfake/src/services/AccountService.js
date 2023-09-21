@@ -60,6 +60,7 @@ const SignInService = () => {
   const logOut = () => {
     sessionStorage.removeItem("username");
     setIsUserLogged(false);
+    navigate("/");
   };
 
   return {

@@ -8,7 +8,7 @@ const Popular = () => {
   const { tweets } = useTweetContext();
   const { duplicates, countObj } = popularTrendsFilter(tweets);
   const { theme } = useTheme();
-  const { filterItems } = TweetService();
+  const { filterTweets } = TweetService();
 
   return (
     <section className='popular'>
@@ -20,7 +20,7 @@ const Popular = () => {
               theme === "isDark" && "popular__tile--isDark",
             ])}
             key={element}
-            onClick={() => filterItems(element)}
+            onClick={() => filterTweets(element)}
           >
             <span className='popular__tile__catch-phrase'>#{element}</span>
             <span className='popular__tile__amount-of-tweets'>

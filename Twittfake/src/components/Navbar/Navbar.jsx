@@ -15,6 +15,7 @@ const Navbar = () => {
   const { setProfileToDisplay, userLogged } = useTweetContext();
   const navbarIcons = [faPlus, faMagnifyingGlass];
   const routeToLoginOrProfile = userLogged ? "/Profile" : "/SignIn";
+  const routeToLoginOrNewTweetPage = userLogged ? "/CreateTweet" : "/SignIn";
   const showElement = ScrollService();
 
   return (
@@ -37,7 +38,7 @@ const Navbar = () => {
 
       {navbarIcons.map((icon, index) => (
         <Link
-          to={index === 1 ? "/Search" : "/CreateTweet"}
+          to={index === 1 ? "/Search" : routeToLoginOrNewTweetPage}
           key={icon.iconName}
           className={`navbar__${icon.iconName}`}
         >

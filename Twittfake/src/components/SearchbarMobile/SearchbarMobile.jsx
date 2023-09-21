@@ -4,11 +4,11 @@ import { SEARCHBAR_PLACEHOLDER, SEARCH_BUTTON_TEXT } from "../../const/input";
 import TweetService from "../../services/TweetService";
 
 const SearchbarMobile = () => {
-  const { filterItems } = TweetService();
+  const { filterTweets } = TweetService();
 
   const handleInput = (e) => {
     const inputValue = e.target.value;
-    filterItems(inputValue);
+    filterTweets(inputValue);
   };
 
   return (

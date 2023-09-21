@@ -5,12 +5,12 @@ import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { classNames } from "../../shared";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { LOG_IN_TEXT } from "../../const/input";
 
 const SingInPageView = ({
   buttonText,
   usernamePlaceholderText,
   passwordPlaceholderText,
-  welcomeText,
   errorText,
   defaultInputClassName,
   errorInputClassName,
@@ -27,8 +27,7 @@ const SingInPageView = ({
         theme === "isDark" && "form-wrapper__welcome-text--isDark",
       ])}
     >
-      {" "}
-      {welcomeText}{" "}
+      {LOG_IN_TEXT}
     </p>
     <img src={logo} alt='Logo' className='form-wrapper__logo' />
     <Link to='/'>
@@ -91,7 +90,6 @@ SingInPageView.propTypes = {
   buttonText: PropTypes.string.isRequired,
   usernamePlaceholderText: PropTypes.string.isRequired,
   passwordPlaceholderText: PropTypes.string.isRequired,
-  welcomeText: PropTypes.string.isRequired,
   errorText: PropTypes.func.isRequired,
   defaultInputClassName: PropTypes.string.isRequired,
   errorInputClassName: PropTypes.string.isRequired,

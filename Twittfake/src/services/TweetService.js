@@ -122,7 +122,7 @@ const TweetService = () => {
     );
   };
 
-  const filterItems = (inputValue) => {
+  const filterTweets = (inputValue) => {
     const filteredResults = tweets.filter((item) =>
       item.content.toLowerCase().includes(inputValue.toLowerCase())
     );
@@ -152,7 +152,7 @@ const TweetService = () => {
     deleteComment,
     saveButtonValue,
     otherUsersProfileReference,
-    filterItems,
+    filterTweets,
   };
 };
 

@@ -3,6 +3,7 @@ import logo from "../../images/TwittfakeLogoAlt.png";
 import { classNames, handleLinesAmount } from "../../shared";
 import {
   ADD_TWEET_INPUT_PLACEHOLDER,
+  ADD_TWEET_INPUT_PLACEHOLDER_ERROR,
   SUBMIT_BUTTON_TEXT,
 } from "../../const/input";
 import PropTypes from "prop-types";
@@ -12,8 +13,9 @@ const NewTweetPageView = ({
   theme,
   textareaInput,
   submitTweet,
+  errorOccured,
 }) => (
-  <div className='input-field-wrapper'>
+  <div className='textarea-wrapper'>
     <div className='user-data'>
       <img src={logo} className='user-data__profile-pic'></img>
       <h4 className='user-data__username'>{userLogged}</h4>
@@ -24,8 +26,13 @@ const NewTweetPageView = ({
         className={classNames([
           "textarea__input",
           theme === "isDark" && "textarea__input--isDark",
+          errorOccured && "textarea__input--error",
         ])}
-        placeholder={ADD_TWEET_INPUT_PLACEHOLDER(userLogged)}
+        placeholder={
+          errorOccured
+            ? ADD_TWEET_INPUT_PLACEHOLDER_ERROR
+            : ADD_TWEET_INPUT_PLACEHOLDER(userLogged)
+        }
         maxLength={80}
         onKeyDown={handleLinesAmount}
       ></textarea>{" "}
@@ -43,8 +50,8 @@ NewTweetPageView.propTypes = {
   userLogged: PropTypes.string.isRequired,
   textareaInput: PropTypes.object.isRequired,
   theme: PropTypes.string.isRequired,
-  errorOccured: PropTypes.bool.isRequired,
-  id: PropTypes.node.isRequired,
+  errorOccured: PropTypes.bool,
+  id: PropTypes.node,
   submitTweet: PropTypes.func.isRequired,
 };
 

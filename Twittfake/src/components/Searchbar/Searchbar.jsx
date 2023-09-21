@@ -10,14 +10,14 @@ import { SEARCHBAR_PLACEHOLDER } from "../../const/input";
 const Searchbar = () => {
   const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
   const { theme } = useTheme();
-  const { filterItems } = TweetService();
+  const { filterTweets } = TweetService();
 
   const handleSearch = (event) => {
     const inputValue = event.target.value;
     if (!inputValue) {
       setFilteredTweetsData(tweets);
       setIsTagClicked(false);
-    } else filterItems(inputValue);
+    } else filterTweets(inputValue);
   };
 
   return (

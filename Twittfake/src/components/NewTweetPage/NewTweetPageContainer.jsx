@@ -8,10 +8,10 @@ import NewTweetPageView from "./NewTweetView";
 const NewTweetPageContainer = () => {
   useRedirect();
 
+  const textareaInput = useRef();
   const { userLogged } = useTweetContext();
   const { theme } = useTheme();
-  const textareaInput = useRef();
-  const { submitTweet } = SubmitService();
+  const { submitTweet, errorOccured } = SubmitService();
 
   return (
     <NewTweetPageView
@@ -19,6 +19,7 @@ const NewTweetPageContainer = () => {
       theme={theme}
       textareaInput={textareaInput}
       submitTweet={submitTweet}
+      errorOccured={errorOccured}
     />
   );
 };

@@ -6,7 +6,6 @@ const SingInPageContainer = () => {
   const buttonText = "Zaloguj";
   const usernamePlaceholderText = "Nazwa użytkownika";
   const passwordPlaceholderText = "Hasło";
-  const welcomeText = "Zaloguj się";
   const defaultInputClassName = "form__input";
   const errorInputClassName = "form__input--error";
 
@@ -20,7 +19,6 @@ const SingInPageContainer = () => {
       buttonText={buttonText}
       usernamePlaceholderText={usernamePlaceholderText}
       passwordPlaceholderText={passwordPlaceholderText}
-      welcomeText={welcomeText}
       errorText={errorText}
       defaultInputClassName={defaultInputClassName}
       errorInputClassName={errorInputClassName}

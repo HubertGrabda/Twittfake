@@ -6,7 +6,7 @@ $desktop: "(min-width:1440px)";
 
 $main-color: #120d3e;
 $secondary-color: #0b0637;
-$ternery-color: #171430;
+$ternery-color: #171430d3;
 $font-gray: #71767b;
 $font-dark: #333;
 $font-white: $twittfake_font_white;
@@ -62,7 +62,7 @@ $font-white: $twittfake_font_white;
   box-shadow: inset 0px -9px 50px -30px rgb(18, 13, 62, 0.5);
 }
 
-@mixin buttons($side) {
+@mixin sideButton($side) {
   background-color: $main-color;
   color: $twittfake_font_white;
   border-radius: 50%;
@@ -99,8 +99,8 @@ $font-white: $twittfake_font_white;
   }
 }
 
-@mixin buttons--hidden($side) {
-  @include buttons($side);
+@mixin sideButton--hidden($side) {
+  @include sideButton($side);
   transform: translateY(-200%);
   transition: transform 0.5s ease;
 }
@@ -116,7 +116,9 @@ $font-white: $twittfake_font_white;
   display: block;
 
   @media #{$tablets-only} {
+    margin-top: 1rem;
     height: 2.5rem;
+    width: 6rem;
   }
 
   @media #{$laptop} {

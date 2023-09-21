@@ -1,6 +1,6 @@
 @import "../variables";
 
-.return-icon {
+.log-out-button {
   @include sideButton(left);
 
   &--hidden {

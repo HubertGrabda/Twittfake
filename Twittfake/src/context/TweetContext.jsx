@@ -12,9 +12,7 @@ const TweetsProvider = ({ children }) => {
   const userLoggedInitialState = sessionStorage.getItem("username");
   const [tweets, setTweets] = useState(TweetsData.tweets);
   const [filteredTweetsData, setFilteredTweetsData] = useState(tweets);
-  const [profileToDisplay, setProfileToDisplay] = useState(
-    userLoggedInitialState
-  );
+  const [profileToDisplay, setProfileToDisplay] = useState(userLogged);
   const [isTagClicked, setIsTagClicked] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(userLoggedInitialState);
 

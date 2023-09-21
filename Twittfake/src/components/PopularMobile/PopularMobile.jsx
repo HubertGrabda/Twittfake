@@ -7,7 +7,7 @@ import TweetService from "../../services/TweetService";
 const PopularMobile = () => {
   const { tweets } = useTweetContext();
   const { duplicates, countObj } = popularTrendsFilter(tweets);
-  const { filterItems } = TweetService();
+  const { filterTweets } = TweetService();
 
   return (
     <div className='popularMobile'>
@@ -16,7 +16,7 @@ const PopularMobile = () => {
           to='/SearchResult'
           className='tile'
           key={element}
-          onClick={() => filterItems(element)}
+          onClick={() => filterTweets(element)}
         >
           <span className='tile__category'>{element}</span>
           <span className='tile__catch-phrase'> #{element} </span>

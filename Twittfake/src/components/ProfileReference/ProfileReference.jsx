@@ -7,9 +7,9 @@ import { useTheme } from "../../hooks/useTheme";
 import { classNames } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import AccountService from "../../services/AccountService";
+import { LOG_IN_TEXT } from "../../const/input";
 
 const ProfileReference = () => {
-  const logInText = "Zaloguj się";
   const { setProfileToDisplay, isUserLogged } = useTweetContext();
   const { theme } = useTheme();
   const { logOut, getUsername } = AccountService();
@@ -30,7 +30,7 @@ const ProfileReference = () => {
               onClick={() => setProfileToDisplay(userLogged)}
               className='profile-link'
             >
-              <img src={logo} className='profile-link__picture'></img>
+              <img src={logo} className='profile-link__picture' alt="User's profile picture"></img>
               <p className='profile-link__username'> {userLogged} </p>
             </Link>
 
@@ -42,7 +42,7 @@ const ProfileReference = () => {
           </>
         ) : (
           <Link to='/SignIn' className='profile-link'>
-            <p className='profile-link__username'> {logInText} </p>
+            <p className='profile-link__username'> {LOG_IN_TEXT} </p>
           </Link>
         )}
       </div>

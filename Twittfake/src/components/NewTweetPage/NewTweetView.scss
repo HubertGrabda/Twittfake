@@ -1,6 +1,6 @@
 @import "../variables";
 
-.input-field-wrapper {
+.textarea-wrapper {
   border-radius: 1rem;
   width: 75%;
   height: 50vh;
@@ -46,12 +46,10 @@
   }
 
   .textarea {
-    margin-bottom: 0.5rem;
     width: 100%;
-    height: 55%;
+    height: 60%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
 
     &__input {
@@ -60,7 +58,6 @@
       height: 60vh;
       border-radius: 1rem;
       resize: none;
-      margin: inherit;
       @include shadow;
       border: none;
       margin: 0.5rem;

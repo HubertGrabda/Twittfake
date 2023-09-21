@@ -1,10 +1,9 @@
 @import "../variables";
 
 .home-icon {
-  @include buttons(right);
+  @include sideButton(right);
 
   &--hidden {
-    @include buttons--hidden(right)
+    @include sideButton--hidden(right);
   }
 }
-
