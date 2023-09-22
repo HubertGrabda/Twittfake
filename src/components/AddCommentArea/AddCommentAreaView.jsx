@@ -8,7 +8,7 @@ import "./AddCommentArea.scss";
 import PropTypes from "prop-types";
 
 const AddCommentAreaView = ({
-  id,
+  tweetId,
   userLogged,
   commentInputRef,
   submitComment,
@@ -35,7 +35,7 @@ const AddCommentAreaView = ({
         />
         <button
           className='add-comment__submit-button'
-          onClick={() => submitComment(id, commentInputRef)}
+          onClick={() => submitComment(tweetId, commentInputRef)}
         >
           {SUBMIT_BUTTON_TEXT}
         </button>
@@ -49,7 +49,7 @@ AddCommentAreaView.propTypes = {
   commentInputRef: PropTypes.object,
   theme: PropTypes.string,
   errorOccured: PropTypes.bool,
-  id: PropTypes.node,
+  tweetId: PropTypes.node,
   submitComment: PropTypes.func,
 };
 

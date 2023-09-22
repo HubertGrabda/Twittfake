@@ -99,7 +99,7 @@ const TweetView = ({
           !isCommentSectionVisible[tweetId] && "comment-section--isnt-visible",
         ])}
       >
-        <AddCommentAreaContainer id={tweetId} />
+        <AddCommentAreaContainer tweetId={tweetId} />
         {comments?.map(({ id: commentId, username, content }) => (
           <TweetCommentContainer
             key={commentId}

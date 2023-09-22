@@ -38,7 +38,7 @@ const SubmitService = () => {
     }
   };
 
-  const submitComment = (id, refName) => {
+  const submitComment = (tweetId, refName) => {
     let input = refName.current;
 
     if (!input.value) {
@@ -66,7 +66,7 @@ const SubmitService = () => {
 
     setTweets((prevTweets) =>
       prevTweets.map((tweet) =>
-        tweet.id === id
+        tweet.id === tweetId
           ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
           : tweet
       )
@@ -74,7 +74,7 @@ const SubmitService = () => {
 
     setFilteredTweetsData((prevTweets) =>
       prevTweets.map((tweet) =>
-        tweet.id === id
+        tweet.id === tweetId
           ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
           : tweet
       )

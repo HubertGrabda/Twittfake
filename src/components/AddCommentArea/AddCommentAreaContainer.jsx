@@ -5,7 +5,7 @@ import { useTheme } from "../../hooks/useTheme";
 import AddCommentAreaView from "./AddCommentAreaView";
 import PropTypes from "prop-types";
 
-const CommentAreaContainer = ({ id }) => {
+const CommentAreaContainer = ({ tweetId }) => {
   const commentInputRef = useRef();
   const { userLogged } = useTweetContext();
   const { submitComment, errorOccured } = SubmitService();
@@ -13,7 +13,7 @@ const CommentAreaContainer = ({ id }) => {
 
   return (
     <AddCommentAreaView
-      id={id}
+      tweetId={tweetId}
       userLogged={userLogged}
       commentInputRef={commentInputRef}
       submitComment={submitComment}
@@ -24,7 +24,7 @@ const CommentAreaContainer = ({ id }) => {
 };
 
 CommentAreaContainer.propTypes = {
-  id: PropTypes.node.isRequired,
+  tweetId: PropTypes.node.isRequired,
 };
 
 export default CommentAreaContainer;
