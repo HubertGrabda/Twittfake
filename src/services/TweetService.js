@@ -122,9 +122,9 @@ const TweetService = () => {
     );
   };
 
-  const filterTweets = (inputValue) => {
+  const filterTweets = (filterBy) => {
     const filteredResults = tweets.filter((item) =>
-      item.content.toLowerCase().includes(inputValue.toLowerCase())
+      item.content.toLowerCase().includes(filterBy.toLowerCase())
     );
 
     setIsTagClicked(true);

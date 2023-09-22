@@ -14,7 +14,7 @@ const Profile = () => {
     <>
       {userLogged === profileToDisplay && isMobileScreen && <LogOutButton />}
       <HomeButton />
-      <Header name={"Profil"} />
+      <Header pageTitle={"Profil"} />
       <ProfileView />
       <Feed />
       <Navbar />

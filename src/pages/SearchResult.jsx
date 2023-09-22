@@ -11,7 +11,7 @@ const SearchResult = () => {
 
   return (
     <>
-      <Header name='Wyniki' />
+      <Header pageTitle='Wyniki' />
       <ReturnToTopButton />
       <ReturnArrow returnTo={"Search"} />
       <HomeButton />

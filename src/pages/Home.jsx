@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <>
       <ProfileReference />
-      <Header name={"Główna"} />
+      <Header pageTitle={"Główna"} />
       <ReturnToTopButton />
       <ReturnArrow returnTo='' />
       <ThemeChangeButton />

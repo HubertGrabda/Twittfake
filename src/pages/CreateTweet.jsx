@@ -5,7 +5,7 @@ import NewTweetPageContainer from "../components/NewTweetPage/NewTweetPageContai
 
 const CreateNewTweet = () => (
   <>
-    <Header name='Nowy tweet' />
+    <Header pageTitle='Nowy tweet' />
     <HomeButton />
     <Navbar />
     <NewTweetPageContainer />

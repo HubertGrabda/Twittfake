@@ -1,14 +1,14 @@
 import "./Header.scss";
 import PropTypes from "prop-types";
 
-const Header = ({ name }) => (
+const Header = ({ pageTitle }) => (
   <>
-    <header className='header'>{name}</header>
+    <header className='header'>{pageTitle}</header>
   </>
 );
 
 Header.propTypes = {
-  name: PropTypes.string.isRequired,
+  pageTitle: PropTypes.string.isRequired,
 };
 
 export default Header;

@@ -11,7 +11,7 @@ const Search = () => {
 
   return (
     <>
-      <Header name='Wyszukaj' />
+      <Header pageTitle='Wyszukaj' />
       <ProfileReference />
       <HomeButton />
       <SearchbarMobile />
