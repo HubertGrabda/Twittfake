@@ -1,6 +1,6 @@
 import {
-  ADD_COMMENT_INPUT_PLACEHOLDER_ERROR,
   ADD_TWEET_INPUT_PLACEHOLDER,
+  ADD_TWEET_INPUT_PLACEHOLDER_ERROR,
   SUBMIT_BUTTON_TEXT,
 } from "../../const/input";
 import { classNames, handleLinesAmount } from "../../shared";
@@ -24,7 +24,7 @@ const AddTweetAreaView = ({
         ])}
         placeholder={
           errorOccured
-            ? ADD_COMMENT_INPUT_PLACEHOLDER_ERROR
+            ? ADD_TWEET_INPUT_PLACEHOLDER_ERROR
             : ADD_TWEET_INPUT_PLACEHOLDER(userLogged)
         }
         ref={inputRef}

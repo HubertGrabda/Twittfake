@@ -29,7 +29,8 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
     saveEdit,
     retweet,
     deleleTweet,
-    otherUsersProfileReference,
+    navigateToUsersProfiles,
+    errorOccured,
   } = TweetService();
 
   const handleTweetsReactions = [
@@ -58,11 +59,12 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
       saveEdit={saveEdit}
       retweet={retweet}
       deleleTweet={deleleTweet}
-      otherUsersProfileReference={otherUsersProfileReference}
+      navigateToUsersProfiles={navigateToUsersProfiles}
       tweetId={tweetId}
       username={username}
       content={content}
       comments={comments}
+      errorOccured={errorOccured}
     />
   );
 };

@@ -15,21 +15,17 @@ const TweetService = () => {
     userLogged,
     setIsTagClicked,
   } = useTweetContext();
-  const InputErrorMessage = "To pole nie może być puste!";
   const saveButtonValue = "Zapisz";
+  const [errorOccured, setErrorOccured] = useState(false);
 
   const navigate = useNavigate();
+
+  const showIconsAccordingToUsername = (username, arrayName, sliceRange) =>
+    username === userLogged ? arrayName : arrayName.slice(0, sliceRange);
 
   const heartButtonFunction = (id) => {
     toggleState(setHeartFilled, (prevHeartsFilled) => !prevHeartsFilled, id);
   };
-
-  const showIconsAccordingToUsername = (
-    username,
-    userLogged,
-    arrayName,
-    sliceRange
-  ) => (username === userLogged ? arrayName : arrayName.slice(0, sliceRange));
 
   const handleTweetsCommentsSection = (id) => {
     toggleState(
@@ -50,29 +46,18 @@ const TweetService = () => {
 
   const saveEdit = (id, contentTextArea) => {
     let input = contentTextArea?.current[id];
-    const cacheInputClassName = input.className.includes("--error")
-      ? input.className.replace(/--error/g, "")
-      : input.className;
-    const errorClassName = `${cacheInputClassName}--error`;
 
-    if (cacheInputClassName === errorClassName) {
-      return;
-    }
     if (!input.value) {
-      input.placeholder = InputErrorMessage;
-      input.className = errorClassName;
+      setErrorOccured(true);
       return;
     } else {
+      setErrorOccured(false);
       setTweets((tweets) =>
         tweets.map((tweet) =>
           tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
         )
       );
-      setFilteredTweetsData((tweets) =>
-        tweets.map((tweet) =>
-          tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
-        )
-      );
+      setFilteredTweetsData(tweets);
       handleEditMode(id, contentTextArea);
     }
   };
@@ -85,41 +70,29 @@ const TweetService = () => {
   };
 
   const deleleTweet = (id) => {
-    setTweets(tweets.filter((tweet) => tweet.id !== id));
-    setFilteredTweetsData(tweets.filter((tweet) => tweet.id !== id));
+    const updatedTweets = tweets.filter((tweet) => tweet.id !== id);
+    setTweets(updatedTweets);
+    setFilteredTweetsData(updatedTweets);
   };
 
-  const otherUsersProfileReference = (username) => {
+  const navigateToUsersProfiles = (username) => {
     setProfileToDisplay(username);
     navigate("/Profile");
   };
 
   const deleteComment = (tweetId, commentId) => {
-    setTweets((prevTweets) =>
-      prevTweets.map((tweet) =>
-        tweet.id === tweetId
-          ? {
-              ...tweet,
-              comments: tweet.comments.filter(
-                (comment) => comment.id !== commentId
-              ),
-            }
-          : { ...tweet }
-      )
+    const updatedTweets = tweets.map((tweet) =>
+      tweet.id === tweetId
+        ? {
+            ...tweet,
+            comments: tweet.comments.filter(
+              (comment) => comment.id !== commentId
+            ),
+          }
+        : { ...tweet }
     );
-
-    setFilteredTweetsData((prevTweets) =>
-      prevTweets.map((tweet) =>
-        tweet.id === tweetId
-          ? {
-              ...tweet,
-              comments: tweet.comments.filter(
-                (comment) => comment.id !== commentId
-              ),
-            }
-          : { ...tweet }
-      )
-    );
+    setTweets(updatedTweets);
+    setFilteredTweetsData(updatedTweets);
   };
 
   const filterTweets = (filterBy) => {
@@ -141,7 +114,6 @@ const TweetService = () => {
     setIsUserEditing,
     tweets,
     setTweets,
-    InputErrorMessage,
     heartButtonFunction,
     showIconsAccordingToUsername,
     handleTweetsCommentsSection,
@@ -151,8 +123,9 @@ const TweetService = () => {
     deleleTweet,
     deleteComment,
     saveButtonValue,
-    otherUsersProfileReference,
+    navigateToUsersProfiles,
     filterTweets,
+    errorOccured,
   };
 };
 

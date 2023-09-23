@@ -7,7 +7,6 @@ const SubmitService = () => {
   const {
     tweets,
     setTweets,
-    filteredTweetsData,
     setFilteredTweetsData,
     userLogged: loggedUsername,
   } = useTweetContext();
@@ -29,7 +28,7 @@ const SubmitService = () => {
     };
 
     setTweets([newTweet, ...tweets]);
-    setFilteredTweetsData([newTweet, ...filteredTweetsData]);
+    setFilteredTweetsData([newTweet, ...tweets]);
 
     clearInput(input);
 
