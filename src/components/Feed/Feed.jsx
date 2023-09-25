@@ -4,25 +4,29 @@ import TweetContainer from "../Tweet/TweetContainer";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Feed = () => {
-  const { tweets, filteredTweetsData, profileToDisplay } = useTweetContext();
+  const { filteredTweetsData, profileToDisplay } = useTweetContext();
   const path = useLocation();
 
   const displayAccordingToUrl =
     path.pathname === "/Profile"
-      ? tweets.filter((tweet) => tweet.username === profileToDisplay)
+      ? filteredTweetsData.filter(
+          (tweet) => tweet.username === profileToDisplay
+        )
       : filteredTweetsData;
 
   return (
     <section className='tweets-wrapper'>
-      {displayAccordingToUrl.map(({ id: tweetId, username, content, comments }) => (
-        <TweetContainer
-          key={tweetId}
-          tweetId={tweetId}
-          username={username}
-          content={content}
-          comments={comments}
-        />
-      ))}
+      {displayAccordingToUrl.map(
+        ({ id: tweetId, username, content, comments }) => (
+          <TweetContainer
+            key={tweetId}
+            tweetId={tweetId}
+            username={username}
+            content={content}
+            comments={comments}
+          />
+        )
+      )}
     </section>
   );
 };

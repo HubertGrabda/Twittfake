@@ -13,7 +13,9 @@ const ProfileView = () => {
         <p className='profile-wrapper__username'> {profileToDisplay} </p>
         <FollowCount />
         <div className='profile-wrapper__feed'></div>
-        <p className='profile-wrapper__feed__user-tweets'>Tweety użytkownika</p>
+        <p className='profile-wrapper__feed__user-tweets-text'>
+          Tweety użytkownika
+        </p>
       </div>
     </>
   );

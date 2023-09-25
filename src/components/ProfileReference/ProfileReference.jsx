@@ -10,10 +10,9 @@ import AccountService from "../../services/AccountService";
 import { LOG_IN_TEXT } from "../../const/input";
 
 const ProfileReference = () => {
-  const { setProfileToDisplay, isUserLogged } = useTweetContext();
+  const { setProfileToDisplay, isUserLogged, userLogged } = useTweetContext();
   const { theme } = useTheme();
-  const { logOut, getUsername } = AccountService();
-  const userLogged = getUsername();
+  const { logOut } = AccountService();
 
   return (
     <>
@@ -30,7 +29,11 @@ const ProfileReference = () => {
               onClick={() => setProfileToDisplay(userLogged)}
               className='profile-link'
             >
-              <img src={logo} className='profile-link__picture' alt="User's profile picture"></img>
+              <img
+                src={logo}
+                className='profile-link__picture'
+                alt="User's profile picture"
+              ></img>
               <p className='profile-link__username'> {userLogged} </p>
             </Link>
 

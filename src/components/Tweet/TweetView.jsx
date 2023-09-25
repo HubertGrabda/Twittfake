@@ -95,25 +95,23 @@ const TweetView = ({
         )
       )}
     </div>
-    {!comments.length == 0 && (
-      <div
-        className={classNames([
-          "comment-section",
-          !isCommentSectionVisible[tweetId] && "comment-section--isnt-visible",
-        ])}
-      >
-        <AddCommentAreaContainer tweetId={tweetId} />
-        {comments?.map(({ id: commentId, username, content }) => (
-          <TweetCommentContainer
-            key={commentId}
-            commentId={commentId}
-            username={username}
-            content={content}
-            tweetId={tweetId}
-          />
-        ))}
-      </div>
-    )}
+    <div
+      className={classNames([
+        "comment-section",
+        !isCommentSectionVisible[tweetId] && "comment-section--isnt-visible",
+      ])}
+    >
+      <AddCommentAreaContainer tweetId={tweetId} />
+      {comments?.map(({ id: commentId, username, content }) => (
+        <TweetCommentContainer
+          key={commentId}
+          commentId={commentId}
+          username={username}
+          content={content}
+          tweetId={tweetId}
+        />
+      ))}
+    </div>
   </article>
 );
 

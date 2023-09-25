@@ -3,7 +3,6 @@ import AccountService from "../../services/AccountService";
 import { useTheme } from "../../hooks/useTheme";
 
 const SingInPageContainer = () => {
-  const buttonText = "Zaloguj";
   const usernamePlaceholderText = "Nazwa użytkownika";
   const passwordPlaceholderText = "Hasło";
   const defaultInputClassName = "form__input";
@@ -16,7 +15,6 @@ const SingInPageContainer = () => {
 
   return (
     <SingInPageView
-      buttonText={buttonText}
       usernamePlaceholderText={usernamePlaceholderText}
       passwordPlaceholderText={passwordPlaceholderText}
       errorText={errorText}

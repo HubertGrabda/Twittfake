@@ -35,7 +35,7 @@ const NewTweetPageView = ({
         }
         maxLength={80}
         onKeyDown={handleLinesAmount}
-      ></textarea>{" "}
+      ></textarea>
       <button
         className='textarea__submit-button'
         onClick={() => submitTweet(textareaInput)}

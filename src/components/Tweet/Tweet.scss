@@ -130,7 +130,7 @@
 
     &__heart {
       background-color: transparent;
-      width: 1.3rem;
+      width: 1.1rem;
       cursor: pointer;
       &:hover {
         @include reactionHoverEffect(rgba(255, 0, 0, 0.212));
@@ -162,7 +162,6 @@
     align-items: center;
     width: 100%;
     gap: 0.5rem;
-    margin-bottom: 0.5rem;
     background-color: transparent;
 
     &--isnt-visible {

@@ -18,8 +18,8 @@ const ReturnToTopButton = () => {
     <FontAwesomeIcon
       icon={faArrowUp}
       className={classNames([
-        "return-icon",
-        hideElement && "return-icon--hidden",
+        "return-arrow",
+        hideElement && "return-arrow--hidden",
       ])}
       onClick={() => scrollToTop()}
     ></FontAwesomeIcon>

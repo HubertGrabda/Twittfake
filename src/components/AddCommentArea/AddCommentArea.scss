@@ -6,7 +6,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
 
   @media #{$tablets-only} {
     width: 75vw;
@@ -17,7 +16,7 @@
   }
 
   @media #{$desktop} {
-    width: 45vw;
+    width: 40vw;
   }
 
   &__input {

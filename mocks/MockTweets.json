@@ -3,8 +3,15 @@
     {
       "id": 0,
       "username": "Twittfake_Dev",
-      "content": "Just setting up my twitffake :P",
-      "comments": []
+      "content": "Just setting up my twitffake :P #Tech",
+      "hashtag": "Tech",
+      "comments": [
+        {
+          "id": 100,
+          "username": "Twittfake_Dev",
+          "content": "a lot of things to debug here 0_o"
+        }
+      ]
     },
     {
       "id": "1",

@@ -1,6 +1,6 @@
 @import "../variables";
 
-.return-icon {
+.return-arrow {
   @include sideButton(left);
 
   &--hidden {

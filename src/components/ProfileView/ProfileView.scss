@@ -34,21 +34,17 @@
     margin-bottom: 1.5rem;
 
     @media #{$tablets-only} {
-      width: 40%;
+      width: 60%;
     }
 
     @media #{$laptop} {
-      width: 40%;
+      width: 25%;
     }
 
-    &__user-tweets {
+    &__user-tweets-text {
       font-size: 1rem;
       position: absolute;
       top: 9rem;
-
-      @media #{$laptop} {
-        top: 8.5rem;
-      }
     }
   }
 }

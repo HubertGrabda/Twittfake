@@ -8,7 +8,6 @@ import PropTypes from "prop-types";
 import { LOG_IN_TEXT } from "../../const/input";
 
 const SingInPageView = ({
-  buttonText,
   usernamePlaceholderText,
   passwordPlaceholderText,
   errorText,
@@ -80,14 +79,13 @@ const SingInPageView = ({
         {errorText("Hasło")}
       </label>
       <button className='form__submit-button' onClick={logIn}>
-        {buttonText}
+        {LOG_IN_TEXT.slice(0, -3)}
       </button>
     </form>
   </div>
 );
 
 SingInPageView.propTypes = {
-  buttonText: PropTypes.string.isRequired,
   usernamePlaceholderText: PropTypes.string.isRequired,
   passwordPlaceholderText: PropTypes.string.isRequired,
   errorText: PropTypes.func.isRequired,

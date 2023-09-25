@@ -19,13 +19,14 @@ const ReturnArrow = ({ returnTo }) => {
   const handleClick = () => {
     setFilteredTweetsData(tweets), setIsTagClicked(false);
   };
+
   return (
     <Link to={`/${returnTo}`} onClick={() => handleClick()}>
       <FontAwesomeIcon
         icon={faArrowLeft}
         className={classNames([
-          "return-icon",
-          !showElementBasedOnUrl && "return-icon--hidden",
+          "return-arrow",
+          !showElementBasedOnUrl && "return-arrow--hidden",
         ])}
       ></FontAwesomeIcon>
     </Link>
