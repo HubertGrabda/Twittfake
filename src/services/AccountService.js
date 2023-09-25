@@ -2,12 +2,12 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTweetContext } from "../hooks/useTweetContext";
 
-const SignInService = () => {
+const AccountService = () => {
   const inputsRef = useRef([]);
   const [errorOccurred, setErrorOccured] = useState([]);
   const { setIsUserLogged } = useTweetContext() || {};
-  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState();
+  const navigate = useNavigate();
 
   const setError = (inputId, isError) => {
     setErrorOccured((prevErrorState) => {
@@ -74,4 +74,4 @@ const SignInService = () => {
   };
 };
 
-export default SignInService;
+export default AccountService;

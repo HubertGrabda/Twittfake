@@ -22,7 +22,7 @@ const TweetView = ({
   heartButtonFunction,
   showIconsAccordingToUsername,
   saveEdit,
-  navigateToUsersProfiles,
+  navigateToUsersProfile,
   tweetId,
   username,
   content,
@@ -35,7 +35,7 @@ const TweetView = ({
   >
     <h3
       className='tweet__username'
-      onClick={() => navigateToUsersProfiles(username)}
+      onClick={() => navigateToUsersProfile(username)}
     >
       {username}{" "}
     </h3>
@@ -61,38 +61,41 @@ const TweetView = ({
       {SAVE_BUTTON_TEXT}
     </button>
     <div className='tweet__reactions'>
-      <img
-        src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
-        className='tweet__reactions__heart'
-        onClick={() => heartButtonFunction(tweetId)}
-      ></img>
-      {showIconsAccordingToUsername(username, icons, -2).map((icon, index) => (
-        <React.Fragment key={index}>
-          {index === 0 ? (
-            <span
-              className={classNames([
-                "tweet__reactions__counter__heart",
-                isHeartFilled[tweetId] &&
-                  "tweet__reactions__counter__heart--red",
-              ])}
-            >
-              {isHeartFilled[tweetId] ? 2 : 1}
-            </span>
-          ) : null}
-          {index === 1 ? (
-            <span className='tweet__reactions__counter__comments'>
-              {comments?.length ?? 0}
-            </span>
-          ) : null}
-          <FontAwesomeIcon
-            icon={icon}
-            className={`tweet__reactions__${icon.iconName}`}
-            onClick={() => handleTweetsReactions[index](tweetId, content)}
-          />
-        </React.Fragment>
-      ))}
+      {userLogged && (
+        <>
+          <span
+            className={classNames([
+              "tweet__reactions__counter__heart",
+              isHeartFilled[tweetId] && "tweet__reactions__counter__heart--red",
+            ])}
+          >
+            {isHeartFilled[tweetId] ? 2 : 1}
+          </span>
+          <img
+            src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
+            className='tweet__reactions__heart'
+            onClick={() => heartButtonFunction(tweetId)}
+          ></img>
+        </>
+      )}
+      {showIconsAccordingToUsername(username, icons, userLogged ? 2 : 1).map(
+        (icon, index) => (
+          <React.Fragment key={index}>
+            {index === 0 ? (
+              <span className='tweet__reactions__counter__comments'>
+                {comments?.length ?? 0}
+              </span>
+            ) : null}
+            <FontAwesomeIcon
+              icon={icon}
+              className={`tweet__reactions__${icon.iconName}`}
+              onClick={() => handleTweetsReactions[index](tweetId, content)}
+            />
+          </React.Fragment>
+        )
+      )}
     </div>
-    {userLogged && (
+    {!comments.length == 0 && (
       <div
         className={classNames([
           "comment-section",
@@ -123,7 +126,7 @@ TweetView.propTypes = {
     current: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
   saveEdit: PropTypes.func.isRequired,
-  navigateToUsersProfiles: PropTypes.func.isRequired,
+  navigateToUsersProfile: PropTypes.func.isRequired,
   heartButtonFunction: PropTypes.func.isRequired,
   isHeartFilled: PropTypes.object.isRequired,
   emptyHeart: PropTypes.string.isRequired,

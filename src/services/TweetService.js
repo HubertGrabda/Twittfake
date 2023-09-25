@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useTweetContext } from "../hooks/useTweetContext";
 
 const TweetService = () => {
-  const [isHeartFilled, setHeartFilled] = useState({});
-  const [isCommentSectionVisible, setCommentSectionVisible] = useState({});
+  const [isHeartFilled, setIsHeartFilled] = useState({});
+  const [isCommentSectionVisible, setIsCommentSectionVisible] = useState({});
   const [isUserEditing, setIsUserEditing] = useState(false);
   const {
     tweets,
@@ -21,17 +21,19 @@ const TweetService = () => {
   const navigate = useNavigate();
 
   const showIconsAccordingToUsername = (username, arrayName, sliceRange) =>
-    username === userLogged ? arrayName : arrayName.slice(0, sliceRange);
+    username === userLogged
+      ? arrayName
+      : arrayName.slice(0, sliceRange);
 
   const heartButtonFunction = (id) => {
-    toggleState(setHeartFilled, (prevHeartsFilled) => !prevHeartsFilled, id);
+    toggleState(setIsHeartFilled, (prevHeartsFilled) => !prevHeartsFilled, id);
   };
 
-  const handleTweetsCommentsSection = (id) => {
+  const handleTweetsCommentsSection = (tweetId) => {
     toggleState(
-      setCommentSectionVisible,
+      setIsCommentSectionVisible,
       (prevSectionStatus) => !prevSectionStatus,
-      id
+      tweetId
     );
   };
 
@@ -69,13 +71,13 @@ const TweetService = () => {
     window.open(twitterUrl, "_blank");
   };
 
-  const deleleTweet = (id) => {
-    const updatedTweets = tweets.filter((tweet) => tweet.id !== id);
+  const deleleTweet = (tweetId) => {
+    const updatedTweets = tweets.filter((tweet) => tweet.id !== tweetId);
     setTweets(updatedTweets);
     setFilteredTweetsData(updatedTweets);
   };
 
-  const navigateToUsersProfiles = (username) => {
+  const navigateToUsersProfile = (username) => {
     setProfileToDisplay(username);
     navigate("/Profile");
   };
@@ -107,9 +109,9 @@ const TweetService = () => {
   return {
     userLogged,
     isHeartFilled,
-    setHeartFilled,
+    setIsHeartFilled,
     isCommentSectionVisible,
-    setCommentSectionVisible,
+    setIsCommentSectionVisible,
     isUserEditing,
     setIsUserEditing,
     tweets,
@@ -123,7 +125,7 @@ const TweetService = () => {
     deleleTweet,
     deleteComment,
     saveButtonValue,
-    navigateToUsersProfiles,
+    navigateToUsersProfile,
     filterTweets,
     errorOccured,
   };

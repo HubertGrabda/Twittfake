@@ -24,8 +24,9 @@
   }
 
   &__username {
-    font-size: 1rem;
+    font-size: 1.17rem;
     background-color: transparent;
+    padding-bottom: 1rem;
   }
 
   &__content {
@@ -37,6 +38,7 @@
     outline: none;
     color: inherit;
     border-radius: 1rem;
+    font-size: 0.9rem;
 
     &--edit-mode {
       background-color: $font-white;

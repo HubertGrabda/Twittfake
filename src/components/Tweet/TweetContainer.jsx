@@ -29,7 +29,7 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
     saveEdit,
     retweet,
     deleleTweet,
-    navigateToUsersProfiles,
+    navigateToUsersProfile,
     errorOccured,
   } = TweetService();
 
@@ -59,7 +59,7 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
       saveEdit={saveEdit}
       retweet={retweet}
       deleleTweet={deleleTweet}
-      navigateToUsersProfiles={navigateToUsersProfiles}
+      navigateToUsersProfile={navigateToUsersProfile}
       tweetId={tweetId}
       username={username}
       content={content}

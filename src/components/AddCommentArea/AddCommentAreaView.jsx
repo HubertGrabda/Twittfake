@@ -45,7 +45,7 @@ const AddCommentAreaView = ({
 );
 
 AddCommentAreaView.propTypes = {
-  userLogged: PropTypes.string,
+  userLogged: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   commentInputRef: PropTypes.object,
   theme: PropTypes.string,
   errorOccured: PropTypes.bool,

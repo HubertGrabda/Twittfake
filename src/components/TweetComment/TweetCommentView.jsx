@@ -7,6 +7,7 @@ import "./TweetComment.scss";
 import PropTypes from "prop-types";
 
 const TweetCommentView = ({
+  userLogged,
   commentId,
   username,
   content,
@@ -44,31 +45,36 @@ const TweetCommentView = ({
     >
       {SAVE_BUTTON_TEXT}
     </button>
-    <div className='comment__reactions'>
-      <span
-        className={classNames([
-          "comment__reactions__counter__heart",
-          isHeartFilled[commentId] && "comment__reactions__counter__heart--red",
-        ])}
-      >
-        {isHeartFilled[commentId] ? 2 : 1}
-      </span>
-      <img
-        src={isHeartFilled[commentId] ? fullHeart : emptyHeart}
-        className='comment__reactions__heart'
-        onClick={() => heartButtonFunction(commentId)}
-      ></img>
-      {showIconsAccordingToUsername(username, commentIcons, -2).map(
-        (icon, index) => (
-          <FontAwesomeIcon
-            key={icon.iconName}
-            icon={icon}
-            className={`comment__reactions__${icon.iconName}`}
-            onClick={() => handleCommentsReactions[index](tweetId, commentId)}
-          />
-        )
-      )}
-    </div>
+    {userLogged && (
+      <div className='comment__reactions'>
+        <>
+          <span
+            className={classNames([
+              "comment__reactions__counter__heart",
+              isHeartFilled[commentId] &&
+                "comment__reactions__counter__heart--red",
+            ])}
+          >
+            {isHeartFilled[commentId] ? 2 : 1}
+          </span>
+          <img
+            src={isHeartFilled[commentId] ? fullHeart : emptyHeart}
+            className='comment__reactions__heart'
+            onClick={() => heartButtonFunction(commentId)}
+          ></img>
+        </>
+        {showIconsAccordingToUsername(username, commentIcons, -2).map(
+          (icon, index) => (
+            <FontAwesomeIcon
+              key={icon.iconName}
+              icon={icon}
+              className={`comment__reactions__${icon.iconName}`}
+              onClick={() => handleCommentsReactions[index](tweetId, commentId)}
+            />
+          )
+        )}
+      </div>
+    )}
   </div>
 );
 
@@ -84,7 +90,7 @@ TweetCommentView.propTypes = {
   isHeartFilled: PropTypes.object.isRequired,
   heartButtonFunction: PropTypes.func.isRequired,
   commentIcons: PropTypes.array.isRequired,
-  userLogged: PropTypes.string.isRequired,
+  userLogged: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   showIconsAccordingToUsername: PropTypes.func.isRequired,
   handleCommentsReactions: PropTypes.arrayOf(PropTypes.func).isRequired,
   tweetId: PropTypes.node.isRequired,

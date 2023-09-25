@@ -4,12 +4,8 @@ import { useState } from "react";
 import { clearInput } from "../shared";
 
 const SubmitService = () => {
-  const {
-    tweets,
-    setTweets,
-    setFilteredTweetsData,
-    userLogged: loggedUsername,
-  } = useTweetContext();
+  const { tweets, setTweets, setFilteredTweetsData, userLogged } =
+    useTweetContext();
   const navigate = useNavigate();
   const [errorOccured, setErrorOccured] = useState(false);
 
@@ -23,7 +19,7 @@ const SubmitService = () => {
 
     const newTweet = {
       id: tweets.length + 1,
-      username: loggedUsername,
+      username: userLogged,
       content: input.value,
     };
 
@@ -59,7 +55,7 @@ const SubmitService = () => {
 
     const newComment = {
       id: highestCommentId + 1,
-      username: loggedUsername,
+      username: userLogged,
       content: input.value,
     };
 
