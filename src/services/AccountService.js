@@ -1,11 +1,9 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTweetContext } from "../hooks/useTweetContext";
 
 const AccountService = () => {
   const inputsRef = useRef([]);
   const [errorOccurred, setErrorOccured] = useState([]);
-  const { setIsUserLogged } = useTweetContext() || {};
   const [inputValue, setInputValue] = useState();
   const navigate = useNavigate();
 
@@ -53,13 +51,11 @@ const AccountService = () => {
     if (usernameValid && passwordValid) {
       sessionStorage.setItem("username", inputValue);
       navigate("/");
-      setIsUserLogged(true);
     }
   };
 
   const logOut = () => {
     sessionStorage.removeItem("username");
-    setIsUserLogged(false);
     navigate("/");
   };
 

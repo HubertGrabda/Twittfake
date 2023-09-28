@@ -1,4 +1,4 @@
-import "./SingInPageView.scss";
+import "./SignInPageView.scss";
 import logo from "../../images/TwittfakeLogoAlt.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { LOG_IN_TEXT } from "../../const/input";
 
-const SingInPageView = ({
+const SignInPageView = ({
   usernamePlaceholderText,
   passwordPlaceholderText,
   errorText,
@@ -85,7 +85,7 @@ const SingInPageView = ({
   </div>
 );
 
-SingInPageView.propTypes = {
+SignInPageView.propTypes = {
   usernamePlaceholderText: PropTypes.string.isRequired,
   passwordPlaceholderText: PropTypes.string.isRequired,
   errorText: PropTypes.func.isRequired,
@@ -98,4 +98,4 @@ SingInPageView.propTypes = {
   theme: PropTypes.string.isRequired,
 };
 
-export default SingInPageView;
+export default SignInPageView;

@@ -10,7 +10,7 @@ import AccountService from "../../services/AccountService";
 import { LOG_IN_TEXT } from "../../const/input";
 
 const ProfileReference = () => {
-  const { setProfileToDisplay, isUserLogged, userLogged } = useTweetContext();
+  const { setProfileToDisplay, userLogged } = useTweetContext();
   const { theme } = useTheme();
   const { logOut } = AccountService();
 
@@ -22,7 +22,7 @@ const ProfileReference = () => {
           theme === "isDark" && "profile-ref--dark",
         ])}
       >
-        {isUserLogged ? (
+        {userLogged ? (
           <>
             <Link
               to='/Profile'

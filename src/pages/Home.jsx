@@ -5,16 +5,17 @@ import Popular from "../components/Popular/Popular";
 import Searchbar from "../components/Searchbar/Searchbar";
 import ProfileReference from "../components/ProfileReference/ProfileReference";
 import useResetFilter from "../hooks/useResetFilter";
-import { useTweetContext } from "../hooks/useTweetContext";
 import ThemeChangeButton from "../components/ThemeChangeButton/ThemeChangeButton";
 import ReturnArrow from "../components/ReturnArrow/ReturnArrow";
 import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton";
 import { AddTweetAreaContainer } from "../components/AddTweetArea/AddTweetAreaContainer";
+import AccountService from "../services/AccountService";
+import { useTweetContext } from "../hooks/useTweetContext";
 
 const Home = () => {
   useResetFilter();
 
-  const { isUserLogged } = useTweetContext();
+  const { userLogged } = useTweetContext();
 
   return (
     <>
@@ -23,7 +24,7 @@ const Home = () => {
       <ReturnToTopButton />
       <ReturnArrow returnTo='' />
       <ThemeChangeButton />
-      {isUserLogged && <AddTweetAreaContainer />}
+      {userLogged && <AddTweetAreaContainer />}
       <Feed />
       <Navbar />
       <Searchbar />

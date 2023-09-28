@@ -1,8 +1,8 @@
-import SingInPageView from "./SingInPageView";
+import SignInPageView from "./SignInPageView";
 import AccountService from "../../services/AccountService";
 import { useTheme } from "../../hooks/useTheme";
 
-const SingInPageContainer = () => {
+const SignInPageContainer = () => {
   const usernamePlaceholderText = "Nazwa użytkownika";
   const passwordPlaceholderText = "Hasło";
   const defaultInputClassName = "form__input";
@@ -14,7 +14,7 @@ const SingInPageContainer = () => {
   const { theme } = useTheme();
 
   return (
-    <SingInPageView
+    <SignInPageView
       usernamePlaceholderText={usernamePlaceholderText}
       passwordPlaceholderText={passwordPlaceholderText}
       errorText={errorText}
@@ -29,4 +29,4 @@ const SingInPageContainer = () => {
   );
 };
 
-export default SingInPageContainer;
+export default SignInPageContainer;

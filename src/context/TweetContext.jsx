@@ -9,12 +9,10 @@ const TweetsContext = createContext();
 const TweetsProvider = ({ children }) => {
   const { getUsername } = AccountService();
   const userLogged = getUsername();
-  const userLoggedInitialState = sessionStorage.getItem("username");
   const [tweets, setTweets] = useState(TweetsData.tweets);
   const [filteredTweetsData, setFilteredTweetsData] = useState(tweets);
   const [profileToDisplay, setProfileToDisplay] = useState(userLogged);
   const [isTagClicked, setIsTagClicked] = useState(false);
-  const [isUserLogged, setIsUserLogged] = useState(userLoggedInitialState);
 
   const tweetContextValue = {
     userLogged,
@@ -26,8 +24,6 @@ const TweetsProvider = ({ children }) => {
     setFilteredTweetsData,
     profileToDisplay,
     setProfileToDisplay,
-    isUserLogged,
-    setIsUserLogged,
   };
 
   return (
