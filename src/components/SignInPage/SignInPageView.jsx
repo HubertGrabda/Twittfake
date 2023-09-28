@@ -16,7 +16,6 @@ const SignInPageView = ({
   logIn,
   inputsRef,
   errorOccurred,
-  setInputValue,
   theme,
 }) => (
   <div className='form-wrapper'>
@@ -38,6 +37,7 @@ const SignInPageView = ({
 
     <form className='form'>
       <input
+        data-testid='username-input'
         id='username-input'
         maxLength={13}
         ref={(ref) => (inputsRef.current[0] = ref)}
@@ -47,7 +47,6 @@ const SignInPageView = ({
           errorOccurred[0] && errorInputClassName,
         ])}
         placeholder={usernamePlaceholderText}
-        onInput={(e) => setInputValue(e.target.value)}
       ></input>
       <label
         htmlFor='username-input'
@@ -59,6 +58,7 @@ const SignInPageView = ({
         {errorText("Nazwa użytkownika")}
       </label>
       <input
+        data-testid='password-input'
         maxLength={15}
         type='password'
         id='password-input'
@@ -78,7 +78,11 @@ const SignInPageView = ({
       >
         {errorText("Hasło")}
       </label>
-      <button className='form__submit-button' onClick={logIn}>
+      <button
+        className='form__submit-button'
+        onClick={logIn}
+        data-testid='submit-button'
+      >
         {LOG_IN_TEXT.slice(0, -3)}
       </button>
     </form>

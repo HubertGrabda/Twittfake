@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 const AccountService = () => {
   const inputsRef = useRef([]);
   const [errorOccurred, setErrorOccured] = useState([]);
-  const [inputValue, setInputValue] = useState();
   const navigate = useNavigate();
 
   const setError = (inputId, isError) => {
@@ -49,6 +48,7 @@ const AccountService = () => {
     const passwordValid = getValidInput(inputElement[1], 1);
 
     if (usernameValid && passwordValid) {
+      const inputValue = inputElement[0].value
       sessionStorage.setItem("username", inputValue);
       navigate("/");
     }
@@ -64,7 +64,6 @@ const AccountService = () => {
     logIn,
     inputsRef,
     errorOccurred,
-    setInputValue,
     getUsername,
     logOut,
   };

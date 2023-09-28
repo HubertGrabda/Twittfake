@@ -9,7 +9,6 @@ import ThemeChangeButton from "../components/ThemeChangeButton/ThemeChangeButton
 import ReturnArrow from "../components/ReturnArrow/ReturnArrow";
 import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton";
 import { AddTweetAreaContainer } from "../components/AddTweetArea/AddTweetAreaContainer";
-import AccountService from "../services/AccountService";
 import { useTweetContext } from "../hooks/useTweetContext";
 
 const Home = () => {

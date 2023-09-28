@@ -10,7 +10,7 @@ const SignInPageContainer = () => {
 
   const errorText = (inputName) =>
     `${inputName} musi zawierać od 5 do 15 znaków!`;
-  const { logIn, inputsRef, errorOccurred, setInputValue } = AccountService();
+  const { logIn, inputsRef, errorOccurred } = AccountService();
   const { theme } = useTheme();
 
   return (
@@ -23,7 +23,6 @@ const SignInPageContainer = () => {
       logIn={logIn}
       errorOccurred={errorOccurred}
       inputsRef={inputsRef}
-      setInputValue={setInputValue}
       theme={theme}
     />
   );
