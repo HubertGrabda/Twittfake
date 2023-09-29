@@ -26,6 +26,8 @@ test("signing-in process #1 - user passes the right data ", async () => {
   expect(sessionStorage.getItem("username")).toBe("testuser");
 
   signInPage.unmount();
+
+  // test był nie zaliczony przez sposób przekazywania informacji z SignInViewPage do funckji LogIn
 });
 
 test("signing-in process #2 - user passes the wrong data ", async () => {
