@@ -59,20 +59,16 @@ const SubmitService = () => {
       content: input.value,
     };
 
-    setTweets((prevTweets) =>
+    const updateTweetsWithNewComment = (prevTweets) =>
       prevTweets.map((tweet) =>
         tweet.id === tweetId
           ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
           : tweet
-      )
-    );
+      );
 
+    setTweets((prevTweets) => updateTweetsWithNewComment(prevTweets));
     setFilteredTweetsData((prevTweets) =>
-      prevTweets.map((tweet) =>
-        tweet.id === tweetId
-          ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
-          : tweet
-      )
+      updateTweetsWithNewComment(prevTweets)
     );
 
     clearInput(input);
