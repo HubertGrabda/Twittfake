@@ -98,7 +98,6 @@ SignInPageView.propTypes = {
   logIn: PropTypes.func.isRequired,
   inputsRef: PropTypes.object.isRequired,
   errorOccurred: PropTypes.arrayOf(PropTypes.bool).isRequired,
-  setInputValue: PropTypes.func.isRequired,
   theme: PropTypes.string.isRequired,
 };
 

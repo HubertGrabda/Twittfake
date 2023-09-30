@@ -4,7 +4,7 @@ import SignInPageContainer from "../components/SignInPage/SignInPageContainer";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "../context/ThemeContext";
 
-test("signing-in process #1 - user passes the right data ", async () => {
+test("signing-in process #1 - user passes the right data", async () => {
   const signInPage = render(
     <BrowserRouter>
       <ThemeProvider>
@@ -22,7 +22,7 @@ test("signing-in process #1 - user passes the right data ", async () => {
   fireEvent.click(submitButton);
 
   expect(window.location.pathname).toBe("");
-  expect(usernameInput.class).not.toBe("form__input form__input--error");
+  expect(usernameInput.className).not.toBe("form__input form__input--error");
   expect(sessionStorage.getItem("username")).toBe("testuser");
 
   signInPage.unmount();
@@ -30,7 +30,7 @@ test("signing-in process #1 - user passes the right data ", async () => {
   // test był nie zaliczony przez sposób przekazywania informacji z SignInViewPage do funckji LogIn
 });
 
-test("signing-in process #2 - user passes the wrong data ", async () => {
+test("signing-in process #2 - user passes the wrong data", async () => {
   const signInPage = render(
     <BrowserRouter>
       <ThemeProvider>
