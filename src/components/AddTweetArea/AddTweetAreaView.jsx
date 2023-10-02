@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 const AddTweetAreaView = ({
   userLogged,
   submitTweet,
-  errorOccured,
+  isError,
   theme,
   inputRef,
 }) => (
@@ -20,10 +20,10 @@ const AddTweetAreaView = ({
         className={classNames([
           "textarea__input",
           theme === "isDark" && "textarea__input--isDark",
-          errorOccured && "textarea__input--error",
+          isError && "textarea__input--error",
         ])}
         placeholder={
-          errorOccured
+          isError
             ? ADD_TWEET_INPUT_PLACEHOLDER_ERROR
             : ADD_TWEET_INPUT_PLACEHOLDER(userLogged)
         }
@@ -45,7 +45,7 @@ AddTweetAreaView.propTypes = {
   userLogged: PropTypes.string.isRequired,
   inputRef: PropTypes.object.isRequired,
   theme: PropTypes.string.isRequired,
-  errorOccured: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
   submitTweet: PropTypes.func.isRequired,
 };
 

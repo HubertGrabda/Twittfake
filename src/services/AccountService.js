@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const AccountService = () => {
   const inputsRef = useRef([]);
-  const [errorOccurred, setErrorOccured] = useState([]);
+  const [errorOccurred, setisError] = useState([]);
   const navigate = useNavigate();
 
   const setError = (inputId, isError) => {
-    setErrorOccured((prevErrorState) => {
+    setisError((prevErrorState) => {
       const errorStateArray = [...(prevErrorState ?? [])];
       errorStateArray[inputId] = isError;
       return errorStateArray;
@@ -29,11 +29,7 @@ const AccountService = () => {
   const getUsername = () => {
     const userLogged = sessionStorage.getItem("username");
 
-    if (userLogged) {
-      return userLogged;
-    } else {
-      return false;
-    }
+    return userLogged || false;
   };
 
   const getValidInput = (inputElement, inputId) =>
@@ -48,7 +44,7 @@ const AccountService = () => {
     const passwordValid = getValidInput(inputElement[1], 1);
 
     if (usernameValid && passwordValid) {
-      const inputValue = inputElement[0].value
+      const inputValue = inputElement[0].value;
       sessionStorage.setItem("username", inputValue);
       navigate("/");
     }

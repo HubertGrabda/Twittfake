@@ -12,7 +12,7 @@ const AddCommentAreaView = ({
   userLogged,
   commentInputRef,
   submitComment,
-  errorOccured,
+  isError,
   theme,
 }) => (
   <>
@@ -23,10 +23,10 @@ const AddCommentAreaView = ({
           className={classNames([
             "add-comment__input",
             theme === "isDark" && "add-comment__input--isDark",
-            errorOccured && "add-comment__input--error",
+            isError && "add-comment__input--error",
           ])}
           placeholder={
-            errorOccured
+            isError
               ? ADD_COMMENT_INPUT_PLACEHOLDER_ERROR
               : ADD_COMMENT_INPUT_PLACEHOLDER
           }
@@ -48,7 +48,7 @@ AddCommentAreaView.propTypes = {
   userLogged: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   commentInputRef: PropTypes.object,
   theme: PropTypes.string,
-  errorOccured: PropTypes.bool,
+  isError: PropTypes.bool,
   tweetId: PropTypes.node,
   submitComment: PropTypes.func,
 };

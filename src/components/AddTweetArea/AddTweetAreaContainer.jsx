@@ -6,7 +6,7 @@ import AddTweetAreaView from "./AddTweetAreaView";
 
 export const AddTweetAreaContainer = () => {
   const { userLogged } = useTweetContext();
-  const { submitTweet, errorOccured } = SubmitService();
+  const { submitTweet, isError } = SubmitService();
   const { theme } = useTheme();
   const inputRef = useRef();
 
@@ -14,7 +14,7 @@ export const AddTweetAreaContainer = () => {
     <AddTweetAreaView
       userLogged={userLogged}
       submitTweet={submitTweet}
-      errorOccured={errorOccured}
+      isError={isError}
       theme={theme}
       inputRef={inputRef}
     />

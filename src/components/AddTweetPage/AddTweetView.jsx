@@ -13,7 +13,7 @@ const AddTweetPageView = ({
   theme,
   textareaInput,
   submitTweet,
-  errorOccured,
+  isError,
 }) => (
   <div className='textarea-wrapper'>
     <div className='user-data'>
@@ -26,10 +26,10 @@ const AddTweetPageView = ({
         className={classNames([
           "textarea__input",
           theme === "isDark" && "textarea__input--isDark",
-          errorOccured && "textarea__input--error",
+          isError && "textarea__input--error",
         ])}
         placeholder={
-          errorOccured
+          isError
             ? ADD_TWEET_INPUT_PLACEHOLDER_ERROR
             : ADD_TWEET_INPUT_PLACEHOLDER(userLogged)
         }
@@ -50,7 +50,7 @@ AddTweetPageView.propTypes = {
   userLogged: PropTypes.string.isRequired,
   textareaInput: PropTypes.object.isRequired,
   theme: PropTypes.string.isRequired,
-  errorOccured: PropTypes.bool,
+  isError: PropTypes.bool,
   id: PropTypes.node,
   submitTweet: PropTypes.func.isRequired,
 };

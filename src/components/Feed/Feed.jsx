@@ -7,7 +7,7 @@ const Feed = () => {
   const { filteredTweetsData, profileToDisplay } = useTweetContext();
   const path = useLocation();
 
-  const displayAccordingToUrl =
+  const tweets =
     path.pathname === "/Profile"
       ? filteredTweetsData.filter(
           (tweet) => tweet.username === profileToDisplay
@@ -16,17 +16,15 @@ const Feed = () => {
 
   return (
     <section className='tweets-wrapper'>
-      {displayAccordingToUrl.map(
-        ({ id: tweetId, username, content, comments }) => (
-          <TweetContainer
-            key={tweetId}
-            tweetId={tweetId}
-            username={username}
-            content={content}
-            comments={comments}
-          />
-        )
-      )}
+      {tweets.map(({ id: tweetId, username, content, comments }) => (
+        <TweetContainer
+          key={tweetId}
+          tweetId={tweetId}
+          username={username}
+          content={content}
+          comments={comments}
+        />
+      ))}
     </section>
   );
 };

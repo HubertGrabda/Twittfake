@@ -20,7 +20,7 @@ const TweetCommentView = ({
   showIconsAccordingToUsername,
   commentIcons,
   handleCommentsReactions,
-  errorOccured,
+  isError,
 }) => (
   <div key={commentId} className='comment'>
     <h4 className='comment__username'>{username}</h4>
@@ -31,7 +31,7 @@ const TweetCommentView = ({
       className={classNames([
         "comment__content",
         isUserEditing[commentId] && "comment__content--edit-mode",
-        errorOccured && "comment__content--edit-mode--error",
+        isError && "comment__content--edit-mode--error",
       ])}
       defaultValue={content}
       ref={(ref) => (contentTextArea.current[commentId] = ref)}
@@ -94,7 +94,7 @@ TweetCommentView.propTypes = {
   showIconsAccordingToUsername: PropTypes.func.isRequired,
   handleCommentsReactions: PropTypes.arrayOf(PropTypes.func).isRequired,
   tweetId: PropTypes.node.isRequired,
-  errorOccured: PropTypes.bool,
+  isError: PropTypes.bool,
 };
 
 export default TweetCommentView;

@@ -16,14 +16,12 @@ const TweetService = () => {
     setIsTagClicked,
   } = useTweetContext();
   const saveButtonValue = "Zapisz";
-  const [errorOccured, setErrorOccured] = useState(false);
+  const [isError, setisError] = useState(false);
 
   const navigate = useNavigate();
 
   const showIconsAccordingToUsername = (username, arrayName, sliceRange) =>
-    username === userLogged
-      ? arrayName
-      : arrayName.slice(0, sliceRange);
+    username === userLogged ? arrayName : arrayName.slice(0, sliceRange);
 
   const heartButtonFunction = (id) => {
     toggleState(setIsHeartFilled, (prevHeartsFilled) => !prevHeartsFilled, id);
@@ -50,10 +48,10 @@ const TweetService = () => {
     let input = contentTextArea?.current[id];
 
     if (!input.value) {
-      setErrorOccured(true);
+      setisError(true);
       return;
     } else {
-      setErrorOccured(false);
+      setisError(false);
       setTweets((tweets) =>
         tweets.map((tweet) =>
           tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
@@ -127,7 +125,7 @@ const TweetService = () => {
     saveButtonValue,
     navigateToUsersProfile,
     filterTweets,
-    errorOccured,
+    isError,
   };
 };
 

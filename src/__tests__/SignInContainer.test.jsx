@@ -1,56 +1,64 @@
 import { expect, test } from "vitest";
 import { fireEvent, render } from "@testing-library/react";
 import SignInPageContainer from "../components/SignInPage/SignInPageContainer";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "../context/ThemeContext";
 
 test("signing-in process #1 - user passes the right data", async () => {
-  const signInPage = render(
-    <BrowserRouter>
+  const pages = render(
+    <MemoryRouter initialEntries={["/SignIn"]}>
       <ThemeProvider>
-        <SignInPageContainer />
+        <Routes>
+          <Route path='/SignIn' element={<SignInPageContainer />} />
+          <Route path='/' element={<div data-testid='home-page' />} />
+        </Routes>
       </ThemeProvider>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 
-  const usernameInput = signInPage.getByTestId("username-input");
-  const passwordInput = signInPage.getByTestId("password-input");
-  const submitButton = signInPage.getByTestId("submit-button");
+  const usernameInput = pages.getByTestId("username-input");
+  const passwordInput = pages.getByTestId("password-input");
+  const submitButton = pages.getByTestId("submit-button");
 
   fireEvent.change(usernameInput, { target: { value: "testuser" } });
   fireEvent.change(passwordInput, { target: { value: "testpass" } });
   fireEvent.click(submitButton);
 
-  expect(window.location.pathname).toBe("");
+  const homePage = pages.queryByTestId("home-page");
+
+  expect(homePage).toBeTruthy();
   expect(usernameInput.className).not.toBe("form__input form__input--error");
   expect(sessionStorage.getItem("username")).toBe("testuser");
 
-  signInPage.unmount();
-
-  // test był nie zaliczony przez sposób przekazywania informacji z SignInViewPage do funckji LogIn
+  pages.unmount();
 });
 
 test("signing-in process #2 - user passes the wrong data", async () => {
-  const signInPage = render(
-    <BrowserRouter>
+  const pages = render(
+    <MemoryRouter initialEntries={["/SignIn"]}>
       <ThemeProvider>
-        <SignInPageContainer />
+        <Routes>
+          <Route path='/SignIn' element={<SignInPageContainer />} />
+          <Route path='/' element={<div data-testid='home-page' />} />
+        </Routes>
       </ThemeProvider>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 
-  const usernameInput = signInPage.getByTestId("username-input");
-  const passwordInput = signInPage.getByTestId("password-input");
-  const submitButton = signInPage.getByTestId("submit-button");
+  const usernameInput = pages.getByTestId("username-input");
+  const passwordInput = pages.getByTestId("password-input");
+  const submitButton = pages.getByTestId("submit-button");
 
   fireEvent.change(usernameInput, { target: { value: "null" } });
   fireEvent.change(passwordInput, { target: { value: "null" } });
   fireEvent.click(submitButton);
 
-  expect(window.location.pathname).toBe("");
+  const homePage = pages.queryByTestId("home-page");
+
+  expect(homePage).toBeNull();
   expect(usernameInput.className).toBe("form__input form__input--error");
   expect(passwordInput.className).toBe("form__input form__input--error");
   expect(sessionStorage.getItem("username")).toBe("testuser");
 
-  signInPage.unmount();
+  pages.unmount();
 });

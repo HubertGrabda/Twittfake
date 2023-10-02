@@ -11,7 +11,7 @@ const AddTweetPageContainer = () => {
   const textareaInput = useRef();
   const { userLogged } = useTweetContext();
   const { theme } = useTheme();
-  const { submitTweet, errorOccured } = SubmitService();
+  const { submitTweet, isError } = SubmitService();
 
   return (
     <AddTweetPageView
@@ -19,7 +19,7 @@ const AddTweetPageContainer = () => {
       theme={theme}
       textareaInput={textareaInput}
       submitTweet={submitTweet}
-      errorOccured={errorOccured}
+      isError={isError}
     />
   );
 };

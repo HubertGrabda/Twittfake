@@ -17,7 +17,7 @@ const TweetCommentContainer = ({ commentId, username, content, tweetId }) => {
     showIconsAccordingToUsername,
     deleteComment,
     handleEditMode,
-    errorOccured,
+    isError,
   } = TweetService();
 
   const handleCommentsReactions = [
@@ -45,7 +45,7 @@ const TweetCommentContainer = ({ commentId, username, content, tweetId }) => {
       handleEditMode={handleEditMode}
       commentIcons={commentIcons}
       handleCommentsReactions={handleCommentsReactions}
-      errorOccured={errorOccured}
+      isError={isError}
     />
   );
 };

@@ -30,7 +30,7 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
     retweet,
     deleleTweet,
     navigateToUsersProfile,
-    errorOccured,
+    isError,
   } = TweetService();
 
   const handleTweetsReactions = [
@@ -64,7 +64,7 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
       username={username}
       content={content}
       comments={comments}
-      errorOccured={errorOccured}
+      isError={isError}
     />
   );
 };

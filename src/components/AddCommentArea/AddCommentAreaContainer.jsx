@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 const CommentAreaContainer = ({ tweetId }) => {
   const commentInputRef = useRef();
   const { userLogged } = useTweetContext();
-  const { submitComment, errorOccured } = SubmitService();
+  const { submitComment, isError } = SubmitService();
   const { theme } = useTheme();
 
   return (
@@ -17,7 +17,7 @@ const CommentAreaContainer = ({ tweetId }) => {
       userLogged={userLogged}
       commentInputRef={commentInputRef}
       submitComment={submitComment}
-      errorOccured={errorOccured}
+      isError={isError}
       theme={theme}
     />
   );

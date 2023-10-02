@@ -10,6 +10,7 @@ const ScrollService = () => {
 
   useEffect(() => {
     let timeout;
+    const timeRange = 200;
 
     const handleScroll = () => {
       clearTimeout(timeout);
@@ -23,7 +24,7 @@ const ScrollService = () => {
           setIsScrollingUp(true);
         }
         setLastScrollPos(currentScrollPos);
-      }, 200);
+      }, timeRange);
     };
 
     window.addEventListener("scroll", handleScroll);

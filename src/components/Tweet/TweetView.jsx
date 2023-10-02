@@ -27,7 +27,7 @@ const TweetView = ({
   username,
   content,
   comments,
-  errorOccured,
+  isError,
 }) => (
   <article
     className={classNames(["tweet", theme === "isDark" && "tweet--isDark"])}
@@ -43,7 +43,7 @@ const TweetView = ({
       className={classNames([
         "tweet__content",
         isUserEditing[tweetId] && "tweet__content--edit-mode",
-        errorOccured && "tweet__content--edit-mode--error",
+        isError && "tweet__content--edit-mode--error",
       ])}
       defaultValue={content}
       ref={(ref) => (contentTextArea.current[tweetId] = ref)}

@@ -39,7 +39,7 @@ const SignInPageView = ({
       <input
         data-testid='username-input'
         id='username-input'
-        maxLength={13}
+        maxLength={15}
         ref={(ref) => (inputsRef.current[0] = ref)}
         type='text'
         className={classNames([

@@ -7,15 +7,15 @@ const SubmitService = () => {
   const { tweets, setTweets, setFilteredTweetsData, userLogged } =
     useTweetContext();
   const navigate = useNavigate();
-  const [errorOccured, setErrorOccured] = useState(false);
+  const [isError, setisError] = useState(false);
 
   const submitTweet = (refName) => {
     let input = refName.current;
 
     if (!input.value) {
-      setErrorOccured(true);
+      setisError(true);
       return;
-    } else setErrorOccured(false);
+    } else setisError(false);
 
     const newTweet = {
       id: tweets.length + 1,
@@ -37,10 +37,10 @@ const SubmitService = () => {
     let input = refName.current;
 
     if (!input.value) {
-      setErrorOccured(true);
+      setisError(true);
       return;
     }
-    setErrorOccured(false);
+    setisError(false);
 
     const highestCommentId = tweets.reduce((highestID, tweet) => {
       if (tweet.comments && tweet.comments.length > 0) {
@@ -74,7 +74,7 @@ const SubmitService = () => {
     clearInput(input);
   };
 
-  return { submitTweet, submitComment, errorOccured };
+  return { submitTweet, submitComment, isError };
 };
 
 export default SubmitService;
