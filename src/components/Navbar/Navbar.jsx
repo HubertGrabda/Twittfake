@@ -14,17 +14,17 @@ import ScrollService from "../../services/ScrollService";
 const Navbar = () => {
   const { setProfileToDisplay, userLogged } = useTweetContext();
   const navbarIcons = [faPlus, faMagnifyingGlass];
-  const routeToLoginOrProfile = userLogged ? "/Profile" : "/SignIn";
+  const routeToLogInOrProfile = userLogged ? "/Profile" : "/SignIn";
   const routeToLoginOrNewTweetPage = userLogged ? "/CreateTweet" : "/SignIn";
   const showElement = ScrollService();
 
   return (
     <div className={classNames(["navbar", !showElement && "navbar--hidden"])}>
-      <Link to={routeToLoginOrProfile}>
+      <Link to={routeToLogInOrProfile}>
         {userLogged ? (
           <img
             src={logo}
-            alt="user's logo"
+            alt="user's profile picture"
             className='navbar__users-profile-pic'
             onClick={() => setProfileToDisplay(userLogged)}
           />

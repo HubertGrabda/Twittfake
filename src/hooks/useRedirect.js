@@ -6,7 +6,7 @@ const useRedirect = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (document.body.clientWidth >= 1024) {
         navigate("/");
       }
     };

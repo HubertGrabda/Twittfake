@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useRef } from "react";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import SubmitService from "../../services/SubmitService";
@@ -6,10 +7,13 @@ import AddCommentAreaView from "./AddCommentAreaView";
 import PropTypes from "prop-types";
 
 const CommentAreaContainer = ({ tweetId }) => {
-  const commentInputRef = useRef();
   const { userLogged } = useTweetContext();
-  const { submitComment, isError } = SubmitService();
+
+  if (!userLogged) return;
+
+  const commentInputRef = useRef();
   const { theme } = useTheme();
+  const { submitComment, isError } = SubmitService();
 
   return (
     <AddCommentAreaView

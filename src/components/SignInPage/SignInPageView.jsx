@@ -5,7 +5,7 @@ import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { classNames } from "../../shared";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { LOG_IN_TEXT } from "../../const/input";
+import { LOGIN_INPUT_LENGTH, LOG_IN_TEXT } from "../../const/input";
 
 const SignInPageView = ({
   usernamePlaceholderText,
@@ -39,7 +39,7 @@ const SignInPageView = ({
       <input
         data-testid='username-input'
         id='username-input'
-        maxLength={15}
+        maxLength={LOGIN_INPUT_LENGTH}
         ref={(ref) => (inputsRef.current[0] = ref)}
         type='text'
         className={classNames([
@@ -59,7 +59,7 @@ const SignInPageView = ({
       </label>
       <input
         data-testid='password-input'
-        maxLength={15}
+        maxLength={LOGIN_INPUT_LENGTH}
         type='password'
         id='password-input'
         ref={(ref) => (inputsRef.current[1] = ref)}

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SAVE_BUTTON_TEXT } from "../../const/input";
+import { INPUT_LENGTH, SAVE_BUTTON_TEXT } from "../../const/input";
 import { classNames, handleLinesAmount } from "../../shared";
 import emptyHeart from "../../images/heart_empty.png";
 import fullHeart from "../../images/heart_full.png";
@@ -26,7 +26,7 @@ const TweetCommentView = ({
     <h4 className='comment__username'>{username}</h4>
     <textarea
       readOnly={!isUserEditing[commentId]}
-      maxLength={50}
+      maxLength={INPUT_LENGTH}
       onKeyDown={handleLinesAmount}
       className={classNames([
         "comment__content",

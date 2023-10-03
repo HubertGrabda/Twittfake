@@ -6,7 +6,7 @@ import TweetCommentContainer from "../TweetComment/TweetComment";
 import AddCommentAreaContainer from "../AddCommentArea/AddCommentAreaContainer";
 import "./Tweet.scss";
 import PropTypes from "prop-types";
-import { SAVE_BUTTON_TEXT } from "../../const/input";
+import { INPUT_LENGTH, SAVE_BUTTON_TEXT } from "../../const/input";
 
 const TweetView = ({
   handleTweetsReactions,
@@ -37,7 +37,7 @@ const TweetView = ({
       className='tweet__username'
       onClick={() => navigateToUsersProfile(username)}
     >
-      {username}{" "}
+      {username}
     </h3>
     <textarea
       className={classNames([
@@ -47,7 +47,7 @@ const TweetView = ({
       ])}
       defaultValue={content}
       ref={(ref) => (contentTextArea.current[tweetId] = ref)}
-      maxLength={75}
+      maxLength={INPUT_LENGTH}
       readOnly={!isUserEditing[tweetId]}
       onKeyDown={handleLinesAmount}
     ></textarea>

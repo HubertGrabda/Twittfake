@@ -9,12 +9,9 @@ import ThemeChangeButton from "../components/ThemeChangeButton/ThemeChangeButton
 import ReturnArrow from "../components/ReturnArrow/ReturnArrow";
 import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton";
 import { AddTweetAreaContainer } from "../components/AddTweetArea/AddTweetAreaContainer";
-import { useTweetContext } from "../hooks/useTweetContext";
 
 const Home = () => {
   useResetFilter();
-
-  const { userLogged } = useTweetContext();
 
   return (
     <>
@@ -23,7 +20,7 @@ const Home = () => {
       <ReturnToTopButton />
       <ReturnArrow returnTo='' />
       <ThemeChangeButton />
-      {userLogged && <AddTweetAreaContainer />}
+      <AddTweetAreaContainer />
       <Feed />
       <Navbar />
       <Searchbar />

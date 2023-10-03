@@ -4,6 +4,7 @@ import { classNames, handleLinesAmount } from "../../shared";
 import {
   ADD_TWEET_INPUT_PLACEHOLDER,
   ADD_TWEET_INPUT_PLACEHOLDER_ERROR,
+  INPUT_LENGTH,
   SUBMIT_BUTTON_TEXT,
 } from "../../const/input";
 import PropTypes from "prop-types";
@@ -33,7 +34,7 @@ const AddTweetPageView = ({
             ? ADD_TWEET_INPUT_PLACEHOLDER_ERROR
             : ADD_TWEET_INPUT_PLACEHOLDER(userLogged)
         }
-        maxLength={80}
+        maxLength={INPUT_LENGTH}
         onKeyDown={handleLinesAmount}
       ></textarea>
       <button

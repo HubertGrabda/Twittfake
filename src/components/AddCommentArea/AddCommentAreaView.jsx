@@ -2,6 +2,7 @@ import { classNames, handleLinesAmount } from "../../shared";
 import {
   ADD_COMMENT_INPUT_PLACEHOLDER,
   ADD_COMMENT_INPUT_PLACEHOLDER_ERROR,
+  INPUT_LENGTH,
   SUBMIT_BUTTON_TEXT,
 } from "../../const/input";
 import "./AddCommentArea.scss";
@@ -30,7 +31,7 @@ const AddCommentAreaView = ({
               ? ADD_COMMENT_INPUT_PLACEHOLDER_ERROR
               : ADD_COMMENT_INPUT_PLACEHOLDER
           }
-          maxLength={75}
+          maxLength={INPUT_LENGTH}
           onKeyDown={handleLinesAmount}
         />
         <button

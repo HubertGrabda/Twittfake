@@ -1,6 +1,7 @@
 import {
   ADD_TWEET_INPUT_PLACEHOLDER,
   ADD_TWEET_INPUT_PLACEHOLDER_ERROR,
+  INPUT_LENGTH,
   SUBMIT_BUTTON_TEXT,
 } from "../../const/input";
 import { classNames, handleLinesAmount } from "../../shared";
@@ -28,7 +29,7 @@ const AddTweetAreaView = ({
             : ADD_TWEET_INPUT_PLACEHOLDER(userLogged)
         }
         ref={inputRef}
-        maxLength={85}
+        maxLength={INPUT_LENGTH}
         onKeyDown={handleLinesAmount}
       ></textarea>
       <button

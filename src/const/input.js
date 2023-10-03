@@ -10,6 +10,8 @@ const SUBMIT_BUTTON_TEXT = "Prześlij";
 const SEARCH_BUTTON_TEXT = "Szukaj";
 const SAVE_BUTTON_TEXT = "Zapisz";
 const EMPTY_INPUT_ERROR = "To pole nie może być puste!";
+const INPUT_LENGTH = 75;
+const LOGIN_INPUT_LENGTH = 15;
 
 export {
   ADD_TWEET_INPUT_PLACEHOLDER,
@@ -22,4 +24,6 @@ export {
   SEARCH_BUTTON_TEXT,
   SAVE_BUTTON_TEXT,
   EMPTY_INPUT_ERROR,
+  INPUT_LENGTH,
+  LOGIN_INPUT_LENGTH,
 };
