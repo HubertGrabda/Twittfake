@@ -34,10 +34,10 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
   } = TweetService();
 
   const handleTweetsReactions = [
-    (id) => handleTweetsCommentsSection(id),
+    (tweetId) => handleTweetsCommentsSection(tweetId),
     () => retweet(content),
-    (id) => handleEditMode(id, contentTextArea),
-    (id) => deleleTweet(id),
+    (tweetId) => handleEditMode(tweetId, contentTextArea),
+    (tweetId) => deleleTweet(tweetId),
   ];
 
   return (
