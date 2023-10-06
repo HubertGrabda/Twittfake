@@ -4,7 +4,7 @@ import TweetContainer from "../Tweet/TweetContainer";
 import { useTweetContext } from "../../hooks/useTweetContext";
 
 const Feed = () => {
-  const { filteredTweetsData, profileToDisplay } = useTweetContext();
+  const { filteredTweetsData, profileToDisplay} = useTweetContext();
   const path = useLocation();
 
   const tweets =

@@ -4,8 +4,13 @@ import { useState } from "react";
 import { clearInput } from "../shared";
 
 const SubmitService = () => {
-  const { tweets, setTweets, setFilteredTweetsData, userLogged } =
-    useTweetContext();
+  const {
+    tweets,
+    setTweets,
+    setFilteredTweetsData,
+    userLogged,
+    setIsTagClicked,
+  } = useTweetContext();
   const navigate = useNavigate();
   const [isError, setisError] = useState(false);
 
@@ -27,6 +32,7 @@ const SubmitService = () => {
     setFilteredTweetsData([newTweet, ...tweets]);
 
     clearInput(input);
+    setIsTagClicked(false);
 
     if (document.body.clientWidth <= 1024) {
       navigate("/");
