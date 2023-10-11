@@ -12,7 +12,7 @@
   color: black;
   @include shadow;
 
-  &--isDark {
+  &--dark {
     background-color: transparent;
     color: $font-white;
     border: 1px solid $font-gray;
@@ -85,7 +85,7 @@
       background-color: $font-gray;
       color: $font-white;
 
-      &--error {
+      &-error {
         width: 95%;
         resize: inherit;
         border-radius: inherit;
@@ -136,6 +136,7 @@
         @include reactionHoverEffect(rgba(255, 0, 0, 0.212));
       }
     }
+
     &__trash-can {
       background-color: transparent;
       color: red;
@@ -164,7 +165,7 @@
     gap: 0.5rem;
     background-color: transparent;
 
-    &--isnt-visible {
+    &--not-visible {
       display: none;
     }
   }

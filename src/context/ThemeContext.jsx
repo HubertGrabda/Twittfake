@@ -7,14 +7,14 @@ const bodyAttributeSetter = (value) =>
   document.querySelector("body").setAttribute("data-theme", value);
 
 export const ThemeProvider = ({ children }) => {
-  const rememberTheme = localStorage.getItem("selectedTheme");
-  const defaultTheme = "isBright";
-  const [theme, setTheme] = useState(rememberTheme || defaultTheme);
+  const latestTheme = localStorage.getItem("selectedTheme");
+  const defaultTheme = "bright";
+  const [theme, setTheme] = useState(latestTheme || defaultTheme);
   bodyAttributeSetter(theme);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
-      const newTheme = prevTheme === defaultTheme ? "isDark" : defaultTheme;
+      const newTheme = prevTheme === defaultTheme ? "dark" : defaultTheme;
       localStorage.setItem("selectedTheme", newTheme);
       bodyAttributeSetter(newTheme);
       return newTheme;

@@ -20,7 +20,7 @@ const AddTweetAreaView = ({
       <textarea
         className={classNames([
           "textarea__input",
-          theme === "isDark" && "textarea__input--isDark",
+          theme === "dark" && "textarea__input--dark",
           isError && "textarea__input--error",
         ])}
         placeholder={

@@ -1,10 +1,10 @@
 import Header from "../components/Header/Header";
 import HomeButton from "../components/HomeButton/HomeButton";
 import Navbar from "../components/Navbar/Navbar";
-import SearchbarMobile from "../components/SearchbarMobile/SearchbarMobile";
 import PopularMobile from "../components/PopularMobile/PopularMobile";
 import useRedirect from "../hooks/useRedirect";
 import ProfileReference from "../components/ProfileReference/ProfileReference";
+import SearchBarMobile from "../components/SearchbarMobile/SearchbarMobile";
 
 const Search = () => {
   useRedirect();
@@ -14,7 +14,7 @@ const Search = () => {
       <Header pageTitle='Wyszukaj' />
       <ProfileReference />
       <HomeButton />
-      <SearchbarMobile />
+      <SearchBarMobile/>
       <PopularMobile />
       <Navbar />
     </>

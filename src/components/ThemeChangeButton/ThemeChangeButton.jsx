@@ -17,7 +17,7 @@ const ThemeChangeButton = () => {
           "theme-change-button",
           !showElement && "theme-change-button--hidden",
         ])}
-        icon={theme === "isBright" ? faMoon : faSun}
+        icon={theme === "bright" ? faMoon : faSun}
       ></FontAwesomeIcon>
     </>
   );

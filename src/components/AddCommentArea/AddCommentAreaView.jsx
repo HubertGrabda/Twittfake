@@ -23,7 +23,7 @@ const AddCommentAreaView = ({
           ref={commentInputRef}
           className={classNames([
             "add-comment__input",
-            theme === "isDark" && "add-comment__input--isDark",
+            theme === "dark" && "add-comment__input--dark",
             isError && "add-comment__input--error",
           ])}
           placeholder={

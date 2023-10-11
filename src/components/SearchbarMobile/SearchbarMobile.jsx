@@ -1,25 +1,20 @@
 import "./SearchbarMobile.scss";
 import { Link } from "react-router-dom";
-import { SEARCHBAR_PLACEHOLDER, SEARCH_BUTTON_TEXT } from "../../const/input";
+import { SEARCH_BAR_PLACEHOLDER, SEARCH_BUTTON_TEXT } from "../../const/input";
 import TweetService from "../../services/TweetService";
 
-const SearchbarMobile = () => {
-  const { filterTweets } = TweetService();
-
-  const handleInput = (e) => {
-    const inputValue = e.target.value;
-    filterTweets(inputValue);
-  };
+const SearchBarMobile = () => {
+  const { handleSearch } = TweetService();
 
   return (
-    <div className='searchbar-mobile'>
+    <div className='search-bar-mobile'>
       <input
-        className='searchbar-mobile__input'
-        onChange={handleInput}
-        placeholder={SEARCHBAR_PLACEHOLDER}
+        className='search-bar-mobile__input'
+        onChange={handleSearch}
+        placeholder={SEARCH_BAR_PLACEHOLDER}
       ></input>
       <Link to='/SearchResult'>
-        <button className='searchbar-mobile__submit-button'>
+        <button className='search-bar-mobile__submit-button'>
           {SEARCH_BUTTON_TEXT}
         </button>
       </Link>
@@ -27,4 +22,4 @@ const SearchbarMobile = () => {
   );
 };
 
-export default SearchbarMobile;
+export default SearchBarMobile;

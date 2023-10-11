@@ -6,12 +6,12 @@ import TweetService from "../../services/TweetService";
 
 const PopularMobile = () => {
   const { tweets } = useTweetContext();
-  const { duplicates, countObj } = popularTrendsFilter(tweets);
+  const { popularHashtags, countObj } = popularTrendsFilter(tweets);
   const { filterTweets } = TweetService();
 
   return (
     <div className='popularMobile'>
-      {duplicates.slice(0, 4).map((element) => (
+      {popularHashtags.slice(0, 4).map((element) => (
         <Link
           to='/SearchResult'
           className='tile'
@@ -19,7 +19,7 @@ const PopularMobile = () => {
           onClick={() => filterTweets(element)}
         >
           <span className='tile__category'>{element}</span>
-          <span className='tile__catch-phrase'> #{element} </span>
+          <span className='tile__catch-phrase'> {element} </span>
           <span className='tile__amount-of-tweets'>
             Tweety: {countObj[element]}
           </span>

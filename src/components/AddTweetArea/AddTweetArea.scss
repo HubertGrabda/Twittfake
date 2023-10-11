@@ -25,7 +25,7 @@
 
     @include shadow;
 
-    &--isDark {
+    &--dark {
       color: white;
       border: 1px solid $font_gray;
     }

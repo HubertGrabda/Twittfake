@@ -114,6 +114,7 @@ $font-white: $twittfake_font_white;
   background-color: $ternery-color;
   border: none;
   display: block;
+  text-decoration: none !important;
 
   @media #{$tablets-only} {
     margin-top: 1rem;

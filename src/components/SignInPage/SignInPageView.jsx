@@ -22,7 +22,7 @@ const SignInPageView = ({
     <p
       className={classNames([
         "form-wrapper__welcome-text",
-        theme === "isDark" && "form-wrapper__welcome-text--isDark",
+        theme === "dark" && "form-wrapper__welcome-text--dark",
       ])}
     >
       {LOG_IN_TEXT}

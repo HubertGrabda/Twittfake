@@ -2,6 +2,7 @@ import { useTweetContext } from "../hooks/useTweetContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { clearInput } from "../shared";
+import { homePageRoute } from "../const/routing";
 
 const SubmitService = () => {
   const {
@@ -35,7 +36,7 @@ const SubmitService = () => {
     setIsTagClicked(false);
 
     if (document.body.clientWidth <= 1024) {
-      navigate("/");
+      navigate(homePageRoute);
     }
   };
 

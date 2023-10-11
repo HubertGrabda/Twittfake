@@ -19,7 +19,7 @@ const ProfileReference = () => {
       <div
         className={classNames([
           "profile-ref",
-          theme === "isDark" && "profile-ref--dark",
+          theme === "dark" && "profile-ref--dark",
         ])}
       >
         {userLogged ? (
@@ -34,9 +34,8 @@ const ProfileReference = () => {
                 className='profile-link__picture'
                 alt="User's profile picture"
               ></img>
-              <p className='profile-link__username'> {userLogged} </p>
+              <p className='profile-link__username'>{userLogged}</p>
             </Link>
-
             <FontAwesomeIcon
               icon={faArrowRightFromBracket}
               className='profile-ref__log-out-button'

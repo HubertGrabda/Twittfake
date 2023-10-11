@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { homePageRoute } from "../const/routing";
 
 const useRedirect = () => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ const useRedirect = () => {
   useEffect(() => {
     const handleResize = () => {
       if (document.body.clientWidth >= 1024) {
-        navigate("/");
+        navigate(homePageRoute);
       }
     };
     window.addEventListener("resize", handleResize);

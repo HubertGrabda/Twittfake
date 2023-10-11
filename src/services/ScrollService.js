@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { homePageRoute } from "../const/routing";
 
 const ScrollService = () => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollPos, setLastScrollPos] = useState(0);
 
   const path = useLocation();
-  const isMainPage = path.pathname === "/" ? true : false;
+  const isMainPage = path.pathname === homePageRoute ? true : false;
 
   useEffect(() => {
     let timeout;

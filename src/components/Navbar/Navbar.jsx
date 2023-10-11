@@ -10,13 +10,22 @@ import { Link } from "react-router-dom";
 import { classNames } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import ScrollService from "../../services/ScrollService";
+import {
+  createTweetRoute,
+  profileRoute,
+  searchRoute,
+  signInRoute,
+} from "../../const/routing";
 
 const Navbar = () => {
   const { setProfileToDisplay, userLogged } = useTweetContext();
   const navbarIcons = [faPlus, faMagnifyingGlass];
-  const routeToLogInOrProfile = userLogged ? "/Profile" : "/SignIn";
-  const routeToLoginOrNewTweetPage = userLogged ? "/CreateTweet" : "/SignIn";
+  const routeToLogInOrProfile = userLogged ? profileRoute : signInRoute;
+  const routeToLoginOrNewTweetPage = userLogged
+    ? createTweetRoute
+    : signInRoute;
   const showElement = ScrollService();
+  const magnifyingGlassIconPlacing = 1;
 
   return (
     <div className={classNames(["navbar", !showElement && "navbar--hidden"])}>
@@ -38,7 +47,7 @@ const Navbar = () => {
 
       {navbarIcons.map((icon, index) => (
         <Link
-          to={index === 1 ? "/Search" : routeToLoginOrNewTweetPage}
+          to={index === magnifyingGlassIconPlacing ? searchRoute : routeToLoginOrNewTweetPage}
           key={icon.iconName}
           className={`navbar__${icon.iconName}`}
         >

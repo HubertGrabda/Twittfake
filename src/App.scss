@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-[data-theme="isDark"] {
+[data-theme="dark"] {
   background-color: rgb(21, 32, 43);
   color: $font-white;
 
@@ -36,6 +36,11 @@ body {
   padding: 0;
   border: 0;
   @include backgroundClr;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 ::-webkit-scrollbar {

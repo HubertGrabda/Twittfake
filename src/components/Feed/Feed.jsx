@@ -2,13 +2,14 @@ import "./Feed.scss";
 import { useLocation } from "react-router-dom";
 import TweetContainer from "../Tweet/TweetContainer";
 import { useTweetContext } from "../../hooks/useTweetContext";
+import { profileRoute } from "../../const/routing";
 
 const Feed = () => {
   const { filteredTweetsData, profileToDisplay} = useTweetContext();
   const path = useLocation();
 
   const tweets =
-    path.pathname === "/Profile"
+    path.pathname === profileRoute
       ? filteredTweetsData.filter(
           (tweet) => tweet.username === profileToDisplay
         )

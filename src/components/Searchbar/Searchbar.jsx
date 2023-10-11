@@ -3,36 +3,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { classNames } from "../../shared";
 import { useTheme } from "../../hooks/useTheme";
-import { useTweetContext } from "../../hooks/useTweetContext";
 import TweetService from "../../services/TweetService";
-import { SEARCHBAR_PLACEHOLDER } from "../../const/input";
+import { SEARCH_BAR_PLACEHOLDER } from "../../const/input";
 
-const Searchbar = () => {
-  const { tweets, setFilteredTweetsData, setIsTagClicked } = useTweetContext();
+const SearchBar = () => {
   const { theme } = useTheme();
-  const { filterTweets } = TweetService();
-
-  const handleSearch = (event) => {
-    const inputValue = event.target.value;
-    if (!inputValue) {
-      setFilteredTweetsData(tweets);
-      setIsTagClicked(false);
-    } else filterTweets(inputValue);
-  };
+  const { handleSearch } = TweetService();
 
   return (
-    <div className='searchbar'>
+    <div className='search-bar'>
       <input
         className={classNames([
-          "searchbar__input",
-          theme === "isDark" && "searchbar__input--isDark",
+          "search-bar__input",
+          theme === "dark" && "search-bar__input--dark",
         ])}
-        placeholder={SEARCHBAR_PLACEHOLDER}
+        placeholder={SEARCH_BAR_PLACEHOLDER}
         onChange={handleSearch}
       ></input>
-      <FontAwesomeIcon icon={faMagnifyingGlass} className='searchbar__icon' />
+      <FontAwesomeIcon icon={faMagnifyingGlass} className='search-bar__icon' />
     </div>
   );
 };
 
-export default Searchbar;
+export default SearchBar;

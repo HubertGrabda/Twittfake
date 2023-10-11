@@ -1,6 +1,6 @@
 @import "../variables";
 
-.searchbar {
+.search-bar {
   display: none;
 
   @media #{$laptop} {
@@ -22,7 +22,7 @@
     height: 2rem;
     border-color: $main-color;
 
-    &--isDark {
+    &--dark {
       background-color: $main-color;
       border: none;
       color: white;

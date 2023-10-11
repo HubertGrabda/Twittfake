@@ -3,10 +3,11 @@ import { fireEvent, render } from "@testing-library/react";
 import SignInPageContainer from "../components/SignInPage/SignInPageContainer";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "../context/ThemeContext";
+import { signInRoute } from "../const/routing";
 
 test("signing-in process #1 - user passes the right data", async () => {
   const pages = render(
-    <MemoryRouter initialEntries={["/SignIn"]}>
+    <MemoryRouter initialEntries={[signInRoute]}>
       <ThemeProvider>
         <Routes>
           <Route path='/SignIn' element={<SignInPageContainer />} />
@@ -35,7 +36,7 @@ test("signing-in process #1 - user passes the right data", async () => {
 
 test("signing-in process #2 - user passes the wrong data", async () => {
   const pages = render(
-    <MemoryRouter initialEntries={["/SignIn"]}>
+    <MemoryRouter initialEntries={[signInRoute]}>
       <ThemeProvider>
         <Routes>
           <Route path='/SignIn' element={<SignInPageContainer />} />

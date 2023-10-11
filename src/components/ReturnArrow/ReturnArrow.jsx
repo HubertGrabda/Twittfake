@@ -6,6 +6,7 @@ import { classNames } from "../../shared";
 import PropTypes from "prop-types";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import ScrollService from "../../services/ScrollService";
+import { homePageRoute } from "../../const/routing";
 
 const ReturnArrow = ({ returnTo }) => {
   const { setFilteredTweetsData, tweets, isTagClicked, setIsTagClicked } =
@@ -14,7 +15,7 @@ const ReturnArrow = ({ returnTo }) => {
   const path = useLocation();
 
   const showElementBasedOnUrl =
-    path.pathname === "/" ? isTagClicked : showElement;
+    path.pathname === homePageRoute ? isTagClicked : showElement;
 
   const handleClick = () => {
     setFilteredTweetsData(tweets), setIsTagClicked(false);

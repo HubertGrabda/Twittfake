@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { homePageRoute } from "../const/routing";
 
 const AccountService = () => {
   const inputsRef = useRef([]);
@@ -46,13 +47,13 @@ const AccountService = () => {
     if (usernameValid && passwordValid) {
       const inputValue = inputElement[0].value;
       sessionStorage.setItem("username", inputValue);
-      navigate("/");
+      navigate(homePageRoute);
     }
   };
 
   const logOut = () => {
     sessionStorage.removeItem("username");
-    navigate("/");
+    navigate(homePageRoute);
   };
 
   return {

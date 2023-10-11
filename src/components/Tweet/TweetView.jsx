@@ -6,12 +6,17 @@ import TweetCommentContainer from "../TweetComment/TweetComment";
 import AddCommentAreaContainer from "../AddCommentArea/AddCommentAreaContainer";
 import "./Tweet.scss";
 import PropTypes from "prop-types";
-import { INPUT_LENGTH, SAVE_BUTTON_TEXT } from "../../const/input";
+import {
+  INPUT_LENGTH,
+  SAVE_BUTTON_TEXT,
+  TWEET_LIKED,
+  TWEET_UNLIKED,
+} from "../../const/input";
 
 const TweetView = ({
   handleTweetsReactions,
-  emptyHeart,
-  fullHeart,
+  emptyHeart: emptyHeartSrc,
+  fullHeart: fullHeartSrc,
   icons,
   contentTextArea,
   theme,
@@ -30,7 +35,7 @@ const TweetView = ({
   isError,
 }) => (
   <article
-    className={classNames(["tweet", theme === "isDark" && "tweet--isDark"])}
+    className={classNames(["tweet", theme === "dark" && "tweet--dark"])}
     key={tweetId}
   >
     <h3
@@ -43,7 +48,7 @@ const TweetView = ({
       className={classNames([
         "tweet__content",
         isUserEditing[tweetId] && "tweet__content--edit-mode",
-        isError && "tweet__content--edit-mode--error",
+        isError && "tweet__content--edit-mode-error",
       ])}
       defaultValue={content}
       ref={(ref) => (contentTextArea.current[tweetId] = ref)}
@@ -69,36 +74,39 @@ const TweetView = ({
               isHeartFilled[tweetId] && "tweet__reactions__counter__heart--red",
             ])}
           >
-            {isHeartFilled[tweetId] ? 2 : 1}
+            {isHeartFilled[tweetId] ? TWEET_LIKED : TWEET_UNLIKED}
           </span>
           <img
-            src={isHeartFilled[tweetId] ? fullHeart : emptyHeart}
+            src={isHeartFilled[tweetId] ? fullHeartSrc : emptyHeartSrc}
             className='tweet__reactions__heart'
             onClick={() => heartButtonFunction(tweetId)}
           ></img>
         </>
       )}
       {showIconsAccordingToUsername(username, icons, userLogged ? 2 : 1).map(
-        (icon, index) => (
-          <React.Fragment key={index}>
-            {index === 0 ? (
-              <span className='tweet__reactions__counter__comments'>
-                {comments?.length ?? 0}
-              </span>
-            ) : null}
-            <FontAwesomeIcon
-              icon={icon}
-              className={`tweet__reactions__${icon.iconName}`}
-              onClick={() => handleTweetsReactions[index](tweetId, content)}
-            />
-          </React.Fragment>
-        )
+        (icon, index) => {
+          const { iconName } = icon;
+          return (
+            <React.Fragment key={index}>
+              {index === 0 ? (
+                <span className='tweet__reactions__counter__comments'>
+                  {comments?.length ?? 0}
+                </span>
+              ) : null}
+              <FontAwesomeIcon
+                icon={icon}
+                className={`tweet__reactions__${iconName}`}
+                onClick={() => handleTweetsReactions[index](tweetId, content)}
+              />
+            </React.Fragment>
+          );
+        }
       )}
     </div>
     <div
       className={classNames([
         "comment-section",
-        !isCommentSectionVisible[tweetId] && "comment-section--isnt-visible",
+        !isCommentSectionVisible[tweetId] && "comment-section--not-visible",
       ])}
     >
       <AddCommentAreaContainer tweetId={tweetId} />

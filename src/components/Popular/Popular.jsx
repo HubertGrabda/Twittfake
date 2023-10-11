@@ -6,25 +6,25 @@ import TweetService from "../../services/TweetService";
 
 const Popular = () => {
   const { tweets } = useTweetContext();
-  const { duplicates, countObj } = popularTrendsFilter(tweets);
+  const { popularHashtags, countObj } = popularTrendsFilter(tweets);
   const { theme } = useTheme();
   const { filterTweets } = TweetService();
 
   return (
     <section className='popular'>
-      {duplicates.map((element) => {
+      {popularHashtags.map((el) => {
         return (
           <div
             className={classNames([
               "popular__tile",
-              theme === "isDark" && "popular__tile--isDark",
+              theme === "dark" && "popular__tile--dark",
             ])}
-            key={element}
-            onClick={() => filterTweets(element)}
+            key={el}
+            onClick={() => filterTweets(el)}
           >
-            <span className='popular__tile__catch-phrase'>#{element}</span>
+            <span className='popular__tile__catch-phrase'>{el}</span>
             <span className='popular__tile__amount-of-tweets'>
-              Tweety: {countObj[element]}
+              Tweety: {countObj[el]}
             </span>
           </div>
         );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toggleState } from "../shared";
 import { useNavigate } from "react-router-dom";
 import { useTweetContext } from "../hooks/useTweetContext";
+import { profileRoute } from "../const/routing";
 
 const TweetService = () => {
   const [isHeartFilled, setIsHeartFilled] = useState({});
@@ -77,7 +78,7 @@ const TweetService = () => {
 
   const navigateToUsersProfile = (username) => {
     setProfileToDisplay(username);
-    navigate("/Profile");
+    navigate(profileRoute);
   };
 
   const deleteComment = (tweetId, commentId) => {
@@ -104,6 +105,14 @@ const TweetService = () => {
     setFilteredTweetsData(filteredResults);
   };
 
+  const handleSearch = (event) => {
+    const inputValue = event.target.value;
+    if (!inputValue) {
+      setFilteredTweetsData(tweets);
+      setIsTagClicked(false);
+    } else filterTweets(inputValue);
+  };
+
   return {
     userLogged,
     isHeartFilled,
@@ -126,6 +135,7 @@ const TweetService = () => {
     navigateToUsersProfile,
     filterTweets,
     isError,
+    handleSearch
   };
 };
 

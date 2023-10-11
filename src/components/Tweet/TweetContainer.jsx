@@ -28,7 +28,7 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
     handleEditMode,
     saveEdit,
     retweet,
-    deleleTweet,
+    deleleTweet: deleteTweet,
     navigateToUsersProfile,
     isError,
   } = TweetService();
@@ -37,7 +37,7 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
     (tweetId) => handleTweetsCommentsSection(tweetId),
     () => retweet(content),
     (tweetId) => handleEditMode(tweetId, contentTextArea),
-    (tweetId) => deleleTweet(tweetId),
+    (tweetId) => deleteTweet(tweetId),
   ];
 
   return (
@@ -58,7 +58,7 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
       handleEditMode={handleEditMode}
       saveEdit={saveEdit}
       retweet={retweet}
-      deleleTweet={deleleTweet}
+      deleteTweet={deleteTweet}
       navigateToUsersProfile={navigateToUsersProfile}
       tweetId={tweetId}
       username={username}

@@ -11,25 +11,28 @@ export const handleLinesAmount = (e) => {
 };
 
 export const popularTrendsFilter = (tweets) => {
-  const hashtagsArray = [];
-
-  tweets.map((tweet) => {
-    hashtagsArray.push(tweet?.hashtag ?? null);
-  });
-
   const countObj = {};
-  const duplicates = [];
 
-  hashtagsArray.forEach((hashtag) => {
-    if (hashtag !== null) {
-      countObj[hashtag] = (countObj[hashtag] ?? 0) + 1;
-      if (countObj[hashtag] === 2) {
-        duplicates.push(hashtag);
+  tweets.forEach((tweet) => {
+    const { content } = tweet;
+    const extractedHashtags = content
+      .split(" ")
+      .filter((el) => el.includes("#"));
+    const seenHashtags = {};
+
+    extractedHashtags.forEach((hashtag) => {
+      if (!seenHashtags[hashtag]) {
+        countObj[hashtag] = (countObj[hashtag] ?? 0) + 1;
+        seenHashtags[hashtag] = true;
       }
-    }
+    });
   });
 
-  return { countObj, duplicates };
+  const popularHashtags = Object.keys(countObj).filter(
+    (hashtag) => countObj[hashtag] >= 2
+  );
+
+  return { countObj, popularHashtags };
 };
 
 export const toggleState = (setterName, updaterFunc, id) => {

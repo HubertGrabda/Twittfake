@@ -1,5 +1,5 @@
-import SignInPageView from "../components/SignIn-UpPageView/SignInPageView";
+import SignInPageContainer from "../components/SignIn-UpPageView/SignInPageView";
 
-const SignIn = () => <SignInPageView />;
+const SignIn = () => <SignInPageContainer />;
 
 export default SignIn;
