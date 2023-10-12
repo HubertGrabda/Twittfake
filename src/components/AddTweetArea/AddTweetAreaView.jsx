@@ -18,6 +18,7 @@ const AddTweetAreaView = ({
   <>
     <div className='textarea'>
       <textarea
+        data-testid='content-input'
         className={classNames([
           "textarea__input",
           theme === "dark" && "textarea__input--dark",
@@ -35,6 +36,7 @@ const AddTweetAreaView = ({
       <button
         className='textarea__submit-button'
         onClick={() => submitTweet(inputRef)}
+        data-testid='submit-button'
       >
         {SUBMIT_BUTTON_TEXT}
       </button>

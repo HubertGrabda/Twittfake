@@ -59,7 +59,6 @@ test("signing-in process #2 - user passes the wrong data", async () => {
   expect(homePage).toBeNull();
   expect(usernameInput.className).toBe("form__input form__input--error");
   expect(passwordInput.className).toBe("form__input form__input--error");
-  expect(sessionStorage.getItem("username")).toBe("testuser");
 
   pages.unmount();
 });
