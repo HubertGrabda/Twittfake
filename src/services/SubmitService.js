@@ -72,13 +72,13 @@ const SubmitService = () => {
           ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
           : tweet
       );
+      clearInput(input);
 
     setTweets((prevTweets) => updateTweetsWithNewComment(prevTweets));
     setFilteredTweetsData((prevTweets) =>
       updateTweetsWithNewComment(prevTweets)
     );
 
-    clearInput(input);
   };
 
   return { submitTweet, submitComment, isError };

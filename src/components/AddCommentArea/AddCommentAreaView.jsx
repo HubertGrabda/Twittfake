@@ -20,6 +20,7 @@ const AddCommentAreaView = ({
     {userLogged && (
       <div className='add-comment'>
         <textarea
+          data-testid='comment-input'
           ref={commentInputRef}
           className={classNames([
             "add-comment__input",
@@ -35,6 +36,7 @@ const AddCommentAreaView = ({
           onKeyDown={handleLinesAmount}
         />
         <button
+          data-testid='submit-input'
           className='add-comment__submit-button'
           onClick={() => submitComment(tweetId, commentInputRef)}
         >

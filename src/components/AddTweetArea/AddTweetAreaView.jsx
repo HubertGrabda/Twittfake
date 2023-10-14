@@ -34,9 +34,9 @@ const AddTweetAreaView = ({
         onKeyDown={handleLinesAmount}
       ></textarea>
       <button
+        data-testid='submit-button'
         className='textarea__submit-button'
         onClick={() => submitTweet(inputRef)}
-        data-testid='submit-button'
       >
         {SUBMIT_BUTTON_TEXT}
       </button>

@@ -5,7 +5,7 @@ import { useTweetContext } from "../../hooks/useTweetContext";
 import { profileRoute } from "../../const/routing";
 
 const Feed = () => {
-  const { filteredTweetsData, profileToDisplay} = useTweetContext();
+  const { filteredTweetsData, profileToDisplay } = useTweetContext();
   const path = useLocation();
 
   const tweets =
@@ -16,7 +16,7 @@ const Feed = () => {
       : filteredTweetsData;
 
   return (
-    <section className='tweets-wrapper'>
+    <section className='tweets-wrapper' data-testid='tweets-list'>
       {tweets.map(({ id: tweetId, username, content, comments }) => (
         <TweetContainer
           key={tweetId}

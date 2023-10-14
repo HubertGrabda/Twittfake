@@ -22,7 +22,7 @@ const TweetCommentView = ({
   handleCommentsReactions,
   isError,
 }) => (
-  <div key={commentId} className='comment'>
+  <div key={commentId} className='comment' data-testid='comment'>
     <h4 className='comment__username'>{username}</h4>
     <textarea
       readOnly={!isUserEditing[commentId]}
