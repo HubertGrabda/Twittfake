@@ -8,11 +8,28 @@ import {
 import { faRetweet } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
 import TweetService from "../../services/TweetService";
-import PropTypes from "prop-types";
 import { useTheme } from "../../hooks/useTheme";
 import TweetView from "./TweetView";
 
-const TweetContainer = ({ tweetId, username, content, comments }) => {
+type TweetProps = {
+  tweetId: number;
+  username: string;
+  content: string;
+  comments: [
+    {
+      id: number;
+      username: string;
+      content: string;
+    }
+  ];
+};
+
+const TweetContainer = ({
+  tweetId,
+  username,
+  content,
+  comments,
+}: TweetProps) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
   const contentTextArea = useRef([]);
   const { theme } = useTheme();
@@ -67,19 +84,6 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
       isError={isError}
     />
   );
-};
-
-TweetContainer.propTypes = {
-  tweetId: PropTypes.node.isRequired,
-  username: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      username: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-    })
-  ),
 };
 
 export default TweetContainer;

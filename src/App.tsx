@@ -13,7 +13,7 @@ const App = () => (
   <TweetsProvider>
     <ThemeProvider>
       <Routes>
-        <Route exact path='/' element={<Home />}></Route>
+        <Route path='/' element={<Home />}></Route>
         <Route path='/Profile' element={<Profile />}></Route>
         <Route path='/Search' element={<Search />}></Route>
         <Route path='/CreateTweet' element={<CreateTweet />}></Route>

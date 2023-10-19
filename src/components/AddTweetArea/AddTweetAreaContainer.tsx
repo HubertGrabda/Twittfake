@@ -5,14 +5,14 @@ import SubmitService from "../../services/SubmitService";
 import { useTheme } from "../../hooks/useTheme";
 import AddTweetAreaView from "./AddTweetAreaView";
 
-export const AddTweetAreaContainer = () => {
+export const AddTweetAreaContainer = (): JSX.Element | null => {
   const { userLogged } = useTweetContext();
 
-  if (!userLogged) return;
+  if (!userLogged) return null;
 
   const { submitTweet, isError } = SubmitService();
   const { theme } = useTheme();
-  const inputRef = useRef();
+  const inputRef = useRef("");
 
   return (
     <AddTweetAreaView

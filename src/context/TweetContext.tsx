@@ -1,12 +1,15 @@
-/* eslint-disable react-refresh/only-export-components */
-import { createContext, useState } from "react";
+import { createContext, useState, PropsWithChildren } from "react";
 import TweetsData from "../../mocks/MockTweets.json";
-import PropTypes from "prop-types";
 import AccountService from "../services/AccountService";
 
-const TweetsContext = createContext();
+type TweetsContextTypes = PropsWithChildren<{
+  userLogged: string | boolean;
+}>;
 
-const TweetsProvider = ({ children }) => {
+const TweetsContext = createContext<TweetsContextTypes | null>(null);
+
+
+const TweetsProvider = ({ children }: TweetsContextTypes) => {
   const { getUsername } = AccountService();
   const userLogged = getUsername();
   const [tweets, setTweets] = useState(TweetsData.tweets);
@@ -31,10 +34,6 @@ const TweetsProvider = ({ children }) => {
       {children}
     </TweetsContext.Provider>
   );
-};
-
-TweetsProvider.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export { TweetsContext, TweetsProvider };
