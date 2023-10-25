@@ -15,13 +15,25 @@ const SubmitService = () => {
   const navigate = useNavigate();
   const [isError, setisError] = useState(false);
 
-  const submitTweet = (refName) => {
-    let input = refName.current;
+  const clearAndNavigate = (input) => {
+    clearInput(input);
+    setIsTagClicked(false);
+    if (document.body.clientWidth <= 1024) {
+      navigate(homePageRoute);
+    }
+  };
 
+  const errorHandler = (input) => {
     if (!input.value) {
       setisError(true);
       return;
     } else setisError(false);
+  };
+
+  const submitTweet = (refName) => {
+    let input = refName.current;
+
+    errorHandler(input);
 
     const newTweet = {
       id: tweets.length + 1,
@@ -32,22 +44,13 @@ const SubmitService = () => {
     setTweets([newTweet, ...tweets]);
     setFilteredTweetsData([newTweet, ...tweets]);
 
-    clearInput(input);
-    setIsTagClicked(false);
-
-    if (document.body.clientWidth <= 1024) {
-      navigate(homePageRoute);
-    }
+    clearAndNavigate(input);
   };
 
   const submitComment = (tweetId, refName) => {
     let input = refName.current;
 
-    if (!input.value) {
-      setisError(true);
-      return;
-    }
-    setisError(false);
+    errorHandler(input);
 
     const highestCommentId = tweets.reduce((highestID, tweet) => {
       if (tweet.comments && tweet.comments.length > 0) {
@@ -72,13 +75,13 @@ const SubmitService = () => {
           ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
           : tweet
       );
-      clearInput(input);
 
     setTweets((prevTweets) => updateTweetsWithNewComment(prevTweets));
     setFilteredTweetsData((prevTweets) =>
       updateTweetsWithNewComment(prevTweets)
     );
 
+    clearAndNavigate(input);
   };
 
   return { submitTweet, submitComment, isError };

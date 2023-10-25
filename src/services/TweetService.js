@@ -16,7 +16,6 @@ const TweetService = () => {
     userLogged,
     setIsTagClicked,
   } = useTweetContext();
-  const saveButtonValue = "Zapisz";
   const [isError, setisError] = useState(false);
 
   const navigate = useNavigate();
@@ -131,11 +130,10 @@ const TweetService = () => {
     retweet,
     deleleTweet,
     deleteComment,
-    saveButtonValue,
     navigateToUsersProfile,
     filterTweets,
     isError,
-    handleSearch
+    handleSearch,
   };
 };
 
