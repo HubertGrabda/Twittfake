@@ -23,65 +23,59 @@ const SubmitService = () => {
     }
   };
 
-  const errorHandler = (input) => {
-    if (!input.value) {
-      setisError(true);
-      return;
-    } else setisError(false);
-  };
-
   const submitTweet = (refName) => {
     let input = refName.current;
 
-    errorHandler(input);
+    if (input.value) {
+      const newTweet = {
+        id: tweets.length + 1,
+        username: userLogged,
+        content: input.value,
+      };
 
-    const newTweet = {
-      id: tweets.length + 1,
-      username: userLogged,
-      content: input.value,
-    };
-
-    setTweets([newTweet, ...tweets]);
-    setFilteredTweetsData([newTweet, ...tweets]);
-
-    clearAndNavigate(input);
+      setTweets([newTweet, ...tweets]);
+      setFilteredTweetsData([newTweet, ...tweets]);
+      setisError(false);
+      clearAndNavigate(input);
+    } else setisError(true);
   };
 
   const submitComment = (tweetId, refName) => {
     let input = refName.current;
 
-    errorHandler(input);
+    if (input.value) {
+      const highestCommentId = tweets.reduce((highestID, tweet) => {
+        if (tweet.comments && tweet.comments.length > 0) {
+          const maxCommentId = tweet.comments.reduce(
+            (maxID, comment) => Math.max(maxID, comment.id),
+            0
+          );
+          return Math.max(highestID, maxCommentId);
+        }
+        return highestID;
+      }, 0);
 
-    const highestCommentId = tweets.reduce((highestID, tweet) => {
-      if (tweet.comments && tweet.comments.length > 0) {
-        const maxCommentId = tweet.comments.reduce(
-          (maxID, comment) => Math.max(maxID, comment.id),
-          0
+      const newComment = {
+        id: highestCommentId + 1,
+        username: userLogged,
+        content: input.value,
+      };
+
+      const updateTweetsWithNewComment = (prevTweets) =>
+        prevTweets.map((tweet) =>
+          tweet.id === tweetId
+            ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
+            : tweet
         );
-        return Math.max(highestID, maxCommentId);
-      }
-      return highestID;
-    }, 0);
 
-    const newComment = {
-      id: highestCommentId + 1,
-      username: userLogged,
-      content: input.value,
-    };
-
-    const updateTweetsWithNewComment = (prevTweets) =>
-      prevTweets.map((tweet) =>
-        tweet.id === tweetId
-          ? { ...tweet, comments: [newComment, ...(tweet.comments ?? [])] }
-          : tweet
+      setTweets((prevTweets) => updateTweetsWithNewComment(prevTweets));
+      setFilteredTweetsData((prevTweets) =>
+        updateTweetsWithNewComment(prevTweets)
       );
 
-    setTweets((prevTweets) => updateTweetsWithNewComment(prevTweets));
-    setFilteredTweetsData((prevTweets) =>
-      updateTweetsWithNewComment(prevTweets)
-    );
-
-    clearAndNavigate(input);
+      setisError(false);
+      clearAndNavigate(input);
+    } else setisError(true);
   };
 
   return { submitTweet, submitComment, isError };
