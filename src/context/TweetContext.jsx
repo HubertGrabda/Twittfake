@@ -3,13 +3,15 @@ import TweetsData from "../../mocks/MockTweets.json";
 import PropTypes from "prop-types";
 import AccountService from "../services/AccountService";
 
+const { tweets: mockTweets } = TweetsData;
+
 const TweetsContext = createContext();
 
 const TweetsProvider = ({ children }) => {
   const { getUsername } = AccountService();
   const userLogged = getUsername();
-  const [tweets, setTweets] = useState(TweetsData.tweets);
-  const [filteredTweetsData, setFilteredTweetsData] = useState(tweets);
+  const [tweets, setTweets] = useState([...mockTweets]);
+  const [filteredTweetsData, setFilteredTweetsData] = useState([...mockTweets]);
   const [profileToDisplay, setProfileToDisplay] = useState(userLogged);
   const [isTagClicked, setIsTagClicked] = useState(false);
 
