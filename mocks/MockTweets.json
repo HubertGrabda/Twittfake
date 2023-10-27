@@ -4,7 +4,6 @@
       "id": 0,
       "username": "Twittfake_Dev",
       "content": "Just setting up my twitffake :P #Tech",
-      "hashtag": "Tech",
       "comments": [
         {
           "id": 100,
@@ -17,7 +16,6 @@
       "id": 1,
       "username": "user123",
       "content": "Just had the most amazing coffee ☕️ #Coffee",
-      "hashtag": "Coffee",
       "comments": [
         {
           "id": 101,
@@ -35,7 +33,6 @@
       "id": 2,
       "username": "foodie_girl",
       "content": "Exploring new recipes in the kitchen today 🍳🥗 #CookingAdventures",
-      "hashtag": "CookingAdventures",
       "comments": [
         {
           "id": 103,
@@ -53,7 +50,6 @@
       "id": 3,
       "username": "fitness_junkie",
       "content": "Morning workout complete! 💪🏋️‍♀️ #FitLife",
-      "hashtag": "FitLife",
       "comments": [
         {
           "id": 105,
@@ -71,7 +67,6 @@
       "id": 4,
       "username": "wanderlust_adventures",
       "content": "Lost in the beauty of the mountains 🏔️ #Nature",
-      "hashtag": "Nature",
       "comments": [
         {
           "id": 107,
@@ -89,7 +84,6 @@
       "id": 5,
       "username": "bookworm",
       "content": "Finished reading the latest novel. What a journey! 📚 #Book",
-      "hashtag": "Book",
       "comments": [
         {
           "id": 109,
@@ -107,7 +101,6 @@
       "id": 6,
       "username": "pet_lover",
       "content": "Spent the day at the dog park with my furry friend 🐶🌳 #DogDays",
-      "hashtag": "DogDays",
       "comments": [
         {
           "id": 111,
@@ -125,7 +118,6 @@
       "id": 7,
       "username": "travel_enthusiast",
       "content": "Exploring the streets of a new city today. So much to see! ✈️🏙️ #Travel",
-      "hashtag": "Travel",
       "comments": [
         {
           "id": 113,
@@ -143,7 +135,6 @@
       "id": 8,
       "username": "tech_geek",
       "content": "Just got the latest smartphone. It's like holding the future! 📱🚀 #Tech",
-      "hashtag": "Tech",
       "comments": [
         {
           "id": 115,
@@ -161,7 +152,6 @@
       "id": 9,
       "username": "fashionista",
       "content": "Rocking the new outfit today. Confidence is key! 👗💃 #Fashion",
-      "hashtag": "Fashion",
       "comments": [
         {
           "id": 117,
@@ -179,7 +169,6 @@
       "id": 10,
       "username": "foodlover22",
       "content": "Indulging in some mouthwatering sushi today 🍣 #Food",
-      "hashtag": "Food",
       "comments": [
         {
           "id": 119,
@@ -197,7 +186,6 @@
       "id": 11,
       "username": "music_junkie",
       "content": "Attended an incredible live concert last night. Music heals the soul! 🎶🎤 #Music",
-      "hashtag": "Music",
       "comments": [
         {
           "id": 121,
@@ -215,7 +203,6 @@
       "id": 12,
       "username": "art_aficionado",
       "content": "Visited a local art gallery and was blown away by the talent on display 🎨🖼️ #Art",
-      "hashtag": "Art",
       "comments": [
         {
           "id": 123,
@@ -233,7 +220,6 @@
       "id": 13,
       "username": "nature_observer",
       "content": "Spent the day birdwatching in the park. Nature's wonders are endless! 🐦🌳 #NatureWatch",
-      "hashtag": "NatureWatch",
       "comments": [
         {
           "id": 125,
@@ -251,7 +237,6 @@
       "id": 14,
       "username": "film_buff",
       "content": "Just watched an old classic movie. They don't make them like this anymore! 🎬🍿 #MovieNights",
-      "hashtag": "MovieNights",
       "comments": [
         {
           "id": 127,
@@ -269,7 +254,6 @@
       "id": 15,
       "username": "fitness_fanatic",
       "content": "Crushed my personal best at the gym today! Hard work pays off. 💪🏋️‍♂️ #Fit",
-      "hashtag": "Fit",
       "comments": [
         {
           "id": 129,
@@ -287,7 +271,6 @@
       "id": 16,
       "username": "adventure_seeker",
       "content": "Skydiving was an adrenaline rush like no other. Conquering fears! ✈️🪂 #AdventureTime",
-      "hashtag": "AdventureTime",
       "comments": [
         {
           "id": 131,
@@ -305,7 +288,6 @@
       "id": 17,
       "username": "gamer_life",
       "content": "Finished an intense gaming session. Level up! 🎮🕹️ #GamerLife",
-      "hashtag": "GamerLife",
       "comments": [
         {
           "id": 133,
@@ -323,7 +305,6 @@
       "id": 18,
       "username": "work_hard",
       "content": "Late night at the office, chasing those goals! 💼📚 #Ambition",
-      "hashtag": "Ambition",
       "comments": [
         {
           "id": 135,
@@ -341,7 +322,6 @@
       "id": 19,
       "username": "coffee_addict",
       "content": "Sipping on my favorite latte, the perfect companion for work ☕️ #Coffee",
-      "hashtag": "Coffee",
       "comments": [
         {
           "id": 137,
@@ -359,7 +339,6 @@
       "id": 20,
       "username": "nature_wanderer",
       "content": "Sunset by the beach, feeling the sand between my toes. Pure bliss! 🌅🏖️ #BeachVibes",
-      "hashtag": "BeachVibes",
       "comments": [
         {
           "id": 139,
@@ -377,7 +356,6 @@
       "id": 21,
       "username": "bookworm",
       "content": "Finished reading another book, lost in a different world. 📚✨ #Book",
-      "hashtag": "Book",
       "comments": [
         {
           "id": 141,
@@ -395,7 +373,6 @@
       "id": 22,
       "username": "pet_parent",
       "content": "Took my furball for a walk in the park. Unconditional love! 🐾🌳 #DogWalks",
-      "hashtag": "DogWalks",
       "comments": [
         {
           "id": 143,
@@ -413,7 +390,6 @@
       "id": 23,
       "username": "travel_bug",
       "content": "Exploring ancient ruins today. History has so much to teach us. 🏛️🌍 #HistoryExplorer",
-      "hashtag": "HistoryExplorer",
       "comments": [
         {
           "id": 145,
@@ -431,7 +407,6 @@
       "id": 24,
       "username": "tech_enthusiast",
       "content": "Got my hands on the latest gadget release. It's like holding the future! 📱🚀 #Tech",
-      "hashtag": "Tech",
       "comments": [
         {
           "id": 147,
@@ -449,7 +424,6 @@
       "id": 25,
       "username": "fashionista",
       "content": "Experimenting with bold fashion choices today. Confidence is everything! 👠👗 #Fashion",
-      "hashtag": "Fashion",
       "comments": [
         {
           "id": 149,
@@ -467,7 +441,6 @@
       "id": 26,
       "username": "foodie_adventures",
       "content": "Tried a new exotic dish today. Food is an adventure! 🍽️🌍 #Food",
-      "hashtag": "Food",
       "comments": [
         {
           "id": 151,
@@ -485,7 +458,6 @@
       "id": 27,
       "username": "music_lover",
       "content": "Attended a live jazz performance last night. Music is the language of the soul! 🎶🎷 #Music",
-      "hashtag": "Music",
       "comments": [
         {
           "id": 153,
@@ -503,7 +475,6 @@
       "id": 28,
       "username": "art_lover",
       "content": "Visited an art museum today. Each painting tells a story. 🎨🖼️ #ArtAppreciation",
-      "hashtag": "ArtAppreciation",
       "comments": [
         {
           "id": 155,
@@ -521,7 +492,6 @@
       "id": 29,
       "username": "nature_lover",
       "content": "Hiking through lush forests today. Nature's beauty is unparalleled. 🌳🌲 #NatureTrail",
-      "hashtag": "NatureTrail",
       "comments": [
         {
           "id": 157,
@@ -539,7 +509,6 @@
       "id": 30,
       "username": "film_fanatic",
       "content": "Movie marathon weekend! Time to catch up on all the latest releases. 🍿🎬 #MovieMarathon",
-      "hashtag": "MovieMarathon",
       "comments": [
         {
           "id": 159,
