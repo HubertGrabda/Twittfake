@@ -1,4 +1,4 @@
-@import "../variables";
+@import "../../shared/variables";
 
 .log-out-button {
   @include sideButton(left);
