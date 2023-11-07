@@ -13,7 +13,7 @@ const SubmitService = () => {
     setIsTagClicked,
   } = useTweetContext();
   const navigate = useNavigate();
-  const [isError, setisError] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const clearAndNavigate = (input) => {
     clearInput(input);
@@ -35,9 +35,9 @@ const SubmitService = () => {
 
       setTweets([newTweet, ...tweets]);
       setFilteredTweetsData([newTweet, ...tweets]);
-      setisError(false);
+      setIsError(false);
       clearAndNavigate(input);
-    } else setisError(true);
+    } else setIsError(true);
   };
 
   const submitComment = (tweetId, refName) => {
@@ -73,9 +73,9 @@ const SubmitService = () => {
         updateTweetsWithNewComment(prevTweets)
       );
 
-      setisError(false);
+      setIsError(false);
       clearAndNavigate(input);
-    } else setisError(true);
+    } else setIsError(true);
   };
 
   return { submitTweet, submitComment, isError };

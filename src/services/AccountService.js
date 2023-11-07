@@ -4,11 +4,11 @@ import { homePageRoute } from "../const/routing";
 
 const AccountService = () => {
   const inputsRef = useRef([]);
-  const [errorOccurred, setisError] = useState([]);
+  const [errorOccurred, setIsError] = useState([]);
   const navigate = useNavigate();
 
   const setError = (inputId, isError) => {
-    setisError((prevErrorState) => {
+    setIsError((prevErrorState) => {
       const errorStateArray = [...(prevErrorState ?? [])];
       errorStateArray[inputId] = isError;
       return errorStateArray;

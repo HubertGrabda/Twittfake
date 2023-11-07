@@ -100,7 +100,7 @@
     }
   }
 
-  &__reactions {
+  .reactions {
     background-color: transparent;
     display: flex;
     flex-direction: row;
@@ -113,19 +113,6 @@
     @media #{$tablets-only} {
       font-size: 1.2rem;
       gap: 1rem;
-    }
-
-    &__counter {
-      &__comments {
-        background-color: transparent;
-      }
-
-      &__heart {
-        background-color: transparent;
-        &--red {
-          color: red;
-        }
-      }
     }
 
     &__heart {
@@ -168,5 +155,12 @@
     &--not-visible {
       display: none;
     }
+  }
+}
+
+.span-color {
+  color: inherit;
+  &--red {
+    color: red;
   }
 }

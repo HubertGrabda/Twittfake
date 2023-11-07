@@ -16,7 +16,7 @@ const TweetService = () => {
     userLogged,
     setIsTagClicked,
   } = useTweetContext();
-  const [isError, setisError] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -48,10 +48,10 @@ const TweetService = () => {
     let input = contentTextArea?.current[id];
 
     if (!input.value) {
-      setisError(true);
+      setIsError(true);
       return;
     } else {
-      setisError(false);
+      setIsError(false);
       setTweets((tweets) =>
         tweets.map((tweet) =>
           tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }

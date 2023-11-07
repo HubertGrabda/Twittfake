@@ -65,20 +65,20 @@ const TweetView = ({
     >
       {SAVE_BUTTON_TEXT}
     </button>
-    <div className='tweet__reactions'>
+    <div className='reactions'>
       {userLogged && (
         <>
           <span
             className={classNames([
-              "tweet__reactions__counter__heart",
-              isHeartFilled[tweetId] && "tweet__reactions__counter__heart--red",
+              "span-color",
+              isHeartFilled[tweetId] && "span-color--red",
             ])}
           >
             {isHeartFilled[tweetId] ? TWEET_LIKED : TWEET_UNLIKED}
           </span>
           <img
             src={isHeartFilled[tweetId] ? fullHeartSrc : emptyHeartSrc}
-            className='tweet__reactions__heart'
+            className='reactions__heart'
             onClick={() => heartButtonFunction(tweetId)}
           ></img>
         </>
@@ -89,13 +89,13 @@ const TweetView = ({
           return (
             <React.Fragment key={index}>
               {index === 0 ? (
-                <span className='tweet__reactions__counter__comments'>
+                <span>
                   {comments?.length ?? 0}
                 </span>
               ) : null}
               <FontAwesomeIcon
                 icon={icon}
-                className={`tweet__reactions__${iconName}`}
+                className={`reactions__${iconName}`}
                 onClick={() => handleTweetsReactions[index](tweetId, content)}
               />
             </React.Fragment>

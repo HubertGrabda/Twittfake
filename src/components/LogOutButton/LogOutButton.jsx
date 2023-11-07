@@ -5,11 +5,11 @@ import ScrollService from "../../services/ScrollService";
 import { classNames } from "../../shared";
 import AccountService from "../../services/AccountService";
 import { useTweetContext } from "../../hooks/useTweetContext";
-import useCheckIfMobile from "../../hooks/useCheckIfMobile";
+import useCheckIsMobile from "../../hooks/useCheckIsMobile";
 
 const LogOutButton = () => {
   const { profileToDisplay, userLogged } = useTweetContext();
-  const isMobile = useCheckIfMobile();
+  const isMobile = useCheckIsMobile();
 
   if (profileToDisplay !== userLogged || !isMobile) {
     return null;
