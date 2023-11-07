@@ -9,13 +9,11 @@ coverage
 .nyc_output
 .grunt
 .lock-wscript
-build/Release
 node_modules
 jspm_packages
 .npm
 .node_repl_history
 .DS_Store
 .env
-todo.txt
 .idea
 .vscode
