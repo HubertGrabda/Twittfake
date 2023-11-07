@@ -3,14 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./returnArrow.scss";
 import { Link, useLocation } from "react-router-dom";
 import { classNames } from "../../shared";
+import PropTypes from "prop-types";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import ScrollService from "../../services/ScrollService";
 
-type ReturnArrowPropTypes = {
-  returnTo:string,
-};
-
-const ReturnArrow = ({ returnTo }: ReturnArrowPropTypes) => {
+const ReturnArrow = ({ returnTo }) => {
   const { setFilteredTweetsData, tweets, isTagClicked, setIsTagClicked } =
     useTweetContext();
   const showElement = ScrollService();
@@ -36,6 +33,8 @@ const ReturnArrow = ({ returnTo }: ReturnArrowPropTypes) => {
   );
 };
 
-
+ReturnArrow.propTypes = {
+  returnTo: PropTypes.string.isRequired,
+};
 
 export default ReturnArrow;

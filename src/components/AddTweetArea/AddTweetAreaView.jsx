@@ -6,14 +6,7 @@ import {
 } from "../../const/input";
 import { classNames, handleLinesAmount } from "../../shared";
 import "./AddTweetArea.scss";
-
-type AddTweetAreaViewPropTypes = {
-  userLogged: string;
-  theme: string;
-  isError: boolean;
-  submitTweet: (refName: React.MutableRefObject<string>) => void;
-  inputRef: React.MutableRefObject<string>;
-};
+import PropTypes from "prop-types";
 
 const AddTweetAreaView = ({
   userLogged,
@@ -21,7 +14,7 @@ const AddTweetAreaView = ({
   isError,
   theme,
   inputRef,
-}: AddTweetAreaViewPropTypes) => (
+}) => (
   <>
     <div className='textarea'>
       <textarea
@@ -35,7 +28,7 @@ const AddTweetAreaView = ({
             ? ADD_TWEET_INPUT_PLACEHOLDER_ERROR
             : ADD_TWEET_INPUT_PLACEHOLDER(userLogged)
         }
-        ref={() => inputRef}
+        ref={inputRef}
         maxLength={INPUT_LENGTH}
         onKeyDown={handleLinesAmount}
       ></textarea>
@@ -48,5 +41,13 @@ const AddTweetAreaView = ({
     </div>
   </>
 );
+
+AddTweetAreaView.propTypes = {
+  userLogged: PropTypes.string.isRequired,
+  inputRef: PropTypes.object.isRequired,
+  theme: PropTypes.string.isRequired,
+  isError: PropTypes.bool.isRequired,
+  submitTweet: PropTypes.func.isRequired,
+};
 
 export default AddTweetAreaView;
