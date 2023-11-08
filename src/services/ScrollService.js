@@ -11,7 +11,7 @@ const ScrollService = () => {
 
   useEffect(() => {
     let timeout;
-    const timeRange = 200;
+    const timeRange = 150;
 
     const handleScroll = () => {
       clearTimeout(timeout);

@@ -69,7 +69,7 @@ const TweetService = () => {
     window.open(twitterUrl, "_blank");
   };
 
-  const deleleTweet = (tweetId) => {
+  const deleteTweet = (tweetId) => {
     const updatedTweets = tweets.filter((tweet) => tweet.id !== tweetId);
     setTweets(updatedTweets);
     setFilteredTweetsData(updatedTweets);
@@ -128,7 +128,7 @@ const TweetService = () => {
     handleEditMode,
     saveEdit,
     retweet,
-    deleleTweet,
+    deleteTweet,
     deleteComment,
     navigateToUsersProfile,
     filterTweets,

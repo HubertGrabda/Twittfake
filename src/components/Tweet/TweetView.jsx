@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { classNames, handleLinesAmount } from "../../shared";
+import { classNames, handleLinesAmount, handleRowsAmount } from "../../shared";
 import React from "react";
 import TweetCommentContainer from "../TweetComment/TweetComment";
 import AddCommentAreaContainer from "../AddCommentArea/AddCommentAreaContainer";
@@ -50,12 +50,14 @@ const TweetView = ({
         isUserEditing[tweetId] && "tweet__content--edit-mode",
         isError && "tweet__content--edit-mode-error",
       ])}
-      defaultValue={content}
       ref={(ref) => (contentTextArea.current[tweetId] = ref)}
       maxLength={INPUT_LENGTH}
       readOnly={!isUserEditing[tweetId]}
       onKeyDown={handleLinesAmount}
-    ></textarea>
+      rows={handleRowsAmount(content)}
+    >
+      {content}
+    </textarea>
     <button
       className={classNames([
         "tweet__save-edit-button",
@@ -88,11 +90,7 @@ const TweetView = ({
           const { iconName } = icon;
           return (
             <React.Fragment key={index}>
-              {index === 0 ? (
-                <span>
-                  {comments?.length ?? 0}
-                </span>
-              ) : null}
+              {index === 0 ? <span>{comments?.length ?? 0}</span> : null}
               <FontAwesomeIcon
                 icon={icon}
                 className={`reactions__${iconName}`}

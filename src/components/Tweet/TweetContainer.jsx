@@ -28,7 +28,7 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
     handleEditMode,
     saveEdit,
     retweet,
-    deleleTweet: deleteTweet,
+    deleteTweet,
     navigateToUsersProfile,
     isError,
   } = TweetService();

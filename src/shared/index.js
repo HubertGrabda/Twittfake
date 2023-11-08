@@ -1,12 +1,24 @@
-export function classNames(array) {
+export const classNames = (array) => {
   return array.filter((value) => value).join(" ");
-}
+};
 
 export const handleLinesAmount = (e) => {
   const maxLines = 2;
   const lines = e.target.value.split("\n").length;
   if (lines >= maxLines && e.key === "Enter") {
     e.preventDefault();
+  }
+};
+
+export const handleRowsAmount = (content) => {
+  const { length } = content;
+
+  if (length <= 25) {
+    return 1;
+  } else if (25 >= length >= 50) {
+    return 2;
+  } else if (50 <= length) {
+    return 3
   }
 };
 

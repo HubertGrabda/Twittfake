@@ -26,7 +26,9 @@ const SubmitService = () => {
   const submitTweet = (refName) => {
     let input = refName.current;
 
-    if (input.value) {
+    const { value: inputValue = "" } = input || {};
+
+    if (inputValue) {
       const newTweet = {
         id: tweets.length + 1,
         username: userLogged,
@@ -43,7 +45,9 @@ const SubmitService = () => {
   const submitComment = (tweetId, refName) => {
     let input = refName.current;
 
-    if (input.value) {
+    const { value: inputValue = "" } = input || {};
+
+    if (inputValue) {
       const highestCommentId = tweets.reduce((highestID, tweet) => {
         if (tweet.comments && tweet.comments.length > 0) {
           const maxCommentId = tweet.comments.reduce(
