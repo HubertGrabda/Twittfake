@@ -1,6 +1,6 @@
-export const homePageRoute = "/";
-export const profileRoute = "/Profile";
-export const searchRoute = "/Search";
-export const createTweetRoute = "/CreateTweet";
-export const signInRoute = "/SignIn";
-export const searchResultRoute = "/SearchResult";
+export const homePageRoute = "/Twittfake/";
+export const profileRoute = "/Twittfake/Profile";
+export const searchRoute = "/Twittfake/Search";
+export const createTweetRoute = "/Twittfake/CreateTweet";
+export const signInRoute = "/Twittfake/SignIn";
+export const searchResultRoute = "/Twittfake/SearchResult";
