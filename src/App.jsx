@@ -10,7 +10,6 @@ import { ThemeProvider } from "./context/ThemeContext";
 import SignInPageContainer from "./components/SignInPage/SignInPageContainer";
 import {
   createTweetRoute,
-  homePageRoute,
   profileRoute,
   searchRoute,
   signInRoute,
@@ -21,12 +20,12 @@ const App = () => (
   <TweetsProvider>
     <ThemeProvider>
       <Routes>
-        <Route exact path={homePageRoute} element={<Home />}></Route>
-        <Route path={profileRoute} element={<Profile />}></Route>
-        <Route path={searchRoute} element={<Search />}></Route>
-        <Route path={createTweetRoute} element={<CreateTweet />}></Route>
-        <Route path={signInRoute} element={<SignInPageContainer />}></Route>
-        <Route path={searchResultRoute} element={<SearchResult />}></Route>
+        <Route exact path="/Twittfake" element={<Home />}></Route>
+        <Route path={`/Twittfake/${profileRoute}`} element={<Profile />}></Route>
+        <Route path={`/Twittfake/${searchRoute}`} element={<Search />}></Route>
+        <Route path={`/Twittfake/${createTweetRoute}`} element={<CreateTweet />}></Route>
+        <Route path={`/Twittfake/${signInRoute}`} element={<SignInPageContainer />}></Route>
+        <Route path={`/Twittfake/${searchResultRoute}`} element={<SearchResult />}></Route>
       </Routes>
     </ThemeProvider>
   </TweetsProvider>
