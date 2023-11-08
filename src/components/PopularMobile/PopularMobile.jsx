@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { popularTrendsFilter } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import TweetService from "../../services/TweetService";
+import { searchResultRoute } from "../../const/routing";
 
 const PopularMobile = () => {
   const { tweets } = useTweetContext();
@@ -13,7 +14,7 @@ const PopularMobile = () => {
     <div className='popularMobile'>
       {popularHashtags.slice(0, 4).map((element) => (
         <Link
-          to='/SearchResult'
+          to={searchResultRoute}
           className='tile'
           key={element}
           onClick={() => filterTweets(element)}

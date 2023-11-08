@@ -8,6 +8,7 @@ import { classNames } from "../../shared";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import AccountService from "../../services/AccountService";
 import { LOG_IN_TEXT } from "../../const/input";
+import { profileRoute, signInRoute } from "../../const/routing";
 
 const ProfileReference = () => {
   const { setProfileToDisplay, userLogged } = useTweetContext();
@@ -25,7 +26,7 @@ const ProfileReference = () => {
         {userLogged ? (
           <>
             <Link
-              to='/Profile'
+              to={profileRoute}
               onClick={() => setProfileToDisplay(userLogged)}
               className='profile-link'
             >
@@ -43,7 +44,7 @@ const ProfileReference = () => {
             />
           </>
         ) : (
-          <Link to='/SignIn' className='profile-link'>
+          <Link to={signInRoute} className='profile-link'>
             <p className='profile-link__username'> {LOG_IN_TEXT} </p>
           </Link>
         )}

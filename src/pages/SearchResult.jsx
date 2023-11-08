@@ -5,6 +5,7 @@ import useRedirect from "../hooks/useRedirect";
 import ReturnArrow from "../components/ReturnArrow/ReturnArrow";
 import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton";
 import SearchBarMobile from "../components/SearchbarMobile/SearchbarMobile";
+import { searchRoute } from "../const/routing";
 
 const SearchResult = () => {
   useRedirect();
@@ -13,7 +14,7 @@ const SearchResult = () => {
     <>
       <Header pageTitle='Wyniki' />
       <ReturnToTopButton />
-      <ReturnArrow returnTo={"Search"} />
+      <ReturnArrow returnTo={searchRoute} />
       <HomeButton />
       <SearchBarMobile />
       <Feed />

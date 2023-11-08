@@ -4,12 +4,13 @@ import "./HomeButton.scss";
 import { Link } from "react-router-dom";
 import { classNames } from "../../shared";
 import ScrollService from "../../services/ScrollService";
+import { homePageRoute } from "../../const/routing";
 
 const HomeButton = () => {
   const showElement = ScrollService();
 
   return (
-    <Link to='/'>
+    <Link to={homePageRoute}>
       <FontAwesomeIcon
         icon={faHome}
         className={classNames([

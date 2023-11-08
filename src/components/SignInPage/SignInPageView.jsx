@@ -6,6 +6,7 @@ import { classNames } from "../../shared";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { LOGIN_INPUT_LENGTH, LOG_IN_TEXT } from "../../const/input";
+import { homePageRoute } from "../../const/routing";
 
 const SignInPageView = ({
   usernamePlaceholderText,
@@ -28,7 +29,7 @@ const SignInPageView = ({
       {LOG_IN_TEXT}
     </p>
     <img src={logo} alt='Logo' className='form-wrapper__logo' />
-    <Link to='/'>
+    <Link to={homePageRoute}>
       <FontAwesomeIcon
         className='form-wrapper__return-arrow'
         icon={faArrowAltCircleLeft}

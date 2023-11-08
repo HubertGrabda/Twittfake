@@ -9,6 +9,7 @@ import ReturnArrow from "../components/ReturnArrow/ReturnArrow";
 import ReturnToTopButton from "../components/ReturnToTopButton/ReturnToTopButton";
 import { AddTweetAreaContainer } from "../components/AddTweetArea/AddTweetAreaContainer";
 import SearchBar from "../components/Searchbar/Searchbar";
+import { homePageRoute } from "../const/routing";
 
 
 const Home = () => {
@@ -19,7 +20,7 @@ const Home = () => {
       <ProfileReference />
       <Header pageTitle={"Główna"} />
       <ReturnToTopButton />
-      <ReturnArrow returnTo='' />
+      <ReturnArrow returnTo={homePageRoute} />
       <ThemeChangeButton />
       <AddTweetAreaContainer />
       <Feed />

@@ -2,6 +2,7 @@ import "./SearchbarMobile.scss";
 import { Link } from "react-router-dom";
 import { SEARCH_BAR_PLACEHOLDER, SEARCH_BUTTON_TEXT } from "../../const/input";
 import TweetService from "../../services/TweetService";
+import { searchResultRoute } from "../../const/routing";
 
 const SearchBarMobile = () => {
   const { handleSearch } = TweetService();
@@ -13,7 +14,7 @@ const SearchBarMobile = () => {
         onChange={handleSearch}
         placeholder={SEARCH_BAR_PLACEHOLDER}
       ></input>
-      <Link to='/SearchResult'>
+      <Link to={searchResultRoute}>
         <button className='search-bar-mobile__submit-button'>
           {SEARCH_BUTTON_TEXT}
         </button>

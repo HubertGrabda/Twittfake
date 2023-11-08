@@ -22,11 +22,11 @@ const App = () => (
     <ThemeProvider>
       <Routes>
         <Route exact path={homePageRoute} element={<Home />}></Route>
-        <Route path={profileRoute} element={<Profile />}></Route>
-        <Route path={searchRoute} element={<Search />}></Route>
-        <Route path={createTweetRoute} element={<CreateTweet />}></Route>
-        <Route path={signInRoute} element={<SignInPageContainer />}></Route>
-        <Route path={searchResultRoute} element={<SearchResult />}></Route>
+        <Route exact path={profileRoute} element={<Profile />}></Route>
+        <Route exact path={searchRoute} element={<Search />}></Route>
+        <Route exact path={createTweetRoute} element={<CreateTweet />}></Route>
+        <Route exact path={signInRoute} element={<SignInPageContainer />}></Route>
+        <Route exact path={searchResultRoute} element={<SearchResult />}></Route>
       </Routes>
     </ThemeProvider>
   </TweetsProvider>

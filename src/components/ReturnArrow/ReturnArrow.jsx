@@ -22,7 +22,7 @@ const ReturnArrow = ({ returnTo }) => {
   };
 
   return (
-    <Link to={`/${returnTo}`} onClick={() => handleClick()}>
+    <Link to={`${returnTo}`} onClick={() => handleClick()}>
       <FontAwesomeIcon
         icon={faArrowLeft}
         className={classNames([
