@@ -6,7 +6,8 @@ $desktop: "(min-width:1440px)";
 
 $main-color: #120d3e;
 $secondary-color: #0b0637;
-$ternery-color: #171430d3;
+$ternery-color: #1e1c2fd3;
+
 $font-gray: #71767b;
 $font-dark: #333;
 $font-white: $twittfake_font_white;
@@ -106,7 +107,7 @@ $font-white: $twittfake_font_white;
 }
 
 @mixin submitButton {
-  width: 35%;
+  width: 38%;
   height: 2.5rem;
   border-radius: 9999px;
   margin: 0.5rem auto;
@@ -115,6 +116,7 @@ $font-white: $twittfake_font_white;
   border: none;
   display: block;
   text-decoration: none !important;
+  text-align: center;
 
   @media #{$tablets-only} {
     margin-top: 1rem;
