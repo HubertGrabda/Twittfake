@@ -13,7 +13,7 @@ const Feed = () => {
       ? filteredTweetsData.filter(
           (tweet) => tweet.username === profileToDisplay
         )
-      : filteredTweetsData;
+      : filteredTweetsData || [];
 
   return (
     <section className='tweets-wrapper' data-testid='tweets-list'>

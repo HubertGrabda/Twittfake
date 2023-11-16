@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { classNames, handleLinesAmount, handleRowsAmount } from "../../shared";
 import React from "react";
@@ -55,9 +54,8 @@ const TweetView = ({
       readOnly={!isUserEditing[tweetId]}
       onKeyDown={handleLinesAmount}
       rows={handleRowsAmount(content)}
-    >
-      {content}
-    </textarea>
+      defaultValue={content}
+    ></textarea>
     <button
       className={classNames([
         "tweet__save-edit-button",
@@ -122,6 +120,11 @@ const TweetView = ({
 );
 
 TweetView.propTypes = {
+  isUserEditing: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.objectOf(PropTypes.bool),
+  ]).isRequired,
+  isError: PropTypes.bool.isRequired,
   theme: PropTypes.string.isRequired,
   tweetId: PropTypes.node.isRequired,
   username: PropTypes.string.isRequired,
