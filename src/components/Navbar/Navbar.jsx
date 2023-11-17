@@ -47,7 +47,11 @@ const Navbar = () => {
 
       {navbarIcons.map((icon, index) => (
         <Link
-          to={index === magnifyingGlassIconPlacing ? searchRoute : routeToLoginOrNewTweetPage}
+          to={
+            index === magnifyingGlassIconPlacing
+              ? searchRoute
+              : routeToLoginOrNewTweetPage
+          }
           key={icon.iconName}
           className={`navbar__${icon.iconName}`}
         >

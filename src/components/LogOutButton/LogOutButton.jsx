@@ -12,7 +12,7 @@ const LogOutButton = () => {
   const isMobile = useCheckIsMobile();
 
   if (profileToDisplay !== userLogged || !isMobile) {
-    return null;
+    return;
   }
 
   const showElement = ScrollService();

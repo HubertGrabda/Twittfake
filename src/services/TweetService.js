@@ -47,19 +47,16 @@ const TweetService = () => {
   const saveEdit = (id, contentTextArea) => {
     let input = contentTextArea?.current[id];
 
-    if (!input.value) {
-      setIsError(true);
-      return;
-    } else {
-      setIsError(false);
-      setTweets((tweets) =>
-        tweets.map((tweet) =>
-          tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
-        )
-      );
-      setFilteredTweetsData(tweets);
-      handleEditMode(id, contentTextArea);
-    }
+    if (!input.value) return setIsError(true);
+
+    setIsError(false);
+    setTweets((tweets) =>
+      tweets.map((tweet) =>
+        tweet.id === id ? { ...tweet, content: input.value } : { ...tweet }
+      )
+    );
+    setFilteredTweetsData(tweets);
+    handleEditMode(id, contentTextArea);
   };
 
   const retweet = (content) => {
@@ -106,10 +103,14 @@ const TweetService = () => {
 
   const handleSearch = (event) => {
     const inputValue = event.target.value;
+
     if (!inputValue) {
       setFilteredTweetsData(tweets);
       setIsTagClicked(false);
-    } else filterTweets(inputValue);
+      return;
+    }
+
+    filterTweets(inputValue);
   };
 
   return {

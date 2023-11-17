@@ -18,7 +18,7 @@ export const handleRowsAmount = (content) => {
   } else if (25 >= length >= 50) {
     return 2;
   } else if (50 <= length) {
-    return 3
+    return 3;
   }
 };
 
@@ -30,6 +30,7 @@ export const popularTrendsFilter = (tweets) => {
     const extractedHashtags = content
       .split(" ")
       .filter((el) => el.includes("#"));
+
     const seenHashtags = {};
 
     extractedHashtags.forEach((hashtag) => {
