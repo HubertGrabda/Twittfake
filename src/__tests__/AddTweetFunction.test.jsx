@@ -8,7 +8,7 @@ import { homePageRoute } from "../const/routing";
 import Home from "../pages/Home";
 import Feed from "../components/Feed/Feed";
 
-test("Add tweet function", async () => {
+test("Should add tweet to feed", async () => {
   sessionStorage.setItem("username", "TestUser123");
   const tweetContent = "Test tweets content";
 

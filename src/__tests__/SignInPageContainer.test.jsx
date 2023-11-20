@@ -5,7 +5,7 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "../context/ThemeContext";
 import { signInRoute } from "../const/routing";
 
-test("signing-in process #1 - user passes the right data", async () => {
+test("should log in with the passed data", async () => {
   const pages = render(
     <MemoryRouter initialEntries={[signInRoute]}>
       <ThemeProvider>
@@ -34,7 +34,7 @@ test("signing-in process #1 - user passes the right data", async () => {
   pages.unmount();
 });
 
-test("signing-in process #2 - user passes the wrong data", async () => {
+test("should not log in because of wrong passed data", async () => {
   const pages = render(
     <MemoryRouter initialEntries={[signInRoute]}>
       <ThemeProvider>

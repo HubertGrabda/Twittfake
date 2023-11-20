@@ -8,7 +8,7 @@ import AddCommentAreaContainer from "../components/AddCommentArea/AddCommentArea
 import TweetContainer from "../components/Tweet/TweetContainer";
 import { expect, test } from "vitest";
 
-test("Add comment to a tweet", async () => {
+test("Should add comment to a tweet", async () => {
   sessionStorage.setItem("username", "TestUser123");
 
   const newComment = "Test comment content";
