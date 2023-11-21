@@ -70,8 +70,8 @@ const TweetView = ({
         <>
           <span
             className={classNames([
-              "span-color",
-              isHeartFilled[tweetId] && "span-color--red",
+              "hearts-counter-color",
+              isHeartFilled[tweetId] && "hearts-counter-color--red",
             ])}
           >
             {isHeartFilled[tweetId] ? TWEET_LIKED : TWEET_UNLIKED}

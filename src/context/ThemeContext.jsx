@@ -8,13 +8,13 @@ const bodyAttributeSetter = (value) =>
 
 export const ThemeProvider = ({ children }) => {
   const latestTheme = localStorage.getItem("selectedTheme");
-  const defaultTheme = "bright";
+  const defaultTheme = "dark";
   const [theme, setTheme] = useState(latestTheme || defaultTheme);
   bodyAttributeSetter(theme);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
-      const newTheme = prevTheme === defaultTheme ? "dark" : defaultTheme;
+      const newTheme = prevTheme === defaultTheme ? "bright" : defaultTheme;
       localStorage.setItem("selectedTheme", newTheme);
       bodyAttributeSetter(newTheme);
       return newTheme;

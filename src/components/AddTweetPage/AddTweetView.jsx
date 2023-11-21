@@ -1,5 +1,5 @@
 import "./AddTweetView.scss";
-import logo from "../../images/TwittfakeLogoAlt.png";
+import logo from "../../images/twittfake_logo.png";
 import { classNames, handleLinesAmount } from "../../shared";
 import {
   ADD_TWEET_INPUT_PLACEHOLDER,

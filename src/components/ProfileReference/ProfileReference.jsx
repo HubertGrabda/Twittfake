@@ -1,5 +1,5 @@
 import "./ProfileReference.scss";
-import logo from "../../images/TwittfakeLogoAlt.png";
+import logo from "../../images/twittfake_logo.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";

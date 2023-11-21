@@ -1,5 +1,5 @@
 import "./ProfileView.scss";
-import logo from "../../images/TwittfakeLogoAlt.png";
+import logo from "../../images/twittfake_logo.png";
 import FollowCount from "../FollowCount/FollowCount";
 import { useTweetContext } from "../../hooks/useTweetContext";
 

@@ -1,5 +1,5 @@
 import "./Navbar.scss";
-import logo from "../../images/TwittfakeLogoAlt.png";
+import logo from "../../images/twittfake_logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
