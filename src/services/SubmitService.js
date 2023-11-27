@@ -3,15 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { clearInput } from "../shared";
 import { homePageRoute } from "../const/routing";
+import { useUserDataContext } from "../hooks/useUserDataContext";
 
 const SubmitService = () => {
-  const {
-    tweets,
-    setTweets,
-    setFilteredTweetsData,
-    userLogged,
-    setIsTagClicked,
-  } = useTweetContext();
+  const { tweets, setTweets, setFilteredTweetsData, setIsTagClicked } =
+    useTweetContext();
+
+  const { userLogged } = useUserDataContext();
   const navigate = useNavigate();
   const [isError, setIsError] = useState(false);
 

@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useRef } from "react";
-import { useTweetContext } from "../../hooks/useTweetContext";
 import SubmitService from "../../services/SubmitService";
 import { useTheme } from "../../hooks/useTheme";
 import AddCommentAreaView from "./AddCommentAreaView";
 import PropTypes from "prop-types";
+import { useUserDataContext } from "../../hooks/useUserDataContext";
 
 const CommentAreaContainer = ({ tweetId }) => {
-  const { userLogged } = useTweetContext();
+  const { userLogged } = useUserDataContext();
 
   if (!userLogged) return;
 

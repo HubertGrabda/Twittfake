@@ -8,7 +8,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { classNames } from "../../shared";
-import { useTweetContext } from "../../hooks/useTweetContext";
 import ScrollService from "../../services/ScrollService";
 import {
   createTweetRoute,
@@ -16,9 +15,10 @@ import {
   searchRoute,
   signInRoute,
 } from "../../const/routing";
+import { useUserDataContext } from "../../hooks/useUserDataContext";
 
 const Navbar = () => {
-  const { setProfileToDisplay, userLogged } = useTweetContext();
+  const { setProfileToDisplay, userLogged } = useUserDataContext();
   const navbarIcons = [faPlus, faMagnifyingGlass];
   const routeToLogInOrProfile = userLogged ? profileRoute : signInRoute;
   const routeToLoginOrNewTweetPage = userLogged

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { createContext, useState } from "react";
+import { createContext, useCallback, useMemo, useState } from "react";
 
 export const ThemeContext = createContext();
 
@@ -12,16 +12,19 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(latestTheme || defaultTheme);
   bodyAttributeSetter(theme);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setTheme((prevTheme) => {
       const newTheme = prevTheme === defaultTheme ? "dark" : defaultTheme;
       localStorage.setItem("selectedTheme", newTheme);
       bodyAttributeSetter(newTheme);
       return newTheme;
     });
-  };
+  }, []);
 
-  const themeContextValue = { theme, toggleTheme };
+  const themeContextValue = useMemo(
+    () => ({ theme, toggleTheme }),
+    [theme, toggleTheme]
+  );
 
   return (
     <ThemeContext.Provider value={themeContextValue}>

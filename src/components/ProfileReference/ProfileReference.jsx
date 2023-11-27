@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "../../hooks/useTheme";
 import { classNames } from "../../shared";
-import { useTweetContext } from "../../hooks/useTweetContext";
 import AccountService from "../../services/AccountService";
 import { LOG_IN_TEXT } from "../../const/input";
 import { profileRoute, signInRoute } from "../../const/routing";
+import { useUserDataContext } from "../../hooks/useUserDataContext";
 
 const ProfileReference = () => {
-  const { setProfileToDisplay, userLogged } = useTweetContext();
+  const { setProfileToDisplay, userLogged } = useUserDataContext();
   const { theme } = useTheme();
   const { logOut } = AccountService();
 

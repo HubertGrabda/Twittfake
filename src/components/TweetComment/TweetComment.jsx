@@ -3,12 +3,14 @@ import { faEdit, faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import PropTypes from "prop-types";
 import { useRef } from "react";
 import TweetCommentView from "./TweetCommentView";
+import { useUserDataContext } from "../../hooks/useUserDataContext";
 
 const TweetCommentContainer = ({ commentId, username, content, tweetId }) => {
   const contentTextArea = useRef([]);
 
+  const { userLogged } = useUserDataContext();
+
   const {
-    userLogged,
     isUserEditing,
     saveEdit,
     saveButtonValue,

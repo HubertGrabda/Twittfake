@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useRef } from "react";
-import { useTweetContext } from "../../hooks/useTweetContext";
 import SubmitService from "../../services/SubmitService";
 import { useTheme } from "../../hooks/useTheme";
 import AddTweetAreaView from "./AddTweetAreaView";
+import { useUserDataContext } from "../../hooks/useUserDataContext";
 
 export const AddTweetAreaContainer = () => {
-  const { userLogged } = useTweetContext();
+  const { userLogged } = useUserDataContext();
 
   if (!userLogged) return;
 
