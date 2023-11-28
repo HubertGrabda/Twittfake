@@ -16,8 +16,10 @@ Social platform inspired by Twitter.
 
 ## Technologies
 - React.js
+- Context API
 - Sass
 - Node.js
+- React testing library
 
 ## Usage
 
