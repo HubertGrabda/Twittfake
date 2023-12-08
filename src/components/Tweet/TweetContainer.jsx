@@ -11,6 +11,7 @@ import TweetService from "../../services/TweetService";
 import PropTypes from "prop-types";
 import { useTheme } from "../../hooks/useTheme";
 import TweetView from "./TweetView";
+import { useUserDataContext } from "../../hooks/useUserDataContext";
 
 const TweetContainer = ({ tweetId, username, content, comments }) => {
   const icons = [faComment, faRetweet, faEdit, faTrashAlt];
@@ -18,7 +19,6 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
   const { theme } = useTheme();
 
   const {
-    userLogged,
     isHeartFilled,
     isCommentSectionVisible,
     isUserEditing,
@@ -32,6 +32,8 @@ const TweetContainer = ({ tweetId, username, content, comments }) => {
     navigateToUsersProfile,
     isError,
   } = TweetService();
+
+  const { userLogged } = useUserDataContext();
 
   const handleTweetsReactions = [
     (tweetId) => handleTweetsCommentsSection(tweetId),

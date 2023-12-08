@@ -3,6 +3,7 @@ import { toggleState } from "../shared";
 import { useNavigate } from "react-router-dom";
 import { useTweetContext } from "../hooks/useTweetContext";
 import { profileRoute } from "../const/routing";
+import { useUserDataContext } from "../hooks/useUserDataContext";
 
 const TweetService = () => {
   const [isHeartFilled, setIsHeartFilled] = useState({});
@@ -13,9 +14,9 @@ const TweetService = () => {
     setTweets,
     setFilteredTweetsData,
     setProfileToDisplay,
-    userLogged,
     setIsTagClicked,
   } = useTweetContext();
+  const { userLogged } = useUserDataContext();
   const [isError, setIsError] = useState(false);
 
   const navigate = useNavigate();

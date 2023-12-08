@@ -1,10 +1,10 @@
 import "./ProfileView.scss";
 import logo from "../../images/twittfake_logo.png";
 import FollowCount from "../FollowCount/FollowCount";
-import { useTweetContext } from "../../hooks/useTweetContext";
+import { useUserDataContext } from "../../hooks/useUserDataContext";
 
 const ProfileView = () => {
-  const { profileToDisplay } = useTweetContext();
+  const { profileToDisplay } = useUserDataContext();
 
   return (
     <>

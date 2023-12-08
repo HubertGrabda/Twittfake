@@ -1,34 +1,37 @@
-import { createContext, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 import TweetsData from "../../mocks/MockTweets.json";
 import PropTypes from "prop-types";
-import AccountService from "../services/AccountService";
 
 const { tweets: mockTweets } = TweetsData;
 
 const TweetsContext = createContext();
 
 const TweetsProvider = ({ children }) => {
-  const { getUsername } = AccountService();
-  const userLogged = getUsername();
   const [tweets, setTweets] = useState([...mockTweets]);
   const [filteredTweetsData, setFilteredTweetsData] = useState([...mockTweets]);
-  const [profileToDisplay, setProfileToDisplay] = useState(userLogged);
   const [isTagClicked, setIsTagClicked] = useState(false);
 
-  const tweetContextValue = {
-    userLogged,
-    tweets,
-    setTweets,
-    isTagClicked,
-    setIsTagClicked,
-    filteredTweetsData,
-    setFilteredTweetsData,
-    profileToDisplay,
-    setProfileToDisplay,
-  };
+  const tweetsContextValue = useMemo(
+    () => ({
+      tweets,
+      setTweets,
+      isTagClicked,
+      setIsTagClicked,
+      filteredTweetsData,
+      setFilteredTweetsData,
+    }),
+    [
+      tweets,
+      setTweets,
+      isTagClicked,
+      setIsTagClicked,
+      filteredTweetsData,
+      setFilteredTweetsData,
+    ]
+  );
 
   return (
-    <TweetsContext.Provider value={tweetContextValue}>
+    <TweetsContext.Provider value={tweetsContextValue}>
       {children}
     </TweetsContext.Provider>
   );

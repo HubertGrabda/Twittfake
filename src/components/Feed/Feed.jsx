@@ -3,9 +3,11 @@ import { useLocation } from "react-router-dom";
 import TweetContainer from "../Tweet/TweetContainer";
 import { useTweetContext } from "../../hooks/useTweetContext";
 import { profileRoute } from "../../const/routing";
+import { useUserDataContext } from "../../hooks/useUserDataContext";
 
 const Feed = () => {
-  const { filteredTweetsData, profileToDisplay } = useTweetContext();
+  const { filteredTweetsData } = useTweetContext();
+  const { profileToDisplay } = useUserDataContext();
   const path = useLocation();
 
   const tweets =
