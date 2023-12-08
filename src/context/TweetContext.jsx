@@ -11,7 +11,7 @@ const TweetsProvider = ({ children }) => {
   const [filteredTweetsData, setFilteredTweetsData] = useState([...mockTweets]);
   const [isTagClicked, setIsTagClicked] = useState(false);
 
-  const tweetContextValue = useMemo(
+  const tweetsContextValue = useMemo(
     () => ({
       tweets,
       setTweets,
@@ -31,7 +31,7 @@ const TweetsProvider = ({ children }) => {
   );
 
   return (
-    <TweetsContext.Provider value={tweetContextValue}>
+    <TweetsContext.Provider value={tweetsContextValue}>
       {children}
     </TweetsContext.Provider>
   );
