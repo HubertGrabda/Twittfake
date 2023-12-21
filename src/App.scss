@@ -10,24 +10,17 @@
   color: $font-white;
 
   ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: $font-gray;
-    opacity: 1; /* Firefox */
+    opacity: 1;
   }
 
   :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: $font-gray;
   }
 
   ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: $font-gray;
   }
-}
-
-* {
-  animation: all 0.3s ease-in-out;
 }
 
 body {
@@ -35,7 +28,7 @@ body {
   margin-top: 1rem;
   padding: 0;
   border: 0;
-  @include backgroundClr;
+  background-color: #fffff0;
 }
 
 a {

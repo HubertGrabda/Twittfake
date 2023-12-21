@@ -33,9 +33,10 @@ export const popularTrendsFilter = (tweets) => {
     const seenHashtags = {};
 
     extractedHashtags.forEach((hashtag) => {
-      if (!seenHashtags[hashtag]) {
-        countObj[hashtag] = (countObj[hashtag] ?? 0) + 1;
-        seenHashtags[hashtag] = true;
+      const hashtagToLowerCase = hashtag.toLowerCase();
+      if (!seenHashtags[hashtagToLowerCase]) {
+        countObj[hashtagToLowerCase] = (countObj[hashtagToLowerCase] ?? 0) + 1;
+        seenHashtags[hashtagToLowerCase] = true;
       }
     });
   });

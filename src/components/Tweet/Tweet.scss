@@ -9,7 +9,7 @@
   border-radius: 1rem;
   color: black;
   @include shadow;
-
+  
   &--dark {
     background-color: transparent;
     color: $font-white;

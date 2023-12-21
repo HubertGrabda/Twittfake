@@ -12,26 +12,6 @@ $font-gray: #71767b;
 $font-dark: #333;
 $font-white: $twittfake_font_white;
 
-@mixin backgroundClr {
-  background: rgb(122, 73, 136);
-  background: -moz-radial-gradient(
-    circle,
-    rgba(122, 73, 136, 0.05085784313725494) 0%,
-    rgba(55, 21, 143, 0.04805672268907568) 100%
-  );
-  background: -webkit-radial-gradient(
-    circle,
-    rgba(122, 73, 136, 0.05085784313725494) 0%,
-    rgba(55, 21, 143, 0.04805672268907568) 100%
-  );
-  background: radial-gradient(
-    circle,
-    rgba(122, 73, 136, 0.05085784313725494) 0%,
-    rgba(55, 21, 143, 0.04805672268907568) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7a4988",endColorstr="#37158f",GradientType=1);
-}
-
 @keyframes widthExpand {
   from {
     transform: scaleX(0);
@@ -112,7 +92,7 @@ $font-white: $twittfake_font_white;
   border-radius: 9999px;
   margin: 0.5rem auto;
   color: $twittfake_font_white;
-  background-color: $ternery-color;
+  background-color: $main-color;
   border: none;
   display: block;
   text-decoration: none !important;
