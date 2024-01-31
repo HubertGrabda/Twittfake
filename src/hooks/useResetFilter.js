@@ -7,8 +7,8 @@ const useResetFilter = () => {
   useEffect(() => {
     setFilteredTweetsData(tweets);
     setIsTagClicked(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+  }, [setIsTagClicked, tweets, setFilteredTweetsData]);
 };
 
 export default useResetFilter;
