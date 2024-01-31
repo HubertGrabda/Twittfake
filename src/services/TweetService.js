@@ -9,14 +9,9 @@ const TweetService = () => {
   const [isHeartFilled, setIsHeartFilled] = useState({});
   const [isCommentSectionVisible, setIsCommentSectionVisible] = useState({});
   const [isUserEditing, setIsUserEditing] = useState(false);
-  const {
-    tweets,
-    setTweets,
-    setFilteredTweetsData,
-    setProfileToDisplay,
-    setIsTagClicked,
-  } = useTweetContext();
-  const { userLogged } = useUserDataContext();
+  const { tweets, setTweets, setFilteredTweetsData, setIsTagClicked } =
+    useTweetContext();
+  const { userLogged, setProfileToDisplay } = useUserDataContext();
   const [isError, setIsError] = useState(false);
 
   const navigate = useNavigate();
